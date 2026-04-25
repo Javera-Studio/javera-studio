@@ -2,21 +2,27 @@ import { createFileRoute } from "@tanstack/react-router";
 import heroImg from "@/assets/hero.jpg";
 import aboutImg from "@/assets/portrait.png";
 import logo from "@/assets/javera-logo.png";
+import problemImg from "@/assets/problem.jpg";
+import successImg from "@/assets/success.jpg";
+import ctaImg from "@/assets/cta.jpg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Javera Studio – Websites für Beauty Businesses" },
+      { title: "Javera Studio – Websites für Beauty Studios, die Kundinnen bringen" },
       {
         name: "description",
         content:
-          "Javera Studio erstellt moderne Websites für Kosmetikstudios, Nagelstudios, Friseure und Beauty Kliniken – Design, Vertrauen und mehr Terminbuchungen.",
+          "Mehr Kundinnen & Buchungen für dein Beauty Studio. Javera Studio erstellt Websites, die Vertrauen aufbauen und gezielt zur Terminbuchung führen.",
       },
-      { property: "og:title", content: "Javera Studio – Websites für Beauty Businesses" },
+      {
+        property: "og:title",
+        content: "Javera Studio – Websites für Beauty Studios, die Kundinnen bringen",
+      },
       {
         property: "og:description",
         content:
-          "Moderne, feminine Websites für Beauty Studios. Spezialisiert auf Nails, Kosmetik, Friseur und Beauty Kliniken.",
+          "Websites für Nagelstudios, Kosmetikstudios, Friseure & Beauty Kliniken – professionell, feminin, conversionstark.",
       },
     ],
   }),
@@ -27,21 +33,24 @@ const demos = [
   {
     title: "Luxe Nails Vienna",
     category: "Nagelstudio",
-    desc: "Elegante Website für ein Premium-Nagelstudio mit Fokus auf Terminbuchungen.",
+    desc: "Elegante Website für ein Premium-Nagelstudio – optimiert für mehr Terminbuchungen und eine klare, verkaufsstarke Preisstruktur.",
+    focus: "Fokus: mehr Anfragen & Premium-Auftritt",
     url: "https://id-preview--c6fdd669-17cd-4e84-8923-e378702b9bf7.lovable.app",
     accent: "peach",
   },
   {
     title: "PURE SKIN Studio",
     category: "Kosmetikstudio",
-    desc: "Cleanes Kosmetikstudio-Design mit ruhigem Look und klarer Preisstruktur.",
+    desc: "Cleanes Kosmetikstudio-Design – aufgebaut für Vertrauen, klare Angebote und mehr Anfragen.",
+    focus: "Fokus: mehr Anfragen & Premium-Auftritt",
     url: "https://id-preview--f84fb1a2-8d8e-4dd1-8788-e75a54f962f2.lovable.app",
     accent: "mint",
   },
   {
     title: "Noir Vision",
     category: "Friseursalon",
-    desc: "Edgy Friseursalon-Website mit starkem Branding und auffälliger Galerie.",
+    desc: "Auffällige Friseur-Website – für starke Markenwirkung, mehr Sichtbarkeit und neue Kundinnen.",
+    focus: "Fokus: mehr Anfragen & Premium-Auftritt",
     url: "https://id-preview--bf8973d3-bbb2-4894-8b04-7bb733cee971.lovable.app",
     accent: "peach",
   },
@@ -49,18 +58,19 @@ const demos = [
     title: "LUMEA Laser Clinik",
     category: "Beauty Klinik",
     desc: "Seriöse Beauty-Klinik-Website mit Fokus auf Vertrauen, Zertifikate und Beratung.",
+    focus: "Fokus: mehr Anfragen & Premium-Auftritt",
     url: "https://id-preview--6183d25e-927c-4ff6-8999-b034f30ec1bb.lovable.app",
     accent: "mint",
   },
 ];
 
 const benefits = [
-  "Mehr direkte Anfragen und Terminbuchungen",
-  "Professioneller erster Eindruck",
+  "Mehr direkte Anfragen & Terminbuchungen",
+  "Du wirkst sofort professionell und vertrauenswürdig",
   "Bessere Sichtbarkeit bei Google",
-  "Weniger Abhängigkeit von Instagram & Plattformen",
-  "Abheben von der Konkurrenz",
-  "24/7 sichtbar für neue Kundinnen",
+  "Weniger Abhängigkeit von Instagram",
+  "Klare Positionierung gegenüber deiner Konkurrenz",
+  "Rund um die Uhr sichtbar für neue Kundinnen",
 ];
 
 const javeraPoints = [
@@ -73,21 +83,47 @@ const javeraPoints = [
   "SEO-Grundoptimierung für bessere Auffindbarkeit",
 ];
 
+const FormIcon = () => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" className="w-7 h-7">
+    <rect x="4" y="3" width="16" height="18" rx="2" />
+    <path d="M8 8h8M8 12h8M8 16h5" strokeLinecap="round" />
+  </svg>
+);
+const DesignIcon = () => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" className="w-7 h-7">
+    <rect x="3" y="4" width="18" height="13" rx="2" />
+    <path d="M8 21h8M12 17v4" strokeLinecap="round" />
+    <circle cx="9" cy="10" r="1.2" />
+    <path d="m7 14 3-3 3 3 4-4" strokeLinecap="round" strokeLinejoin="round" />
+  </svg>
+);
+const TuneIcon = () => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" className="w-7 h-7">
+    <path d="M4 7h10M4 12h6M4 17h12" strokeLinecap="round" />
+    <circle cx="17" cy="7" r="2" />
+    <circle cx="13" cy="12" r="2" />
+    <circle cx="19" cy="17" r="2" />
+  </svg>
+);
+
 const steps = [
   {
     n: "01",
-    title: "Anfrage senden",
-    desc: "Du füllst ein kurzes Formular mit deinen Wünschen aus.",
+    title: "Erzähl mir von deinem Studio",
+    desc: "Du füllst ein kurzes Formular aus und sagst mir, was du brauchst.",
+    Icon: FormIcon,
   },
   {
     n: "02",
-    title: "Demo erhalten",
-    desc: "Ich erstelle eine Website passend zu deinem Studio.",
+    title: "Du bekommst deine Demo",
+    desc: "Ich erstelle eine erste Version deiner Website – abgestimmt auf dein Studio.",
+    Icon: DesignIcon,
   },
   {
     n: "03",
-    title: "Feinabstimmung",
-    desc: "Wir passen Farben, Texte, Bilder und Details gemeinsam an.",
+    title: "Wir machen sie perfekt",
+    desc: "Wir passen Farben, Texte und Details gemeinsam an, bis alles genau zu dir passt.",
+    Icon: TuneIcon,
   },
 ];
 
@@ -117,7 +153,7 @@ function Nav() {
           href="#kontakt"
           className="text-sm px-4 py-2 rounded-full bg-ink text-primary-foreground hover:opacity-90 transition"
         >
-          Anfrage
+          Demo sichern
         </a>
       </div>
     </header>
@@ -144,24 +180,24 @@ function Hero() {
             Spezialisiert auf Beauty Websites
           </div>
           <h1 className="font-serif text-5xl md:text-6xl lg:text-7xl leading-[1.05] text-ink">
-            Websites, die dein <em className="text-muted-foreground">Beauty Business</em> sichtbar machen.
+            Mehr Kundinnen &amp; Buchungen für dein <em className="text-muted-foreground">Beauty Studio</em> – mit einer Website, die verkauft.
           </h1>
           <p className="mt-6 text-lg text-muted-foreground max-w-xl leading-relaxed">
-            Javera Studio erstellt moderne Websites für Kosmetikstudios, Nagelstudios, Friseure
-            und Beauty Brands – mit Fokus auf Design, Vertrauen und mehr Terminbuchungen.
+            Ich erstelle Websites für Beauty Studios, die Vertrauen aufbauen, professionell wirken
+            und deine Kundinnen direkt zur Terminbuchung führen.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <a
-              href="#demos"
+              href="#kontakt"
               className="px-7 py-3.5 rounded-full bg-ink text-primary-foreground hover:opacity-90 transition font-medium"
             >
-              Demos ansehen
+              Kostenlose Demo für dein Studio sichern
             </a>
             <a
-              href="#kontakt"
+              href="#demos"
               className="px-7 py-3.5 rounded-full border border-ink/20 text-ink hover:bg-ink hover:text-primary-foreground transition font-medium"
             >
-              Kostenlose Anfrage
+              Beispiele ansehen
             </a>
           </div>
         </div>
@@ -220,6 +256,7 @@ function Demos() {
               </div>
               <h3 className="font-serif text-2xl md:text-3xl text-ink mt-2">{d.title}</h3>
               <p className="mt-3 text-muted-foreground leading-relaxed">{d.desc}</p>
+              <p className="mt-3 text-sm text-ink/70 italic">→ {d.focus.replace("Fokus: ", "Fokus: ")}</p>
               <a
                 href={d.url}
                 target="_blank"
@@ -240,32 +277,71 @@ function Demos() {
 function Warum() {
   return (
     <section id="warum" className="py-24 md:py-32">
-      <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-start">
-        <div className="md:sticky md:top-28">
-          <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-4">
-            Warum eine Website
+      <div className="max-w-6xl mx-auto px-6">
+        <div className="grid md:grid-cols-2 gap-16 items-start">
+          <div className="md:sticky md:top-28">
+            <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-4">
+              Warum eine Website
+            </div>
+            <h2 className="font-serif text-4xl md:text-5xl text-ink leading-tight">
+              Warum eine moderne Website entscheidend ist.
+            </h2>
+            <div className="mt-6 space-y-4 text-muted-foreground text-lg leading-relaxed">
+              <p>
+                Instagram allein reicht heute nicht mehr. Ohne Website verlierst du täglich
+                potenzielle Kundinnen an Studios, die professioneller wirken und leichter
+                auffindbar sind.
+              </p>
+              <p>
+                Eine eigene Website sorgt dafür, dass du Vertrauen aufbaust, bei Google gefunden
+                wirst und konstant neue Anfragen bekommst – auch dann, wenn du gerade nicht
+                arbeitest.
+              </p>
+            </div>
           </div>
-          <h2 className="font-serif text-4xl md:text-5xl text-ink leading-tight">
-            Warum eine moderne Website entscheidend ist.
-          </h2>
-          <p className="mt-6 text-muted-foreground text-lg leading-relaxed">
-            Instagram allein reicht heute nicht mehr. Eine eigene Website schafft Vertrauen,
-            Sichtbarkeit und bringt dir Anfragen – auch dann, wenn du gerade nicht arbeitest.
-          </p>
+          <ul className="space-y-1">
+            {benefits.map((b, i) => (
+              <li
+                key={b}
+                className="flex items-start gap-5 py-5 border-b border-border/60 last:border-0"
+              >
+                <span className="font-serif text-2xl text-muted-foreground/60 w-8">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <span className="text-lg text-ink pt-1">{b}</span>
+              </li>
+            ))}
+          </ul>
         </div>
-        <ul className="space-y-1">
-          {benefits.map((b, i) => (
-            <li
-              key={b}
-              className="flex items-start gap-5 py-5 border-b border-border/60 last:border-0"
-            >
-              <span className="font-serif text-2xl text-muted-foreground/60 w-8">
-                {String(i + 1).padStart(2, "0")}
-              </span>
-              <span className="text-lg text-ink pt-1">{b}</span>
-            </li>
-          ))}
-        </ul>
+
+        <div className="mt-20 grid md:grid-cols-2 gap-6 md:gap-8">
+          <figure className="relative rounded-3xl overflow-hidden aspect-[4/5]">
+            <img
+              src={problemImg}
+              alt="Stiller Schreibtisch mit Smartphone – das Warten auf Anfragen"
+              loading="lazy"
+              width={1024}
+              height={1280}
+              className="w-full h-full object-cover"
+            />
+            <figcaption className="absolute bottom-4 left-4 right-4 text-xs uppercase tracking-[0.2em] text-background bg-ink/60 backdrop-blur px-3 py-2 rounded-full text-center">
+              Vorher · Wenig Sichtbarkeit
+            </figcaption>
+          </figure>
+          <figure className="relative rounded-3xl overflow-hidden aspect-[4/5]">
+            <img
+              src={successImg}
+              alt="Modernes, gebuchtes Beauty Studio mit zufriedener Kundin"
+              loading="lazy"
+              width={1024}
+              height={1280}
+              className="w-full h-full object-cover"
+            />
+            <figcaption className="absolute bottom-4 left-4 right-4 text-xs uppercase tracking-[0.2em] text-background bg-ink/60 backdrop-blur px-3 py-2 rounded-full text-center">
+              Nachher · Konstant gebucht
+            </figcaption>
+          </figure>
+        </div>
       </div>
     </section>
   );
@@ -280,12 +356,19 @@ function Javera() {
             Warum Javera Studio
           </div>
           <h2 className="font-serif text-4xl md:text-5xl text-ink leading-tight">
-            Moderne Websites für Beauty Businesses – individuell &amp; klar.
+            Websites für Beauty Studios – die nicht nur schön sind, sondern Kundinnen bringen.
           </h2>
-          <p className="mt-6 text-muted-foreground text-lg leading-relaxed">
-            Ich erstelle Websites, die nicht nur schön aussehen, sondern darauf ausgerichtet sind,
-            neue Kundinnen zu gewinnen.
-          </p>
+          <div className="mt-6 space-y-4 text-muted-foreground text-lg leading-relaxed">
+            <p>
+              Ich helfe Beauty Studios dabei, online professionell aufzutreten und mehr Kundinnen
+              zu gewinnen – durch Websites, die klar aufgebaut sind und gezielt zur Anfrage oder
+              Terminbuchung führen.
+            </p>
+            <p>
+              Du bekommst keine Standardlösung, sondern ein Design, das zu deinem Studio passt
+              und deine Leistungen richtig präsentiert.
+            </p>
+          </div>
         </div>
         <div className="mt-12 text-sm uppercase tracking-[0.2em] text-muted-foreground">
           Das bekommst du
@@ -319,16 +402,22 @@ function Ablauf() {
           </h2>
         </div>
         <div className="grid md:grid-cols-3 gap-6 md:gap-8">
-          {steps.map((s) => (
-            <div
-              key={s.n}
-              className="p-8 md:p-10 rounded-3xl border border-border/60 bg-background hover:bg-cream transition"
-            >
-              <div className="font-serif text-5xl text-muted-foreground/40">{s.n}</div>
-              <h3 className="font-serif text-2xl text-ink mt-6">{s.title}</h3>
-              <p className="mt-3 text-muted-foreground leading-relaxed">{s.desc}</p>
-            </div>
-          ))}
+          {steps.map((s) => {
+            const Icon = s.Icon;
+            return (
+              <div
+                key={s.n}
+                className="p-8 md:p-10 rounded-3xl border border-border/60 bg-background hover:bg-cream transition"
+              >
+                <div className="flex items-center justify-between text-muted-foreground/60">
+                  <span className="font-serif text-5xl">{s.n}</span>
+                  <span className="text-ink/70"><Icon /></span>
+                </div>
+                <h3 className="font-serif text-2xl text-ink mt-6">{s.title}</h3>
+                <p className="mt-3 text-muted-foreground leading-relaxed">{s.desc}</p>
+              </div>
+            );
+          })}
         </div>
         <p className="mt-12 text-center text-muted-foreground italic">
           Einfach, schnell und ohne komplizierten Prozess.
@@ -356,13 +445,13 @@ function Preise() {
               Starter Website
             </div>
             <div className="mt-3 flex items-baseline gap-2">
-              <span className="font-serif text-5xl text-ink">ab 300€</span>
+              <span className="font-serif text-5xl text-ink">ab 300–400€</span>
             </div>
             <ul className="mt-8 space-y-3 text-ink">
-              <li>· Modernes Webdesign</li>
-              <li>· Mobil optimiert</li>
-              <li>· Klare Struktur und Texte</li>
-              <li>· SEO-Grundoptimierung</li>
+              <li>· Perfekt für kleinere Studios, die sichtbar werden wollen</li>
+              <li>· Klare Struktur, die Kundinnen direkt zur Anfrage führt</li>
+              <li>· Mobil optimiert für Instagram-Besucher</li>
+              <li>· Sauberes, professionelles Design</li>
             </ul>
             <a
               href="#kontakt"
@@ -383,11 +472,10 @@ function Preise() {
               <span className="font-serif text-5xl">ab 500–800€</span>
             </div>
             <ul className="mt-8 space-y-3 opacity-90">
-              <li>· Mehr Seiten</li>
-              <li>· Individuelle Anpassung</li>
-              <li>· Stärker auf Conversion optimiert</li>
-              <li>· SEO-Grundoptimierung</li>
-              <li>· Ausführlichere Inhalte &amp; stärkere Markenwirkung</li>
+              <li>· Für Studios, die wachsen und sich abheben wollen</li>
+              <li>· Mehr Seiten für Vertrauen &amp; bessere Google Sichtbarkeit</li>
+              <li>· Strategisch aufgebaut für mehr Anfragen</li>
+              <li>· Stärkere Markenwirkung &amp; Premium-Auftritt</li>
             </ul>
             <a
               href="#kontakt"
@@ -418,25 +506,17 @@ function About() {
           </h2>
           <div className="mt-8 space-y-5 text-muted-foreground leading-relaxed text-[1.05rem]">
             <p>
-              Ich bin Webdesignerin aus Wien und erstelle moderne Websites speziell für
-              Beauty Businesses – von Nagelstudios bis hin zu Kosmetik- und Laserkliniken.
-            </p>
-            <p>
-              Mein Fokus liegt nicht nur auf schönem Design, sondern darauf, dass deine
-              Website Vertrauen aufbaut, professionell wirkt und neue Kundinnen anzieht.
+              Ich helfe Beauty Studios in Wien und Umgebung, mehr Kundinnen zu gewinnen – durch
+              Websites, die professionell wirken und Vertrauen aufbauen.
             </p>
             <p>
               Durch meine Erfahrung in der IT verbinde ich klares Design mit Struktur und
-              Funktion. So entsteht eine Website, die hochwertig aussieht und gleichzeitig
-              einfach für dich und deine Kundinnen funktioniert.
+              Funktion. So entsteht eine Website, die nicht nur gut aussieht, sondern für dich
+              arbeitet.
             </p>
             <p>
-              Ich arbeite bewusst unkompliziert und effizient, damit du ohne großen Aufwand
-              zu einer Website kommst, die wirklich zu deinem Studio passt.
-            </p>
-            <p>
-              Neben meiner Arbeit bin ich Mama von drei Kindern und lebe in Wien – deshalb
-              ist mir eine klare, einfache Zusammenarbeit besonders wichtig.
+              Ich arbeite bewusst einfach und effizient, damit du ohne großen Aufwand zu einer
+              Website kommst, die wirklich zu deinem Studio passt.
             </p>
           </div>
         </div>
@@ -464,20 +544,39 @@ function About() {
 
 function CTA() {
   return (
-    <section id="kontakt" className="py-24 md:py-32 bg-cream">
-      <div className="max-w-3xl mx-auto px-6 text-center">
-        <h2 className="font-serif text-4xl md:text-6xl text-ink leading-tight">
-          Lass uns deine Website erstellen.
-        </h2>
-        <p className="mt-6 text-lg text-muted-foreground">
-          Bereit für einen professionellen Online-Auftritt, der zu deinem Studio passt?
-        </p>
-        <a
-          href="mailto:hello@javerastudio.com"
-          className="inline-block mt-10 px-8 py-4 rounded-full bg-ink text-primary-foreground hover:opacity-90 transition font-medium"
-        >
-          Jetzt anfragen
-        </a>
+    <section id="kontakt" className="relative py-24 md:py-32 bg-cream overflow-hidden">
+      <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-12 md:gap-16 items-center">
+        <div className="relative order-2 md:order-1">
+          <div className="aspect-[4/3] rounded-3xl overflow-hidden shadow-xl shadow-ink/10">
+            <img
+              src={ctaImg}
+              alt="Beauty Studio Besitzerin arbeitet entspannt am Laptop"
+              loading="lazy"
+              width={1536}
+              height={1024}
+              className="w-full h-full object-cover"
+            />
+          </div>
+          <div
+            aria-hidden
+            className="absolute -z-10 -bottom-6 -left-6 w-full h-full rounded-3xl"
+            style={{ backgroundColor: "var(--mint-soft)" }}
+          />
+        </div>
+        <div className="order-1 md:order-2 text-center md:text-left">
+          <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl text-ink leading-tight">
+            Lass uns deine Website erstellen.
+          </h2>
+          <p className="mt-6 text-lg text-muted-foreground">
+            Bereit für mehr Kundinnen und einen professionellen Online-Auftritt?
+          </p>
+          <a
+            href="mailto:hello@javerastudio.com"
+            className="inline-block mt-10 px-8 py-4 rounded-full bg-ink text-primary-foreground hover:opacity-90 transition font-medium"
+          >
+            Kostenlose Demo für dein Studio sichern
+          </a>
+        </div>
       </div>
     </section>
   );
