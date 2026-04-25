@@ -95,8 +95,16 @@ function Nav() {
   return (
     <header className="fixed top-0 inset-x-0 z-50 backdrop-blur-md bg-background/70 border-b border-border/60">
       <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-        <a href="#top" className="flex items-center">
-          <img src={logo} alt="Javera Studio" className="h-9 md:h-10 w-auto" />
+        <a
+          href="#top"
+          className="flex items-center group"
+          aria-label="Javera Studio – zur Startseite"
+        >
+          <img
+            src={logo}
+            alt="Javera Studio"
+            className="h-9 md:h-10 w-auto transition-all duration-500 ease-out group-hover:scale-[1.04] group-hover:opacity-80 group-hover:drop-shadow-[0_4px_12px_rgba(0,0,0,0.08)]"
+          />
         </a>
         <nav className="hidden md:flex items-center gap-8 text-sm text-muted-foreground">
           <a href="#demos" className="hover:text-ink transition">Demos</a>
