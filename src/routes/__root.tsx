@@ -29,14 +29,13 @@ export const Route = createRootRoute({
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { title: "Javera Studio – Websites für Beauty Businesses" },
+      { name: "description", content: "Moderne Websites für Kosmetikstudios, Nagelstudios, Friseure und Beauty Kliniken." },
+      { name: "author", content: "Javera Studio" },
+      { property: "og:title", content: "Javera Studio – Websites für Beauty Businesses" },
+      { property: "og:description", content: "Moderne Websites für Beauty Studios, die Vertrauen aufbauen und Kundinnen gewinnen." },
       { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary" },
-      { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [
       {
