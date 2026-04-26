@@ -151,7 +151,7 @@ function Nav() {
         </nav>
         <Link
           to="/demo-anfrage"
-          className="text-sm px-4 py-2 rounded-full bg-ink text-primary-foreground hover:opacity-90 transition"
+          className="text-sm px-4 py-2 rounded-full bg-primary text-primary-foreground hover:bg-mauve transition"
         >
           Demo sichern
         </Link>
@@ -189,7 +189,7 @@ function Hero() {
           <div className="mt-8 flex flex-wrap gap-3">
             <Link
               to="/demo-anfrage"
-              className="px-7 py-3.5 rounded-full bg-ink text-primary-foreground hover:opacity-90 transition font-medium"
+              className="px-7 py-3.5 rounded-full bg-primary text-primary-foreground hover:bg-mauve transition font-medium"
             >
               Kostenlose Demo für dein Studio sichern
             </Link>
@@ -572,7 +572,7 @@ function CTA() {
           </p>
           <Link
             to="/demo-anfrage"
-            className="inline-block mt-10 px-8 py-4 rounded-full bg-ink text-primary-foreground hover:opacity-90 transition font-medium"
+            className="inline-block mt-10 px-8 py-4 rounded-full bg-primary text-primary-foreground hover:bg-mauve transition font-medium"
           >
             Kostenlose Demo für dein Studio sichern
           </Link>

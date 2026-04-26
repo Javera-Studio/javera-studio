@@ -54,6 +54,8 @@
   --color-peach-soft: var(--peach-soft);
   --color-cream: var(--cream);
   --color-ink: var(--ink);
+  --color-mauve: var(--mauve);
+  --color-rose-light: var(--rose-light);
   --color-chart-1: var(--chart-1);
   --color-chart-2: var(--chart-2);
   --color-chart-3: var(--chart-3);
@@ -73,35 +75,54 @@
 
 :root {
   --radius: 0.625rem;
-  --background: oklch(0.995 0.003 90);
-  --foreground: oklch(0.25 0.01 250);
+  /* Pure White base */
+  --background: oklch(1 0 0);
+  /* Dunkelgrau #1F1F1F */
+  --foreground: oklch(0.22 0 0);
   --card: oklch(1 0 0);
-  --card-foreground: oklch(0.25 0.01 250);
+  --card-foreground: oklch(0.22 0 0);
   --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.25 0.01 250);
-  --primary: oklch(0.28 0.015 250);
-  --primary-foreground: oklch(0.99 0.005 90);
-  --secondary: oklch(0.96 0.02 170);
-  --secondary-foreground: oklch(0.28 0.015 250);
-  --muted: oklch(0.97 0.005 90);
-  --muted-foreground: oklch(0.5 0.015 250);
-  --accent: oklch(0.94 0.035 50);
-  --accent-foreground: oklch(0.28 0.015 250);
+  --popover-foreground: oklch(0.22 0 0);
+  /* Bordeaux #7A4E4E – primary CTA */
+  --primary: oklch(0.44 0.06 22);
+  --primary-foreground: oklch(0.99 0.003 20);
+  /* Soft Off-White #F7F7F7 */
+  --secondary: oklch(0.97 0 0);
+  --secondary-foreground: oklch(0.22 0 0);
+  --muted: oklch(0.97 0 0);
+  --muted-foreground: oklch(0.48 0.005 20);
+  /* Soft Blush #EAD6D1 */
+  --accent: oklch(0.89 0.025 22);
+  --accent-foreground: oklch(0.22 0 0);
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(0.984 0.003 247.858);
-  --border: oklch(0.92 0.008 90);
-  --input: oklch(0.92 0.008 90);
-  --ring: oklch(0.85 0.04 170);
+  /* very light rosé/grey divider */
+  --border: oklch(0.93 0.008 22);
+  --input: oklch(0.93 0.008 22);
+  /* Rosé Nude focus ring */
+  --ring: oklch(0.78 0.04 22);
 
-  --mint: oklch(0.88 0.05 170);
-  --mint-soft: oklch(0.96 0.025 170);
-  --peach: oklch(0.88 0.06 50);
-  --peach-soft: oklch(0.96 0.03 50);
-  --cream: oklch(0.98 0.01 80);
-  --ink: oklch(0.25 0.01 250);
+  /* Re-mapped semantic feminine palette (token names kept for compatibility) */
+  /* mint -> Rosé Nude #D6A9A4 */
+  --mint: oklch(0.78 0.04 22);
+  /* mint-soft -> very light blush wash */
+  --mint-soft: oklch(0.96 0.012 22);
+  /* peach -> Soft Blush #EAD6D1 */
+  --peach: oklch(0.89 0.025 22);
+  /* peach-soft -> faintest blush */
+  --peach-soft: oklch(0.97 0.008 22);
+  /* cream -> Off-White #F7F7F7 section bg */
+  --cream: oklch(0.97 0 0);
+  /* ink -> Dunkelgrau #1F1F1F */
+  --ink: oklch(0.22 0 0);
 
-  --chart-1: oklch(0.88 0.05 170);
-  --chart-2: oklch(0.88 0.06 50);
+  /* Mauve #B07A7A – dezente Highlights */
+  --mauve: oklch(0.62 0.055 22);
+  /* Helles Rosé #CFA3A3 – hover */
+  --rose-light: oklch(0.76 0.045 22);
+
+  --chart-1: oklch(0.78 0.04 22);
+  --chart-2: oklch(0.89 0.025 22);
   --chart-3: oklch(0.6 0.118 184.704);
   --chart-4: oklch(0.828 0.189 84.429);
   --chart-5: oklch(0.769 0.188 70.08);
