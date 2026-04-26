@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import heroImg from "@/assets/hero.jpg";
 import aboutImg from "@/assets/portrait.png";
 import logo from "@/assets/javera-logo.png";
@@ -149,12 +149,12 @@ function Nav() {
           <a href="#preise" className="hover:text-ink transition">Preise</a>
           <a href="#about" className="hover:text-ink transition">Über mich</a>
         </nav>
-        <a
-          href="#kontakt"
+        <Link
+          to="/demo-anfrage"
           className="text-sm px-4 py-2 rounded-full bg-ink text-primary-foreground hover:opacity-90 transition"
         >
           Demo sichern
-        </a>
+        </Link>
       </div>
     </header>
   );
@@ -187,12 +187,12 @@ function Hero() {
             und deine Kundinnen direkt zur Terminbuchung führen.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
-            <a
-              href="#kontakt"
+            <Link
+              to="/demo-anfrage"
               className="px-7 py-3.5 rounded-full bg-ink text-primary-foreground hover:opacity-90 transition font-medium"
             >
               Kostenlose Demo für dein Studio sichern
-            </a>
+            </Link>
             <a
               href="#demos"
               className="px-7 py-3.5 rounded-full border border-ink/20 text-ink hover:bg-ink hover:text-primary-foreground transition font-medium"
@@ -453,12 +453,12 @@ function Preise() {
               <li>· Mobil optimiert für Instagram-Besucher</li>
               <li>· Sauberes, professionelles Design</li>
             </ul>
-            <a
-              href="#kontakt"
+            <Link
+              to="/demo-anfrage"
               className="mt-10 inline-block px-6 py-3 rounded-full border border-ink/20 text-ink hover:bg-ink hover:text-primary-foreground transition"
             >
               Anfragen
-            </a>
+            </Link>
           </div>
           <div
             className="relative p-10 rounded-3xl text-primary-foreground"
@@ -477,12 +477,12 @@ function Preise() {
               <li>· Strategisch aufgebaut für mehr Anfragen</li>
               <li>· Stärkere Markenwirkung &amp; Premium-Auftritt</li>
             </ul>
-            <a
-              href="#kontakt"
+            <Link
+              to="/demo-anfrage"
               className="mt-10 inline-block px-6 py-3 rounded-full bg-background text-ink hover:opacity-90 transition"
             >
               Anfragen
-            </a>
+            </Link>
           </div>
         </div>
         <p className="mt-8 text-sm text-muted-foreground text-center">
@@ -570,12 +570,12 @@ function CTA() {
           <p className="mt-6 text-lg text-muted-foreground">
             Bereit für mehr Kundinnen und einen professionellen Online-Auftritt?
           </p>
-          <a
-            href="mailto:hello@javerastudio.com"
+          <Link
+            to="/demo-anfrage"
             className="inline-block mt-10 px-8 py-4 rounded-full bg-ink text-primary-foreground hover:opacity-90 transition font-medium"
           >
             Kostenlose Demo für dein Studio sichern
-          </a>
+          </Link>
         </div>
       </div>
     </section>
