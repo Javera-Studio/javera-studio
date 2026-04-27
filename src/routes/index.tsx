@@ -145,7 +145,7 @@ function Nav() {
           <img
             src={logo}
             alt="Javera Studio"
-            className="h-12 md:h-14 w-auto transition-all duration-500 ease-out group-hover:scale-[1.04] group-hover:opacity-80 group-hover:drop-shadow-[0_4px_12px_rgba(0,0,0,0.08)]"
+            className="h-16 md:h-20 w-auto transition-all duration-500 ease-out group-hover:scale-[1.04] group-hover:opacity-80 group-hover:drop-shadow-[0_4px_12px_rgba(0,0,0,0.08)]"
           />
         </a>
         <nav className="hidden md:flex items-center gap-8 text-sm text-muted-foreground">
