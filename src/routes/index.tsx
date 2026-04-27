@@ -182,13 +182,6 @@ function Hero() {
       />
       <div className="relative max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
         <div>
-          <div className="mb-6 flex items-center gap-4">
-            <img
-              src={logo}
-              alt="Javera Studio"
-              className="h-16 md:h-20 w-auto"
-            />
-          </div>
           <div className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-muted-foreground mb-6">
             <span className="w-8 h-px bg-muted-foreground/50" />
             Spezialisiert auf Beauty Websites
