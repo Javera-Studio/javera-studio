@@ -136,7 +136,7 @@ const faqs = [
 function Nav() {
   return (
     <header className="fixed top-0 inset-x-0 z-50 backdrop-blur-md bg-background/70 border-b border-border/60">
-      <div className="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
+      <div className="max-w-6xl mx-auto px-6 h-24 md:h-28 flex items-center justify-between">
         <a
           href="#top"
           className="flex items-center group"
