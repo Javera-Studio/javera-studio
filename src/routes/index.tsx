@@ -136,7 +136,7 @@ const faqs = [
 function Nav() {
   return (
     <header className="fixed top-0 inset-x-0 z-50 backdrop-blur-md bg-background/70 border-b border-border/60">
-      <div className="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
+      <div className="max-w-6xl mx-auto px-6 h-24 md:h-28 flex items-center justify-between">
         <a
           href="#top"
           className="flex items-center group"
@@ -145,7 +145,7 @@ function Nav() {
           <img
             src={logo}
             alt="Javera Studio"
-            className="h-12 md:h-14 w-auto transition-all duration-500 ease-out group-hover:scale-[1.04] group-hover:opacity-80 group-hover:drop-shadow-[0_4px_12px_rgba(0,0,0,0.08)]"
+            className="h-16 md:h-20 w-auto transition-all duration-500 ease-out group-hover:scale-[1.04] group-hover:opacity-80 group-hover:drop-shadow-[0_4px_12px_rgba(0,0,0,0.08)]"
           />
         </a>
         <nav className="hidden md:flex items-center gap-8 text-sm text-muted-foreground">
@@ -182,13 +182,6 @@ function Hero() {
       />
       <div className="relative max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
         <div>
-          <div className="mb-6 flex items-center gap-4">
-            <img
-              src={logo}
-              alt="Javera Studio"
-              className="h-16 md:h-20 w-auto"
-            />
-          </div>
           <div className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-muted-foreground mb-6">
             <span className="w-8 h-px bg-muted-foreground/50" />
             Spezialisiert auf Beauty Websites
@@ -717,7 +710,7 @@ function Footer() {
   return (
     <footer className="py-12 border-t border-border/60 bg-cream">
       <div className="max-w-6xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6 text-sm text-muted-foreground">
-        <img src={logo} alt="Javera Studio" className="h-10 w-auto" />
+        <img src={logo} alt="Javera Studio" className="h-20 md:h-24 w-auto" />
         <div className="text-center md:text-right">
           <div>© {new Date().getFullYear()} Javera Studio</div>
           <div>Made in Vienna</div>
