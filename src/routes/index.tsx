@@ -710,7 +710,7 @@ function Footer() {
   return (
     <footer className="py-12 border-t border-border/60 bg-cream">
       <div className="max-w-6xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6 text-sm text-muted-foreground">
-        <img src={logo} alt="Javera Studio" className="h-20 md:h-24 w-auto" />
+        <img src={logo} alt="Javera Studio" className="h-40 md:h-48 w-auto" />
         <div className="text-center md:text-right">
           <div>© {new Date().getFullYear()} Javera Studio</div>
           <div>Made in Vienna</div>
