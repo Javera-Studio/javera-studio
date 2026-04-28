@@ -707,7 +707,6 @@ function CTA() {
   );
 }
 
-import { SiteFooter as Footer } from "@/components/SiteFooter";
 
 function Index() {
   return (
