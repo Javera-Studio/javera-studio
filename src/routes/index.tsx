@@ -5,6 +5,7 @@ import logo from "@/assets/javera-logo.png";
 import problemImg from "@/assets/problem.jpg";
 import successImg from "@/assets/success.jpg";
 import ctaImg from "@/assets/cta.jpg";
+import { SiteFooter as Footer } from "@/components/SiteFooter";
 
 export const Route = createFileRoute("/")({
   head: () => ({
