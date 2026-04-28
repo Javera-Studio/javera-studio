@@ -33,9 +33,13 @@ export const Route = createRootRoute({
       { name: "description", content: "Moderne Websites für Kosmetikstudios, Nagelstudios, Friseure und Beauty Kliniken." },
       { name: "author", content: "Javera Studio" },
       { property: "og:title", content: "Javera Studio – Websites für Beauty Businesses" },
-      { property: "og:description", content: "Moderne Websites für Beauty Studios, die Vertrauen aufbauen und Kundinnen gewinnen." },
+      { property: "og:description", content: "Moderne Websites für Kosmetikstudios, Nagelstudios, Friseure und Beauty Kliniken." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Javera Studio – Websites für Beauty Businesses" },
+      { name: "twitter:description", content: "Moderne Websites für Kosmetikstudios, Nagelstudios, Friseure und Beauty Kliniken." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/c2d133cf-976f-4c20-b085-74664af87147/id-preview-cbbe9e7f--f6f7ba47-64e4-401a-93dc-919be46350d9.lovable.app-1777301279414.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/c2d133cf-976f-4c20-b085-74664af87147/id-preview-cbbe9e7f--f6f7ba47-64e4-401a-93dc-919be46350d9.lovable.app-1777301279414.png" },
     ],
     links: [
       {
