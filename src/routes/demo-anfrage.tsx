@@ -3,6 +3,7 @@ import { useState } from "react";
 import { z } from "zod";
 import { supabase } from "@/integrations/supabase/client";
 import logo from "@/assets/javera-logo.png";
+import { SiteFooter } from "@/components/SiteFooter";
 
 export const Route = createFileRoute("/demo-anfrage")({
   head: () => ({
@@ -444,6 +445,7 @@ function DemoAnfrage() {
           )}
         </div>
       </section>
+      <SiteFooter />
     </main>
   );
 }

@@ -5,6 +5,7 @@ import logo from "@/assets/javera-logo.png";
 import problemImg from "@/assets/problem.jpg";
 import successImg from "@/assets/success.jpg";
 import ctaImg from "@/assets/cta.jpg";
+import { SiteFooter as Footer } from "@/components/SiteFooter";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -706,19 +707,6 @@ function CTA() {
   );
 }
 
-function Footer() {
-  return (
-    <footer className="py-12 border-t border-border/60 bg-cream">
-      <div className="max-w-6xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6 text-sm text-muted-foreground">
-        <img src={logo} alt="Javera Studio" className="h-40 md:h-48 w-auto" />
-        <div className="text-center md:text-right">
-          <div>© {new Date().getFullYear()} Javera Studio</div>
-          <div>Made in Vienna</div>
-        </div>
-      </div>
-    </footer>
-  );
-}
 
 function Index() {
   return (
