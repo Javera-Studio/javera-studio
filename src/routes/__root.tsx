@@ -29,17 +29,13 @@ export const Route = createRootRoute({
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Javera Studio – Websites für Beauty Businesses" },
-      { name: "description", content: "Moderne Websites für Kosmetikstudios, Nagelstudios, Friseure und Beauty Kliniken." },
+      { title: "Javera Studio — Webdesign für Beauty Studios Wien" },
+      { name: "description", content: "Professionelle Websites für Nagelstudios, Kosmetikstudios & Beauty Brands in Wien. Individuell, modern und auf dein Studio abgestimmt." },
       { name: "author", content: "Javera Studio" },
-      { property: "og:title", content: "Javera Studio – Websites für Beauty Businesses" },
-      { property: "og:description", content: "Moderne Websites für Kosmetikstudios, Nagelstudios, Friseure und Beauty Kliniken." },
-      { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "Javera Studio – Websites für Beauty Businesses" },
-      { name: "twitter:description", content: "Moderne Websites für Kosmetikstudios, Nagelstudios, Friseure und Beauty Kliniken." },
-      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/c2d133cf-976f-4c20-b085-74664af87147/id-preview-cbbe9e7f--f6f7ba47-64e4-401a-93dc-919be46350d9.lovable.app-1777301279414.png" },
-      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/c2d133cf-976f-4c20-b085-74664af87147/id-preview-cbbe9e7f--f6f7ba47-64e4-401a-93dc-919be46350d9.lovable.app-1777301279414.png" },
+      { property: "og:type", content: "website" },
+      { property: "og:locale", content: "de_AT" },
+      { property: "og:site_name", content: "Javera Studio" },
     ],
     links: [
       {

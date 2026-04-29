@@ -10,21 +10,29 @@ import { SiteFooter as Footer } from "@/components/SiteFooter";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Javera Studio – Websites für Beauty Studios, die Kundinnen bringen" },
+      { title: "Javera Studio — Webdesign für Beauty Studios Wien" },
       {
         name: "description",
         content:
-          "Mehr Kundinnen & Buchungen für dein Beauty Studio. Javera Studio erstellt moderne Websites für Nagelstudios, Kosmetikstudios, Friseure und Beauty-Kliniken.",
+          "Professionelle Websites für Nagelstudios, Kosmetikstudios & Beauty Brands in Wien. Individuell, modern und auf dein Studio abgestimmt.",
       },
-      {
-        property: "og:title",
-        content: "Javera Studio – Websites für Beauty Studios, die Kundinnen bringen",
-      },
+      { property: "og:title", content: "Javera Studio — Webdesign für Beauty Studios Wien" },
       {
         property: "og:description",
         content:
-          "Websites für Nagelstudios, Kosmetikstudios, Friseure & Beauty Kliniken – professionell, feminin, conversionstark.",
+          "Professionelle Websites für Nagelstudios, Kosmetikstudios & Beauty Brands in Wien. Individuell, modern und auf dein Studio abgestimmt.",
       },
+      { property: "og:image", content: "https://javera-studio.lovable.app/og-image.jpg" },
+      { property: "og:image:width", content: "1200" },
+      { property: "og:image:height", content: "630" },
+      { property: "og:url", content: "https://javera-studio.lovable.app/" },
+      { name: "twitter:title", content: "Javera Studio — Webdesign für Beauty Studios Wien" },
+      {
+        name: "twitter:description",
+        content:
+          "Professionelle Websites für Nagelstudios, Kosmetikstudios & Beauty Brands in Wien.",
+      },
+      { name: "twitter:image", content: "https://javera-studio.lovable.app/og-image.jpg" },
     ],
   }),
   component: Index,
