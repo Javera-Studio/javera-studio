@@ -333,7 +333,7 @@ function Warum() {
             {benefits.map((b, i) => (
               <li
                 key={b}
-                className="flex items-start gap-5 py-5 border-b border-border/60 last:border-0"
+                className={`reveal reveal-stagger-${(i % 6) + 1} flex items-start gap-5 py-5 border-b border-border/60 last:border-0`}
               >
                 <span className="font-serif text-2xl text-muted-foreground/60 w-8">
                   {String(i + 1).padStart(2, "0")}
