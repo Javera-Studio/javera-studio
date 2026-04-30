@@ -659,7 +659,7 @@ function About() {
       <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
         <div className="order-2 md:order-1">
           <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-4">
-            Über mich
+            Wer bin ich
           </div>
           <h2 className="reveal font-serif text-4xl md:text-5xl text-ink leading-tight">
             Über mich
@@ -916,13 +916,13 @@ function Index() {
     <main className="bg-background text-ink">
       <Nav />
       <Hero />
-      <Demos />
+      <About />
       <Warum />
+      <Demos />
       <Javera />
       <Ablauf />
       <Zweifel />
       <Preise />
-      <About />
       <FAQ />
       <CTA />
       <SchreibMir />
