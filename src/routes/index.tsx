@@ -786,8 +786,11 @@ function CTA() {
           >
             Kostenlose Demo sichern
           </Link>
-          <p className="reveal mt-6 text-sm text-muted-foreground">
-            Unverbindlich · unkompliziert · speziell für Beauty Studios
+          <p className="reveal mt-3 text-xs text-muted-foreground">
+            Unverbindlich · Antwort in 24h · kostenlos starten
+          </p>
+          <p className="reveal mt-4 text-sm text-muted-foreground">
+            speziell für Beauty Studios
           </p>
         </div>
       </div>
