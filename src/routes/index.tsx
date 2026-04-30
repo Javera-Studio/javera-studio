@@ -308,10 +308,10 @@ function Warum() {
             <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-4">
               Warum eine Website
             </div>
-            <h2 className="font-serif text-4xl md:text-5xl text-ink leading-tight">
+            <h2 className="reveal font-serif text-4xl md:text-5xl text-ink leading-tight">
               Warum Instagram allein nicht reicht
             </h2>
-            <div className="mt-6 space-y-4 text-muted-foreground text-lg leading-relaxed">
+            <div className="reveal reveal-delay mt-6 space-y-4 text-muted-foreground text-lg leading-relaxed">
               <p>
                 Viele Kundinnen suchen direkt über Google nach Beauty Studios in ihrer Nähe.
                 Ohne Website verlierst du täglich potenzielle Anfragen an Studios, die
@@ -385,10 +385,10 @@ function Javera() {
           <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-4">
             Warum Javera Studio
           </div>
-          <h2 className="font-serif text-4xl md:text-5xl text-ink leading-tight">
+          <h2 className="reveal font-serif text-4xl md:text-5xl text-ink leading-tight">
             Websites für Beauty Studios – die nicht nur gut aussehen, sondern Kundinnen bringen.
           </h2>
-          <div className="mt-6 space-y-4 text-muted-foreground text-lg leading-relaxed">
+          <div className="reveal reveal-delay mt-6 space-y-4 text-muted-foreground text-lg leading-relaxed">
             <p>
               Ich helfe Beauty Studios dabei, online professionell aufzutreten und mehr Kundinnen
               zu gewinnen – durch Websites, die klar aufgebaut sind und gezielt zur Anfrage oder
@@ -435,7 +435,7 @@ function Ablauf() {
           <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-4">
             Ablauf
           </div>
-          <h2 className="font-serif text-4xl md:text-5xl text-ink leading-tight">
+          <h2 className="reveal font-serif text-4xl md:text-5xl text-ink leading-tight">
             So einfach kommst du zu deiner Website
           </h2>
         </div>
@@ -474,10 +474,10 @@ function Zweifel() {
         <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-4">
           Keine Sorge
         </div>
-        <h2 className="font-serif text-4xl md:text-5xl text-ink leading-tight">
+        <h2 className="reveal font-serif text-4xl md:text-5xl text-ink leading-tight">
           Keine Zeit, keine Technik – kein Problem.
         </h2>
-        <div className="mt-6 space-y-4 text-muted-foreground text-lg leading-relaxed">
+        <div className="reveal reveal-delay mt-6 space-y-4 text-muted-foreground text-lg leading-relaxed">
           <p>
             Du musst keine fertigen Texte haben, keine Bilder vorbereiten und dich auch nicht
             mit Technik auskennen.
@@ -510,7 +510,7 @@ function Preise() {
           <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-4">
             Angebot
           </div>
-          <h2 className="font-serif text-4xl md:text-5xl text-ink leading-tight">
+          <h2 className="reveal font-serif text-4xl md:text-5xl text-ink leading-tight">
             Deine Website – modern &amp; verkaufsstark
           </h2>
         </div>
@@ -584,7 +584,7 @@ function About() {
           <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-4">
             Über mich
           </div>
-          <h2 className="font-serif text-4xl md:text-5xl text-ink leading-tight">
+          <h2 className="reveal font-serif text-4xl md:text-5xl text-ink leading-tight">
             Über mich
           </h2>
           <div className="mt-8 space-y-5 text-muted-foreground leading-relaxed text-[1.05rem]">
@@ -636,7 +636,7 @@ function FAQ() {
         <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-4 text-center">
           FAQ
         </div>
-        <h2 className="font-serif text-4xl md:text-5xl text-ink leading-tight text-center">
+        <h2 className="reveal font-serif text-4xl md:text-5xl text-ink leading-tight text-center">
           Häufige Fragen
         </h2>
         <div className="mt-12 space-y-3">
@@ -693,10 +693,10 @@ function CTA() {
           />
         </div>
         <div className="order-1 md:order-2 text-center md:text-left">
-          <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl text-ink leading-tight">
+          <h2 className="reveal font-serif text-4xl md:text-5xl lg:text-6xl text-ink leading-tight">
             Bereit für eine Website, die zu deinem Studio passt und Kundinnen bringt?
           </h2>
-          <p className="mt-6 text-lg text-muted-foreground">
+          <p className="reveal reveal-delay mt-6 text-lg text-muted-foreground">
             Schick mir eine kurze Anfrage – ich melde mich persönlich bei dir.
           </p>
           <Link
