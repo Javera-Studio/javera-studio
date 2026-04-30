@@ -28,7 +28,7 @@ export function SiteFooter() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Javera Studio auf Instagram"
-              className="inline-flex items-center justify-center w-8 h-8 rounded-full border border-border hover:border-ink hover:text-ink transition-colors"
+              className="inline-flex items-center gap-1.5 hover:text-ink transition-colors py-1"
             >
               <svg
                 viewBox="0 0 24 24"
@@ -44,6 +44,7 @@ export function SiteFooter() {
                 <circle cx="12" cy="12" r="4" />
                 <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
               </svg>
+              @javerastudio
             </a>
           </div>
           <div className="text-xs">
