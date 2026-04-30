@@ -717,8 +717,9 @@ function CTA() {
 
 function Index() {
   useEffect(() => {
+    const selector = ".reveal, .reveal-card";
     if (typeof IntersectionObserver === "undefined") {
-      document.querySelectorAll(".reveal").forEach((el) => el.classList.add("is-visible"));
+      document.querySelectorAll(selector).forEach((el) => el.classList.add("is-visible"));
       return;
     }
     const observer = new IntersectionObserver(
@@ -732,7 +733,7 @@ function Index() {
       },
       { threshold: 0.15, rootMargin: "0px 0px -50px 0px" },
     );
-    document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
+    document.querySelectorAll(selector).forEach((el) => observer.observe(el));
     return () => observer.disconnect();
   }, []);
 
