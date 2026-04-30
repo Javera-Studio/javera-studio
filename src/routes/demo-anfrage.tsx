@@ -51,7 +51,7 @@ const schema = z.object({
   styles: z.array(z.enum(STYLES)).min(1, "Bitte wähle mindestens einen Stil"),
   content_status: z.enum(CONTENT, { message: "Bitte wähle eine Option" }),
   start_time: z.enum(START, { message: "Bitte wähle einen Zeitraum" }),
-  budget: z.enum(BUDGETS, { message: "Bitte wähle ein Budget" }),
+  budget: z.enum(PACKAGE_VALUES, { message: "Bitte wähle ein Paket" }),
   notes: z.string().trim().max(2000).optional().or(z.literal("")),
 });
 
