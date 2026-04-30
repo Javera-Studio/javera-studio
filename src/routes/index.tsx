@@ -651,10 +651,10 @@ function FAQ() {
           Häufige Fragen
         </h2>
         <div className="mt-12 space-y-3">
-          {faqs.map((f) => (
+          {faqs.map((f, i) => (
             <details
               key={f.q}
-              className="group rounded-2xl bg-background border border-border/60 p-6 open:shadow-sm transition"
+              className={`reveal reveal-stagger-${(i % 6) + 1} group rounded-2xl bg-background border border-border/60 p-6 open:shadow-sm transition`}
             >
               <summary className="flex items-center justify-between cursor-pointer list-none gap-6">
                 <span className="font-serif text-lg md:text-xl text-ink">{f.q}</span>
@@ -669,7 +669,7 @@ function FAQ() {
             </details>
           ))}
         </div>
-        <div className="mt-12 text-center">
+        <div className="mt-12 text-center reveal">
           <Link
             to="/demo-anfrage"
             className="inline-block px-7 py-3.5 rounded-full bg-primary text-primary-foreground hover:bg-mauve transition font-medium"
