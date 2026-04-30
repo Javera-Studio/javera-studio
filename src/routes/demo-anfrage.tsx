@@ -36,7 +36,11 @@ const STYLES = [
 ] as const;
 const CONTENT = ["Ja, alles bereit", "Teilweise", "Nein, brauche Unterstützung"] as const;
 const START = ["Sofort", "In den nächsten Wochen", "Erstmal nur informieren"] as const;
-const BUDGETS = ["300–400€", "500–800€"] as const;
+const PACKAGES = [
+  { value: "Starter Website – ab 350€", title: "Starter Website", price: "ab 350€" },
+  { value: "Premium Website – ab 600€", title: "Premium Website", price: "ab 600€" },
+] as const;
+const PACKAGE_VALUES = PACKAGES.map((p) => p.value) as [string, ...string[]];
 
 const schema = z.object({
   name: z.string().trim().min(1, "Bitte gib deinen Namen an").max(120),
