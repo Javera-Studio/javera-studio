@@ -599,27 +599,27 @@ function About() {
             Über mich
           </h2>
           <div className="mt-8 space-y-5 text-muted-foreground leading-relaxed text-[1.05rem]">
-            <p>
+            <p className="reveal reveal-stagger-1">
               Ich bin Jagoda, Webdesignerin aus Wien und spezialisiert auf moderne Websites für
               Beauty Businesses.
             </p>
-            <p>
+            <p className="reveal reveal-stagger-2">
               Durch meine Erfahrung in der IT verbinde ich klares Design mit Struktur und
               Funktion. So entsteht eine Website, die nicht nur gut aussieht, sondern Vertrauen
               aufbaut und neue Kundinnen anzieht.
             </p>
-            <p>
+            <p className="reveal reveal-stagger-3">
               Ich arbeite bewusst unkompliziert: Du musst keine fertigen Texte oder Technik-Wissen
               mitbringen – ich führe dich Schritt für Schritt durch den gesamten Prozess.
             </p>
-            <p>
+            <p className="reveal reveal-stagger-4">
               Als Mama von drei Kindern weiß ich, wie wertvoll Zeit ist – deshalb ist mir eine
               einfache, klare Zusammenarbeit besonders wichtig.
             </p>
           </div>
         </div>
         <div className="order-1 md:order-2 relative">
-          <div className="aspect-[4/5] rounded-3xl overflow-hidden">
+          <div className="reveal aspect-[4/5] rounded-3xl overflow-hidden">
             <img
               src={aboutImg}
               alt="Jagoda – Webdesignerin aus Wien"
