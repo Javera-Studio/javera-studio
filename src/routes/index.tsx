@@ -1,11 +1,11 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import heroImg from "@/assets/hero.jpg";
 import aboutImg from "@/assets/portrait.png";
 import logo from "@/assets/javera-logo.png";
 import problemImg from "@/assets/problem.jpg";
 import successImg from "@/assets/success.jpg";
 import ctaImg from "@/assets/cta.jpg";
 import { SiteFooter as Footer } from "@/components/SiteFooter";
+import { useReveal } from "@/hooks/useReveal";
 
 export const Route = createFileRoute("/")({
   head: () => ({
