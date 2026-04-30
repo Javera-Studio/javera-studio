@@ -443,10 +443,10 @@ function Ablauf() {
           </h2>
         </div>
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {steps.map((s) => (
+          {steps.map((s, i) => (
             <div
               key={s.n}
-              className="p-8 rounded-3xl border border-border/60 bg-background hover:bg-cream transition"
+              className={`reveal-card reveal-stagger-${i + 1} p-8 rounded-3xl border border-border/60 bg-background hover:bg-cream transition`}
             >
               <span className="font-serif text-5xl text-muted-foreground/60">{s.n}</span>
               <h3 className="font-serif text-2xl text-ink mt-6">{s.title}</h3>
@@ -454,10 +454,10 @@ function Ablauf() {
             </div>
           ))}
         </div>
-        <p className="mt-12 text-center text-muted-foreground italic">
+        <p className="reveal mt-12 text-center text-muted-foreground italic">
           Einfach, schnell und ohne komplizierten Prozess.
         </p>
-        <div className="mt-8 text-center">
+        <div className="mt-8 text-center reveal">
           <Link
             to="/demo-anfrage"
             className="inline-block px-7 py-3.5 rounded-full bg-primary text-primary-foreground hover:bg-mauve transition font-medium"
