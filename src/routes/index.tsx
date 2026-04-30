@@ -1,5 +1,5 @@
+import { useEffect } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
-import heroImg from "@/assets/hero.jpg";
 import aboutImg from "@/assets/portrait.png";
 import logo from "@/assets/javera-logo.png";
 import problemImg from "@/assets/problem.jpg";
@@ -178,63 +178,62 @@ function Nav() {
 
 function Hero() {
   return (
-    <section id="top" className="relative pt-36 pb-24 md:pt-44 md:pb-32 overflow-hidden">
+    <section
+      id="top"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden text-primary-foreground"
+    >
+      {/* Fullscreen background video */}
+      <video
+        className="absolute inset-0 w-full h-full object-cover"
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="auto"
+        poster="/og-image.jpg"
+        aria-hidden="true"
+      >
+        <source src="/hero.mp4" type="video/mp4" />
+        <source src="/hero.webm" type="video/webm" />
+      </video>
+
+      {/* Dark overlay for readability */}
       <div
         aria-hidden
-        className="absolute -top-40 -right-40 w-[600px] h-[600px] rounded-full opacity-60 blur-3xl"
-        style={{ backgroundColor: "var(--mint-soft)" }}
+        className="absolute inset-0"
+        style={{ backgroundColor: "rgba(0, 0, 0, 0.45)" }}
       />
-      <div
-        aria-hidden
-        className="absolute -bottom-40 -left-40 w-[500px] h-[500px] rounded-full opacity-60 blur-3xl"
-        style={{ backgroundColor: "var(--peach-soft)" }}
-      />
-      <div className="relative max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
-        <div>
-          <div className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-muted-foreground mb-6">
-            <span className="w-8 h-px bg-muted-foreground/50" />
-            Spezialisiert auf Beauty Websites
-          </div>
-          <h1 className="font-serif text-5xl md:text-6xl lg:text-7xl leading-[1.05] text-ink">
-            Mehr Kundinnen &amp; Buchungen für dein <em className="text-muted-foreground">Beauty Studio</em> – mit einer Website, die verkauft.
-          </h1>
-          <p className="mt-6 text-lg text-muted-foreground max-w-xl leading-relaxed">
-            Ich erstelle moderne Websites für Nagelstudios, Kosmetikstudios, Friseure und
-            Beauty-Kliniken – klar, hochwertig und optimiert für mehr Terminbuchungen.
-          </p>
-          <div className="mt-8 flex flex-wrap gap-3">
-            <Link
-              to="/demo-anfrage"
-              className="px-7 py-3.5 rounded-full bg-primary text-primary-foreground hover:bg-mauve transition font-medium"
-            >
-              Kostenlose Demo sichern
-            </Link>
-            <a
-              href="#demos"
-              className="px-7 py-3.5 rounded-full border border-ink/20 text-ink hover:bg-ink hover:text-primary-foreground transition font-medium"
-            >
-              Beispiele ansehen
-            </a>
-          </div>
-          <p className="mt-8 text-sm text-muted-foreground">
-            Spezialisiert auf Beauty · Demo zuerst möglich · SEO-Grundoptimierung inklusive
-          </p>
+
+      {/* Content */}
+      <div className="relative z-10 max-w-4xl mx-auto px-6 pt-36 pb-24 md:pt-44 md:pb-32 text-center">
+        <div className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-white/80 mb-6 hero-subtitle">
+          <span className="w-8 h-px bg-white/50" />
+          Spezialisiert auf Beauty Websites
         </div>
-        <div className="relative">
-          <div className="aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl shadow-ink/10">
-            <img
-              src={heroImg}
-              alt="Modernes Beauty Studio Interior"
-              width={1536}
-              height={1280}
-              className="w-full h-full object-cover"
-            />
-          </div>
-          <div className="absolute -bottom-6 -left-6 px-5 py-4 rounded-2xl bg-background shadow-xl border border-border/60 hidden sm:block">
-            <div className="text-xs uppercase tracking-wider text-muted-foreground">Made for</div>
-            <div className="font-serif text-lg text-ink">Beauty Studios</div>
-          </div>
+        <h1 className="hero-headline font-serif text-5xl md:text-6xl lg:text-7xl leading-[1.05] text-white">
+          Mehr Kundinnen &amp; Buchungen für dein <em className="text-white/75">Beauty Studio</em> – mit einer Website, die verkauft.
+        </h1>
+        <p className="hero-subtitle mt-6 text-lg text-white/85 max-w-2xl mx-auto leading-relaxed">
+          Ich erstelle moderne Websites für Nagelstudios, Kosmetikstudios, Friseure und
+          Beauty-Kliniken – klar, hochwertig und optimiert für mehr Terminbuchungen.
+        </p>
+        <div className="hero-cta mt-8 flex flex-wrap gap-3 justify-center">
+          <Link
+            to="/demo-anfrage"
+            className="px-7 py-3.5 rounded-full bg-primary text-primary-foreground hover:bg-mauve transition font-medium"
+          >
+            Kostenlose Demo sichern
+          </Link>
+          <a
+            href="#demos"
+            className="px-7 py-3.5 rounded-full border border-white/40 text-white hover:bg-white hover:text-ink transition font-medium"
+          >
+            Beispiele ansehen
+          </a>
         </div>
+        <p className="hero-cta mt-8 text-sm text-white/75">
+          Spezialisiert auf Beauty · Demo zuerst möglich · SEO-Grundoptimierung inklusive
+        </p>
       </div>
     </section>
   );
@@ -248,10 +247,10 @@ function Demos() {
           <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-4">
             Demo Projekte
           </div>
-          <h2 className="font-serif text-4xl md:text-5xl text-ink leading-tight">
+          <h2 className="reveal font-serif text-4xl md:text-5xl text-ink leading-tight">
             Beispiel-Websites für Beauty Businesses
           </h2>
-          <p className="mt-4 text-muted-foreground text-lg">
+          <p className="reveal reveal-delay mt-4 text-muted-foreground text-lg">
             So könnte deine Website aussehen – abgestimmt auf dein Studio, deinen Stil und deine
             Zielgruppe.
           </p>
@@ -309,10 +308,10 @@ function Warum() {
             <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-4">
               Warum eine Website
             </div>
-            <h2 className="font-serif text-4xl md:text-5xl text-ink leading-tight">
+            <h2 className="reveal font-serif text-4xl md:text-5xl text-ink leading-tight">
               Warum Instagram allein nicht reicht
             </h2>
-            <div className="mt-6 space-y-4 text-muted-foreground text-lg leading-relaxed">
+            <div className="reveal reveal-delay mt-6 space-y-4 text-muted-foreground text-lg leading-relaxed">
               <p>
                 Viele Kundinnen suchen direkt über Google nach Beauty Studios in ihrer Nähe.
                 Ohne Website verlierst du täglich potenzielle Anfragen an Studios, die
@@ -386,10 +385,10 @@ function Javera() {
           <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-4">
             Warum Javera Studio
           </div>
-          <h2 className="font-serif text-4xl md:text-5xl text-ink leading-tight">
+          <h2 className="reveal font-serif text-4xl md:text-5xl text-ink leading-tight">
             Websites für Beauty Studios – die nicht nur gut aussehen, sondern Kundinnen bringen.
           </h2>
-          <div className="mt-6 space-y-4 text-muted-foreground text-lg leading-relaxed">
+          <div className="reveal reveal-delay mt-6 space-y-4 text-muted-foreground text-lg leading-relaxed">
             <p>
               Ich helfe Beauty Studios dabei, online professionell aufzutreten und mehr Kundinnen
               zu gewinnen – durch Websites, die klar aufgebaut sind und gezielt zur Anfrage oder
@@ -436,7 +435,7 @@ function Ablauf() {
           <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-4">
             Ablauf
           </div>
-          <h2 className="font-serif text-4xl md:text-5xl text-ink leading-tight">
+          <h2 className="reveal font-serif text-4xl md:text-5xl text-ink leading-tight">
             So einfach kommst du zu deiner Website
           </h2>
         </div>
@@ -475,10 +474,10 @@ function Zweifel() {
         <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-4">
           Keine Sorge
         </div>
-        <h2 className="font-serif text-4xl md:text-5xl text-ink leading-tight">
+        <h2 className="reveal font-serif text-4xl md:text-5xl text-ink leading-tight">
           Keine Zeit, keine Technik – kein Problem.
         </h2>
-        <div className="mt-6 space-y-4 text-muted-foreground text-lg leading-relaxed">
+        <div className="reveal reveal-delay mt-6 space-y-4 text-muted-foreground text-lg leading-relaxed">
           <p>
             Du musst keine fertigen Texte haben, keine Bilder vorbereiten und dich auch nicht
             mit Technik auskennen.
@@ -511,7 +510,7 @@ function Preise() {
           <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-4">
             Angebot
           </div>
-          <h2 className="font-serif text-4xl md:text-5xl text-ink leading-tight">
+          <h2 className="reveal font-serif text-4xl md:text-5xl text-ink leading-tight">
             Deine Website – modern &amp; verkaufsstark
           </h2>
         </div>
@@ -585,7 +584,7 @@ function About() {
           <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-4">
             Über mich
           </div>
-          <h2 className="font-serif text-4xl md:text-5xl text-ink leading-tight">
+          <h2 className="reveal font-serif text-4xl md:text-5xl text-ink leading-tight">
             Über mich
           </h2>
           <div className="mt-8 space-y-5 text-muted-foreground leading-relaxed text-[1.05rem]">
@@ -637,7 +636,7 @@ function FAQ() {
         <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-4 text-center">
           FAQ
         </div>
-        <h2 className="font-serif text-4xl md:text-5xl text-ink leading-tight text-center">
+        <h2 className="reveal font-serif text-4xl md:text-5xl text-ink leading-tight text-center">
           Häufige Fragen
         </h2>
         <div className="mt-12 space-y-3">
@@ -694,10 +693,10 @@ function CTA() {
           />
         </div>
         <div className="order-1 md:order-2 text-center md:text-left">
-          <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl text-ink leading-tight">
+          <h2 className="reveal font-serif text-4xl md:text-5xl lg:text-6xl text-ink leading-tight">
             Bereit für eine Website, die zu deinem Studio passt und Kundinnen bringt?
           </h2>
-          <p className="mt-6 text-lg text-muted-foreground">
+          <p className="reveal reveal-delay mt-6 text-lg text-muted-foreground">
             Schick mir eine kurze Anfrage – ich melde mich persönlich bei dir.
           </p>
           <Link
@@ -717,6 +716,26 @@ function CTA() {
 
 
 function Index() {
+  useEffect(() => {
+    if (typeof IntersectionObserver === "undefined") {
+      document.querySelectorAll(".reveal").forEach((el) => el.classList.add("is-visible"));
+      return;
+    }
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            observer.unobserve(entry.target);
+          }
+        }
+      },
+      { threshold: 0.15, rootMargin: "0px 0px -50px 0px" },
+    );
+    document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <main className="bg-background text-ink">
       <Nav />
