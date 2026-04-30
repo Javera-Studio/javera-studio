@@ -15,7 +15,7 @@ export function SiteFooter() {
               Datenschutzerklärung
             </Link>
           </nav>
-          <div className="flex flex-wrap items-center justify-center md:justify-end gap-x-4 gap-y-1 text-xs">
+          <div className="flex flex-wrap items-center justify-center md:justify-end gap-x-3 gap-y-1 text-xs">
             <a
               href="mailto:javera.studio@gmail.com"
               className="hover:text-ink transition-colors py-1"
@@ -27,9 +27,23 @@ export function SiteFooter() {
               href="https://www.instagram.com/javerastudio/"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-ink transition-colors py-1"
+              aria-label="Javera Studio auf Instagram"
+              className="inline-flex items-center justify-center w-8 h-8 rounded-full border border-border hover:border-ink hover:text-ink transition-colors"
             >
-              Instagram
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.7"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="w-4 h-4"
+                aria-hidden
+              >
+                <rect x="3" y="3" width="18" height="18" rx="5" />
+                <circle cx="12" cy="12" r="4" />
+                <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
+              </svg>
             </a>
           </div>
           <div className="text-xs">
