@@ -345,7 +345,7 @@ function Warum() {
         </div>
 
         <div className="mt-20 grid md:grid-cols-2 gap-6 md:gap-8">
-          <figure className="relative rounded-3xl overflow-hidden aspect-[4/5]">
+          <figure className="reveal relative rounded-3xl overflow-hidden aspect-[4/5]">
             <img
               src={problemImg}
               alt="Stiller Schreibtisch mit Smartphone – das Warten auf Anfragen"
@@ -358,7 +358,7 @@ function Warum() {
               Vorher · Wenig Sichtbarkeit
             </figcaption>
           </figure>
-          <figure className="relative rounded-3xl overflow-hidden aspect-[4/5]">
+          <figure className="reveal reveal-delay relative rounded-3xl overflow-hidden aspect-[4/5]">
             <img
               src={successImg}
               alt="Modernes, gebuchtes Beauty Studio mit zufriedener Kundin"
