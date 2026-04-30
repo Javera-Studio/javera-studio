@@ -143,24 +143,6 @@ const faqs = [
   },
 ];
 
-function Reveal({
-  as: Tag = "div",
-  delay = false,
-  className = "",
-  children,
-  ...rest
-}: {
-  as?: "div" | "h2" | "h3" | "p" | "span";
-  delay?: boolean;
-  className?: string;
-  children: React.ReactNode;
-} & React.HTMLAttributes<HTMLElement>) {
-  const ref = useReveal<HTMLElement>();
-  const cls = `reveal ${delay ? "reveal-delay " : ""}${className}`;
-  // @ts-expect-error - dynamic tag with ref
-  return <Tag ref={ref} className={cls} {...rest}>{children}</Tag>;
-}
-
 function Nav() {
   return (
     <header className="fixed top-0 inset-x-0 z-50 backdrop-blur-md bg-background/70 border-b border-border/60">
