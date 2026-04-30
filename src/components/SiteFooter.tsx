@@ -15,6 +15,23 @@ export function SiteFooter() {
               Datenschutzerklärung
             </Link>
           </nav>
+          <div className="flex flex-wrap items-center justify-center md:justify-end gap-x-4 gap-y-1 text-xs">
+            <a
+              href="mailto:javera.studio@gmail.com"
+              className="hover:text-ink transition-colors py-1"
+            >
+              javera.studio@gmail.com
+            </a>
+            <span aria-hidden className="opacity-40">·</span>
+            <a
+              href="https://www.instagram.com/javerastudio/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-ink transition-colors py-1"
+            >
+              Instagram
+            </a>
+          </div>
           <div className="text-xs">
             <div>© {new Date().getFullYear()} Javera Studio</div>
             <div>Made in Vienna</div>
