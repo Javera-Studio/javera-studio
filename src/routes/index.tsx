@@ -798,6 +798,96 @@ function CTA() {
   );
 }
 
+function SchreibMir() {
+  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    const form = e.currentTarget;
+    const data = new FormData(form);
+    const name = String(data.get("name") || "").trim();
+    const email = String(data.get("email") || "").trim();
+    const message = String(data.get("message") || "").trim();
+    const subject = encodeURIComponent(`Neue Nachricht von ${name || "Website"}`);
+    const body = encodeURIComponent(
+      `Name: ${name}\nE-Mail: ${email}\n\nNachricht:\n${message}`,
+    );
+    window.location.href = `mailto:javera.studio@gmail.com?subject=${subject}&body=${body}`;
+  }
+
+  return (
+    <section id="schreib-mir" className="py-24 md:py-32 bg-cream">
+      <div className="max-w-2xl mx-auto px-6">
+        <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-4 text-center">
+          Kontakt
+        </div>
+        <h2 className="reveal font-serif text-4xl md:text-5xl text-ink leading-tight text-center">
+          Schreib mir
+        </h2>
+        <p className="reveal reveal-delay mt-4 text-center text-muted-foreground text-lg">
+          Eine kurze Nachricht reicht – ich melde mich persönlich bei dir.
+        </p>
+        <form
+          onSubmit={handleSubmit}
+          className="reveal mt-12 space-y-5 p-8 md:p-10 rounded-3xl bg-background border border-border/60"
+        >
+          <div>
+            <label htmlFor="sm-name" className="block text-sm text-ink mb-2">
+              Name
+            </label>
+            <input
+              id="sm-name"
+              name="name"
+              type="text"
+              required
+              autoComplete="name"
+              className="w-full px-4 py-3 rounded-xl border border-border bg-background text-ink focus:outline-none focus:ring-2 focus:ring-ring"
+            />
+          </div>
+          <div>
+            <label htmlFor="sm-email" className="block text-sm text-ink mb-2">
+              E-Mail
+            </label>
+            <input
+              id="sm-email"
+              name="email"
+              type="email"
+              required
+              autoComplete="email"
+              className="w-full px-4 py-3 rounded-xl border border-border bg-background text-ink focus:outline-none focus:ring-2 focus:ring-ring"
+            />
+          </div>
+          <div>
+            <label htmlFor="sm-message" className="block text-sm text-ink mb-2">
+              Nachricht
+            </label>
+            <textarea
+              id="sm-message"
+              name="message"
+              required
+              rows={5}
+              className="w-full px-4 py-3 rounded-xl border border-border bg-background text-ink focus:outline-none focus:ring-2 focus:ring-ring"
+            />
+          </div>
+          <button
+            type="submit"
+            className="w-full px-7 py-3.5 rounded-full bg-primary text-primary-foreground hover:bg-mauve transition font-medium"
+          >
+            Nachricht senden
+          </button>
+          <p className="text-xs text-center text-muted-foreground">
+            Oder direkt per E-Mail an{" "}
+            <a
+              href="mailto:javera.studio@gmail.com"
+              className="underline hover:text-ink"
+            >
+              javera.studio@gmail.com
+            </a>
+          </p>
+        </form>
+      </div>
+    </section>
+  );
+}
+
 
 function Index() {
   useEffect(() => {
