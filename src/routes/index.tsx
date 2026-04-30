@@ -293,8 +293,11 @@ function Demos() {
             to="/demo-anfrage"
             className="inline-block px-7 py-3.5 rounded-full bg-primary text-primary-foreground hover:bg-mauve transition font-medium"
           >
-            Eigene Website anfragen
+            Demo sichern
           </Link>
+          <p className="mt-3 text-xs text-muted-foreground">
+            Weitere Projekte in Umsetzung
+          </p>
         </div>
       </div>
     </section>
