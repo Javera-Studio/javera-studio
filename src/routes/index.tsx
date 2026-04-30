@@ -518,32 +518,36 @@ function Preise() {
           </h2>
         </div>
         <div className="grid md:grid-cols-2 gap-6 md:gap-8">
-          <div className="p-10 rounded-3xl bg-background border border-border/60">
+          <div className="reveal-card p-10 rounded-3xl bg-background border border-border/60">
             <div className="text-xs uppercase tracking-wider text-muted-foreground">
               Starter Website
             </div>
             <div className="mt-3 flex items-baseline gap-2">
-              <span className="font-serif text-5xl text-ink">ab 300–400€</span>
+              <span className="font-serif text-4xl md:text-5xl text-ink">Preis auf Anfrage</span>
             </div>
             <p className="mt-4 text-muted-foreground">
               Perfekt für Studios, die sichtbar werden und erste Anfragen generieren möchten.
             </p>
             <ul className="mt-8 space-y-3 text-ink">
-              <li>· modernes Design</li>
-              <li>· mobil optimiert</li>
-              <li>· klare Struktur &amp; Texte</li>
-              <li>· Kontaktmöglichkeit</li>
-              <li>· SEO-Grundoptimierung</li>
+              {[
+                "modernes Design",
+                "mobil optimiert",
+                "klare Struktur & Texte",
+                "Kontaktmöglichkeit",
+                "SEO-Grundoptimierung",
+              ].map((item, i) => (
+                <li key={item} className={`reveal reveal-stagger-${i + 1}`}>· {item}</li>
+              ))}
             </ul>
             <Link
               to="/demo-anfrage"
-              className="mt-10 inline-block px-6 py-3 rounded-full border border-ink/20 text-ink hover:bg-ink hover:text-primary-foreground transition"
+              className="reveal mt-10 inline-block px-6 py-3 rounded-full border border-ink/20 text-ink hover:bg-ink hover:text-primary-foreground transition"
             >
               Anfragen
             </Link>
           </div>
           <div
-            className="relative p-10 rounded-3xl text-primary-foreground"
+            className="reveal-card reveal-stagger-2 relative p-10 rounded-3xl text-primary-foreground"
             style={{ backgroundColor: "var(--ink)" }}
           >
             <div className="absolute top-6 right-6 text-xs px-3 py-1 rounded-full bg-background/10 border border-background/20">
@@ -551,27 +555,31 @@ function Preise() {
             </div>
             <div className="text-xs uppercase tracking-wider opacity-70">Premium Website</div>
             <div className="mt-3">
-              <span className="font-serif text-5xl">ab 500–800€</span>
+              <span className="font-serif text-4xl md:text-5xl">Preis auf Anfrage</span>
             </div>
             <p className="mt-4 opacity-80">
               Ideal für Studios, die wachsen und sich klar von der Konkurrenz abheben wollen.
             </p>
             <ul className="mt-8 space-y-3 opacity-90">
-              <li>· mehr Seiten &amp; Inhalte</li>
-              <li>· individuelle Anpassung</li>
-              <li>· stärkere Conversion-Struktur</li>
-              <li>· bessere Google Sichtbarkeit</li>
-              <li>· Premium Design</li>
+              {[
+                "mehr Seiten & Inhalte",
+                "individuelle Anpassung",
+                "stärkere Conversion-Struktur",
+                "bessere Google Sichtbarkeit",
+                "Premium Design",
+              ].map((item, i) => (
+                <li key={item} className={`reveal reveal-stagger-${i + 1}`}>· {item}</li>
+              ))}
             </ul>
             <Link
               to="/demo-anfrage"
-              className="mt-10 inline-block px-6 py-3 rounded-full bg-background text-ink hover:opacity-90 transition"
+              className="reveal mt-10 inline-block px-6 py-3 rounded-full bg-background text-ink hover:opacity-90 transition"
             >
               Premium anfragen
             </Link>
           </div>
         </div>
-        <p className="mt-8 text-sm text-muted-foreground text-center">
+        <p className="reveal mt-8 text-sm text-muted-foreground text-center">
           zzgl. Hosting &amp; Domain (ca. 10–20€/Monat)
         </p>
       </div>
