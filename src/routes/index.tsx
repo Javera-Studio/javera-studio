@@ -924,6 +924,7 @@ function Index() {
       <About />
       <FAQ />
       <CTA />
+      <SchreibMir />
       <Footer />
     </main>
   );
