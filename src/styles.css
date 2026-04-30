@@ -248,7 +248,7 @@
 .reveal-stagger-7 { transition-delay: 0.7s; }
 
 @media (prefers-reduced-motion: reduce) {
-  .hero-headline, .hero-subtitle, .hero-cta, .reveal {
+  .hero-headline, .hero-subtitle, .hero-cta, .reveal, .reveal-card {
     animation: none !important;
     opacity: 1 !important;
     transform: none !important;
