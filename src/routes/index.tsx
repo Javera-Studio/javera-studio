@@ -1,3 +1,4 @@
+import type { FormEvent } from "react";
 import { useEffect } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import aboutImg from "@/assets/portrait.png";
@@ -140,6 +141,26 @@ const faqs = [
     q: "Was passiert nach der Demo?",
     a: "Du bekommst eine erste Version deiner Website. Danach passen wir alles gemeinsam an, bis es genau zu deinem Studio passt – erst dann geht sie online.",
   },
+  {
+    q: "Was kostet mich die Demo?",
+    a: "Die Demo ist komplett kostenlos und unverbindlich. Du siehst zuerst, wie deine Website aussehen könnte – und entscheidest danach, ob du weitermachen möchtest.",
+  },
+  {
+    q: "Muss ich sofort bezahlen?",
+    a: "Nein. Erst wenn du mit der Demo zufrieden bist und wir alles abgestimmt haben, beginnt die Zusammenarbeit. Keine Vorauszahlung, keine versteckten Kosten.",
+  },
+  {
+    q: "Was passiert, wenn mir die Website nicht gefällt?",
+    a: "Wir passen so lange an, bis sie wirklich zu deinem Studio passt. Dein Feedback ist Teil des Prozesses – das ist kein Fertigprodukt von der Stange.",
+  },
+  {
+    q: "Ich bin kein Technik-Mensch – ist das ein Problem?",
+    a: "Überhaupt nicht. Du musst dich um nichts kümmern. Ich erkläre dir jeden Schritt verständlich und übernehme alles Technische für dich.",
+  },
+  {
+    q: "Arbeite ich direkt mit dir oder mit einem Team?",
+    a: "Du arbeitest ausschließlich mit mir – Jagoda. Kein anonymes Team, keine Weiterleitung. Ich bin deine direkte Ansprechpartnerin von Anfang bis Ende.",
+  },
 ];
 
 function Nav() {
@@ -181,16 +202,18 @@ function Hero() {
     <section
       id="top"
       className="relative min-h-screen flex items-center justify-center overflow-hidden text-primary-foreground"
+      style={{ backgroundColor: "#8b4b5a" }}
     >
       {/* Fullscreen background video */}
       <video
         className="absolute inset-0 w-full h-full object-cover"
+        style={{ backgroundColor: "#8b4b5a" }}
         autoPlay
         muted
         loop
         playsInline
         preload="auto"
-        poster="/og-image.jpg"
+        poster="/hero-poster.jpg"
         aria-hidden="true"
       >
         <source src="/hero.mp4" type="video/mp4" />
@@ -231,8 +254,8 @@ function Hero() {
             Beispiele ansehen
           </a>
         </div>
-        <p className="hero-cta mt-8 text-sm text-white/75">
-          Spezialisiert auf Beauty · Demo zuerst möglich · SEO-Grundoptimierung inklusive
+        <p className="hero-cta mt-6 text-sm text-white/80">
+          Unverbindlich · Antwort in 24h · kostenlos starten
         </p>
       </div>
     </section>
@@ -291,8 +314,11 @@ function Demos() {
             to="/demo-anfrage"
             className="inline-block px-7 py-3.5 rounded-full bg-primary text-primary-foreground hover:bg-mauve transition font-medium"
           >
-            Eigene Website anfragen
+            Demo sichern
           </Link>
+          <p className="mt-3 text-xs text-muted-foreground">
+            Weitere Projekte in Umsetzung
+          </p>
         </div>
       </div>
     </section>
@@ -326,7 +352,7 @@ function Warum() {
               to="/demo-anfrage"
               className="reveal inline-block mt-8 px-7 py-3.5 rounded-full bg-primary text-primary-foreground hover:bg-mauve transition font-medium"
             >
-              Website anfragen
+              Demo sichern
             </Link>
           </div>
           <ul className="space-y-1">
@@ -506,6 +532,20 @@ function Zweifel() {
 }
 
 function Preise() {
+  const starterFeatures = [
+    "Modernes, individuelles Design",
+    "Mobil optimiert (Smartphone, Tablet, Desktop)",
+    "Klare Struktur & professionelle Texte",
+    "Kontaktmöglichkeit & Buchungslink",
+    "SEO-Grundoptimierung",
+  ];
+  const premiumFeatures = [
+    "Alles aus dem Starter-Paket",
+    "Mehr Seiten & Inhalte",
+    "Stärkere Conversion-Struktur",
+    "Individuelles Branding & Premium Design",
+    "Bessere Google-Sichtbarkeit",
+  ];
   return (
     <section id="preise" className="py-24 md:py-32 bg-cream">
       <div className="max-w-6xl mx-auto px-6">
@@ -517,37 +557,37 @@ function Preise() {
             Deine Website – modern &amp; verkaufsstark
           </h2>
         </div>
-        <div className="grid md:grid-cols-2 gap-6 md:gap-8">
-          <div className="reveal-card p-10 rounded-3xl bg-background border border-border/60">
+        <div className="grid md:grid-cols-2 gap-6 md:gap-8 items-stretch">
+          {/* Starter */}
+          <div className="reveal-card p-10 rounded-3xl bg-background border border-border/60 flex flex-col">
             <div className="text-xs uppercase tracking-wider text-muted-foreground">
               Starter Website
             </div>
             <div className="mt-3 flex items-baseline gap-2">
-              <span className="font-serif text-4xl md:text-5xl text-ink">Preis auf Anfrage</span>
+              <span className="font-serif text-4xl md:text-5xl text-ink">ab 350€</span>
             </div>
             <p className="mt-4 text-muted-foreground">
               Perfekt für Studios, die sichtbar werden und erste Anfragen generieren möchten.
             </p>
-            <ul className="mt-8 space-y-3 text-ink">
-              {[
-                "modernes Design",
-                "mobil optimiert",
-                "klare Struktur & Texte",
-                "Kontaktmöglichkeit",
-                "SEO-Grundoptimierung",
-              ].map((item, i) => (
-                <li key={item} className={`reveal reveal-stagger-${i + 1}`}>· {item}</li>
+            <ul className="mt-8 space-y-3 text-ink flex-1">
+              {starterFeatures.map((item, i) => (
+                <li key={item} className={`reveal reveal-stagger-${i + 1} flex items-start gap-3`}>
+                  <span className="mt-1 text-ink shrink-0">·</span>
+                  <span>{item}</span>
+                </li>
               ))}
             </ul>
             <Link
               to="/demo-anfrage"
-              className="reveal mt-10 inline-block px-6 py-3 rounded-full border border-ink/20 text-ink hover:bg-ink hover:text-primary-foreground transition"
+              className="reveal mt-10 inline-block self-start px-6 py-3 rounded-full border border-ink/20 text-ink hover:bg-ink hover:text-primary-foreground transition"
             >
-              Anfragen
+              Demo sichern
             </Link>
           </div>
+
+          {/* Premium */}
           <div
-            className="reveal-card reveal-stagger-2 relative p-10 rounded-3xl text-primary-foreground"
+            className="reveal-card reveal-stagger-2 relative p-10 rounded-3xl text-primary-foreground flex flex-col"
             style={{ backgroundColor: "var(--ink)" }}
           >
             <div className="absolute top-6 right-6 text-xs px-3 py-1 rounded-full bg-background/10 border border-background/20">
@@ -555,33 +595,59 @@ function Preise() {
             </div>
             <div className="text-xs uppercase tracking-wider opacity-70">Premium Website</div>
             <div className="mt-3">
-              <span className="font-serif text-4xl md:text-5xl">Preis auf Anfrage</span>
+              <span className="font-serif text-4xl md:text-5xl">ab 600€</span>
             </div>
             <p className="mt-4 opacity-80">
               Ideal für Studios, die wachsen und sich klar von der Konkurrenz abheben wollen.
             </p>
-            <ul className="mt-8 space-y-3 opacity-90">
-              {[
-                "mehr Seiten & Inhalte",
-                "individuelle Anpassung",
-                "stärkere Conversion-Struktur",
-                "bessere Google Sichtbarkeit",
-                "Premium Design",
-              ].map((item, i) => (
-                <li key={item} className={`reveal reveal-stagger-${i + 1}`}>· {item}</li>
+            <ul className="mt-8 space-y-3 opacity-90 flex-1">
+              {premiumFeatures.map((item, i) => (
+                <li key={item} className={`reveal reveal-stagger-${i + 1} flex items-start gap-3`}>
+                  <span className="mt-1 shrink-0">·</span>
+                  <span>{item}</span>
+                </li>
               ))}
             </ul>
             <Link
               to="/demo-anfrage"
-              className="reveal mt-10 inline-block px-6 py-3 rounded-full bg-background text-ink hover:opacity-90 transition"
+              className="reveal mt-10 inline-block self-start px-6 py-3 rounded-full bg-background text-ink hover:opacity-90 transition"
             >
-              Premium anfragen
+              Demo sichern
             </Link>
           </div>
         </div>
-        <p className="reveal mt-8 text-sm text-muted-foreground text-center">
-          zzgl. Hosting &amp; Domain (ca. 10–20€/Monat)
-        </p>
+
+        {/* Why prices vary */}
+        <div className="reveal mt-10 p-8 md:p-10 rounded-3xl bg-background border border-border/60">
+          <h3 className="font-serif text-2xl text-ink">Warum variieren die Preise?</h3>
+          <p className="mt-4 text-muted-foreground leading-relaxed">
+            Jede Website ist anders – ein kleines Studio mit einer Seite hat andere Bedürfnisse
+            als ein Klinik-Betrieb mit mehreren Leistungen, Galerie und Blog. Der genaue Preis
+            hängt vom Umfang, den gewünschten Funktionen und der Anzahl der Seiten ab. Du
+            bekommst immer ein klares Angebot bevor es losgeht – keine Überraschungen.
+          </p>
+        </div>
+
+        {/* Hosting & Domain explainer */}
+        <div className="reveal mt-6 p-8 md:p-10 rounded-3xl bg-peach-soft border border-border/40">
+          <h3 className="font-serif text-2xl text-ink">Was ist Hosting &amp; Domain?</h3>
+          <div className="mt-4 space-y-4 text-ink/80 leading-relaxed">
+            <p>
+              <strong className="text-ink">Domain</strong> ist deine Web-Adresse – also z.B.
+              dein-studio.at. Die reservierst du einmal im Jahr, meist für ca. 10–20€/Jahr.
+            </p>
+            <p>
+              <strong className="text-ink">Hosting</strong> ist der Speicherplatz im Internet,
+              auf dem deine Website liegt – damit sie rund um die Uhr erreichbar ist. Das
+              kostet ca. 5–15€ pro Monat.
+            </p>
+            <p>
+              Ich erkläre dir alles Schritt für Schritt und helfe dir beim Einrichten. Domain
+              und Hosting laufen direkt auf deinen Namen – du hast immer die volle Kontrolle
+              über deine Website.
+            </p>
+          </div>
+        </div>
       </div>
     </section>
   );
@@ -600,8 +666,10 @@ function About() {
           </h2>
           <div className="mt-8 space-y-5 text-muted-foreground leading-relaxed text-[1.05rem]">
             <p className="reveal reveal-stagger-1">
-              Ich bin Jagoda, Webdesignerin aus Wien und spezialisiert auf moderne Websites für
-              Beauty Businesses.
+              Ich bin Jagoda – Webdesignerin aus Wien, spezialisiert auf Beauty Studios. Ich
+              verbinde klares Design mit Funktion, damit deine Website nicht nur gut aussieht,
+              sondern Kundinnen bringt. Du arbeitest direkt mit mir – unkompliziert, persönlich
+              und Schritt für Schritt.
             </p>
             <p className="reveal reveal-stagger-2">
               Durch meine Erfahrung in der IT verbinde ich klares Design mit Struktur und
@@ -676,6 +744,9 @@ function FAQ() {
           >
             Kostenlose Demo sichern
           </Link>
+          <p className="mt-3 text-xs text-muted-foreground">
+            Unverbindlich · Antwort in 24h · kostenlos starten
+          </p>
         </div>
       </div>
     </section>
@@ -716,10 +787,103 @@ function CTA() {
           >
             Kostenlose Demo sichern
           </Link>
-          <p className="reveal mt-6 text-sm text-muted-foreground">
-            Unverbindlich · unkompliziert · speziell für Beauty Studios
+          <p className="reveal mt-3 text-xs text-muted-foreground">
+            Unverbindlich · Antwort in 24h · kostenlos starten
+          </p>
+          <p className="reveal mt-4 text-sm text-muted-foreground">
+            speziell für Beauty Studios
           </p>
         </div>
+      </div>
+    </section>
+  );
+}
+
+function SchreibMir() {
+  function handleSubmit(e: FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    const form = e.currentTarget;
+    const data = new FormData(form);
+    const name = String(data.get("name") || "").trim();
+    const email = String(data.get("email") || "").trim();
+    const message = String(data.get("message") || "").trim();
+    const subject = encodeURIComponent(`Neue Nachricht von ${name || "Website"}`);
+    const body = encodeURIComponent(
+      `Name: ${name}\nE-Mail: ${email}\n\nNachricht:\n${message}`,
+    );
+    window.location.href = `mailto:javera.studio@gmail.com?subject=${subject}&body=${body}`;
+  }
+
+  return (
+    <section id="schreib-mir" className="py-24 md:py-32 bg-cream">
+      <div className="max-w-2xl mx-auto px-6">
+        <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-4 text-center">
+          Kontakt
+        </div>
+        <h2 className="reveal font-serif text-4xl md:text-5xl text-ink leading-tight text-center">
+          Schreib mir
+        </h2>
+        <p className="reveal reveal-delay mt-4 text-center text-muted-foreground text-lg">
+          Eine kurze Nachricht reicht – ich melde mich persönlich bei dir.
+        </p>
+        <form
+          onSubmit={handleSubmit}
+          className="reveal mt-12 space-y-5 p-8 md:p-10 rounded-3xl bg-background border border-border/60"
+        >
+          <div>
+            <label htmlFor="sm-name" className="block text-sm text-ink mb-2">
+              Name
+            </label>
+            <input
+              id="sm-name"
+              name="name"
+              type="text"
+              required
+              autoComplete="name"
+              className="w-full px-4 py-3 rounded-xl border border-border bg-background text-ink focus:outline-none focus:ring-2 focus:ring-ring"
+            />
+          </div>
+          <div>
+            <label htmlFor="sm-email" className="block text-sm text-ink mb-2">
+              E-Mail
+            </label>
+            <input
+              id="sm-email"
+              name="email"
+              type="email"
+              required
+              autoComplete="email"
+              className="w-full px-4 py-3 rounded-xl border border-border bg-background text-ink focus:outline-none focus:ring-2 focus:ring-ring"
+            />
+          </div>
+          <div>
+            <label htmlFor="sm-message" className="block text-sm text-ink mb-2">
+              Nachricht
+            </label>
+            <textarea
+              id="sm-message"
+              name="message"
+              required
+              rows={5}
+              className="w-full px-4 py-3 rounded-xl border border-border bg-background text-ink focus:outline-none focus:ring-2 focus:ring-ring"
+            />
+          </div>
+          <button
+            type="submit"
+            className="w-full px-7 py-3.5 rounded-full bg-primary text-primary-foreground hover:bg-mauve transition font-medium"
+          >
+            Nachricht senden
+          </button>
+          <p className="text-xs text-center text-muted-foreground">
+            Oder direkt per E-Mail an{" "}
+            <a
+              href="mailto:javera.studio@gmail.com"
+              className="underline hover:text-ink"
+            >
+              javera.studio@gmail.com
+            </a>
+          </p>
+        </form>
       </div>
     </section>
   );
@@ -761,6 +925,7 @@ function Index() {
       <About />
       <FAQ />
       <CTA />
+      <SchreibMir />
       <Footer />
     </main>
   );
