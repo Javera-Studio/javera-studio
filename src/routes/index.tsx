@@ -687,7 +687,7 @@ function CTA() {
     <section id="kontakt" className="relative py-24 md:py-32 overflow-hidden">
       <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-12 md:gap-16 items-center">
         <div className="relative order-2 md:order-1">
-          <div className="aspect-[4/3] rounded-3xl overflow-hidden shadow-xl shadow-ink/10">
+          <div className="reveal aspect-[4/3] rounded-3xl overflow-hidden shadow-xl shadow-ink/10">
             <img
               src={ctaImg}
               alt="Beauty Studio Besitzerin arbeitet entspannt am Laptop"
