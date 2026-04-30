@@ -1,3 +1,4 @@
+import type { FormEvent } from "react";
 import { useEffect } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import aboutImg from "@/assets/portrait.png";
