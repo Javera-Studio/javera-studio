@@ -181,16 +181,18 @@ function Hero() {
     <section
       id="top"
       className="relative min-h-screen flex items-center justify-center overflow-hidden text-primary-foreground"
+      style={{ backgroundColor: "#8b4b5a" }}
     >
       {/* Fullscreen background video */}
       <video
         className="absolute inset-0 w-full h-full object-cover"
+        style={{ backgroundColor: "#8b4b5a" }}
         autoPlay
         muted
         loop
         playsInline
         preload="auto"
-        poster="/og-image.jpg"
+        poster="/hero-poster.jpg"
         aria-hidden="true"
       >
         <source src="/hero.mp4" type="video/mp4" />
