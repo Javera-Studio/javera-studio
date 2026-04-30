@@ -496,7 +496,7 @@ function Zweifel() {
         </div>
         <Link
           to="/demo-anfrage"
-          className="inline-block mt-10 px-7 py-3.5 rounded-full bg-primary text-primary-foreground hover:bg-mauve transition font-medium"
+          className="reveal inline-block mt-10 px-7 py-3.5 rounded-full bg-primary text-primary-foreground hover:bg-mauve transition font-medium"
         >
           Kostenlos starten
         </Link>
