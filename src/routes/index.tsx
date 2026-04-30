@@ -247,10 +247,10 @@ function Demos() {
           <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-4">
             Demo Projekte
           </div>
-          <h2 className="font-serif text-4xl md:text-5xl text-ink leading-tight">
+          <h2 className="reveal font-serif text-4xl md:text-5xl text-ink leading-tight">
             Beispiel-Websites für Beauty Businesses
           </h2>
-          <p className="mt-4 text-muted-foreground text-lg">
+          <p className="reveal reveal-delay mt-4 text-muted-foreground text-lg">
             So könnte deine Website aussehen – abgestimmt auf dein Studio, deinen Stil und deine
             Zielgruppe.
           </p>
