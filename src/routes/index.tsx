@@ -44,7 +44,7 @@ const demos = [
     category: "Nagelstudio",
     desc: "Elegante Website für ein Premium-Nagelstudio mit klarer Preisstruktur und Fokus auf Terminbuchungen.",
     focus: "klare Preise & mehr Buchungen",
-    url: "https://id-preview--c6fdd669-17cd-4e84-8923-e378702b9bf7.lovable.app",
+    url: "https://luxe-nails-wien.lovable.app",
     accent: "peach",
   },
   {
@@ -52,15 +52,15 @@ const demos = [
     category: "Kosmetikstudio",
     desc: "Cleanes, ruhiges Design für mehr Vertrauen, klare Angebote und mehr Anfragen.",
     focus: "Vertrauen & hochwertige Präsentation",
-    url: "https://id-preview--f84fb1a2-8d8e-4dd1-8788-e75a54f962f2.lovable.app",
+    url: "https://pure-skin-studio-wien.lovable.app",
     accent: "mint",
   },
   {
-    title: "Noir Vision",
+    title: "Salon Noir",
     category: "Friseursalon",
     desc: "Auffällige Website für starke Markenwirkung, mehr Sichtbarkeit und neue Kundinnen.",
     focus: "Markenwirkung & Sichtbarkeit",
-    url: "https://id-preview--bf8973d3-bbb2-4894-8b04-7bb733cee971.lovable.app",
+    url: "https://salon-noir.lovable.app",
     accent: "peach",
   },
   {
@@ -68,7 +68,7 @@ const demos = [
     category: "Beauty Klinik",
     desc: "Seriöse Klinik-Website mit Fokus auf Vertrauen, Beratung und professionelle Darstellung.",
     focus: "Seriosität & Beratung",
-    url: "https://id-preview--6183d25e-927c-4ff6-8999-b034f30ec1bb.lovable.app",
+    url: "https://lumea-laser-clinic.lovable.app",
     accent: "mint",
   },
 ];
