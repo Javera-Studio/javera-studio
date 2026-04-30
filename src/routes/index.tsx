@@ -256,10 +256,10 @@ function Demos() {
           </p>
         </div>
         <div className="grid md:grid-cols-2 gap-6 md:gap-8">
-          {demos.map((d) => (
+          {demos.map((d, i) => (
             <div
               key={d.title}
-              className="group relative bg-background rounded-3xl p-8 md:p-10 border border-border/60 hover:shadow-xl hover:shadow-ink/5 transition"
+              className={`reveal-card reveal-stagger-${(i % 4) + 1} group relative bg-background rounded-3xl p-8 md:p-10 border border-border/60 hover:shadow-xl hover:shadow-ink/5 transition`}
             >
               <div
                 className="w-12 h-12 rounded-full mb-6"
@@ -286,7 +286,7 @@ function Demos() {
             </div>
           ))}
         </div>
-        <div className="mt-16 text-center">
+        <div className="mt-16 text-center reveal">
           <Link
             to="/demo-anfrage"
             className="inline-block px-7 py-3.5 rounded-full bg-primary text-primary-foreground hover:bg-mauve transition font-medium"
