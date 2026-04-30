@@ -645,8 +645,10 @@ function About() {
           </h2>
           <div className="mt-8 space-y-5 text-muted-foreground leading-relaxed text-[1.05rem]">
             <p className="reveal reveal-stagger-1">
-              Ich bin Jagoda, Webdesignerin aus Wien und spezialisiert auf moderne Websites für
-              Beauty Businesses.
+              Ich bin Jagoda – Webdesignerin aus Wien, spezialisiert auf Beauty Studios. Ich
+              verbinde klares Design mit Funktion, damit deine Website nicht nur gut aussieht,
+              sondern Kundinnen bringt. Du arbeitest direkt mit mir – unkompliziert, persönlich
+              und Schritt für Schritt.
             </p>
             <p className="reveal reveal-stagger-2">
               Durch meine Erfahrung in der IT verbinde ich klares Design mit Struktur und
