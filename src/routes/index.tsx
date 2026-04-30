@@ -407,14 +407,17 @@ function Javera() {
           Das bekommst du
         </div>
         <div className="mt-6 grid sm:grid-cols-2 gap-x-10 gap-y-4">
-          {javeraPoints.map((p) => (
-            <div key={p} className="flex items-start gap-4 py-3">
+          {javeraPoints.map((p, i) => (
+            <div
+              key={p}
+              className={`reveal reveal-stagger-${(i % 7) + 1} flex items-start gap-4 py-3`}
+            >
               <span className="mt-1 text-ink shrink-0">✔</span>
               <span className="text-ink leading-relaxed">{p}</span>
             </div>
           ))}
         </div>
-        <div className="mt-12">
+        <div className="mt-12 reveal">
           <Link
             to="/demo-anfrage"
             className="inline-block px-7 py-3.5 rounded-full bg-primary text-primary-foreground hover:bg-mauve transition font-medium"
