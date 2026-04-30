@@ -712,11 +712,11 @@ function CTA() {
           </p>
           <Link
             to="/demo-anfrage"
-            className="inline-block mt-10 px-8 py-4 rounded-full bg-primary text-primary-foreground hover:bg-mauve transition font-medium"
+            className="reveal inline-block mt-10 px-8 py-4 rounded-full bg-primary text-primary-foreground hover:bg-mauve transition font-medium"
           >
             Kostenlose Demo sichern
           </Link>
-          <p className="mt-6 text-sm text-muted-foreground">
+          <p className="reveal mt-6 text-sm text-muted-foreground">
             Unverbindlich · unkompliziert · speziell für Beauty Studios
           </p>
         </div>
