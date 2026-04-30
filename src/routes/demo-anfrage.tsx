@@ -387,36 +387,58 @@ function DemoAnfrage() {
                 </div>
               </Field>
 
-              <div className="grid sm:grid-cols-2 gap-6">
-                <Field label="Wann möchtest du starten?" required error={errors.start_time}>
-                  <select
-                    value={form.start_time}
-                    onChange={(e) => update("start_time", e.target.value)}
-                    className="w-full px-4 py-3 rounded-xl border border-border bg-background focus:outline-none focus:ring-2 focus:ring-ink/20 transition"
-                  >
-                    <option value="">Bitte auswählen</option>
-                    {START.map((t) => (
-                      <option key={t} value={t}>
-                        {t}
-                      </option>
-                    ))}
-                  </select>
-                </Field>
-                <Field label="Budget" required error={errors.budget}>
-                  <select
-                    value={form.budget}
-                    onChange={(e) => update("budget", e.target.value)}
-                    className="w-full px-4 py-3 rounded-xl border border-border bg-background focus:outline-none focus:ring-2 focus:ring-ink/20 transition"
-                  >
-                    <option value="">Bitte auswählen</option>
-                    {BUDGETS.map((b) => (
-                      <option key={b} value={b}>
-                        {b}
-                      </option>
-                    ))}
-                  </select>
-                </Field>
-              </div>
+              <Field label="Wann möchtest du starten?" required error={errors.start_time}>
+                <select
+                  value={form.start_time}
+                  onChange={(e) => update("start_time", e.target.value)}
+                  className="w-full px-4 py-3 rounded-xl border border-border bg-background focus:outline-none focus:ring-2 focus:ring-ink/20 transition"
+                >
+                  <option value="">Bitte auswählen</option>
+                  {START.map((t) => (
+                    <option key={t} value={t}>
+                      {t}
+                    </option>
+                  ))}
+                </select>
+              </Field>
+
+              <Field label="Ich interessiere mich für:" required error={errors.budget}>
+                <div className="grid sm:grid-cols-2 gap-3">
+                  {PACKAGES.map((pkg) => {
+                    const active = form.budget === pkg.value;
+                    return (
+                      <button
+                        type="button"
+                        key={pkg.value}
+                        onClick={() => update("budget", pkg.value)}
+                        aria-pressed={active}
+                        className={`relative text-left px-5 py-4 rounded-2xl border transition ${
+                          active
+                            ? "bg-ink text-primary-foreground border-ink shadow-md"
+                            : "border-border bg-background text-ink hover:border-ink/50"
+                        }`}
+                      >
+                        <span
+                          className={`absolute top-4 right-4 w-4 h-4 rounded-full border-2 transition ${
+                            active
+                              ? "bg-primary-foreground border-primary-foreground"
+                              : "border-border"
+                          }`}
+                          aria-hidden
+                        />
+                        <div className="font-medium pr-6">{pkg.title}</div>
+                        <div
+                          className={`text-sm mt-1 ${
+                            active ? "text-primary-foreground/80" : "text-muted-foreground"
+                          }`}
+                        >
+                          {pkg.price}
+                        </div>
+                      </button>
+                    );
+                  })}
+                </div>
+              </Field>
 
               <Field label="Zusätzliche Infos" error={errors.notes}>
                 <textarea
