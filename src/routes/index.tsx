@@ -44,7 +44,7 @@ const demos = [
     category: "Nagelstudio",
     desc: "Elegante Website für ein Premium-Nagelstudio mit klarer Preisstruktur und Fokus auf Terminbuchungen.",
     focus: "klare Preise & mehr Buchungen",
-    url: "https://id-preview--c6fdd669-17cd-4e84-8923-e378702b9bf7.lovable.app",
+    url: "https://luxe-nails-wien.lovable.app",
     accent: "peach",
   },
   {
@@ -52,15 +52,15 @@ const demos = [
     category: "Kosmetikstudio",
     desc: "Cleanes, ruhiges Design für mehr Vertrauen, klare Angebote und mehr Anfragen.",
     focus: "Vertrauen & hochwertige Präsentation",
-    url: "https://id-preview--f84fb1a2-8d8e-4dd1-8788-e75a54f962f2.lovable.app",
+    url: "https://pure-skin-studio-wien.lovable.app",
     accent: "mint",
   },
   {
-    title: "Noir Vision",
+    title: "Salon Noir",
     category: "Friseursalon",
     desc: "Auffällige Website für starke Markenwirkung, mehr Sichtbarkeit und neue Kundinnen.",
     focus: "Markenwirkung & Sichtbarkeit",
-    url: "https://id-preview--bf8973d3-bbb2-4894-8b04-7bb733cee971.lovable.app",
+    url: "https://salon-noir.lovable.app",
     accent: "peach",
   },
   {
@@ -68,7 +68,7 @@ const demos = [
     category: "Beauty Klinik",
     desc: "Seriöse Klinik-Website mit Fokus auf Vertrauen, Beratung und professionelle Darstellung.",
     focus: "Seriosität & Beratung",
-    url: "https://id-preview--6183d25e-927c-4ff6-8999-b034f30ec1bb.lovable.app",
+    url: "https://lumea-laser-clinic.lovable.app",
     accent: "mint",
   },
 ];
@@ -256,10 +256,10 @@ function Demos() {
           </p>
         </div>
         <div className="grid md:grid-cols-2 gap-6 md:gap-8">
-          {demos.map((d) => (
+          {demos.map((d, i) => (
             <div
               key={d.title}
-              className="group relative bg-background rounded-3xl p-8 md:p-10 border border-border/60 hover:shadow-xl hover:shadow-ink/5 transition"
+              className={`reveal-card reveal-stagger-${(i % 4) + 1} group relative bg-background rounded-3xl p-8 md:p-10 border border-border/60 hover:shadow-xl hover:shadow-ink/5 transition`}
             >
               <div
                 className="w-12 h-12 rounded-full mb-6"
@@ -286,7 +286,7 @@ function Demos() {
             </div>
           ))}
         </div>
-        <div className="mt-16 text-center">
+        <div className="mt-16 text-center reveal">
           <Link
             to="/demo-anfrage"
             className="inline-block px-7 py-3.5 rounded-full bg-primary text-primary-foreground hover:bg-mauve transition font-medium"
@@ -324,7 +324,7 @@ function Warum() {
             </div>
             <Link
               to="/demo-anfrage"
-              className="inline-block mt-8 px-7 py-3.5 rounded-full bg-primary text-primary-foreground hover:bg-mauve transition font-medium"
+              className="reveal inline-block mt-8 px-7 py-3.5 rounded-full bg-primary text-primary-foreground hover:bg-mauve transition font-medium"
             >
               Website anfragen
             </Link>
@@ -333,7 +333,7 @@ function Warum() {
             {benefits.map((b, i) => (
               <li
                 key={b}
-                className="flex items-start gap-5 py-5 border-b border-border/60 last:border-0"
+                className={`reveal reveal-stagger-${(i % 6) + 1} flex items-start gap-5 py-5 border-b border-border/60 last:border-0`}
               >
                 <span className="font-serif text-2xl text-muted-foreground/60 w-8">
                   {String(i + 1).padStart(2, "0")}
@@ -345,7 +345,7 @@ function Warum() {
         </div>
 
         <div className="mt-20 grid md:grid-cols-2 gap-6 md:gap-8">
-          <figure className="relative rounded-3xl overflow-hidden aspect-[4/5]">
+          <figure className="reveal relative rounded-3xl overflow-hidden aspect-[4/5]">
             <img
               src={problemImg}
               alt="Stiller Schreibtisch mit Smartphone – das Warten auf Anfragen"
@@ -358,7 +358,7 @@ function Warum() {
               Vorher · Wenig Sichtbarkeit
             </figcaption>
           </figure>
-          <figure className="relative rounded-3xl overflow-hidden aspect-[4/5]">
+          <figure className="reveal reveal-delay relative rounded-3xl overflow-hidden aspect-[4/5]">
             <img
               src={successImg}
               alt="Modernes, gebuchtes Beauty Studio mit zufriedener Kundin"
@@ -407,14 +407,17 @@ function Javera() {
           Das bekommst du
         </div>
         <div className="mt-6 grid sm:grid-cols-2 gap-x-10 gap-y-4">
-          {javeraPoints.map((p) => (
-            <div key={p} className="flex items-start gap-4 py-3">
+          {javeraPoints.map((p, i) => (
+            <div
+              key={p}
+              className={`reveal reveal-stagger-${(i % 7) + 1} flex items-start gap-4 py-3`}
+            >
               <span className="mt-1 text-ink shrink-0">✔</span>
               <span className="text-ink leading-relaxed">{p}</span>
             </div>
           ))}
         </div>
-        <div className="mt-12">
+        <div className="mt-12 reveal">
           <Link
             to="/demo-anfrage"
             className="inline-block px-7 py-3.5 rounded-full bg-primary text-primary-foreground hover:bg-mauve transition font-medium"
@@ -440,10 +443,10 @@ function Ablauf() {
           </h2>
         </div>
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {steps.map((s) => (
+          {steps.map((s, i) => (
             <div
               key={s.n}
-              className="p-8 rounded-3xl border border-border/60 bg-background hover:bg-cream transition"
+              className={`reveal-card reveal-stagger-${i + 1} p-8 rounded-3xl border border-border/60 bg-background hover:bg-cream transition`}
             >
               <span className="font-serif text-5xl text-muted-foreground/60">{s.n}</span>
               <h3 className="font-serif text-2xl text-ink mt-6">{s.title}</h3>
@@ -451,10 +454,10 @@ function Ablauf() {
             </div>
           ))}
         </div>
-        <p className="mt-12 text-center text-muted-foreground italic">
+        <p className="reveal mt-12 text-center text-muted-foreground italic">
           Einfach, schnell und ohne komplizierten Prozess.
         </p>
-        <div className="mt-8 text-center">
+        <div className="mt-8 text-center reveal">
           <Link
             to="/demo-anfrage"
             className="inline-block px-7 py-3.5 rounded-full bg-primary text-primary-foreground hover:bg-mauve transition font-medium"
@@ -493,7 +496,7 @@ function Zweifel() {
         </div>
         <Link
           to="/demo-anfrage"
-          className="inline-block mt-10 px-7 py-3.5 rounded-full bg-primary text-primary-foreground hover:bg-mauve transition font-medium"
+          className="reveal inline-block mt-10 px-7 py-3.5 rounded-full bg-primary text-primary-foreground hover:bg-mauve transition font-medium"
         >
           Kostenlos starten
         </Link>
@@ -515,32 +518,36 @@ function Preise() {
           </h2>
         </div>
         <div className="grid md:grid-cols-2 gap-6 md:gap-8">
-          <div className="p-10 rounded-3xl bg-background border border-border/60">
+          <div className="reveal-card p-10 rounded-3xl bg-background border border-border/60">
             <div className="text-xs uppercase tracking-wider text-muted-foreground">
               Starter Website
             </div>
             <div className="mt-3 flex items-baseline gap-2">
-              <span className="font-serif text-5xl text-ink">ab 300–400€</span>
+              <span className="font-serif text-4xl md:text-5xl text-ink">Preis auf Anfrage</span>
             </div>
             <p className="mt-4 text-muted-foreground">
               Perfekt für Studios, die sichtbar werden und erste Anfragen generieren möchten.
             </p>
             <ul className="mt-8 space-y-3 text-ink">
-              <li>· modernes Design</li>
-              <li>· mobil optimiert</li>
-              <li>· klare Struktur &amp; Texte</li>
-              <li>· Kontaktmöglichkeit</li>
-              <li>· SEO-Grundoptimierung</li>
+              {[
+                "modernes Design",
+                "mobil optimiert",
+                "klare Struktur & Texte",
+                "Kontaktmöglichkeit",
+                "SEO-Grundoptimierung",
+              ].map((item, i) => (
+                <li key={item} className={`reveal reveal-stagger-${i + 1}`}>· {item}</li>
+              ))}
             </ul>
             <Link
               to="/demo-anfrage"
-              className="mt-10 inline-block px-6 py-3 rounded-full border border-ink/20 text-ink hover:bg-ink hover:text-primary-foreground transition"
+              className="reveal mt-10 inline-block px-6 py-3 rounded-full border border-ink/20 text-ink hover:bg-ink hover:text-primary-foreground transition"
             >
               Anfragen
             </Link>
           </div>
           <div
-            className="relative p-10 rounded-3xl text-primary-foreground"
+            className="reveal-card reveal-stagger-2 relative p-10 rounded-3xl text-primary-foreground"
             style={{ backgroundColor: "var(--ink)" }}
           >
             <div className="absolute top-6 right-6 text-xs px-3 py-1 rounded-full bg-background/10 border border-background/20">
@@ -548,27 +555,31 @@ function Preise() {
             </div>
             <div className="text-xs uppercase tracking-wider opacity-70">Premium Website</div>
             <div className="mt-3">
-              <span className="font-serif text-5xl">ab 500–800€</span>
+              <span className="font-serif text-4xl md:text-5xl">Preis auf Anfrage</span>
             </div>
             <p className="mt-4 opacity-80">
               Ideal für Studios, die wachsen und sich klar von der Konkurrenz abheben wollen.
             </p>
             <ul className="mt-8 space-y-3 opacity-90">
-              <li>· mehr Seiten &amp; Inhalte</li>
-              <li>· individuelle Anpassung</li>
-              <li>· stärkere Conversion-Struktur</li>
-              <li>· bessere Google Sichtbarkeit</li>
-              <li>· Premium Design</li>
+              {[
+                "mehr Seiten & Inhalte",
+                "individuelle Anpassung",
+                "stärkere Conversion-Struktur",
+                "bessere Google Sichtbarkeit",
+                "Premium Design",
+              ].map((item, i) => (
+                <li key={item} className={`reveal reveal-stagger-${i + 1}`}>· {item}</li>
+              ))}
             </ul>
             <Link
               to="/demo-anfrage"
-              className="mt-10 inline-block px-6 py-3 rounded-full bg-background text-ink hover:opacity-90 transition"
+              className="reveal mt-10 inline-block px-6 py-3 rounded-full bg-background text-ink hover:opacity-90 transition"
             >
               Premium anfragen
             </Link>
           </div>
         </div>
-        <p className="mt-8 text-sm text-muted-foreground text-center">
+        <p className="reveal mt-8 text-sm text-muted-foreground text-center">
           zzgl. Hosting &amp; Domain (ca. 10–20€/Monat)
         </p>
       </div>
@@ -588,27 +599,27 @@ function About() {
             Über mich
           </h2>
           <div className="mt-8 space-y-5 text-muted-foreground leading-relaxed text-[1.05rem]">
-            <p>
+            <p className="reveal reveal-stagger-1">
               Ich bin Jagoda, Webdesignerin aus Wien und spezialisiert auf moderne Websites für
               Beauty Businesses.
             </p>
-            <p>
+            <p className="reveal reveal-stagger-2">
               Durch meine Erfahrung in der IT verbinde ich klares Design mit Struktur und
               Funktion. So entsteht eine Website, die nicht nur gut aussieht, sondern Vertrauen
               aufbaut und neue Kundinnen anzieht.
             </p>
-            <p>
+            <p className="reveal reveal-stagger-3">
               Ich arbeite bewusst unkompliziert: Du musst keine fertigen Texte oder Technik-Wissen
               mitbringen – ich führe dich Schritt für Schritt durch den gesamten Prozess.
             </p>
-            <p>
+            <p className="reveal reveal-stagger-4">
               Als Mama von drei Kindern weiß ich, wie wertvoll Zeit ist – deshalb ist mir eine
               einfache, klare Zusammenarbeit besonders wichtig.
             </p>
           </div>
         </div>
         <div className="order-1 md:order-2 relative">
-          <div className="aspect-[4/5] rounded-3xl overflow-hidden">
+          <div className="reveal aspect-[4/5] rounded-3xl overflow-hidden">
             <img
               src={aboutImg}
               alt="Jagoda – Webdesignerin aus Wien"
@@ -640,10 +651,10 @@ function FAQ() {
           Häufige Fragen
         </h2>
         <div className="mt-12 space-y-3">
-          {faqs.map((f) => (
+          {faqs.map((f, i) => (
             <details
               key={f.q}
-              className="group rounded-2xl bg-background border border-border/60 p-6 open:shadow-sm transition"
+              className={`reveal reveal-stagger-${(i % 6) + 1} group rounded-2xl bg-background border border-border/60 p-6 open:shadow-sm transition`}
             >
               <summary className="flex items-center justify-between cursor-pointer list-none gap-6">
                 <span className="font-serif text-lg md:text-xl text-ink">{f.q}</span>
@@ -658,7 +669,7 @@ function FAQ() {
             </details>
           ))}
         </div>
-        <div className="mt-12 text-center">
+        <div className="mt-12 text-center reveal">
           <Link
             to="/demo-anfrage"
             className="inline-block px-7 py-3.5 rounded-full bg-primary text-primary-foreground hover:bg-mauve transition font-medium"
@@ -676,7 +687,7 @@ function CTA() {
     <section id="kontakt" className="relative py-24 md:py-32 overflow-hidden">
       <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-12 md:gap-16 items-center">
         <div className="relative order-2 md:order-1">
-          <div className="aspect-[4/3] rounded-3xl overflow-hidden shadow-xl shadow-ink/10">
+          <div className="reveal aspect-[4/3] rounded-3xl overflow-hidden shadow-xl shadow-ink/10">
             <img
               src={ctaImg}
               alt="Beauty Studio Besitzerin arbeitet entspannt am Laptop"
@@ -701,11 +712,11 @@ function CTA() {
           </p>
           <Link
             to="/demo-anfrage"
-            className="inline-block mt-10 px-8 py-4 rounded-full bg-primary text-primary-foreground hover:bg-mauve transition font-medium"
+            className="reveal inline-block mt-10 px-8 py-4 rounded-full bg-primary text-primary-foreground hover:bg-mauve transition font-medium"
           >
             Kostenlose Demo sichern
           </Link>
-          <p className="mt-6 text-sm text-muted-foreground">
+          <p className="reveal mt-6 text-sm text-muted-foreground">
             Unverbindlich · unkompliziert · speziell für Beauty Studios
           </p>
         </div>
@@ -717,8 +728,9 @@ function CTA() {
 
 function Index() {
   useEffect(() => {
+    const selector = ".reveal, .reveal-card";
     if (typeof IntersectionObserver === "undefined") {
-      document.querySelectorAll(".reveal").forEach((el) => el.classList.add("is-visible"));
+      document.querySelectorAll(selector).forEach((el) => el.classList.add("is-visible"));
       return;
     }
     const observer = new IntersectionObserver(
@@ -732,7 +744,7 @@ function Index() {
       },
       { threshold: 0.15, rootMargin: "0px 0px -50px 0px" },
     );
-    document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
+    document.querySelectorAll(selector).forEach((el) => observer.observe(el));
     return () => observer.disconnect();
   }, []);
 
