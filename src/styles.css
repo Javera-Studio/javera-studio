@@ -214,17 +214,38 @@
 /* Scroll-triggered reveal */
 .reveal {
   opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  transform: translateY(25px);
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
   will-change: opacity, transform;
 }
 .reveal.is-visible {
   opacity: 1;
-  transform: translateY(0);
+  transform: translateY(0) scale(1);
 }
 .reveal-delay {
   transition-delay: 0.2s;
 }
+
+/* Card reveal: fade + slight scale */
+.reveal-card {
+  opacity: 0;
+  transform: translateY(25px) scale(0.95);
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+  will-change: opacity, transform;
+}
+.reveal-card.is-visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* Stagger delays for list items / grids */
+.reveal-stagger-1 { transition-delay: 0.1s; }
+.reveal-stagger-2 { transition-delay: 0.2s; }
+.reveal-stagger-3 { transition-delay: 0.3s; }
+.reveal-stagger-4 { transition-delay: 0.4s; }
+.reveal-stagger-5 { transition-delay: 0.5s; }
+.reveal-stagger-6 { transition-delay: 0.6s; }
+.reveal-stagger-7 { transition-delay: 0.7s; }
 
 @media (prefers-reduced-motion: reduce) {
   .hero-headline, .hero-subtitle, .hero-cta, .reveal {
