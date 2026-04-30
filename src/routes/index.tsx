@@ -253,8 +253,8 @@ function Hero() {
             Beispiele ansehen
           </a>
         </div>
-        <p className="hero-cta mt-8 text-sm text-white/75">
-          Spezialisiert auf Beauty · Demo zuerst möglich · SEO-Grundoptimierung inklusive
+        <p className="hero-cta mt-6 text-sm text-white/80">
+          Unverbindlich · Antwort in 24h · kostenlos starten
         </p>
       </div>
     </section>
