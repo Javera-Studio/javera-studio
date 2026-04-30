@@ -511,6 +511,20 @@ function Zweifel() {
 }
 
 function Preise() {
+  const starterFeatures = [
+    "Modernes, individuelles Design",
+    "Mobil optimiert (Smartphone, Tablet, Desktop)",
+    "Klare Struktur & professionelle Texte",
+    "Kontaktmöglichkeit & Buchungslink",
+    "SEO-Grundoptimierung",
+  ];
+  const premiumFeatures = [
+    "Alles aus dem Starter-Paket",
+    "Mehr Seiten & Inhalte",
+    "Stärkere Conversion-Struktur",
+    "Individuelles Branding & Premium Design",
+    "Bessere Google-Sichtbarkeit",
+  ];
   return (
     <section id="preise" className="py-24 md:py-32 bg-cream">
       <div className="max-w-6xl mx-auto px-6">
@@ -522,37 +536,37 @@ function Preise() {
             Deine Website – modern &amp; verkaufsstark
           </h2>
         </div>
-        <div className="grid md:grid-cols-2 gap-6 md:gap-8">
-          <div className="reveal-card p-10 rounded-3xl bg-background border border-border/60">
+        <div className="grid md:grid-cols-2 gap-6 md:gap-8 items-stretch">
+          {/* Starter */}
+          <div className="reveal-card p-10 rounded-3xl bg-background border border-border/60 flex flex-col">
             <div className="text-xs uppercase tracking-wider text-muted-foreground">
               Starter Website
             </div>
             <div className="mt-3 flex items-baseline gap-2">
-              <span className="font-serif text-4xl md:text-5xl text-ink">Preis auf Anfrage</span>
+              <span className="font-serif text-4xl md:text-5xl text-ink">ab 350€</span>
             </div>
             <p className="mt-4 text-muted-foreground">
               Perfekt für Studios, die sichtbar werden und erste Anfragen generieren möchten.
             </p>
-            <ul className="mt-8 space-y-3 text-ink">
-              {[
-                "modernes Design",
-                "mobil optimiert",
-                "klare Struktur & Texte",
-                "Kontaktmöglichkeit",
-                "SEO-Grundoptimierung",
-              ].map((item, i) => (
-                <li key={item} className={`reveal reveal-stagger-${i + 1}`}>· {item}</li>
+            <ul className="mt-8 space-y-3 text-ink flex-1">
+              {starterFeatures.map((item, i) => (
+                <li key={item} className={`reveal reveal-stagger-${i + 1} flex items-start gap-3`}>
+                  <span className="mt-1 text-ink shrink-0">·</span>
+                  <span>{item}</span>
+                </li>
               ))}
             </ul>
             <Link
               to="/demo-anfrage"
-              className="reveal mt-10 inline-block px-6 py-3 rounded-full border border-ink/20 text-ink hover:bg-ink hover:text-primary-foreground transition"
+              className="reveal mt-10 inline-block self-start px-6 py-3 rounded-full border border-ink/20 text-ink hover:bg-ink hover:text-primary-foreground transition"
             >
-              Anfragen
+              Demo sichern
             </Link>
           </div>
+
+          {/* Premium */}
           <div
-            className="reveal-card reveal-stagger-2 relative p-10 rounded-3xl text-primary-foreground"
+            className="reveal-card reveal-stagger-2 relative p-10 rounded-3xl text-primary-foreground flex flex-col"
             style={{ backgroundColor: "var(--ink)" }}
           >
             <div className="absolute top-6 right-6 text-xs px-3 py-1 rounded-full bg-background/10 border border-background/20">
@@ -560,33 +574,59 @@ function Preise() {
             </div>
             <div className="text-xs uppercase tracking-wider opacity-70">Premium Website</div>
             <div className="mt-3">
-              <span className="font-serif text-4xl md:text-5xl">Preis auf Anfrage</span>
+              <span className="font-serif text-4xl md:text-5xl">ab 600€</span>
             </div>
             <p className="mt-4 opacity-80">
               Ideal für Studios, die wachsen und sich klar von der Konkurrenz abheben wollen.
             </p>
-            <ul className="mt-8 space-y-3 opacity-90">
-              {[
-                "mehr Seiten & Inhalte",
-                "individuelle Anpassung",
-                "stärkere Conversion-Struktur",
-                "bessere Google Sichtbarkeit",
-                "Premium Design",
-              ].map((item, i) => (
-                <li key={item} className={`reveal reveal-stagger-${i + 1}`}>· {item}</li>
+            <ul className="mt-8 space-y-3 opacity-90 flex-1">
+              {premiumFeatures.map((item, i) => (
+                <li key={item} className={`reveal reveal-stagger-${i + 1} flex items-start gap-3`}>
+                  <span className="mt-1 shrink-0">·</span>
+                  <span>{item}</span>
+                </li>
               ))}
             </ul>
             <Link
               to="/demo-anfrage"
-              className="reveal mt-10 inline-block px-6 py-3 rounded-full bg-background text-ink hover:opacity-90 transition"
+              className="reveal mt-10 inline-block self-start px-6 py-3 rounded-full bg-background text-ink hover:opacity-90 transition"
             >
-              Premium anfragen
+              Demo sichern
             </Link>
           </div>
         </div>
-        <p className="reveal mt-8 text-sm text-muted-foreground text-center">
-          zzgl. Hosting &amp; Domain (ca. 10–20€/Monat)
-        </p>
+
+        {/* Why prices vary */}
+        <div className="reveal mt-10 p-8 md:p-10 rounded-3xl bg-background border border-border/60">
+          <h3 className="font-serif text-2xl text-ink">Warum variieren die Preise?</h3>
+          <p className="mt-4 text-muted-foreground leading-relaxed">
+            Jede Website ist anders – ein kleines Studio mit einer Seite hat andere Bedürfnisse
+            als ein Klinik-Betrieb mit mehreren Leistungen, Galerie und Blog. Der genaue Preis
+            hängt vom Umfang, den gewünschten Funktionen und der Anzahl der Seiten ab. Du
+            bekommst immer ein klares Angebot bevor es losgeht – keine Überraschungen.
+          </p>
+        </div>
+
+        {/* Hosting & Domain explainer */}
+        <div className="reveal mt-6 p-8 md:p-10 rounded-3xl bg-peach-soft border border-border/40">
+          <h3 className="font-serif text-2xl text-ink">Was ist Hosting &amp; Domain?</h3>
+          <div className="mt-4 space-y-4 text-ink/80 leading-relaxed">
+            <p>
+              <strong className="text-ink">Domain</strong> ist deine Web-Adresse – also z.B.
+              dein-studio.at. Die reservierst du einmal im Jahr, meist für ca. 10–20€/Jahr.
+            </p>
+            <p>
+              <strong className="text-ink">Hosting</strong> ist der Speicherplatz im Internet,
+              auf dem deine Website liegt – damit sie rund um die Uhr erreichbar ist. Das
+              kostet ca. 5–15€ pro Monat.
+            </p>
+            <p>
+              Ich erkläre dir alles Schritt für Schritt und helfe dir beim Einrichten. Domain
+              und Hosting laufen direkt auf deinen Namen – du hast immer die volle Kontrolle
+              über deine Website.
+            </p>
+          </div>
+        </div>
       </div>
     </section>
   );
