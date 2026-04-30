@@ -140,6 +140,26 @@ const faqs = [
     q: "Was passiert nach der Demo?",
     a: "Du bekommst eine erste Version deiner Website. Danach passen wir alles gemeinsam an, bis es genau zu deinem Studio passt – erst dann geht sie online.",
   },
+  {
+    q: "Was kostet mich die Demo?",
+    a: "Die Demo ist komplett kostenlos und unverbindlich. Du siehst zuerst, wie deine Website aussehen könnte – und entscheidest danach, ob du weitermachen möchtest.",
+  },
+  {
+    q: "Muss ich sofort bezahlen?",
+    a: "Nein. Erst wenn du mit der Demo zufrieden bist und wir alles abgestimmt haben, beginnt die Zusammenarbeit. Keine Vorauszahlung, keine versteckten Kosten.",
+  },
+  {
+    q: "Was passiert, wenn mir die Website nicht gefällt?",
+    a: "Wir passen so lange an, bis sie wirklich zu deinem Studio passt. Dein Feedback ist Teil des Prozesses – das ist kein Fertigprodukt von der Stange.",
+  },
+  {
+    q: "Ich bin kein Technik-Mensch – ist das ein Problem?",
+    a: "Überhaupt nicht. Du musst dich um nichts kümmern. Ich erkläre dir jeden Schritt verständlich und übernehme alles Technische für dich.",
+  },
+  {
+    q: "Arbeite ich direkt mit dir oder mit einem Team?",
+    a: "Du arbeitest ausschließlich mit mir – Jagoda. Kein anonymes Team, keine Weiterleitung. Ich bin deine direkte Ansprechpartnerin von Anfang bis Ende.",
+  },
 ];
 
 function Nav() {
