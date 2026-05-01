@@ -170,7 +170,9 @@ function BlogPost() {
             {post.title}
           </h1>
 
-          <div className="prose-blog text-foreground/90">{post.content()}</div>
+          <div className="text-foreground/90 leading-relaxed space-y-5 [&_h2]:font-serif [&_h2]:text-2xl [&_h2]:text-ink [&_h2]:mt-10 [&_h2]:mb-3 [&_strong]:text-ink">
+            {post.content()}
+          </div>
 
           <div className="mt-12 p-6 md:p-8 bg-cream border border-border rounded-2xl text-center">
             <p className="text-ink font-semibold mb-2">
