@@ -531,123 +531,171 @@ function Zweifel() {
   );
 }
 
-function Preise() {
-  const starterFeatures = [
-    "Modernes, individuelles Design",
-    "Mobil optimiert (Smartphone, Tablet, Desktop)",
-    "Fertige Texte auf Basis eines kurzen Briefings",
-    "Kontaktmöglichkeit & Buchungslink",
-    "SEO-Grundoptimierung",
-  ];
-  const premiumFeatures = [
-    "Alles aus dem Starter-Paket",
-    "Mehr Seiten & Inhalte",
-    "Stärkere Conversion-Struktur",
-    "Individuelles Branding & Premium Design",
-    "Bessere Google-Sichtbarkeit",
-  ];
+type FeatureItem = { included: boolean; title: string; desc?: string };
+
+function FeatureRow({ included, title, desc }: FeatureItem) {
   return (
-    <section id="preise" className="py-24 md:py-32 bg-cream">
-      <div className="max-w-6xl mx-auto px-6">
-        <div className="max-w-2xl mb-16">
-          <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-4">
+    <div className={`flex gap-2.5 mb-2.5 text-sm ${included ? "" : "opacity-40"}`}>
+      <span
+        className="shrink-0 leading-tight text-base"
+        style={{ color: included ? "#0F6E56" : undefined }}
+      >
+        {included ? "✓" : "✕"}
+      </span>
+      <div>
+        <strong className="text-ink">{title}</strong>
+        {desc && (
+          <>
+            <br />
+            <span className="text-muted-foreground">{desc}</span>
+          </>
+        )}
+      </div>
+    </div>
+  );
+}
+
+function SectionLabel({ children }: { children: React.ReactNode }) {
+  return (
+    <p className="text-[11px] font-semibold text-muted-foreground/70 uppercase tracking-[0.06em] mt-4 mb-2.5 first:mt-0">
+      {children}
+    </p>
+  );
+}
+
+function Preise() {
+  const starterDesignContent: FeatureItem[] = [
+    { included: true, title: "Individuelles Design", desc: "Farben & Stil passend zu deinem Studio" },
+    { included: true, title: "Texte", desc: "Struktur & Mustertexte — du passt sie an" },
+    { included: true, title: "Galerie", desc: "Einfaches Bildraster, bis 9 Fotos" },
+    { included: true, title: "Mobil optimiert", desc: "Smartphone, Tablet, Desktop" },
+  ];
+  const starterBooking: FeatureItem[] = [
+    { included: true, title: "Buchungslink", desc: "Link zu Treatwell, Booksy o.ä." },
+    { included: true, title: "SEO-Grundoptimierung" },
+    { included: false, title: "Interaktive Animationen" },
+    { included: false, title: "Vorher/Nachher-Slider" },
+    { included: false, title: "Buchungs-Widget eingebettet" },
+  ];
+  const starterSupport: FeatureItem[] = [
+    { included: true, title: "2 Überarbeitungsrunden" },
+    { included: true, title: "14 Tage Nachbetreuung" },
+  ];
+
+  const premiumDesignContent: FeatureItem[] = [
+    { included: true, title: "Premium Branding & Design", desc: "Individuelles Konzept & Farbwelt" },
+    { included: true, title: "Vollständige Texte", desc: "Fertige Texte auf Basis eines kurzen Briefings" },
+    { included: true, title: "Galerie mit Filter & Kategorien", desc: "Unbegrenzte Bilder, aufgeräumt sortiert" },
+    { included: true, title: "Mobil optimiert", desc: "Smartphone, Tablet, Desktop" },
+  ];
+  const premiumInteractive: FeatureItem[] = [
+    { included: true, title: "Scroll-Animationen", desc: "Elemente faden elegant ein" },
+    { included: true, title: "Vorher/Nachher-Slider", desc: "Perfekt für Kosmetik & Laser" },
+    { included: true, title: "Buchungs-Widget eingebettet", desc: "Direkt auf der Seite buchen" },
+    { included: true, title: "SEO erweitert + Google Maps" },
+  ];
+  const premiumSupport: FeatureItem[] = [
+    { included: true, title: "Unbegrenzte Überarbeitungen" },
+    { included: true, title: "30 Tage Nachbetreuung" },
+  ];
+
+  return (
+    <section id="preise" className="py-16 md:py-24 bg-cream">
+      <div className="max-w-4xl mx-auto px-6">
+        <div className="text-center mb-10">
+          <p className="text-xs uppercase tracking-[0.08em] text-muted-foreground mb-2">
             Angebot
-          </div>
-          <h2 className="reveal font-serif text-4xl md:text-5xl text-ink leading-tight">
+          </p>
+          <h2 className="reveal font-serif text-3xl md:text-4xl text-ink mb-3">
             Deine Website – modern &amp; verkaufsstark
           </h2>
-        </div>
-        <div className="grid md:grid-cols-2 gap-6 md:gap-8 items-stretch">
-          {/* Starter */}
-          <div className="reveal-card p-10 rounded-3xl bg-background border border-border/60 flex flex-col">
-            <div className="text-xs uppercase tracking-wider text-muted-foreground">
-              Starter Website
-            </div>
-            <div className="mt-3 flex items-baseline gap-2">
-              <span className="font-serif text-4xl md:text-5xl text-ink">ab 350€</span>
-            </div>
-            <p className="mt-4 text-muted-foreground">
-              Perfekt für Studios, die sichtbar werden und erste Anfragen generieren möchten.
-            </p>
-            <ul className="mt-8 space-y-3 text-ink flex-1">
-              {starterFeatures.map((item, i) => (
-                <li key={item} className={`reveal reveal-stagger-${i + 1} flex items-start gap-3`}>
-                  <span className="mt-1 text-ink shrink-0">·</span>
-                  <span>{item}</span>
-                </li>
-              ))}
-            </ul>
-            <Link
-              to="/demo-anfrage"
-              className="reveal mt-10 inline-block self-start px-6 py-3 rounded-full border border-ink/20 text-ink hover:bg-ink hover:text-primary-foreground transition"
-            >
-              Demo sichern
-            </Link>
-          </div>
-
-          {/* Premium */}
-          <div
-            className="reveal-card reveal-stagger-2 relative p-10 rounded-3xl text-primary-foreground flex flex-col"
-            style={{ backgroundColor: "var(--ink)" }}
-          >
-            <div className="absolute top-6 right-6 text-xs px-3 py-1 rounded-full bg-background/10 border border-background/20">
-              Empfohlen
-            </div>
-            <div className="text-xs uppercase tracking-wider opacity-70">Premium Website</div>
-            <div className="mt-3">
-              <span className="font-serif text-4xl md:text-5xl">ab 600€</span>
-            </div>
-            <p className="mt-4 opacity-80">
-              Ideal für Studios, die wachsen und sich klar von der Konkurrenz abheben wollen.
-            </p>
-            <ul className="mt-8 space-y-3 opacity-90 flex-1">
-              {premiumFeatures.map((item, i) => (
-                <li key={item} className={`reveal reveal-stagger-${i + 1} flex items-start gap-3`}>
-                  <span className="mt-1 shrink-0">·</span>
-                  <span>{item}</span>
-                </li>
-              ))}
-            </ul>
-            <Link
-              to="/demo-anfrage"
-              className="reveal mt-10 inline-block self-start px-6 py-3 rounded-full bg-background text-ink hover:opacity-90 transition"
-            >
-              Demo sichern
-            </Link>
-          </div>
-        </div>
-
-        {/* Why prices vary */}
-        <div className="reveal mt-10 p-8 md:p-10 rounded-3xl bg-background border border-border/60">
-          <h3 className="font-serif text-2xl text-ink">Warum variieren die Preise?</h3>
-          <p className="mt-4 text-muted-foreground leading-relaxed">
-            Jede Website ist anders – ein kleines Studio mit einer Seite hat andere Bedürfnisse
-            als ein Klinik-Betrieb mit mehreren Leistungen, Galerie und Blog. Der genaue Preis
-            hängt vom Umfang, den gewünschten Funktionen und der Anzahl der Seiten ab. Du
-            bekommst immer ein klares Angebot bevor es losgeht – keine Überraschungen.
+          <p className="text-muted-foreground max-w-lg mx-auto">
+            Du bekommst zuerst eine kostenlose Demo – und entscheidest danach.
           </p>
         </div>
 
-        {/* Hosting & Domain explainer */}
-        <div className="reveal mt-6 p-8 md:p-10 rounded-3xl bg-peach-soft border border-border/40">
-          <h3 className="font-serif text-2xl text-ink">Was ist Hosting &amp; Domain?</h3>
-          <div className="mt-4 space-y-4 text-ink/80 leading-relaxed">
-            <p>
-              <strong className="text-ink">Domain</strong> ist deine Web-Adresse – also z.B.
-              dein-studio.at. Die reservierst du einmal im Jahr, meist für ca. 10–20€/Jahr.
+        <div className="grid md:grid-cols-2 gap-5">
+          {/* STARTER */}
+          <div className="reveal-card bg-background border border-border rounded-2xl p-8">
+            <p className="text-lg font-semibold text-ink mb-1">Starter</p>
+            <p className="text-sm text-muted-foreground mb-5">
+              Für Studios die sichtbar werden wollen
             </p>
-            <p>
-              <strong className="text-ink">Hosting</strong> ist der Speicherplatz im Internet,
-              auf dem deine Website liegt – damit sie rund um die Uhr erreichbar ist. Das
-              kostet ca. 5–15€ pro Monat.
+            <div className="text-3xl font-bold text-ink leading-none">
+              ab 350 €{" "}
+              <span className="text-sm font-normal text-muted-foreground">einmalig</span>
+            </div>
+            <div className="flex gap-2 mt-3 flex-wrap">
+              <span className="text-xs bg-secondary text-foreground/70 rounded-full px-2.5 py-0.5">
+                1 Seite
+              </span>
+              <span className="text-xs bg-secondary text-foreground/70 rounded-full px-2.5 py-0.5">
+                5–7 Tage
+              </span>
+            </div>
+            <hr className="border-t border-border/60 my-5" />
+
+            <SectionLabel>Design & Inhalt</SectionLabel>
+            {starterDesignContent.map((f) => <FeatureRow key={f.title} {...f} />)}
+
+            <SectionLabel>Buchung & Sichtbarkeit</SectionLabel>
+            {starterBooking.map((f) => <FeatureRow key={f.title} {...f} />)}
+
+            <SectionLabel>Support</SectionLabel>
+            {starterSupport.map((f) => <FeatureRow key={f.title} {...f} />)}
+
+            <Link
+              to="/demo-anfrage"
+              className="block text-center mt-4 py-3 bg-secondary text-ink font-semibold text-sm rounded-xl hover:bg-secondary/80 transition"
+            >
+              Kostenlose Demo sichern
+            </Link>
+          </div>
+
+          {/* PREMIUM */}
+          <div className="reveal-card reveal-stagger-2 bg-background border-2 border-primary rounded-2xl p-8">
+            <div className="inline-block bg-accent text-primary text-[11px] font-semibold px-3 py-1 rounded-full mb-3">
+              Empfohlen
+            </div>
+            <p className="text-lg font-semibold text-ink mb-1">Premium</p>
+            <p className="text-sm text-muted-foreground mb-5">
+              Für Studios die wachsen wollen
             </p>
-            <p>
-              Ich erkläre dir alles Schritt für Schritt und helfe dir beim Einrichten. Domain
-              und Hosting laufen direkt auf deinen Namen – du hast immer die volle Kontrolle
-              über deine Website.
-            </p>
+            <div className="text-3xl font-bold text-ink leading-none">
+              ab 600 €{" "}
+              <span className="text-sm font-normal text-muted-foreground">einmalig</span>
+            </div>
+            <div className="flex gap-2 mt-3 flex-wrap">
+              <span className="text-xs bg-secondary text-foreground/70 rounded-full px-2.5 py-0.5">
+                3–5 Seiten
+              </span>
+              <span className="text-xs bg-secondary text-foreground/70 rounded-full px-2.5 py-0.5">
+                10–14 Tage
+              </span>
+            </div>
+            <hr className="border-t border-border/60 my-5" />
+
+            <SectionLabel>Design & Inhalt</SectionLabel>
+            {premiumDesignContent.map((f) => <FeatureRow key={f.title} {...f} />)}
+
+            <SectionLabel>Interaktiv & Buchung</SectionLabel>
+            {premiumInteractive.map((f) => <FeatureRow key={f.title} {...f} />)}
+
+            <SectionLabel>Support</SectionLabel>
+            {premiumSupport.map((f) => <FeatureRow key={f.title} {...f} />)}
+
+            <Link
+              to="/demo-anfrage"
+              className="block text-center mt-4 py-3 bg-primary text-primary-foreground font-semibold text-sm rounded-xl hover:bg-primary/90 transition"
+            >
+              Kostenlose Demo sichern
+            </Link>
           </div>
         </div>
+
+        <p className="text-center text-[13px] text-muted-foreground mt-4">
+          Nicht sicher welches Paket passt? Demo anfragen — ich berate dich kurz und kostenlos.
+        </p>
       </div>
     </section>
   );
