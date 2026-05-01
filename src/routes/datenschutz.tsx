@@ -111,8 +111,8 @@ function DatenschutzPage() {
           <Section title="8. Kontakt">
             <p>
               Für Fragen zum Datenschutz kontaktieren Sie uns unter:{" "}
-              <a href="mailto:javera.studio@gmail.com" className="underline hover:text-ink">
-                javera.studio@gmail.com
+              <a href="mailto:hallo@javera-studio.at" className="underline hover:text-ink">
+                hallo@javera-studio.at
               </a>
             </p>
           </Section>

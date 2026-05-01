@@ -860,7 +860,7 @@ function SchreibMir() {
     const body = encodeURIComponent(
       `Name: ${name}\nE-Mail: ${email}\n\nNachricht:\n${message}`,
     );
-    window.location.href = `mailto:javera.studio@gmail.com?subject=${subject}&body=${body}`;
+    window.location.href = `mailto:hallo@javera-studio.at?subject=${subject}&body=${body}`;
   }
 
   return (
@@ -926,10 +926,10 @@ function SchreibMir() {
           <p className="text-xs text-center text-muted-foreground">
             Oder direkt per E-Mail an{" "}
             <a
-              href="mailto:javera.studio@gmail.com"
+              href="mailto:hallo@javera-studio.at"
               className="underline hover:text-ink"
             >
-              javera.studio@gmail.com
+              hallo@javera-studio.at
             </a>
           </p>
         </form>
