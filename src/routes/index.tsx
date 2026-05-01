@@ -653,8 +653,8 @@ function Preise() {
           </div>
 
           {/* PREMIUM */}
-          <div className="reveal-card reveal-stagger-2 bg-background border-2 border-primary rounded-2xl p-8">
-            <div className="inline-block bg-accent text-primary text-[11px] font-semibold px-3 py-1 rounded-full mb-3">
+          <div className="reveal-card reveal-stagger-2 relative bg-background border-2 border-primary rounded-2xl p-8">
+            <div className="absolute -top-3 left-8 bg-accent text-primary text-[11px] font-semibold px-3 py-1 rounded-full">
               Empfohlen
             </div>
             <p className="text-lg font-semibold text-ink mb-1">Premium</p>
