@@ -535,7 +535,7 @@ function Preise() {
   const starterFeatures = [
     "Modernes, individuelles Design",
     "Mobil optimiert (Smartphone, Tablet, Desktop)",
-    "Klare Struktur & professionelle Texte",
+    "Fertige Texte auf Basis eines kurzen Briefings",
     "Kontaktmöglichkeit & Buchungslink",
     "SEO-Grundoptimierung",
   ];
