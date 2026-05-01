@@ -53,8 +53,8 @@ function ImpressumPage() {
             <h2 className="text-lg font-medium">Kontakt</h2>
             <p className="text-muted-foreground">
               E-Mail:{" "}
-              <a href="mailto:javera.studio@gmail.com" className="underline hover:text-ink">
-                javera.studio@gmail.com
+              <a href="mailto:hallo@javera-studio.at" className="underline hover:text-ink">
+                hallo@javera-studio.at
               </a>
             </p>
           </section>

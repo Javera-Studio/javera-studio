@@ -17,10 +17,10 @@ export function SiteFooter() {
           </nav>
           <div className="flex flex-wrap items-center justify-center md:justify-end gap-x-3 gap-y-1 text-xs">
             <a
-              href="mailto:javera.studio@gmail.com"
+              href="mailto:hallo@javera-studio.at"
               className="hover:text-ink transition-colors py-1"
             >
-              javera.studio@gmail.com
+              hallo@javera-studio.at
             </a>
             <span aria-hidden className="opacity-40">·</span>
             <a
