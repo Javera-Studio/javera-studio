@@ -1,6 +1,8 @@
 import type { FormEvent } from "react";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { toast } from "sonner";
+import { supabase } from "@/integrations/supabase/client";
 import aboutImg from "@/assets/portrait.png";
 import logo from "@/assets/javera-logo.png";
 import problemImg from "@/assets/problem.jpg";
@@ -849,18 +851,40 @@ function CTA() {
 }
 
 function SchreibMir() {
-  function handleSubmit(e: FormEvent<HTMLFormElement>) {
+  const [submitting, setSubmitting] = useState(false);
+  const [done, setDone] = useState(false);
+
+  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
+    if (submitting) return;
     const form = e.currentTarget;
     const data = new FormData(form);
     const name = String(data.get("name") || "").trim();
     const email = String(data.get("email") || "").trim();
     const message = String(data.get("message") || "").trim();
-    const subject = encodeURIComponent(`Neue Nachricht von ${name || "Website"}`);
-    const body = encodeURIComponent(
-      `Name: ${name}\nE-Mail: ${email}\n\nNachricht:\n${message}`,
-    );
-    window.location.href = `mailto:hallo@javera-studio.at?subject=${subject}&body=${body}`;
+
+    if (!name || !email || !message) {
+      toast.error("Bitte fülle alle Felder aus.");
+      return;
+    }
+    if (name.length > 120 || email.length > 255 || message.length > 5000) {
+      toast.error("Eingaben sind zu lang.");
+      return;
+    }
+
+    setSubmitting(true);
+    const { error } = await supabase
+      .from("contact_messages")
+      .insert({ name, email, message });
+    setSubmitting(false);
+
+    if (error) {
+      toast.error("Etwas ist schiefgelaufen. Bitte versuch es gleich nochmal.");
+      return;
+    }
+    setDone(true);
+    toast.success("Danke für deine Anfrage – ich melde mich in Kürze.");
+    form.reset();
   }
 
   return (
@@ -875,64 +899,101 @@ function SchreibMir() {
         <p className="reveal reveal-delay mt-4 text-center text-muted-foreground text-lg">
           Eine kurze Nachricht reicht – ich melde mich persönlich bei dir.
         </p>
-        <form
-          onSubmit={handleSubmit}
-          className="reveal mt-12 space-y-5 p-8 md:p-10 rounded-3xl bg-background border border-border/60"
-        >
-          <div>
-            <label htmlFor="sm-name" className="block text-sm text-ink mb-2">
-              Name
-            </label>
-            <input
-              id="sm-name"
-              name="name"
-              type="text"
-              required
-              autoComplete="name"
-              className="w-full px-4 py-3 rounded-xl border border-border bg-background text-ink focus:outline-none focus:ring-2 focus:ring-ring"
-            />
-          </div>
-          <div>
-            <label htmlFor="sm-email" className="block text-sm text-ink mb-2">
-              E-Mail
-            </label>
-            <input
-              id="sm-email"
-              name="email"
-              type="email"
-              required
-              autoComplete="email"
-              className="w-full px-4 py-3 rounded-xl border border-border bg-background text-ink focus:outline-none focus:ring-2 focus:ring-ring"
-            />
-          </div>
-          <div>
-            <label htmlFor="sm-message" className="block text-sm text-ink mb-2">
-              Nachricht
-            </label>
-            <textarea
-              id="sm-message"
-              name="message"
-              required
-              rows={5}
-              className="w-full px-4 py-3 rounded-xl border border-border bg-background text-ink focus:outline-none focus:ring-2 focus:ring-ring"
-            />
-          </div>
-          <button
-            type="submit"
-            className="w-full px-7 py-3.5 rounded-full bg-primary text-primary-foreground hover:bg-mauve transition font-medium"
-          >
-            Nachricht senden
-          </button>
-          <p className="text-xs text-center text-muted-foreground">
-            Oder direkt per E-Mail an{" "}
-            <a
-              href="mailto:hallo@javera-studio.at"
-              className="underline hover:text-ink"
+
+        {done ? (
+          <div className="reveal mt-12 p-10 md:p-12 rounded-3xl bg-background border border-border/60 text-center">
+            <div
+              className="w-14 h-14 mx-auto rounded-full grid place-content-center mb-6"
+              style={{ backgroundColor: "var(--mint-soft, #e6f4ee)" }}
             >
-              hallo@javera-studio.at
-            </a>
-          </p>
-        </form>
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.5"
+                className="w-7 h-7 text-ink"
+              >
+                <path d="m5 12 5 5L20 7" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </div>
+            <h3 className="font-serif text-2xl md:text-3xl text-ink">
+              Danke für deine Anfrage!
+            </h3>
+            <p className="mt-3 text-muted-foreground">
+              Ich melde mich in Kürze persönlich bei dir.
+            </p>
+            <button
+              type="button"
+              onClick={() => setDone(false)}
+              className="mt-6 text-sm text-ink underline hover:opacity-70"
+            >
+              Weitere Nachricht schreiben
+            </button>
+          </div>
+        ) : (
+          <form
+            onSubmit={handleSubmit}
+            className="reveal mt-12 space-y-5 p-8 md:p-10 rounded-3xl bg-background border border-border/60"
+          >
+            <div>
+              <label htmlFor="sm-name" className="block text-sm text-ink mb-2">
+                Name
+              </label>
+              <input
+                id="sm-name"
+                name="name"
+                type="text"
+                required
+                maxLength={120}
+                autoComplete="name"
+                className="w-full px-4 py-3 rounded-xl border border-border bg-background text-ink focus:outline-none focus:ring-2 focus:ring-ring"
+              />
+            </div>
+            <div>
+              <label htmlFor="sm-email" className="block text-sm text-ink mb-2">
+                E-Mail
+              </label>
+              <input
+                id="sm-email"
+                name="email"
+                type="email"
+                required
+                maxLength={255}
+                autoComplete="email"
+                className="w-full px-4 py-3 rounded-xl border border-border bg-background text-ink focus:outline-none focus:ring-2 focus:ring-ring"
+              />
+            </div>
+            <div>
+              <label htmlFor="sm-message" className="block text-sm text-ink mb-2">
+                Nachricht
+              </label>
+              <textarea
+                id="sm-message"
+                name="message"
+                required
+                rows={5}
+                maxLength={5000}
+                className="w-full px-4 py-3 rounded-xl border border-border bg-background text-ink focus:outline-none focus:ring-2 focus:ring-ring"
+              />
+            </div>
+            <button
+              type="submit"
+              disabled={submitting}
+              className="w-full px-7 py-3.5 rounded-full bg-primary text-primary-foreground hover:bg-mauve transition font-medium disabled:opacity-60 disabled:cursor-not-allowed"
+            >
+              {submitting ? "Wird gesendet…" : "Nachricht senden"}
+            </button>
+            <p className="text-xs text-center text-muted-foreground">
+              Oder direkt per E-Mail an{" "}
+              <a
+                href="mailto:hallo@javera-studio.at"
+                className="underline hover:text-ink"
+              >
+                hallo@javera-studio.at
+              </a>
+            </p>
+          </form>
+        )}
       </div>
     </section>
   );
