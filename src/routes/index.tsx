@@ -185,6 +185,7 @@ function Nav() {
           <a href="#preise" className="hover:text-ink transition">Preise</a>
           <a href="#about" className="hover:text-ink transition">Über mich</a>
           <a href="#faq" className="hover:text-ink transition">FAQ</a>
+          <Link to="/blog" className="hover:text-ink transition">Blog</Link>
         </nav>
         <Link
           to="/demo-anfrage"
