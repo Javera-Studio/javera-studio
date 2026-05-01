@@ -1,4 +1,5 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
+import type { ReactElement } from "react";
 import { SiteFooter } from "@/components/SiteFooter";
 
 type Post = {
@@ -7,7 +8,7 @@ type Post = {
   description: string;
   date: string;
   readTime: string;
-  content: () => JSX.Element;
+  content: () => ReactElement;
 };
 
 const posts: Record<string, Post> = {
