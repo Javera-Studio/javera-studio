@@ -640,7 +640,7 @@ function Preise() {
             Deine Website – modern &amp; verkaufsstark
           </h2>
           <p className="text-muted-foreground max-w-lg mx-auto">
-            Du bekommst zuerst eine kostenlose Demo – und entscheidest danach.
+            Für 3 ausgewählte Studios erstelle ich aktuell eine kostenlose Demo – damit du siehst wie deine Website aussehen könnte, bevor du dich entscheidest. Danach: Demo ab 99 € — wird bei Beauftragung voll angerechnet.
           </p>
         </div>
 
