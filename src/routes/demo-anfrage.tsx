@@ -1,7 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { z } from "zod";
-import { supabase } from "@/integrations/supabase/client";
 import logo from "@/assets/javera-logo.png";
 import { SiteFooter } from "@/components/SiteFooter";
 
@@ -171,20 +170,26 @@ function DemoAnfrage() {
       return;
     }
     setSubmitting(true);
-    const { error } = await supabase.from("demo_requests").insert({
-      name: parsed.data.name,
-      studio_name: parsed.data.studio_name,
-      studio_type: parsed.data.studio_type,
-      has_website: parsed.data.has_website,
-      goals: parsed.data.goals,
-      styles: parsed.data.styles,
-      content_status: parsed.data.content_status,
-      start_time: parsed.data.start_time,
-      budget: parsed.data.budget,
-      notes: parsed.data.notes ?? null,
+    const response = await fetch("/api/public/demo-request", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        name: parsed.data.name,
+        studio_name: parsed.data.studio_name,
+        studio_type: parsed.data.studio_type,
+        has_website: parsed.data.has_website,
+        goals: parsed.data.goals,
+        styles: parsed.data.styles,
+        content_status: parsed.data.content_status,
+        start_time: parsed.data.start_time,
+        budget: parsed.data.budget,
+        notes: parsed.data.notes ?? null,
+      }),
     });
     setSubmitting(false);
-    if (error) {
+    if (!response.ok) {
       setServerError("Etwas ist schiefgelaufen. Bitte versuch es gleich nochmal.");
       return;
     }
