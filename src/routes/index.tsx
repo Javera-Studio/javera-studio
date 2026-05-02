@@ -144,7 +144,7 @@ const faqs = [
   },
   {
     q: "Was kostet mich die Demo?",
-    a: "Die Demo ist komplett kostenlos und unverbindlich. Du siehst zuerst, wie deine Website aussehen könnte – und entscheidest danach, ob du weitermachen möchtest.",
+    a: "Aktuell biete ich 3 ausgewählten Studios eine kostenlose Demo an. Du siehst zuerst das Ergebnis – und entscheidest dann, ob du weitermachen möchtest. Nach Vergabe der 3 Plätze ist die Demo ab 99 € erhältlich — dieser Betrag wird bei einer Beauftragung vollständig angerechnet.",
   },
   {
     q: "Muss ich sofort bezahlen?",
@@ -236,7 +236,7 @@ function Hero() {
       <div className="relative z-10 max-w-4xl mx-auto px-6 pt-36 pb-24 md:pt-44 md:pb-32 text-center">
         <div className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-white/80 mb-6 hero-subtitle">
           <span className="w-8 h-px bg-white/50" />
-          Spezialisiert auf Beauty Websites
+          Aktuell: 3 Plätze für kostenlose Demo verfügbar
         </div>
         <h1 className="hero-headline font-serif text-5xl md:text-6xl lg:text-7xl leading-[1.05] text-white">
           Mehr Kundinnen &amp; Buchungen für dein <em className="text-white/75">Beauty Studio</em> – mit einer Website, die verkauft.
@@ -279,13 +279,13 @@ function Announcement() {
           Limitiert
         </div>
         <p className="flex-1 font-serif text-base md:text-lg leading-relaxed text-ink">
-          Ich nehme aktuell <span className="text-mauve font-medium">3 neue Projekte</span> an — für ausgewählte Beauty Studios in Wien erstelle ich eine kostenlose Demo-Webseite, damit du siehst wie dein Studio online aussehen könnte, bevor du dich entscheidest.
+          Ich nehme aktuell <span className="text-mauve font-medium">3 neue Studios</span> auf — und erstelle ihnen eine kostenlose Demo-Website. Unverbindlich, persönlich, auf dein Studio zugeschnitten.
         </p>
         <Link
           to="/demo-anfrage"
           className="flex-shrink-0 inline-flex items-center justify-center px-6 py-3 bg-mauve text-white text-sm tracking-wide hover:bg-primary transition-colors rounded-sm shadow-sm"
         >
-          Demo anfragen
+          Jetzt Platz sichern
         </Link>
       </div>
     </section>
@@ -640,7 +640,7 @@ function Preise() {
             Deine Website – modern &amp; verkaufsstark
           </h2>
           <p className="text-muted-foreground max-w-lg mx-auto">
-            Du bekommst zuerst eine kostenlose Demo – und entscheidest danach.
+            Für 3 ausgewählte Studios erstelle ich aktuell eine kostenlose Demo – damit du siehst wie deine Website aussehen könnte, bevor du dich entscheidest. Danach: Demo ab 99 € — wird bei Beauftragung voll angerechnet.
           </p>
         </div>
 
