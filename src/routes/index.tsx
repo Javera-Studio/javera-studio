@@ -2,7 +2,6 @@ import type { FormEvent } from "react";
 import { useEffect, useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { toast } from "sonner";
-import { supabase } from "@/integrations/supabase/client";
 import aboutImg from "@/assets/portrait.png";
 import logo from "@/assets/javera-logo.png";
 import problemImg from "@/assets/problem.jpg";
@@ -873,12 +872,16 @@ function SchreibMir() {
     }
 
     setSubmitting(true);
-    const { error } = await supabase
-      .from("contact_messages")
-      .insert({ name, email, message });
+    const response = await fetch("/api/public/contact", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ name, email, message }),
+    });
     setSubmitting(false);
 
-    if (error) {
+    if (!response.ok) {
       toast.error("Etwas ist schiefgelaufen. Bitte versuch es gleich nochmal.");
       return;
     }
@@ -984,13 +987,7 @@ function SchreibMir() {
               {submitting ? "Wird gesendet…" : "Nachricht senden"}
             </button>
             <p className="text-xs text-center text-muted-foreground">
-              Oder direkt per E-Mail an{" "}
-              <a
-                href="mailto:hallo@javera-studio.at"
-                className="underline hover:text-ink"
-              >
-                hallo@javera-studio.at
-              </a>
+              Deine Nachricht wird direkt an hello@javera-studio.at übermittelt.
             </p>
           </form>
         )}
