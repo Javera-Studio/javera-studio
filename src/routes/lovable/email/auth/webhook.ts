@@ -1,7 +1,5 @@
 import * as React from 'react'
 import { render } from '@react-email/components'
-import { parseEmailWebhookPayload } from '@lovable.dev/email-js'
-import { WebhookError, verifyWebhookRequest } from '@lovable.dev/webhooks-js'
 import { createClient } from '@supabase/supabase-js'
 import { createFileRoute } from '@tanstack/react-router'
 import { SignupEmail } from '@/lib/email-templates/signup'
@@ -47,6 +45,10 @@ export const Route = createFileRoute("/lovable/email/auth/webhook")({
   server: {
     handlers: {
       POST: async ({ request }) => {
+        const [{ parseEmailWebhookPayload }, { WebhookError, verifyWebhookRequest }] = await Promise.all([
+          import('@lovable.dev/email-js'),
+          import('@lovable.dev/webhooks-js'),
+        ])
         const apiKey = process.env.LOVABLE_API_KEY
 
         if (!apiKey) {
