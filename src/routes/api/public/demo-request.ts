@@ -1,0 +1,67 @@
+import { createClient } from '@supabase/supabase-js'
+import { createFileRoute } from '@tanstack/react-router'
+import { z } from 'zod'
+
+const schema = z.object({
+  name: z.string().trim().min(1).max(120),
+  studio_name: z.string().trim().min(1).max(120),
+  studio_type: z.enum(['Nagelstudio', 'Kosmetikstudio', 'Friseur', 'Laser / Klinik', 'Sonstiges']),
+  has_website: z.enum(['Ja', 'Nein']),
+  goals: z
+    .array(
+      z.enum([
+        'Mehr Kundinnen gewinnen',
+        'Mehr Terminbuchungen',
+        'Professioneller auftreten',
+        'Besser bei Google gefunden werden',
+      ]),
+    )
+    .min(1)
+    .max(10),
+  styles: z
+    .array(
+      z.enum(['Modern & clean', 'Elegant & luxuriös', 'Feminin & weich', 'Minimalistisch & schlicht']),
+    )
+    .min(1)
+    .max(10),
+  content_status: z.enum(['Ja, alles bereit', 'Teilweise', 'Nein, brauche Unterstützung']),
+  start_time: z.enum(['Sofort', 'In den nächsten Wochen', 'Erstmal nur informieren']),
+  budget: z.enum(['Starter Website – ab 350€', 'Premium Website – ab 600€']),
+  notes: z.string().trim().max(2000).nullish(),
+})
+
+export const Route = createFileRoute('/api/public/demo-request')({
+  server: {
+    handlers: {
+      POST: async ({ request }) => {
+        const supabaseUrl = import.meta.env.VITE_SUPABASE_URL
+        const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY
+
+        if (!supabaseUrl || !supabaseServiceKey) {
+          return Response.json({ error: 'Server configuration error' }, { status: 500 })
+        }
+
+        let parsed: z.infer<typeof schema>
+        try {
+          parsed = schema.parse(await request.json())
+        } catch {
+          return Response.json({ error: 'Ungültige Formulardaten' }, { status: 400 })
+        }
+
+        const supabase = createClient(supabaseUrl, supabaseServiceKey)
+
+        const { error } = await supabase.from('demo_requests').insert({
+          ...parsed,
+          notes: parsed.notes?.trim() ? parsed.notes.trim() : null,
+        })
+
+        if (error) {
+          console.error('Failed to store demo request', { error })
+          return Response.json({ error: 'Speichern fehlgeschlagen' }, { status: 500 })
+        }
+
+        return Response.json({ success: true })
+      },
+    },
+  },
+})
