@@ -267,6 +267,31 @@ function Hero() {
   );
 }
 
+function Announcement() {
+  return (
+    <section
+      aria-label="Aktuelles Angebot"
+      className="relative border-y border-mauve/20 bg-gradient-to-r from-peach-soft via-accent/40 to-peach-soft"
+    >
+      <div className="max-w-5xl mx-auto px-6 py-8 md:py-10 flex flex-col md:flex-row items-center gap-6 md:gap-10 text-center md:text-left">
+        <div className="flex-shrink-0 inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.25em] text-mauve">
+          <span className="h-px w-6 bg-mauve/60" />
+          Limitiert
+        </div>
+        <p className="flex-1 font-serif text-base md:text-lg leading-relaxed text-ink">
+          Ich nehme aktuell <span className="text-mauve font-medium">3 neue Projekte</span> an — für ausgewählte Beauty Studios in Wien erstelle ich eine kostenlose Demo-Webseite, damit du siehst wie dein Studio online aussehen könnte, bevor du dich entscheidest.
+        </p>
+        <Link
+          to="/demo-anfrage"
+          className="flex-shrink-0 inline-flex items-center justify-center px-6 py-3 bg-mauve text-white text-sm tracking-wide hover:bg-primary transition-colors rounded-sm shadow-sm"
+        >
+          Demo anfragen
+        </Link>
+      </div>
+    </section>
+  );
+}
+
 function Demos() {
   return (
     <section id="demos" className="py-24 md:py-32 bg-cream">
