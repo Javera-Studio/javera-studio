@@ -4,11 +4,21 @@ import { SiteFooter } from "@/components/SiteFooter";
 const posts = [
   {
     slug: "warum-nagelstudio-wien-website",
+    tag: "Sichtbarkeit & SEO",
     title: "Website für Nagelstudio Wien: Warum du ohne Google unsichtbar bist",
     excerpt:
       "Du hast ein Nagelstudio in Wien? Ohne eigene Website verlierst du täglich neue Kundinnen. Erfahre, was eine professionelle Nagelstudio-Website bringt und was sie kostet.",
     date: "Mai 2026",
-    readTime: "4 Minuten",
+    readTime: "4 min Lesezeit",
+  },
+  {
+    slug: "beauty-trends-2026",
+    tag: "Beauty Trends 2026",
+    title: "Die größten Beauty-Trends 2026 – was Kund:innen jetzt wirklich wollen",
+    excerpt:
+      "Skin First, Natural Brows, Scalp Health und Neuro-Beauty: Erfahre, welche Beauty-Trends 2026 deine Kund:innen bewegen – und wie du dein Studio optimal positionierst.",
+    date: "2. Mai 2026",
+    readTime: "4 min Lesezeit",
   },
 ];
 
@@ -19,13 +29,13 @@ export const Route = createFileRoute("/blog")({
       {
         name: "description",
         content:
-          "Tipps und Insights rund um Webdesign, Sichtbarkeit und Online-Buchung für Nagelstudios und Beauty Studios in Wien.",
+          "Editorial Insights rund um Webdesign, Sichtbarkeit, Beauty-Trends und Online-Buchung für Nagelstudios und Beauty Studios in Wien.",
       },
       { property: "og:title", content: "Blog — Javera Studio" },
       {
         property: "og:description",
         content:
-          "Tipps und Insights rund um Webdesign, Sichtbarkeit und Online-Buchung für Beauty Studios in Wien.",
+          "Editorial Insights rund um Webdesign, Beauty-Trends und Online-Buchung für Beauty Studios in Wien.",
       },
     ],
   }),
@@ -36,38 +46,49 @@ function BlogIndex() {
   return (
     <div className="min-h-screen bg-background flex flex-col">
       <main className="flex-1">
-        <section className="max-w-3xl mx-auto px-6 pt-20 pb-12">
-          <p className="text-xs uppercase tracking-[0.18em] text-muted-foreground mb-3">
-            Blog
+        <section className="max-w-3xl mx-auto px-6 pt-20 pb-10 text-center">
+          <p className="text-[11px] uppercase tracking-[0.32em] text-rose-gold font-editorial-sans mb-5">
+            <span className="editorial-rule mr-3" />
+            Journal
+            <span className="editorial-rule ml-3" />
           </p>
-          <h1 className="text-4xl md:text-5xl font-serif text-ink mb-4">
+          <h1 className="font-editorial text-5xl md:text-6xl text-ink mb-5 italic font-medium">
             Insights für dein Beauty Studio
           </h1>
-          <p className="text-muted-foreground text-lg max-w-2xl">
-            Praxisnahe Tipps zu Webdesign, Sichtbarkeit bei Google und Online-Buchung —
-            speziell für Nagelstudios und Beauty Studios in Wien.
+          <p className="font-editorial-sans text-muted-foreground text-base md:text-lg max-w-xl mx-auto leading-relaxed">
+            Editorial Notes zu Webdesign, Sichtbarkeit bei Google, Beauty-Trends
+            und Online-Buchung — speziell für Studios in Wien.
           </p>
         </section>
 
         <section className="max-w-3xl mx-auto px-6 pb-24">
-          <ul className="flex flex-col gap-6">
-            {posts.map((post) => (
+          <ul className="flex flex-col gap-8">
+            {posts.map((post, i) => (
               <li key={post.slug}>
                 <Link
                   to="/blog/$slug"
                   params={{ slug: post.slug }}
-                  className="block group bg-background border border-border rounded-2xl p-6 md:p-8 hover:border-primary/50 transition-colors"
+                  className="block group bg-background border border-border rounded-2xl p-7 md:p-9 hover:border-rose-gold transition-colors relative overflow-hidden"
                 >
-                  <div className="text-xs text-muted-foreground mb-2">
-                    {post.date} · Lesedauer: {post.readTime}
+                  <span className="absolute top-6 right-7 font-editorial italic text-rose-gold/40 text-3xl select-none">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <div className="flex items-center gap-3 mb-3">
+                    <span className="text-[10px] uppercase tracking-[0.24em] text-rose-gold font-editorial-sans font-medium">
+                      {post.tag}
+                    </span>
+                    <span className="h-px w-6 bg-rose-gold/40" />
+                    <span className="text-[11px] text-muted-foreground font-editorial-sans">
+                      {post.date} · {post.readTime}
+                    </span>
                   </div>
-                  <h2 className="text-xl md:text-2xl font-semibold text-ink mb-3 group-hover:text-primary transition-colors">
+                  <h2 className="font-editorial text-2xl md:text-3xl text-ink mb-3 leading-tight group-hover:text-rose-gold transition-colors">
                     {post.title}
                   </h2>
-                  <p className="text-muted-foreground text-sm md:text-base">
+                  <p className="font-editorial-sans text-muted-foreground text-sm md:text-base leading-relaxed">
                     {post.excerpt}
                   </p>
-                  <span className="inline-block mt-4 text-sm font-medium text-primary">
+                  <span className="inline-block mt-5 text-xs font-editorial-sans uppercase tracking-[0.2em] text-rose-gold">
                     Artikel lesen →
                   </span>
                 </Link>

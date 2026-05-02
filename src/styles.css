@@ -2,7 +2,7 @@
 @source "../src";
 @import "tw-animate-css";
 
-@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:wght@300;400;500;600;700&display=swap");
 
 @custom-variant dark (&:is(.dark *));
 
@@ -254,4 +254,22 @@
     transform: none !important;
     transition: none !important;
   }
+}
+
+/* Editorial blog styling — Cormorant Garamond + DM Sans + rose gold */
+:root {
+  --rose-gold: oklch(0.74 0.06 40);
+  --rose-gold-soft: oklch(0.92 0.03 40);
+}
+.font-editorial { font-family: "Cormorant Garamond", Georgia, serif; letter-spacing: -0.005em; }
+.font-editorial-sans { font-family: "DM Sans", ui-sans-serif, system-ui, sans-serif; }
+.text-rose-gold { color: var(--rose-gold); }
+.bg-rose-gold-soft { background-color: var(--rose-gold-soft); }
+.border-rose-gold { border-color: var(--rose-gold); }
+.editorial-rule {
+  display: inline-block;
+  width: 48px;
+  height: 1px;
+  background: var(--rose-gold);
+  vertical-align: middle;
 }
