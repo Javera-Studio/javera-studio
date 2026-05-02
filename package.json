@@ -99,6 +99,5 @@
   },
   "resolutions": {
     "entities": "4.5.0"
-  },
-  "dependencies_extra_note": "entities 4.5.0 pinned for @react-email compatibility"
+  }
 }
