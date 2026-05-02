@@ -279,13 +279,13 @@ function Announcement() {
           Limitiert
         </div>
         <p className="flex-1 font-serif text-base md:text-lg leading-relaxed text-ink">
-          Ich nehme aktuell <span className="text-mauve font-medium">3 neue Projekte</span> an — für ausgewählte Beauty Studios in Wien erstelle ich eine kostenlose Demo-Webseite, damit du siehst wie dein Studio online aussehen könnte, bevor du dich entscheidest.
+          Ich nehme aktuell <span className="text-mauve font-medium">3 neue Studios</span> auf — und erstelle ihnen eine kostenlose Demo-Website. Unverbindlich, persönlich, auf dein Studio zugeschnitten.
         </p>
         <Link
           to="/demo-anfrage"
           className="flex-shrink-0 inline-flex items-center justify-center px-6 py-3 bg-mauve text-white text-sm tracking-wide hover:bg-primary transition-colors rounded-sm shadow-sm"
         >
-          Demo anfragen
+          Jetzt Platz sichern
         </Link>
       </div>
     </section>
