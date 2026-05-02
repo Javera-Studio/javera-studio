@@ -39,10 +39,10 @@ function getRetryAfterSeconds(error: unknown): number {
 async function moveToDlq(
   supabase: any,
   queue: string,
-  msg: { msg_id: number; message: Record<string, any> },
+  msg: any,
   reason: string
 ): Promise<void> {
-  const payload = msg.message
+  const payload = msg.message as Record<string, any>
   await supabase.from('email_send_log').insert({
     message_id: payload.message_id,
     template_name: (payload.label || queue) as string,
