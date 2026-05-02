@@ -218,11 +218,10 @@ function DemoAnfrage() {
             Demo Anfrage
           </div>
           <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl leading-[1.1] text-ink">
-            Kostenlose Demo für dein Studio sichern
+            Kostenlose Demo-Website sichern
           </h1>
           <p className="mt-6 text-lg text-muted-foreground leading-relaxed">
-            Füll das kurze Formular aus – ich erstelle dir eine erste Demo, die zu deinem Studio
-            passt.
+            Ich nehme aktuell 3 neue Studios auf — füll das kurze Formular aus und ich erstelle dir eine kostenlose Demo, die genau zu deinem Studio passt.
           </p>
         </div>
       </section>
