@@ -165,6 +165,8 @@ const faqs = [
 ];
 
 function Nav() {
+  const [open, setOpen] = useState(false);
+  const close = () => setOpen(false);
   return (
     <header className="fixed top-0 inset-x-0 z-50 backdrop-blur-md bg-background/70 border-b border-border/60">
       <div className="max-w-6xl mx-auto px-6 h-24 md:h-28 flex items-center justify-between">
@@ -172,6 +174,7 @@ function Nav() {
           href="#top"
           className="flex items-center group"
           aria-label="Javera Studio – zur Startseite"
+          onClick={close}
         >
           <img
             src={logo}
@@ -188,13 +191,48 @@ function Nav() {
           <a href="#faq" className="hover:text-ink transition">FAQ</a>
           <Link to="/blog" className="hover:text-ink transition">Blog</Link>
         </nav>
-        <Link
-          to="/demo-anfrage"
-          className="text-sm px-4 py-2 rounded-full bg-primary text-primary-foreground hover:bg-mauve transition"
-        >
-          Demo sichern
-        </Link>
+        <div className="flex items-center gap-3">
+          <Link
+            to="/demo-anfrage"
+            className="hidden sm:inline-flex text-sm px-4 py-2 rounded-full bg-primary text-primary-foreground hover:bg-mauve transition"
+          >
+            Demo sichern
+          </Link>
+          <button
+            type="button"
+            onClick={() => setOpen((v) => !v)}
+            className="md:hidden inline-flex items-center justify-center w-10 h-10 rounded-full border border-border/70 text-ink hover:bg-cream transition"
+            aria-label={open ? "Menü schließen" : "Menü öffnen"}
+            aria-expanded={open}
+          >
+            <span className="relative block w-5 h-3.5">
+              <span className={`absolute left-0 top-0 h-px w-5 bg-current transition-transform ${open ? "translate-y-1.5 rotate-45" : ""}`} />
+              <span className={`absolute left-0 top-1.5 h-px w-5 bg-current transition-opacity ${open ? "opacity-0" : "opacity-100"}`} />
+              <span className={`absolute left-0 top-3 h-px w-5 bg-current transition-transform ${open ? "-translate-y-1.5 -rotate-45" : ""}`} />
+            </span>
+          </button>
+        </div>
       </div>
+      {open && (
+        <div className="md:hidden border-t border-border/60 bg-background/95 backdrop-blur-md">
+          <nav className="flex flex-col px-6 py-4 gap-1 text-sm text-muted-foreground">
+            <a href="#demos" onClick={close} className="py-2.5 hover:text-ink transition">Demos</a>
+            <a href="#warum" onClick={close} className="py-2.5 hover:text-ink transition">Warum</a>
+            <a href="#ablauf" onClick={close} className="py-2.5 hover:text-ink transition">Ablauf</a>
+            <a href="#preise" onClick={close} className="py-2.5 hover:text-ink transition">Preise</a>
+            <a href="#about" onClick={close} className="py-2.5 hover:text-ink transition">Über mich</a>
+            <a href="#faq" onClick={close} className="py-2.5 hover:text-ink transition">FAQ</a>
+            <Link to="/blog" onClick={close} className="py-2.5 hover:text-ink transition">Blog</Link>
+            <Link
+              to="/demo-anfrage"
+              onClick={close}
+              className="mt-3 inline-flex justify-center text-sm px-4 py-3 rounded-full bg-primary text-primary-foreground hover:bg-mauve transition"
+            >
+              Demo sichern
+            </Link>
+          </nav>
+        </div>
+      )}
     </header>
   );
 }
