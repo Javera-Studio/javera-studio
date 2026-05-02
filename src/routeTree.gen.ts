@@ -12,8 +12,8 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as ImpressumRouteImport } from './routes/impressum'
 import { Route as DemoAnfrageRouteImport } from './routes/demo-anfrage'
 import { Route as DatenschutzRouteImport } from './routes/datenschutz'
-import { Route as BlogRouteImport } from './routes/blog'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as BlogIndexRouteImport } from './routes/blog.index'
 import { Route as EmailUnsubscribeRouteImport } from './routes/email/unsubscribe'
 import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
 import { Route as LovableEmailSuppressionRouteImport } from './routes/lovable/email/suppression'
@@ -40,14 +40,14 @@ const DatenschutzRoute = DatenschutzRouteImport.update({
   path: '/datenschutz',
   getParentRoute: () => rootRouteImport,
 } as any)
-const BlogRoute = BlogRouteImport.update({
-  id: '/blog',
-  path: '/blog',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BlogIndexRoute = BlogIndexRouteImport.update({
+  id: '/blog/',
+  path: '/blog/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const EmailUnsubscribeRoute = EmailUnsubscribeRouteImport.update({
@@ -56,9 +56,9 @@ const EmailUnsubscribeRoute = EmailUnsubscribeRouteImport.update({
   getParentRoute: () => rootRouteImport,
 } as any)
 const BlogSlugRoute = BlogSlugRouteImport.update({
-  id: '/$slug',
-  path: '/$slug',
-  getParentRoute: () => BlogRoute,
+  id: '/blog/$slug',
+  path: '/blog/$slug',
+  getParentRoute: () => rootRouteImport,
 } as any)
 const LovableEmailSuppressionRoute = LovableEmailSuppressionRouteImport.update({
   id: '/lovable/email/suppression',
@@ -106,12 +106,12 @@ const LovableEmailAuthPreviewRoute = LovableEmailAuthPreviewRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/blog': typeof BlogRouteWithChildren
   '/datenschutz': typeof DatenschutzRoute
   '/demo-anfrage': typeof DemoAnfrageRoute
   '/impressum': typeof ImpressumRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/email/unsubscribe': typeof EmailUnsubscribeRoute
+  '/blog/': typeof BlogIndexRoute
   '/api/public/contact': typeof ApiPublicContactRoute
   '/api/public/demo-request': typeof ApiPublicDemoRequestRoute
   '/lovable/email/suppression': typeof LovableEmailSuppressionRoute
@@ -123,12 +123,12 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/blog': typeof BlogRouteWithChildren
   '/datenschutz': typeof DatenschutzRoute
   '/demo-anfrage': typeof DemoAnfrageRoute
   '/impressum': typeof ImpressumRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/email/unsubscribe': typeof EmailUnsubscribeRoute
+  '/blog': typeof BlogIndexRoute
   '/api/public/contact': typeof ApiPublicContactRoute
   '/api/public/demo-request': typeof ApiPublicDemoRequestRoute
   '/lovable/email/suppression': typeof LovableEmailSuppressionRoute
@@ -141,12 +141,12 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/blog': typeof BlogRouteWithChildren
   '/datenschutz': typeof DatenschutzRoute
   '/demo-anfrage': typeof DemoAnfrageRoute
   '/impressum': typeof ImpressumRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/email/unsubscribe': typeof EmailUnsubscribeRoute
+  '/blog/': typeof BlogIndexRoute
   '/api/public/contact': typeof ApiPublicContactRoute
   '/api/public/demo-request': typeof ApiPublicDemoRequestRoute
   '/lovable/email/suppression': typeof LovableEmailSuppressionRoute
@@ -160,12 +160,12 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
-    | '/blog'
     | '/datenschutz'
     | '/demo-anfrage'
     | '/impressum'
     | '/blog/$slug'
     | '/email/unsubscribe'
+    | '/blog/'
     | '/api/public/contact'
     | '/api/public/demo-request'
     | '/lovable/email/suppression'
@@ -177,12 +177,12 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
-    | '/blog'
     | '/datenschutz'
     | '/demo-anfrage'
     | '/impressum'
     | '/blog/$slug'
     | '/email/unsubscribe'
+    | '/blog'
     | '/api/public/contact'
     | '/api/public/demo-request'
     | '/lovable/email/suppression'
@@ -194,12 +194,12 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
-    | '/blog'
     | '/datenschutz'
     | '/demo-anfrage'
     | '/impressum'
     | '/blog/$slug'
     | '/email/unsubscribe'
+    | '/blog/'
     | '/api/public/contact'
     | '/api/public/demo-request'
     | '/lovable/email/suppression'
@@ -212,11 +212,12 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  BlogRoute: typeof BlogRouteWithChildren
   DatenschutzRoute: typeof DatenschutzRoute
   DemoAnfrageRoute: typeof DemoAnfrageRoute
   ImpressumRoute: typeof ImpressumRoute
+  BlogSlugRoute: typeof BlogSlugRoute
   EmailUnsubscribeRoute: typeof EmailUnsubscribeRoute
+  BlogIndexRoute: typeof BlogIndexRoute
   ApiPublicContactRoute: typeof ApiPublicContactRoute
   ApiPublicDemoRequestRoute: typeof ApiPublicDemoRequestRoute
   LovableEmailSuppressionRoute: typeof LovableEmailSuppressionRoute
@@ -250,18 +251,18 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DatenschutzRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/blog': {
-      id: '/blog'
-      path: '/blog'
-      fullPath: '/blog'
-      preLoaderRoute: typeof BlogRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/': {
       id: '/'
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/blog/': {
+      id: '/blog/'
+      path: '/blog'
+      fullPath: '/blog/'
+      preLoaderRoute: typeof BlogIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/email/unsubscribe': {
@@ -273,10 +274,10 @@ declare module '@tanstack/react-router' {
     }
     '/blog/$slug': {
       id: '/blog/$slug'
-      path: '/$slug'
+      path: '/blog/$slug'
       fullPath: '/blog/$slug'
       preLoaderRoute: typeof BlogSlugRouteImport
-      parentRoute: typeof BlogRoute
+      parentRoute: typeof rootRouteImport
     }
     '/lovable/email/suppression': {
       id: '/lovable/email/suppression'
@@ -337,23 +338,14 @@ declare module '@tanstack/react-router' {
   }
 }
 
-interface BlogRouteChildren {
-  BlogSlugRoute: typeof BlogSlugRoute
-}
-
-const BlogRouteChildren: BlogRouteChildren = {
-  BlogSlugRoute: BlogSlugRoute,
-}
-
-const BlogRouteWithChildren = BlogRoute._addFileChildren(BlogRouteChildren)
-
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  BlogRoute: BlogRouteWithChildren,
   DatenschutzRoute: DatenschutzRoute,
   DemoAnfrageRoute: DemoAnfrageRoute,
   ImpressumRoute: ImpressumRoute,
+  BlogSlugRoute: BlogSlugRoute,
   EmailUnsubscribeRoute: EmailUnsubscribeRoute,
+  BlogIndexRoute: BlogIndexRoute,
   ApiPublicContactRoute: ApiPublicContactRoute,
   ApiPublicDemoRequestRoute: ApiPublicDemoRequestRoute,
   LovableEmailSuppressionRoute: LovableEmailSuppressionRoute,
