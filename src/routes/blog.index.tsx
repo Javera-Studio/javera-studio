@@ -22,7 +22,7 @@ const posts = [
   },
 ];
 
-export const Route = createFileRoute("/blog")({
+export const Route = createFileRoute("/blog/")({
   head: () => ({
     meta: [
       { title: "Blog — Javera Studio | Webdesign für Beauty Studios in Wien" },
