@@ -1,7 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { z } from "zod";
-import { supabase } from "@/integrations/supabase/client";
 import logo from "@/assets/javera-logo.png";
 import { SiteFooter } from "@/components/SiteFooter";
 

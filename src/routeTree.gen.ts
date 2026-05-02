@@ -17,6 +17,7 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as EmailUnsubscribeRouteImport } from './routes/email/unsubscribe'
 import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
 import { Route as LovableEmailSuppressionRouteImport } from './routes/lovable/email/suppression'
+import { Route as ApiPublicDemoRequestRouteImport } from './routes/api/public/demo-request'
 import { Route as ApiPublicContactRouteImport } from './routes/api/public/contact'
 import { Route as LovableEmailTransactionalSendRouteImport } from './routes/lovable/email/transactional/send'
 import { Route as LovableEmailTransactionalPreviewRouteImport } from './routes/lovable/email/transactional/preview'
@@ -64,6 +65,11 @@ const LovableEmailSuppressionRoute = LovableEmailSuppressionRouteImport.update({
   path: '/lovable/email/suppression',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiPublicDemoRequestRoute = ApiPublicDemoRequestRouteImport.update({
+  id: '/api/public/demo-request',
+  path: '/api/public/demo-request',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ApiPublicContactRoute = ApiPublicContactRouteImport.update({
   id: '/api/public/contact',
   path: '/api/public/contact',
@@ -107,6 +113,7 @@ export interface FileRoutesByFullPath {
   '/blog/$slug': typeof BlogSlugRoute
   '/email/unsubscribe': typeof EmailUnsubscribeRoute
   '/api/public/contact': typeof ApiPublicContactRoute
+  '/api/public/demo-request': typeof ApiPublicDemoRequestRoute
   '/lovable/email/suppression': typeof LovableEmailSuppressionRoute
   '/lovable/email/auth/preview': typeof LovableEmailAuthPreviewRoute
   '/lovable/email/auth/webhook': typeof LovableEmailAuthWebhookRoute
@@ -123,6 +130,7 @@ export interface FileRoutesByTo {
   '/blog/$slug': typeof BlogSlugRoute
   '/email/unsubscribe': typeof EmailUnsubscribeRoute
   '/api/public/contact': typeof ApiPublicContactRoute
+  '/api/public/demo-request': typeof ApiPublicDemoRequestRoute
   '/lovable/email/suppression': typeof LovableEmailSuppressionRoute
   '/lovable/email/auth/preview': typeof LovableEmailAuthPreviewRoute
   '/lovable/email/auth/webhook': typeof LovableEmailAuthWebhookRoute
@@ -140,6 +148,7 @@ export interface FileRoutesById {
   '/blog/$slug': typeof BlogSlugRoute
   '/email/unsubscribe': typeof EmailUnsubscribeRoute
   '/api/public/contact': typeof ApiPublicContactRoute
+  '/api/public/demo-request': typeof ApiPublicDemoRequestRoute
   '/lovable/email/suppression': typeof LovableEmailSuppressionRoute
   '/lovable/email/auth/preview': typeof LovableEmailAuthPreviewRoute
   '/lovable/email/auth/webhook': typeof LovableEmailAuthWebhookRoute
@@ -158,6 +167,7 @@ export interface FileRouteTypes {
     | '/blog/$slug'
     | '/email/unsubscribe'
     | '/api/public/contact'
+    | '/api/public/demo-request'
     | '/lovable/email/suppression'
     | '/lovable/email/auth/preview'
     | '/lovable/email/auth/webhook'
@@ -174,6 +184,7 @@ export interface FileRouteTypes {
     | '/blog/$slug'
     | '/email/unsubscribe'
     | '/api/public/contact'
+    | '/api/public/demo-request'
     | '/lovable/email/suppression'
     | '/lovable/email/auth/preview'
     | '/lovable/email/auth/webhook'
@@ -190,6 +201,7 @@ export interface FileRouteTypes {
     | '/blog/$slug'
     | '/email/unsubscribe'
     | '/api/public/contact'
+    | '/api/public/demo-request'
     | '/lovable/email/suppression'
     | '/lovable/email/auth/preview'
     | '/lovable/email/auth/webhook'
@@ -206,6 +218,7 @@ export interface RootRouteChildren {
   ImpressumRoute: typeof ImpressumRoute
   EmailUnsubscribeRoute: typeof EmailUnsubscribeRoute
   ApiPublicContactRoute: typeof ApiPublicContactRoute
+  ApiPublicDemoRequestRoute: typeof ApiPublicDemoRequestRoute
   LovableEmailSuppressionRoute: typeof LovableEmailSuppressionRoute
   LovableEmailAuthPreviewRoute: typeof LovableEmailAuthPreviewRoute
   LovableEmailAuthWebhookRoute: typeof LovableEmailAuthWebhookRoute
@@ -272,6 +285,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LovableEmailSuppressionRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/public/demo-request': {
+      id: '/api/public/demo-request'
+      path: '/api/public/demo-request'
+      fullPath: '/api/public/demo-request'
+      preLoaderRoute: typeof ApiPublicDemoRequestRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/public/contact': {
       id: '/api/public/contact'
       path: '/api/public/contact'
@@ -335,6 +355,7 @@ const rootRouteChildren: RootRouteChildren = {
   ImpressumRoute: ImpressumRoute,
   EmailUnsubscribeRoute: EmailUnsubscribeRoute,
   ApiPublicContactRoute: ApiPublicContactRoute,
+  ApiPublicDemoRequestRoute: ApiPublicDemoRequestRoute,
   LovableEmailSuppressionRoute: LovableEmailSuppressionRoute,
   LovableEmailAuthPreviewRoute: LovableEmailAuthPreviewRoute,
   LovableEmailAuthWebhookRoute: LovableEmailAuthWebhookRoute,
