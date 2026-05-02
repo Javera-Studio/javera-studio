@@ -144,7 +144,7 @@ const faqs = [
   },
   {
     q: "Was kostet mich die Demo?",
-    a: "Die Demo ist komplett kostenlos und unverbindlich. Du siehst zuerst, wie deine Website aussehen könnte – und entscheidest danach, ob du weitermachen möchtest.",
+    a: "Aktuell biete ich 3 ausgewählten Studios eine kostenlose Demo an. Du siehst zuerst das Ergebnis – und entscheidest dann, ob du weitermachen möchtest. Nach Vergabe der 3 Plätze ist die Demo ab 99 € erhältlich — dieser Betrag wird bei einer Beauftragung vollständig angerechnet.",
   },
   {
     q: "Muss ich sofort bezahlen?",
