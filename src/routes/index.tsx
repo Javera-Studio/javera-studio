@@ -1051,6 +1051,7 @@ function Index() {
     <main className="bg-background text-ink">
       <Nav />
       <Hero />
+      <Announcement />
       <About />
       <Warum />
       <Demos />
