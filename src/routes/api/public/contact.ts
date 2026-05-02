@@ -7,7 +7,7 @@ import { TEMPLATES } from '@/lib/email-templates/registry'
 
 const schema = z.object({
   name: z.string().trim().min(1).max(120),
-  email: z.email().max(255),
+  email: z.string().trim().email().max(255),
   message: z.string().trim().min(1).max(5000),
 })
 
