@@ -1,3 +1,4 @@
+import { sendLovableEmail } from '@lovable.dev/email-js'
 import { createClient } from '@supabase/supabase-js'
 import { createFileRoute } from '@tanstack/react-router'
 
@@ -38,10 +39,10 @@ function getRetryAfterSeconds(error: unknown): number {
 async function moveToDlq(
   supabase: any,
   queue: string,
-  msg: any,
+  msg: { msg_id: number; message: Record<string, unknown> },
   reason: string
 ): Promise<void> {
-  const payload = msg.message as Record<string, any>
+  const payload = msg.message
   await supabase.from('email_send_log').insert({
     message_id: payload.message_id,
     template_name: (payload.label || queue) as string,
@@ -64,7 +65,6 @@ export const Route = createFileRoute("/lovable/email/queue/process")({
   server: {
     handlers: {
       POST: async ({ request }) => {
-        const { sendLovableEmail } = await import('@lovable.dev/email-js')
         const apiKey = process.env.LOVABLE_API_KEY
         const supabaseUrl = import.meta.env.VITE_SUPABASE_URL
         const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY
@@ -89,7 +89,7 @@ export const Route = createFileRoute("/lovable/email/queue/process")({
           return Response.json({ error: 'Forbidden' }, { status: 403 })
         }
 
-        const supabase: any = createClient(supabaseUrl, supabaseServiceKey)
+        const supabase = createClient(supabaseUrl, supabaseServiceKey)
 
         // 1. Check rate-limit cooldown and read queue config
         const { data: state } = await supabase
