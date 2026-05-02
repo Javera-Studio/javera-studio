@@ -358,13 +358,12 @@ function BlogPost() {
 
           {/* CTA */}
           <div className="mt-8 text-center">
-            <Link
-              to={post.ctaTo}
-              hash={post.ctaHash}
+            <a
+              href={post.ctaHash ? `${post.ctaTo}#${post.ctaHash}` : post.ctaTo}
               className="inline-block py-3.5 px-8 bg-primary text-primary-foreground font-editorial-sans font-medium text-sm tracking-wide rounded-full hover:bg-primary/90 transition"
             >
               {post.ctaLabel}
-            </Link>
+            </a>
           </div>
 
           <p className="text-center text-[11px] uppercase tracking-[0.24em] font-editorial-sans text-muted-foreground mt-14">
