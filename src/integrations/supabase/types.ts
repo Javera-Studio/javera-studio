@@ -43,6 +43,7 @@ export type Database = {
           budget: string
           content_status: string
           created_at: string
+          email: string | null
           goals: string[]
           has_website: string
           id: string
@@ -57,6 +58,7 @@ export type Database = {
           budget: string
           content_status: string
           created_at?: string
+          email?: string | null
           goals: string[]
           has_website: string
           id?: string
@@ -71,6 +73,7 @@ export type Database = {
           budget?: string
           content_status?: string
           created_at?: string
+          email?: string | null
           goals?: string[]
           has_website?: string
           id?: string
