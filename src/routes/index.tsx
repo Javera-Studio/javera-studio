@@ -196,7 +196,7 @@ function Nav() {
             to="/demo-anfrage"
             className="hidden sm:inline-flex text-sm px-4 py-2 rounded-full bg-primary text-primary-foreground hover:bg-mauve transition"
           >
-            Kostenlosen Platz sichern
+            Demo sichern
           </Link>
           <button
             type="button"
@@ -228,7 +228,7 @@ function Nav() {
               onClick={close}
               className="mt-3 inline-flex justify-center text-sm px-4 py-3 rounded-full bg-primary text-primary-foreground hover:bg-mauve transition"
             >
-              Kostenlosen Platz sichern
+              Demo sichern
             </Link>
           </nav>
         </div>
