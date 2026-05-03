@@ -1,5 +1,6 @@
 import type { ComponentType } from 'react'
 import { template as contactFormNotificationTemplate } from './contact-form-notification'
+import { template as demoRequestNotificationTemplate } from './demo-request-notification'
 
 export interface TemplateEntry {
   component: ComponentType<any>
@@ -20,4 +21,5 @@ export interface TemplateEntry {
  */
 export const TEMPLATES: Record<string, TemplateEntry> = {
   'contact-form-notification': contactFormNotificationTemplate,
+  'demo-request-notification': demoRequestNotificationTemplate,
 }

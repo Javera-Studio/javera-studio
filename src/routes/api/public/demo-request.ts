@@ -1,9 +1,13 @@
+import * as React from 'react'
+import { render } from '@react-email/components'
 import { createClient } from '@supabase/supabase-js'
 import { createFileRoute } from '@tanstack/react-router'
 import { z } from 'zod'
+import { TEMPLATES } from '@/lib/email-templates/registry'
 
 const schema = z.object({
   name: z.string().trim().min(1).max(120),
+  email: z.string().trim().email().max(255),
   studio_name: z.string().trim().min(1).max(120),
   studio_type: z.enum(['Nagelstudio', 'Kosmetikstudio', 'Friseur', 'Laser / Klinik', 'Sonstiges']),
   has_website: z.enum(['Ja', 'Nein']),
@@ -26,7 +30,11 @@ const schema = z.object({
     .max(10),
   content_status: z.enum(['Ja, alles bereit', 'Teilweise', 'Nein, brauche Unterstützung']),
   start_time: z.enum(['Sofort', 'In den nächsten Wochen', 'Erstmal nur informieren']),
-  budget: z.enum(['Starter Website – ab 350€', 'Premium Website – ab 600€']),
+  budget: z.enum([
+    'Starter Website – ab 350€',
+    'Premium Website – ab 600€',
+    'Kostenlose Website (falls noch Plätze vorhanden)',
+  ]),
   notes: z.string().trim().max(2000).nullish(),
 })
 
@@ -58,6 +66,58 @@ export const Route = createFileRoute('/api/public/demo-request')({
         if (error) {
           console.error('Failed to store demo request', { error })
           return Response.json({ error: 'Speichern fehlgeschlagen' }, { status: 500 })
+        }
+
+        const template = TEMPLATES['demo-request-notification']
+        if (!template) {
+          return Response.json({ error: 'E-Mail-Vorlage fehlt' }, { status: 500 })
+        }
+
+        const messageId = crypto.randomUUID()
+        const recipient = template.to ?? 'hello@javera-studio.at'
+        const element = React.createElement(template.component, {
+          ...parsed,
+          notes: parsed.notes?.trim() ? parsed.notes.trim() : null,
+        })
+        const html = await render(element)
+        const text = await render(element, { plainText: true })
+        const subject =
+          typeof template.subject === 'function' ? template.subject(parsed) : template.subject
+
+        await supabase.from('email_send_log').insert({
+          message_id: messageId,
+          template_name: 'demo-request-notification',
+          recipient_email: recipient,
+          status: 'pending',
+        })
+
+        const { error: enqueueError } = await supabase.rpc('enqueue_email', {
+          queue_name: 'transactional_emails',
+          payload: {
+            message_id: messageId,
+            to: recipient,
+            from: 'javera-studio <noreply@javera-studio.com>',
+            sender_domain: 'notify.javera-studio.com',
+            subject,
+            html,
+            text,
+            purpose: 'transactional',
+            label: 'demo-request-notification',
+            idempotency_key: `demo-request-${messageId}`,
+            queued_at: new Date().toISOString(),
+          },
+        })
+
+        if (enqueueError) {
+          console.error('Failed to enqueue demo request email', { error: enqueueError })
+          await supabase.from('email_send_log').insert({
+            message_id: messageId,
+            template_name: 'demo-request-notification',
+            recipient_email: recipient,
+            status: 'failed',
+            error_message: 'Failed to enqueue demo request email',
+          })
+          return Response.json({ error: 'Versand fehlgeschlagen' }, { status: 500 })
         }
 
         return Response.json({ success: true })
