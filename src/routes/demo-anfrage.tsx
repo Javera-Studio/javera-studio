@@ -44,6 +44,7 @@ const PACKAGE_VALUES = PACKAGES.map((p) => p.value) as [string, ...string[]];
 
 const schema = z.object({
   name: z.string().trim().min(1, "Bitte gib deinen Namen an").max(120),
+  email: z.string().trim().email("Bitte gib eine gültige E-Mail-Adresse an").max(255),
   studio_name: z.string().trim().min(1, "Bitte gib den Namen deines Studios an").max(120),
   studio_type: z.enum(STUDIO_TYPES, { message: "Bitte wähle die Art deines Studios" }),
   has_website: z.enum(HAS_WEBSITE, { message: "Bitte wähle eine Option" }),
@@ -57,6 +58,7 @@ const schema = z.object({
 
 type FormState = {
   name: string;
+  email: string;
   studio_name: string;
   studio_type: string;
   has_website: string;
@@ -70,6 +72,7 @@ type FormState = {
 
 const initial: FormState = {
   name: "",
+  email: "",
   studio_name: "",
   studio_type: "",
   has_website: "",
@@ -275,17 +278,29 @@ function DemoAnfrage() {
                     placeholder="Dein Name"
                   />
                 </Field>
-                <Field label="Studio Name" required error={errors.studio_name}>
+                <Field label="E-Mail" required error={errors.email}>
                   <input
-                    type="text"
-                    value={form.studio_name}
-                    onChange={(e) => update("studio_name", e.target.value)}
-                    maxLength={120}
+                    type="email"
+                    value={form.email}
+                    onChange={(e) => update("email", e.target.value)}
+                    maxLength={255}
+                    autoComplete="email"
                     className="w-full px-4 py-3 rounded-xl border border-border bg-background focus:outline-none focus:ring-2 focus:ring-ink/20 transition"
-                    placeholder="Name deines Studios"
+                    placeholder="deine@email.de"
                   />
                 </Field>
               </div>
+
+              <Field label="Studio Name" required error={errors.studio_name}>
+                <input
+                  type="text"
+                  value={form.studio_name}
+                  onChange={(e) => update("studio_name", e.target.value)}
+                  maxLength={120}
+                  className="w-full px-4 py-3 rounded-xl border border-border bg-background focus:outline-none focus:ring-2 focus:ring-ink/20 transition"
+                  placeholder="Name deines Studios"
+                />
+              </Field>
 
               <Field label="Art deines Studios" required error={errors.studio_type}>
                 <select
