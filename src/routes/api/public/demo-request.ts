@@ -74,7 +74,7 @@ export const Route = createFileRoute('/api/public/demo-request')({
         }
 
         const messageId = crypto.randomUUID()
-        const recipient = template.to ?? 'hello@javera-studio.at'
+        const recipient = template.to ?? 'hello@javera-studio.com'
         const element = React.createElement(template.component, {
           ...parsed,
           notes: parsed.notes?.trim() ? parsed.notes.trim() : null,
