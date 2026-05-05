@@ -120,7 +120,7 @@ const posts: Record<string, Post> = {
     },
     highlight:
       "✦ Aktuell erstelle ich für 3 ausgewählte Beauty Studios eine kostenlose Demo-Website – damit du siehst, wie dein Studio online wirken könnte. Unverbindlich, kostenlos, individuell gestaltet.",
-    ctaLabel: "Kostenlose Demo sichern",
+    ctaLabel: "Kostenlose Website sichern",
     ctaTo: "/demo-anfrage",
   },
   "beauty-trends-2026": {
@@ -213,7 +213,7 @@ const posts: Record<string, Post> = {
     },
     highlight:
       "✦ Aktuell erstelle ich für 3 ausgewählte Beauty Studios eine kostenlose Demo-Website – damit du siehst, wie dein Studio online wirken könnte. Unverbindlich, kostenlos, individuell gestaltet.",
-    ctaLabel: "Ich will eine kostenlose Demo",
+    ctaLabel: "Kostenlose Website sichern",
     ctaTo: "/",
     ctaHash: "contact",
   },
@@ -294,7 +294,7 @@ function BlogPost() {
 
           {/* Sections */}
           <div className="mt-14 flex flex-col gap-7">
-            {post.sections.map((section, i) => (
+            {post.sections.map((section: Section, i: number) => (
               <section
                 key={section.title}
                 className="bg-background border border-border rounded-2xl p-6 md:p-8 relative overflow-hidden hover:border-rose-gold/60 transition-colors"
@@ -313,7 +313,7 @@ function BlogPost() {
                 </div>
                 {section.tags && (
                   <div className="mt-5 flex flex-wrap gap-2">
-                    {section.tags.map((t) => (
+                    {section.tags.map((t: string) => (
                       <span
                         key={t}
                         className="text-[10px] uppercase tracking-[0.18em] font-editorial-sans text-rose-gold border border-rose-gold/40 rounded-full px-3 py-1"

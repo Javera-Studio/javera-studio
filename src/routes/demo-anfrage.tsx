@@ -7,11 +7,11 @@ import { SiteFooter } from "@/components/SiteFooter";
 export const Route = createFileRoute("/demo-anfrage")({
   head: () => ({
     meta: [
-      { title: "Kostenlose Demo anfragen – Javera Studio" },
+      { title: "Kostenlose Website anfragen – Javera Studio" },
       {
         name: "description",
         content:
-          "Sichere dir eine kostenlose Demo-Website für dein Beauty Studio. Kurzes Formular ausfüllen – Antwort innerhalb von 24 Stunden.",
+          "Sichere dir eine kostenlose Website für dein Beauty Studio. Kurzes Formular ausfüllen – Antwort innerhalb von 24 Stunden.",
       },
       { name: "robots", content: "noindex, follow" },
     ],
@@ -181,6 +181,7 @@ function DemoAnfrage() {
       },
       body: JSON.stringify({
         name: parsed.data.name,
+        email: parsed.data.email,
         studio_name: parsed.data.studio_name,
         studio_type: parsed.data.studio_type,
         has_website: parsed.data.has_website,
@@ -222,7 +223,7 @@ function DemoAnfrage() {
             Demo Anfrage
           </div>
           <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl leading-[1.1] text-ink">
-            Kostenlose Demo-Website sichern
+            Kostenlose Website sichern
           </h1>
           <p className="mt-6 text-lg text-muted-foreground leading-relaxed">
             Ich nehme aktuell 3 neue Studios auf — füll das kurze Formular aus und ich erstelle dir eine kostenlose Demo, die genau zu deinem Studio passt.
@@ -481,7 +482,7 @@ function DemoAnfrage() {
                   disabled={submitting}
                   className="px-8 py-4 rounded-full bg-ink text-primary-foreground hover:opacity-90 transition font-medium disabled:opacity-60 disabled:cursor-not-allowed"
                 >
-                  {submitting ? "Wird gesendet…" : "Demo für mein Studio sichern"}
+                  {submitting ? "Wird gesendet…" : "Kostenlose Website sichern"}
                 </button>
                 <p className="mt-4 text-sm text-muted-foreground">
                   Ich melde mich innerhalb von 24 Stunden bei dir zurück.
