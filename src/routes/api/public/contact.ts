@@ -49,6 +49,37 @@ export const Route = createFileRoute('/api/public/contact')({
         const subject =
           typeof template.subject === 'function' ? template.subject(parsed) : template.subject
         const recipient = template.to ?? 'hello@javera-studio.at'
+        const normalizedRecipient = recipient.toLowerCase()
+
+        const { data: existingToken, error: tokenLookupError } = await supabase
+          .from('email_unsubscribe_tokens')
+          .select('token')
+          .eq('email', normalizedRecipient)
+          .maybeSingle()
+
+        if (tokenLookupError) {
+          console.error('Failed to look up unsubscribe token for contact email', {
+            error: tokenLookupError,
+          })
+          return Response.json({ error: 'Versandvorbereitung fehlgeschlagen' }, { status: 500 })
+        }
+
+        let unsubscribeToken = existingToken?.token
+        if (!unsubscribeToken) {
+          unsubscribeToken = crypto.randomUUID()
+
+          const { error: tokenInsertError } = await supabase.from('email_unsubscribe_tokens').upsert(
+            { email: normalizedRecipient, token: unsubscribeToken },
+            { onConflict: 'email' },
+          )
+
+          if (tokenInsertError) {
+            console.error('Failed to create unsubscribe token for contact email', {
+              error: tokenInsertError,
+            })
+            return Response.json({ error: 'Versandvorbereitung fehlgeschlagen' }, { status: 500 })
+          }
+        }
 
         await supabase.from('email_send_log').insert({
           message_id: messageId,
@@ -70,6 +101,7 @@ export const Route = createFileRoute('/api/public/contact')({
             purpose: 'transactional',
             label: 'contact-form-notification',
             idempotency_key: `contact-${messageId}`,
+            unsubscribe_token: unsubscribeToken,
             queued_at: new Date().toISOString(),
           },
         })
