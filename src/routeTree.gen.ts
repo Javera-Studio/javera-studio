@@ -16,9 +16,11 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as BlogIndexRouteImport } from './routes/blog.index'
 import { Route as EmailUnsubscribeRouteImport } from './routes/email/unsubscribe'
 import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
+import { Route as AdminEmailLogRouteImport } from './routes/admin.email-log'
 import { Route as LovableEmailSuppressionRouteImport } from './routes/lovable/email/suppression'
 import { Route as ApiPublicDemoRequestRouteImport } from './routes/api/public/demo-request'
 import { Route as ApiPublicContactRouteImport } from './routes/api/public/contact'
+import { Route as ApiPublicAdminEmailLogRouteImport } from './routes/api/public/admin-email-log'
 import { Route as LovableEmailTransactionalSendRouteImport } from './routes/lovable/email/transactional/send'
 import { Route as LovableEmailTransactionalPreviewRouteImport } from './routes/lovable/email/transactional/preview'
 import { Route as LovableEmailQueueProcessRouteImport } from './routes/lovable/email/queue/process'
@@ -60,6 +62,11 @@ const BlogSlugRoute = BlogSlugRouteImport.update({
   path: '/blog/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AdminEmailLogRoute = AdminEmailLogRouteImport.update({
+  id: '/admin/email-log',
+  path: '/admin/email-log',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const LovableEmailSuppressionRoute = LovableEmailSuppressionRouteImport.update({
   id: '/lovable/email/suppression',
   path: '/lovable/email/suppression',
@@ -73,6 +80,11 @@ const ApiPublicDemoRequestRoute = ApiPublicDemoRequestRouteImport.update({
 const ApiPublicContactRoute = ApiPublicContactRouteImport.update({
   id: '/api/public/contact',
   path: '/api/public/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiPublicAdminEmailLogRoute = ApiPublicAdminEmailLogRouteImport.update({
+  id: '/api/public/admin-email-log',
+  path: '/api/public/admin-email-log',
   getParentRoute: () => rootRouteImport,
 } as any)
 const LovableEmailTransactionalSendRoute =
@@ -109,9 +121,11 @@ export interface FileRoutesByFullPath {
   '/datenschutz': typeof DatenschutzRoute
   '/demo-anfrage': typeof DemoAnfrageRoute
   '/impressum': typeof ImpressumRoute
+  '/admin/email-log': typeof AdminEmailLogRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/email/unsubscribe': typeof EmailUnsubscribeRoute
   '/blog/': typeof BlogIndexRoute
+  '/api/public/admin-email-log': typeof ApiPublicAdminEmailLogRoute
   '/api/public/contact': typeof ApiPublicContactRoute
   '/api/public/demo-request': typeof ApiPublicDemoRequestRoute
   '/lovable/email/suppression': typeof LovableEmailSuppressionRoute
@@ -126,9 +140,11 @@ export interface FileRoutesByTo {
   '/datenschutz': typeof DatenschutzRoute
   '/demo-anfrage': typeof DemoAnfrageRoute
   '/impressum': typeof ImpressumRoute
+  '/admin/email-log': typeof AdminEmailLogRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/email/unsubscribe': typeof EmailUnsubscribeRoute
   '/blog': typeof BlogIndexRoute
+  '/api/public/admin-email-log': typeof ApiPublicAdminEmailLogRoute
   '/api/public/contact': typeof ApiPublicContactRoute
   '/api/public/demo-request': typeof ApiPublicDemoRequestRoute
   '/lovable/email/suppression': typeof LovableEmailSuppressionRoute
@@ -144,9 +160,11 @@ export interface FileRoutesById {
   '/datenschutz': typeof DatenschutzRoute
   '/demo-anfrage': typeof DemoAnfrageRoute
   '/impressum': typeof ImpressumRoute
+  '/admin/email-log': typeof AdminEmailLogRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/email/unsubscribe': typeof EmailUnsubscribeRoute
   '/blog/': typeof BlogIndexRoute
+  '/api/public/admin-email-log': typeof ApiPublicAdminEmailLogRoute
   '/api/public/contact': typeof ApiPublicContactRoute
   '/api/public/demo-request': typeof ApiPublicDemoRequestRoute
   '/lovable/email/suppression': typeof LovableEmailSuppressionRoute
@@ -163,9 +181,11 @@ export interface FileRouteTypes {
     | '/datenschutz'
     | '/demo-anfrage'
     | '/impressum'
+    | '/admin/email-log'
     | '/blog/$slug'
     | '/email/unsubscribe'
     | '/blog/'
+    | '/api/public/admin-email-log'
     | '/api/public/contact'
     | '/api/public/demo-request'
     | '/lovable/email/suppression'
@@ -180,9 +200,11 @@ export interface FileRouteTypes {
     | '/datenschutz'
     | '/demo-anfrage'
     | '/impressum'
+    | '/admin/email-log'
     | '/blog/$slug'
     | '/email/unsubscribe'
     | '/blog'
+    | '/api/public/admin-email-log'
     | '/api/public/contact'
     | '/api/public/demo-request'
     | '/lovable/email/suppression'
@@ -197,9 +219,11 @@ export interface FileRouteTypes {
     | '/datenschutz'
     | '/demo-anfrage'
     | '/impressum'
+    | '/admin/email-log'
     | '/blog/$slug'
     | '/email/unsubscribe'
     | '/blog/'
+    | '/api/public/admin-email-log'
     | '/api/public/contact'
     | '/api/public/demo-request'
     | '/lovable/email/suppression'
@@ -215,9 +239,11 @@ export interface RootRouteChildren {
   DatenschutzRoute: typeof DatenschutzRoute
   DemoAnfrageRoute: typeof DemoAnfrageRoute
   ImpressumRoute: typeof ImpressumRoute
+  AdminEmailLogRoute: typeof AdminEmailLogRoute
   BlogSlugRoute: typeof BlogSlugRoute
   EmailUnsubscribeRoute: typeof EmailUnsubscribeRoute
   BlogIndexRoute: typeof BlogIndexRoute
+  ApiPublicAdminEmailLogRoute: typeof ApiPublicAdminEmailLogRoute
   ApiPublicContactRoute: typeof ApiPublicContactRoute
   ApiPublicDemoRequestRoute: typeof ApiPublicDemoRequestRoute
   LovableEmailSuppressionRoute: typeof LovableEmailSuppressionRoute
@@ -279,6 +305,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BlogSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/admin/email-log': {
+      id: '/admin/email-log'
+      path: '/admin/email-log'
+      fullPath: '/admin/email-log'
+      preLoaderRoute: typeof AdminEmailLogRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/lovable/email/suppression': {
       id: '/lovable/email/suppression'
       path: '/lovable/email/suppression'
@@ -298,6 +331,13 @@ declare module '@tanstack/react-router' {
       path: '/api/public/contact'
       fullPath: '/api/public/contact'
       preLoaderRoute: typeof ApiPublicContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/public/admin-email-log': {
+      id: '/api/public/admin-email-log'
+      path: '/api/public/admin-email-log'
+      fullPath: '/api/public/admin-email-log'
+      preLoaderRoute: typeof ApiPublicAdminEmailLogRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/lovable/email/transactional/send': {
@@ -343,9 +383,11 @@ const rootRouteChildren: RootRouteChildren = {
   DatenschutzRoute: DatenschutzRoute,
   DemoAnfrageRoute: DemoAnfrageRoute,
   ImpressumRoute: ImpressumRoute,
+  AdminEmailLogRoute: AdminEmailLogRoute,
   BlogSlugRoute: BlogSlugRoute,
   EmailUnsubscribeRoute: EmailUnsubscribeRoute,
   BlogIndexRoute: BlogIndexRoute,
+  ApiPublicAdminEmailLogRoute: ApiPublicAdminEmailLogRoute,
   ApiPublicContactRoute: ApiPublicContactRoute,
   ApiPublicDemoRequestRoute: ApiPublicDemoRequestRoute,
   LovableEmailSuppressionRoute: LovableEmailSuppressionRoute,
