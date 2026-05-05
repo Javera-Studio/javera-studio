@@ -48,7 +48,7 @@ export const Route = createFileRoute('/api/public/contact')({
         const text = await render(element, { plainText: true })
         const subject =
           typeof template.subject === 'function' ? template.subject(parsed) : template.subject
-        const recipient = template.to ?? 'hello@javera-studio.at'
+        const recipient = template.to ?? 'hello@javera-studio.com'
         const normalizedRecipient = recipient.toLowerCase()
 
         const { data: existingToken, error: tokenLookupError } = await supabase
