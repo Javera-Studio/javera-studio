@@ -64,7 +64,7 @@ export const template = {
     email: 'jagoda.okafor@gmail.com',
     message: 'Hallo, ich interessiere mich für eine neue Website für mein Beauty Studio.',
   },
-  to: 'hello@javera-studio.com',
+  to: 'hallo@javera-studio.at',
 } satisfies TemplateEntry
 
 const main = {

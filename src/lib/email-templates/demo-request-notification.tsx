@@ -113,7 +113,7 @@ export const template = {
     budget: 'Kostenlose Website (falls noch Plätze vorhanden)',
     notes: 'Bitte feminin und hochwertig.',
   },
-  to: 'hello@javera-studio.com',
+  to: 'hallo@javera-studio.at',
 } satisfies TemplateEntry
 
 const main = {
