@@ -75,8 +75,8 @@
 
 :root {
   --radius: 0.625rem;
-  /* Pure White base */
-  --background: oklch(1 0 0);
+  /* Warm off-white #F8F5F2 */
+  --background: oklch(0.969 0.005 60);
   /* Dunkelgrau #1F1F1F */
   --foreground: oklch(0.22 0 0);
   --card: oklch(1 0 0);
