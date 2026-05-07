@@ -242,12 +242,12 @@ function Hero() {
     <section
       id="top"
       className="relative min-h-screen flex items-center justify-center overflow-hidden text-primary-foreground"
-      style={{ backgroundColor: "#8b4b5a" }}
+      style={{ backgroundColor: "#F8F5F2" }}
     >
       {/* Fullscreen background video */}
       <video
         className="absolute inset-0 w-full h-full object-cover"
-        style={{ backgroundColor: "#8b4b5a" }}
+        style={{ backgroundColor: "#F8F5F2" }}
         autoPlay
         muted
         loop
@@ -263,11 +263,11 @@ function Hero() {
         <source src="/hero.webm" type="video/webm" />
       </video>
 
-      {/* Dark overlay for readability */}
+      {/* Soft overlay for readability */}
       <div
         aria-hidden
         className="absolute inset-0"
-        style={{ backgroundColor: "rgba(0, 0, 0, 0.45)" }}
+        style={{ backgroundColor: "rgba(248, 245, 242, 0.25)" }}
       />
 
       {/* Content */}
