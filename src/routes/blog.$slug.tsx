@@ -212,7 +212,7 @@ const posts: Record<string, Post> = {
       body: "Trends zu kennen ist das eine – aber wenn dein Studio online nicht sichtbar ist, bucht jemand anderes den Termin. Eine professionelle Website ist 2026 kein Nice-to-have mehr: Sie ist deine digitale Visitenkarte, dein erster Eindruck und oft der einzige Grund, warum jemand anruft – oder eben nicht. Google, Instagram, Weiterempfehlungen: Alles führt zuerst auf deine Website. Und die entscheidet in Sekunden, ob jemand bleibt oder weiterschaut.",
     },
     highlight:
-      "✦ Aktuell erstelle ich für 3 ausgewählte Beauty Studios eine kostenlose Demo-Website – damit du siehst, wie dein Studio online wirken könnte. Unverbindlich, kostenlos, individuell gestaltet.",
+      "✦ Du bekommst vorab eine kostenlose Analyse & Demo deines Studios – damit du siehst, wie dein Auftritt online wirken könnte. Unverbindlich und individuell gestaltet.",
     ctaLabel: "Kostenlose Analyse & Demo",
     ctaTo: "/",
     ctaHash: "contact",
