@@ -7,11 +7,11 @@ import { SiteFooter } from "@/components/SiteFooter";
 export const Route = createFileRoute("/demo-anfrage")({
   head: () => ({
     meta: [
-      { title: "Kostenlose Website anfragen – Javera Studio" },
+      { title: "Kostenlose Analyse & Demo anfragen – Javera Studio" },
       {
         name: "description",
         content:
-          "Sichere dir eine kostenlose Website für dein Beauty Studio. Kurzes Formular ausfüllen – Antwort innerhalb von 24 Stunden.",
+          "Sichere dir eine kostenlose Analyse & Demo für dein Beauty Studio. Kurzes Formular ausfüllen – Antwort innerhalb von 24 Stunden.",
       },
       { name: "robots", content: "noindex, follow" },
     ],
