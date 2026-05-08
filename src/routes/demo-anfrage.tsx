@@ -226,7 +226,7 @@ function DemoAnfrage() {
             Kostenlose Analyse & Demo
           </h1>
           <p className="mt-6 text-lg text-muted-foreground leading-relaxed">
-            Ich nehme aktuell 3 neue Studios auf — füll das kurze Formular aus und ich erstelle dir eine kostenlose Demo, die genau zu deinem Studio passt.
+            Ich nehme aktuell neue Studios auf — füll das kurze Formular aus und ich erstelle dir eine kostenlose Analyse & Demo, die genau zu deinem Studio passt.
           </p>
         </div>
       </section>
