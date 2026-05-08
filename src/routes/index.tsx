@@ -676,7 +676,7 @@ function Zweifel() {
           to="/demo-anfrage"
           className="reveal inline-block mt-10 px-7 py-3.5 rounded-full bg-primary text-primary-foreground hover:bg-mauve transition font-medium"
         >
-          Kostenlos starten
+          Kostenlose Analyse & Demo
         </Link>
       </div>
     </section>
