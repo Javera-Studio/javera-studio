@@ -119,7 +119,7 @@ const posts: Record<string, Post> = {
       body: "Eine professionelle Website ist der einfachste Weg, planbar neue Kundinnen zu gewinnen. Du musst dabei nichts riskieren — ich erstelle dir vorab kostenlos eine Demo, ganz auf dein Studio zugeschnitten.",
     },
     highlight:
-      "✦ Aktuell erstelle ich für 3 ausgewählte Beauty Studios eine kostenlose Demo-Website – damit du siehst, wie dein Studio online wirken könnte. Unverbindlich, kostenlos, individuell gestaltet.",
+      "✦ Du bekommst vorab eine kostenlose Analyse & Demo deines Studios – damit du siehst, wie dein Auftritt online wirken könnte. Unverbindlich und individuell gestaltet.",
     ctaLabel: "Kostenlose Analyse & Demo",
     ctaTo: "/demo-anfrage",
   },
