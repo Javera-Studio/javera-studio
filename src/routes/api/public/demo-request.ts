@@ -127,8 +127,8 @@ export const Route = createFileRoute('/api/public/demo-request')({
           payload: {
             message_id: messageId,
             to: recipient,
-            from: 'javera-studio <noreply@javera-studio.com>',
-            sender_domain: 'notify.javera-studio.com',
+            from: 'javera-studio <noreply@javera-studio.at>',
+            sender_domain: 'notify.javera-studio.at',
             subject,
             html,
             text,
