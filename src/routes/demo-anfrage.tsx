@@ -38,7 +38,7 @@ const START = ["Sofort", "In den nächsten Wochen", "Erstmal nur informieren"] a
 const PACKAGES = [
   { value: "Starter Website – ab 350€", title: "Starter Website", price: "ab 350€" },
   { value: "Premium Website – ab 600€", title: "Premium Website", price: "ab 600€" },
-  { value: "Kostenlose Website (falls noch Plätze vorhanden)", title: "Kostenlose Website", price: "falls noch Plätze vorhanden" },
+  { value: "Noch unsicher – bitte beraten", title: "Noch unsicher", price: "bitte beraten" },
 ] as const;
 const PACKAGE_VALUES = PACKAGES.map((p) => p.value) as [string, ...string[]];
 
