@@ -263,12 +263,6 @@ function Hero() {
         <source src="/hero.webm" type="video/webm" />
       </video>
 
-      {/* Soft overlay for readability */}
-      <div
-        aria-hidden
-        className="absolute inset-0"
-        style={{ backgroundColor: "rgba(248, 245, 242, 0.25)" }}
-      />
 
       {/* Content */}
       <div className="relative z-10 max-w-4xl mx-auto px-6 pt-36 pb-24 md:pt-44 md:pb-32 text-center">
