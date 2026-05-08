@@ -577,7 +577,7 @@ function Javera() {
               und deine Leistungen richtig präsentiert.
             </p>
             <p className="text-ink font-medium">
-              Für 3 ausgewählte Studios: die fertige Website – kostenlos, live, ohne Risiko.
+              Starte mit einer kostenlosen Analyse & Demo – sieh dein Studio online, bevor du dich entscheidest.
             </p>
           </div>
         </div>
