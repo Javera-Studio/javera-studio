@@ -144,7 +144,7 @@ const faqs = [
   },
   {
     q: "Was kostet mich die Demo?",
-    a: "Aktuell baue ich für 3 ausgewählte Studios eine vollständige Website – komplett kostenlos, fertig und live online. Du siehst das Ergebnis – und entscheidest dann, ob du weitermachen möchtest.",
+    a: "Die Analyse & Demo-Vorschau ist kostenlos und unverbindlich. Du siehst, wie deine Website aussehen könnte – und entscheidest danach, ob du weitermachen möchtest.",
   },
   {
     q: "Muss ich sofort bezahlen?",
