@@ -196,7 +196,7 @@ function Nav() {
             to="/demo-anfrage"
             className="hidden sm:inline-flex text-sm px-4 py-2 rounded-full bg-primary text-primary-foreground hover:bg-mauve transition"
           >
-            Kostenlose Website sichern
+            Kostenlose Analyse & Demo
           </Link>
           <button
             type="button"
@@ -228,7 +228,7 @@ function Nav() {
               onClick={close}
               className="mt-3 inline-flex justify-center text-sm px-4 py-3 rounded-full bg-primary text-primary-foreground hover:bg-mauve transition"
             >
-              Kostenlose Website sichern
+              Kostenlose Analyse & Demo
             </Link>
           </nav>
         </div>
@@ -282,7 +282,7 @@ function Hero() {
             to="/demo-anfrage"
             className="px-7 py-3.5 rounded-full bg-primary text-primary-foreground hover:bg-mauve transition font-medium"
           >
-            Kostenlosen Platz sichern
+            Kostenlose Analyse & Demo
           </Link>
           <a
             href="#demos"
@@ -376,7 +376,7 @@ function Demos() {
             to="/demo-anfrage"
             className="inline-block px-7 py-3.5 rounded-full bg-primary text-primary-foreground hover:bg-mauve transition font-medium"
           >
-            Kostenlosen Platz sichern
+            Kostenlose Analyse & Demo
           </Link>
           <p className="mt-3 text-xs text-muted-foreground">
             Weitere Projekte in Umsetzung
@@ -414,7 +414,7 @@ function Warum() {
               to="/demo-anfrage"
               className="reveal inline-block mt-8 px-7 py-3.5 rounded-full bg-primary text-primary-foreground hover:bg-mauve transition font-medium"
             >
-              Kostenlosen Platz sichern
+              Kostenlose Analyse & Demo
             </Link>
           </div>
           <ul className="space-y-1">
@@ -600,7 +600,7 @@ function Javera() {
             to="/demo-anfrage"
             className="inline-block px-7 py-3.5 rounded-full bg-primary text-primary-foreground hover:bg-mauve transition font-medium"
           >
-            Kostenlosen Platz sichern
+            Kostenlose Analyse & Demo
           </Link>
         </div>
       </div>
@@ -800,7 +800,7 @@ function Preise() {
               to="/demo-anfrage"
               className="block text-center mt-4 py-3 bg-secondary text-ink font-semibold text-sm rounded-xl hover:bg-secondary/80 transition"
             >
-              Kostenlosen Platz sichern
+              Kostenlose Analyse & Demo
             </Link>
           </div>
 
@@ -840,7 +840,7 @@ function Preise() {
               to="/demo-anfrage"
               className="block text-center mt-4 py-3 bg-primary text-primary-foreground font-semibold text-sm rounded-xl hover:bg-primary/90 transition"
             >
-              Kostenlosen Platz sichern
+              Kostenlose Analyse & Demo
             </Link>
           </div>
         </div>
@@ -942,7 +942,7 @@ function FAQ() {
             to="/demo-anfrage"
             className="inline-block px-7 py-3.5 rounded-full bg-primary text-primary-foreground hover:bg-mauve transition font-medium"
           >
-            Kostenlosen Platz sichern
+            Kostenlose Analyse & Demo
           </Link>
           <p className="mt-3 text-xs text-muted-foreground">
             Unverbindlich · Antwort in 24h · kostenlos starten
@@ -985,7 +985,7 @@ function CTA() {
             to="/demo-anfrage"
             className="reveal inline-block mt-10 px-8 py-4 rounded-full bg-primary text-primary-foreground hover:bg-mauve transition font-medium"
           >
-            Kostenlosen Platz sichern
+            Kostenlose Analyse & Demo
           </Link>
           <p className="reveal mt-3 text-xs text-muted-foreground">
             Unverbindlich · Antwort in 24h · kostenlos starten
