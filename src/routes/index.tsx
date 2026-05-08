@@ -762,7 +762,7 @@ function Preise() {
             Deine Website – modern &amp; verkaufsstark
           </h2>
           <p className="text-muted-foreground max-w-lg mx-auto">
-            Für 3 ausgewählte Studios baue ich aktuell eine vollständige Website – kostenlos, fertig, live online. Du siehst das Ergebnis und entscheidest danach.
+            Du bekommst vorab eine kostenlose Analyse & Demo – komplett unverbindlich. So siehst du, wie dein Studio online wirkt, und entscheidest in Ruhe.
           </p>
         </div>
 
