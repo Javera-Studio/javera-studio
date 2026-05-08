@@ -465,6 +465,96 @@ function Warum() {
   );
 }
 
+function Angebot() {
+  const free = [
+    "Erstgespräch & Kennenlernen",
+    "Analyse deines Studios, Brandings oder deiner bestehenden Website",
+    "Erste Design-/Demo-Vorschau",
+    "Individuelle Konzeptideen für deinen Online-Auftritt",
+    "Beratung zu Aufbau, Buchungssystem & Struktur",
+  ];
+  const paid = [
+    "Individuelle Website-Erstellung",
+    "Mobile Optimierung",
+    "Domain & Hosting Einrichtung",
+    "Buchungs-/Kalenderlösungen",
+    "SEO-Grundoptimierung",
+    "Logo Erstellung & Branding-Elemente",
+    "Zusätzliche Unterseiten oder Erweiterungen",
+    "Änderungen, Pflege & laufende Betreuung der Inhalte",
+  ];
+  return (
+    <section id="angebot" className="py-24 md:py-32 bg-cream">
+      <div className="max-w-6xl mx-auto px-6">
+        <div className="max-w-2xl mb-16">
+          <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-4">
+            Mein Angebot
+          </div>
+          <h2 className="reveal font-serif text-4xl md:text-5xl text-ink leading-tight">
+            Was du bei mir bekommst
+          </h2>
+          <p className="reveal reveal-delay mt-4 text-muted-foreground text-lg">
+            Transparente Leistungen – vom kostenlosen Erstgespräch bis zur fertigen Website inklusive Betreuung.
+          </p>
+        </div>
+
+        <div className="grid md:grid-cols-2 gap-6 md:gap-8">
+          <div className="reveal relative rounded-3xl border border-border/60 bg-background p-8 md:p-10 shadow-sm">
+            <div className="absolute -top-3 left-8 inline-flex items-center gap-2 px-3 py-1 rounded-full bg-mint-soft text-ink text-[11px] uppercase tracking-[0.2em]">
+              <span className="h-1.5 w-1.5 rounded-full bg-ink/70" />
+              Kostenlos
+            </div>
+            <h3 className="font-serif text-2xl md:text-3xl text-ink mt-2">
+              Unverbindlich &amp; kostenlos
+            </h3>
+            <p className="mt-3 text-muted-foreground leading-relaxed">
+              Kennenlernen, beraten, Ideen sammeln – ohne Verpflichtung.
+            </p>
+            <ul className="mt-8 space-y-4">
+              {free.map((item) => (
+                <li key={item} className="flex items-start gap-3 text-ink">
+                  <span className="mt-2 h-1.5 w-1.5 rounded-full bg-mauve flex-shrink-0" />
+                  <span className="leading-relaxed">{item}</span>
+                </li>
+              ))}
+            </ul>
+            <Link
+              to="/demo-anfrage"
+              className="inline-block mt-10 px-7 py-3.5 rounded-full bg-primary text-primary-foreground hover:bg-mauve transition font-medium"
+            >
+              Erstgespräch anfragen
+            </Link>
+          </div>
+
+          <div className="reveal reveal-delay relative rounded-3xl border border-mauve/30 bg-gradient-to-br from-peach-soft via-background to-accent/40 p-8 md:p-10 shadow-sm">
+            <div className="absolute -top-3 left-8 inline-flex items-center gap-2 px-3 py-1 rounded-full bg-mauve text-white text-[11px] uppercase tracking-[0.2em]">
+              <span className="h-1.5 w-1.5 rounded-full bg-white/80" />
+              Leistungen
+            </div>
+            <h3 className="font-serif text-2xl md:text-3xl text-ink mt-2">
+              Kostenpflichtige Leistungen
+            </h3>
+            <p className="mt-3 text-muted-foreground leading-relaxed">
+              Alles, was deine Website professionell, sichtbar und wartbar macht.
+            </p>
+            <ul className="mt-8 grid sm:grid-cols-1 gap-y-4">
+              {paid.map((item) => (
+                <li key={item} className="flex items-start gap-3 text-ink">
+                  <span className="mt-2 h-1.5 w-1.5 rounded-full bg-mauve flex-shrink-0" />
+                  <span className="leading-relaxed">{item}</span>
+                </li>
+              ))}
+            </ul>
+            <p className="mt-8 text-sm text-muted-foreground">
+              Individuelles Angebot nach deinem Bedarf – fair &amp; transparent kalkuliert.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function Javera() {
   return (
     <section className="py-24 md:py-32 bg-mint-soft">
