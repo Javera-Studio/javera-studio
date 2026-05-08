@@ -144,7 +144,7 @@ const faqs = [
   },
   {
     q: "Was kostet mich die Demo?",
-    a: "Aktuell baue ich für 3 ausgewählte Studios eine vollständige Website – komplett kostenlos, fertig und live online. Du siehst das Ergebnis – und entscheidest dann, ob du weitermachen möchtest.",
+    a: "Die Analyse & Demo-Vorschau ist kostenlos und unverbindlich. Du siehst, wie deine Website aussehen könnte – und entscheidest danach, ob du weitermachen möchtest.",
   },
   {
     q: "Muss ich sofort bezahlen?",
@@ -196,7 +196,7 @@ function Nav() {
             to="/demo-anfrage"
             className="hidden sm:inline-flex text-sm px-4 py-2 rounded-full bg-primary text-primary-foreground hover:bg-mauve transition"
           >
-            Kostenlose Website sichern
+            Kostenlose Analyse & Demo
           </Link>
           <button
             type="button"
@@ -228,7 +228,7 @@ function Nav() {
               onClick={close}
               className="mt-3 inline-flex justify-center text-sm px-4 py-3 rounded-full bg-primary text-primary-foreground hover:bg-mauve transition"
             >
-              Kostenlose Website sichern
+              Kostenlose Analyse & Demo
             </Link>
           </nav>
         </div>
@@ -268,7 +268,7 @@ function Hero() {
       <div className="relative z-10 max-w-4xl mx-auto px-6 pt-36 pb-24 md:pt-44 md:pb-32 text-center">
         <div className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-white/80 mb-6 hero-subtitle">
           <span className="w-8 h-px bg-white/50" />
-          Aktuell: 3 Plätze für eine kostenlose Website verfügbar
+          Aktuell: Kostenlose Analyse & Demo für dein Studio
         </div>
         <h1 className="hero-headline font-serif text-5xl md:text-6xl lg:text-7xl leading-[1.05] text-white">
           Mehr Kundinnen &amp; Buchungen für dein <em className="text-white/75">Beauty Studio</em> – mit einer Website, die verkauft.
@@ -282,7 +282,7 @@ function Hero() {
             to="/demo-anfrage"
             className="px-7 py-3.5 rounded-full bg-primary text-primary-foreground hover:bg-mauve transition font-medium"
           >
-            Kostenlosen Platz sichern
+            Kostenlose Analyse & Demo
           </Link>
           <a
             href="#demos"
@@ -376,7 +376,7 @@ function Demos() {
             to="/demo-anfrage"
             className="inline-block px-7 py-3.5 rounded-full bg-primary text-primary-foreground hover:bg-mauve transition font-medium"
           >
-            Kostenlosen Platz sichern
+            Kostenlose Analyse & Demo
           </Link>
           <p className="mt-3 text-xs text-muted-foreground">
             Weitere Projekte in Umsetzung
@@ -414,7 +414,7 @@ function Warum() {
               to="/demo-anfrage"
               className="reveal inline-block mt-8 px-7 py-3.5 rounded-full bg-primary text-primary-foreground hover:bg-mauve transition font-medium"
             >
-              Kostenlosen Platz sichern
+              Kostenlose Analyse & Demo
             </Link>
           </div>
           <ul className="space-y-1">
@@ -577,7 +577,7 @@ function Javera() {
               und deine Leistungen richtig präsentiert.
             </p>
             <p className="text-ink font-medium">
-              Für 3 ausgewählte Studios: die fertige Website – kostenlos, live, ohne Risiko.
+              Starte mit einer kostenlosen Analyse & Demo – sieh dein Studio online, bevor du dich entscheidest.
             </p>
           </div>
         </div>
@@ -600,7 +600,7 @@ function Javera() {
             to="/demo-anfrage"
             className="inline-block px-7 py-3.5 rounded-full bg-primary text-primary-foreground hover:bg-mauve transition font-medium"
           >
-            Kostenlosen Platz sichern
+            Kostenlose Analyse & Demo
           </Link>
         </div>
       </div>
@@ -676,7 +676,7 @@ function Zweifel() {
           to="/demo-anfrage"
           className="reveal inline-block mt-10 px-7 py-3.5 rounded-full bg-primary text-primary-foreground hover:bg-mauve transition font-medium"
         >
-          Kostenlos starten
+          Kostenlose Analyse & Demo
         </Link>
       </div>
     </section>
@@ -762,7 +762,7 @@ function Preise() {
             Deine Website – modern &amp; verkaufsstark
           </h2>
           <p className="text-muted-foreground max-w-lg mx-auto">
-            Für 3 ausgewählte Studios baue ich aktuell eine vollständige Website – kostenlos, fertig, live online. Du siehst das Ergebnis und entscheidest danach.
+            Du bekommst vorab eine kostenlose Analyse & Demo – komplett unverbindlich. So siehst du, wie dein Studio online wirkt, und entscheidest in Ruhe.
           </p>
         </div>
 
@@ -800,7 +800,7 @@ function Preise() {
               to="/demo-anfrage"
               className="block text-center mt-4 py-3 bg-secondary text-ink font-semibold text-sm rounded-xl hover:bg-secondary/80 transition"
             >
-              Kostenlosen Platz sichern
+              Kostenlose Analyse & Demo
             </Link>
           </div>
 
@@ -840,7 +840,7 @@ function Preise() {
               to="/demo-anfrage"
               className="block text-center mt-4 py-3 bg-primary text-primary-foreground font-semibold text-sm rounded-xl hover:bg-primary/90 transition"
             >
-              Kostenlosen Platz sichern
+              Kostenlose Analyse & Demo
             </Link>
           </div>
         </div>
@@ -942,7 +942,7 @@ function FAQ() {
             to="/demo-anfrage"
             className="inline-block px-7 py-3.5 rounded-full bg-primary text-primary-foreground hover:bg-mauve transition font-medium"
           >
-            Kostenlosen Platz sichern
+            Kostenlose Analyse & Demo
           </Link>
           <p className="mt-3 text-xs text-muted-foreground">
             Unverbindlich · Antwort in 24h · kostenlos starten
@@ -985,7 +985,7 @@ function CTA() {
             to="/demo-anfrage"
             className="reveal inline-block mt-10 px-8 py-4 rounded-full bg-primary text-primary-foreground hover:bg-mauve transition font-medium"
           >
-            Kostenlosen Platz sichern
+            Kostenlose Analyse & Demo
           </Link>
           <p className="reveal mt-3 text-xs text-muted-foreground">
             Unverbindlich · Antwort in 24h · kostenlos starten

@@ -7,11 +7,11 @@ import { SiteFooter } from "@/components/SiteFooter";
 export const Route = createFileRoute("/demo-anfrage")({
   head: () => ({
     meta: [
-      { title: "Kostenlose Website anfragen – Javera Studio" },
+      { title: "Kostenlose Analyse & Demo anfragen – Javera Studio" },
       {
         name: "description",
         content:
-          "Sichere dir eine kostenlose Website für dein Beauty Studio. Kurzes Formular ausfüllen – Antwort innerhalb von 24 Stunden.",
+          "Sichere dir eine kostenlose Analyse & Demo für dein Beauty Studio. Kurzes Formular ausfüllen – Antwort innerhalb von 24 Stunden.",
       },
       { name: "robots", content: "noindex, follow" },
     ],
@@ -38,7 +38,7 @@ const START = ["Sofort", "In den nächsten Wochen", "Erstmal nur informieren"] a
 const PACKAGES = [
   { value: "Starter Website – ab 350€", title: "Starter Website", price: "ab 350€" },
   { value: "Premium Website – ab 600€", title: "Premium Website", price: "ab 600€" },
-  { value: "Kostenlose Website (falls noch Plätze vorhanden)", title: "Kostenlose Website", price: "falls noch Plätze vorhanden" },
+  { value: "Noch unsicher – bitte beraten", title: "Noch unsicher", price: "bitte beraten" },
 ] as const;
 const PACKAGE_VALUES = PACKAGES.map((p) => p.value) as [string, ...string[]];
 
@@ -223,10 +223,10 @@ function DemoAnfrage() {
             Demo Anfrage
           </div>
           <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl leading-[1.1] text-ink">
-            Kostenlose Website sichern
+            Kostenlose Analyse & Demo
           </h1>
           <p className="mt-6 text-lg text-muted-foreground leading-relaxed">
-            Ich nehme aktuell 3 neue Studios auf — füll das kurze Formular aus und ich erstelle dir eine kostenlose Demo, die genau zu deinem Studio passt.
+            Ich nehme aktuell neue Studios auf — füll das kurze Formular aus und ich erstelle dir eine kostenlose Analyse & Demo, die genau zu deinem Studio passt.
           </p>
         </div>
       </section>
@@ -482,7 +482,7 @@ function DemoAnfrage() {
                   disabled={submitting}
                   className="px-8 py-4 rounded-full bg-ink text-primary-foreground hover:opacity-90 transition font-medium disabled:opacity-60 disabled:cursor-not-allowed"
                 >
-                  {submitting ? "Wird gesendet…" : "Kostenlose Website sichern"}
+                  {submitting ? "Wird gesendet…" : "Kostenlose Analyse & Demo"}
                 </button>
                 <p className="mt-4 text-sm text-muted-foreground">
                   Ich melde mich innerhalb von 24 Stunden bei dir zurück.

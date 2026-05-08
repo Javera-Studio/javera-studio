@@ -110,7 +110,7 @@ export const template = {
     styles: ['Elegant & luxuriös'],
     content_status: 'Teilweise',
     start_time: 'Sofort',
-    budget: 'Kostenlose Website (falls noch Plätze vorhanden)',
+    budget: 'Noch unsicher – bitte beraten',
     notes: 'Bitte feminin und hochwertig.',
   },
   to: 'hallo@javera-studio.at',

@@ -33,7 +33,7 @@ const schema = z.object({
   budget: z.enum([
     'Starter Website – ab 350€',
     'Premium Website – ab 600€',
-    'Kostenlose Website (falls noch Plätze vorhanden)',
+    'Noch unsicher – bitte beraten',
   ]),
   notes: z.string().trim().max(2000).nullish(),
 })
