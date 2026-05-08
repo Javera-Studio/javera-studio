@@ -268,7 +268,7 @@ function Hero() {
       <div className="relative z-10 max-w-4xl mx-auto px-6 pt-36 pb-24 md:pt-44 md:pb-32 text-center">
         <div className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-white/80 mb-6 hero-subtitle">
           <span className="w-8 h-px bg-white/50" />
-          Aktuell: 3 Plätze für eine kostenlose Website verfügbar
+          Aktuell: Kostenlose Analyse & Demo für dein Studio
         </div>
         <h1 className="hero-headline font-serif text-5xl md:text-6xl lg:text-7xl leading-[1.05] text-white">
           Mehr Kundinnen &amp; Buchungen für dein <em className="text-white/75">Beauty Studio</em> – mit einer Website, die verkauft.
