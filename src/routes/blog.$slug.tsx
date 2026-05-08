@@ -120,7 +120,7 @@ const posts: Record<string, Post> = {
     },
     highlight:
       "✦ Aktuell erstelle ich für 3 ausgewählte Beauty Studios eine kostenlose Demo-Website – damit du siehst, wie dein Studio online wirken könnte. Unverbindlich, kostenlos, individuell gestaltet.",
-    ctaLabel: "Kostenlose Website sichern",
+    ctaLabel: "Kostenlose Analyse & Demo",
     ctaTo: "/demo-anfrage",
   },
   "beauty-trends-2026": {
@@ -213,7 +213,7 @@ const posts: Record<string, Post> = {
     },
     highlight:
       "✦ Aktuell erstelle ich für 3 ausgewählte Beauty Studios eine kostenlose Demo-Website – damit du siehst, wie dein Studio online wirken könnte. Unverbindlich, kostenlos, individuell gestaltet.",
-    ctaLabel: "Kostenlose Website sichern",
+    ctaLabel: "Kostenlose Analyse & Demo",
     ctaTo: "/",
     ctaHash: "contact",
   },
