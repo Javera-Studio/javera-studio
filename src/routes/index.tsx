@@ -717,39 +717,45 @@ function SectionLabel({ children }: { children: React.ReactNode }) {
 
 function Preise() {
   const starterDesignContent: FeatureItem[] = [
-    { included: true, title: "Individuelles Design", desc: "Farben & Stil passend zu deinem Studio" },
-    { included: true, title: "Texte", desc: "Struktur & Mustertexte — du passt sie an" },
-    { included: true, title: "Galerie", desc: "Einfaches Bildraster, bis 9 Fotos" },
-    { included: true, title: "Mobil optimiert", desc: "Smartphone, Tablet, Desktop" },
+    { included: true, title: "Individuelles Design", desc: "Farben, Stil & Aufbau passend zu deinem Studio" },
+    { included: true, title: "Texte & Struktur", desc: "Professionelle Struktur mit vorbereiteten Texten" },
+    { included: true, title: "Galerie", desc: "Saubere Bildergalerie mit bis zu 9 Fotos" },
+    { included: true, title: "Mobil optimiert", desc: "Perfekt angepasst für Smartphone, Tablet & Desktop" },
   ];
+
   const starterBooking: FeatureItem[] = [
-    { included: true, title: "Buchungslink", desc: "Link zu Treatwell, Booksy o.ä." },
-    { included: true, title: "SEO-Grundoptimierung" },
+    { included: true, title: "Buchungslink integriert", desc: "Verlinkung zu Treatwell, Booksy oder Fresha" },
+    { included: true, title: "SEO-Basisoptimierung", desc: "Bessere Sichtbarkeit bei Google" },
     { included: false, title: "Interaktive Animationen" },
     { included: false, title: "Vorher/Nachher-Slider" },
-    { included: false, title: "Buchungs-Widget eingebettet" },
+    { included: false, title: "Direktes Buchungs-Widget" },
   ];
+
   const starterSupport: FeatureItem[] = [
-    { included: true, title: "2 Überarbeitungsrunden" },
-    { included: true, title: "14 Tage Nachbetreuung" },
+    { included: true, title: "2 Überarbeitungsrunden", desc: "Feinanpassungen nach deinem Feedback" },
+    { included: true, title: "14 Tage Nachbetreuung", desc: "Support nach dem Launch der Website" },
   ];
 
   const premiumDesignContent: FeatureItem[] = [
-    { included: true, title: "Premium Branding & Design", desc: "Individuelles Konzept & Farbwelt" },
-    { included: true, title: "Vollständige Texte", desc: "Fertige Texte auf Basis eines kurzen Briefings" },
-    { included: true, title: "Galerie mit Filter & Kategorien", desc: "Unbegrenzte Bilder, aufgeräumt sortiert" },
-    { included: true, title: "Mobil optimiert", desc: "Smartphone, Tablet, Desktop" },
+    { included: true, title: "Premium Branding & Design", desc: "Individuelle Markenwirkung mit hochwertigem Look" },
+    { included: true, title: "Fertige Premium-Texte", desc: "Komplette Texte auf Basis eines kurzen Briefings" },
+    { included: true, title: "Erweiterte Galerie", desc: "Unbegrenzte Bilder mit Kategorien & Filtern" },
+    { included: true, title: "Mobil optimiert", desc: "Perfekt abgestimmt auf alle Geräte" },
   ];
+
   const premiumInteractive: FeatureItem[] = [
-    { included: true, title: "Scroll-Animationen", desc: "Elemente faden elegant ein" },
-    { included: true, title: "Vorher/Nachher-Slider", desc: "Perfekt für Kosmetik & Laser" },
-    { included: true, title: "Buchungs-Widget eingebettet", desc: "Direkt auf der Seite buchen" },
-    { included: true, title: "SEO erweitert + Google Maps" },
+    { included: true, title: "Elegante Scroll-Animationen", desc: "Sanfte Premium-Animationen beim Scrollen" },
+    { included: true, title: "Vorher/Nachher-Slider", desc: "Ideal für Beauty-, Haut- & Laserbehandlungen" },
+    { included: true, title: "Buchungs-Widget integriert", desc: "Termine direkt auf der Website buchen" },
+    { included: true, title: "SEO erweitert + Google Maps", desc: "Mehr Sichtbarkeit & professioneller Google-Auftritt" },
+    { included: true, title: "Erweiterbar mit Blog & CMS", desc: "Preise, Blog oder Inhalte später selbst editierbar möglich" },
   ];
+
   const premiumSupport: FeatureItem[] = [
-    { included: true, title: "Unbegrenzte Überarbeitungen" },
-    { included: true, title: "30 Tage Nachbetreuung" },
+    { included: true, title: "Unbegrenzte Überarbeitungen", desc: "Gemeinsame Feinanpassung bis alles perfekt passt" },
+    { included: true, title: "30 Tage Premium-Support", desc: "Persönliche Betreuung nach Veröffentlichung" },
   ];
+}
 
   return (
     <section id="preise" className="py-16 md:py-24 bg-cream">
