@@ -264,6 +264,9 @@ function Hero() {
       </video>
 
 
+      {/* Overlay */}
+      <div className="absolute inset-0" style={{ backgroundColor: "rgba(28, 13, 7, 0.45)" }} aria-hidden="true" />
+
       {/* Content */}
       <div className="relative z-10 max-w-4xl mx-auto px-6 pt-36 pb-24 md:pt-44 md:pb-32 text-center">
         <div className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-white/80 mb-6 hero-subtitle">
