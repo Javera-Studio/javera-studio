@@ -26,6 +26,8 @@ const GOALS = [
   "Mehr Terminbuchungen",
   "Professioneller auftreten",
   "Besser bei Google gefunden werden",
+  "Einheitliches Markenbild aufbauen",
+  "Social Media professionell gestalten",
 ] as const;
 const STYLES = [
   "Modern & clean",
@@ -36,8 +38,12 @@ const STYLES = [
 const CONTENT = ["Ja, alles bereit", "Teilweise", "Nein, brauche Unterstützung"] as const;
 const START = ["Sofort", "In den nächsten Wochen", "Erstmal nur informieren"] as const;
 const PACKAGES = [
-  { value: "Starter Website – ab 400€", title: "Starter Website", price: "ab 400€" },
-  { value: "Premium Website – ab 700€", title: "Premium Website", price: "ab 700€" },
+  { value: "Website Starter – 400–500€", title: "Website Starter", price: "400–500€" },
+  { value: "Website Premium – 700–900€", title: "Website Premium", price: "700–900€" },
+  { value: "Logo Design – 250€", title: "Logo Design", price: "250€" },
+  { value: "Grafik & Print – ab 100€", title: "Grafik & Print", price: "ab 100€" },
+  { value: "Social Media Design – ab 60€", title: "Social Media Design", price: "ab 60€" },
+  { value: "Branding Paket – ab 450€", title: "Branding Paket", price: "ab 450€" },
   { value: "Noch unsicher – bitte beraten", title: "Noch unsicher", price: "bitte beraten" },
 ] as const;
 const PACKAGE_VALUES = PACKAGES.map((p) => p.value) as [string, ...string[]];
@@ -220,13 +226,13 @@ function DemoAnfrage() {
         <div className="relative max-w-2xl mx-auto px-6 text-center">
           <div className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-muted-foreground mb-6">
             <span className="w-8 h-px bg-muted-foreground/50" />
-            Demo Anfrage
+            Anfrage
           </div>
           <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl leading-[1.1] text-ink">
-            Kostenlose Analyse & Demo
+            Sag mir, was du brauchst
           </h1>
           <p className="mt-6 text-lg text-muted-foreground leading-relaxed">
-            Ich nehme aktuell neue Studios auf — füll das kurze Formular aus und ich erstelle dir eine kostenlose Analyse & Demo, die genau zu deinem Studio passt.
+            Egal ob Website, Logo, Flyer oder Social Media – füll das kurze Formular aus und ich melde mich persönlich bei dir.
           </p>
         </div>
       </section>
@@ -340,7 +346,7 @@ function DemoAnfrage() {
                 </div>
               </Field>
 
-              <Field label="Was ist dein Ziel mit der Website?" required error={errors.goals}>
+              <Field label="Was ist dein Ziel?" required error={errors.goals}>
                 <div className="flex flex-wrap gap-2.5">
                   {GOALS.map((g) => {
                     const active = form.goals.includes(g);
@@ -424,7 +430,7 @@ function DemoAnfrage() {
               </Field>
 
               <Field label="Ich interessiere mich für:" required error={errors.budget}>
-                <div className="grid sm:grid-cols-2 gap-3">
+                <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-3">
                   {PACKAGES.map((pkg) => {
                     const active = form.budget === pkg.value;
                     return (
@@ -482,7 +488,7 @@ function DemoAnfrage() {
                   disabled={submitting}
                   className="px-8 py-4 rounded-full bg-ink text-primary-foreground hover:opacity-90 transition font-medium disabled:opacity-60 disabled:cursor-not-allowed"
                 >
-                  {submitting ? "Wird gesendet…" : "Kostenlose Analyse & Demo"}
+                  {submitting ? "Wird gesendet…" : "Anfrage senden"}
                 </button>
                 <p className="mt-4 text-sm text-muted-foreground">
                   Ich melde mich innerhalb von 24 Stunden bei dir zurück.

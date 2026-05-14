@@ -12,27 +12,27 @@ import { SiteFooter as Footer } from "@/components/SiteFooter";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Javera Studio — Webdesign für Beauty Studios Wien" },
+      { title: "Javera Studio — Webdesign · Grafik · Branding für Beauty Studios Wien" },
       {
         name: "description",
         content:
-          "Professionelle Websites für Nagelstudios, Kosmetikstudios & Beauty Brands in Wien. Individuell, modern und auf dein Studio abgestimmt.",
+          "Website, Branding & Grafik für Beauty Studios in Wien. Von der Website über das Logo bis zu Flyern & Social Media – individuell gestaltet, professionell umgesetzt.",
       },
-      { property: "og:title", content: "Javera Studio — Webdesign für Beauty Studios Wien" },
+      { property: "og:title", content: "Javera Studio — Webdesign · Grafik · Branding für Beauty Studios Wien" },
       {
         property: "og:description",
         content:
-          "Professionelle Websites für Nagelstudios, Kosmetikstudios & Beauty Brands in Wien. Individuell, modern und auf dein Studio abgestimmt.",
+          "Website, Branding & Grafik für Beauty Studios in Wien. Von der Website über das Logo bis zu Flyern & Social Media – individuell gestaltet, professionell umgesetzt.",
       },
       { property: "og:image", content: "https://javera-studio.lovable.app/og-image.jpg" },
       { property: "og:image:width", content: "1200" },
       { property: "og:image:height", content: "630" },
       { property: "og:url", content: "https://javera-studio.lovable.app/" },
-      { name: "twitter:title", content: "Javera Studio — Webdesign für Beauty Studios Wien" },
+      { name: "twitter:title", content: "Javera Studio — Webdesign · Grafik · Branding für Beauty Studios Wien" },
       {
         name: "twitter:description",
         content:
-          "Professionelle Websites für Nagelstudios, Kosmetikstudios & Beauty Brands in Wien.",
+          "Website, Branding & Grafik für Beauty Studios in Wien – individuell gestaltet, professionell umgesetzt.",
       },
       { name: "twitter:image", content: "https://javera-studio.lovable.app/og-image.jpg" },
     ],
@@ -76,22 +76,24 @@ const demos = [
 ];
 
 const benefits = [
-  "Mehr direkte Anfragen & Terminbuchungen",
-  "Du wirkst sofort professionell und vertrauenswürdig",
-  "Bessere Sichtbarkeit bei Google",
-  "Weniger Abhängigkeit von Instagram",
-  "Klare Positionierung gegenüber deiner Konkurrenz",
-  "Rund um die Uhr sichtbar für neue Kundinnen",
+  "Mehr direkte Anfragen & Terminbuchungen durch einen Auftritt, der überzeugt",
+  "Ein konsistentes Markenbild – von der Website bis zum Flyer",
+  "Professioneller erster Eindruck auf jedem Kanal: online, print & social",
+  "Bessere Sichtbarkeit bei Google durch gezielte SEO-Optimierung",
+  "Social-Media-Content, der wirklich zu deiner Marke passt",
+  "Klare Positionierung, die dich von der Konkurrenz abhebt",
+  "Weniger Abhängigkeit von Instagram – mit einem starken eigenen Auftritt",
 ];
 
 const javeraPoints = [
-  "Spezialisierung auf Beauty Studios (Nails, Kosmetik, Friseur, Laser)",
-  "Individuelles Webdesign statt Standard-Templates",
-  "Farben, Stil und Konzept passend zu deiner Marke",
-  "Fokus auf mehr Sichtbarkeit, Anfragen und Kundinnen",
-  "Persönliche Zusammenarbeit statt anonymer Agentur",
-  "Schnelle und unkomplizierte Umsetzung",
-  "SEO-Grundoptimierung für bessere Auffindbarkeit",
+  "Spezialisierung auf Beauty Studios – Nails, Kosmetik, Friseur & Co.",
+  "Website, Branding & Grafik aus einer Hand",
+  "Einheitliches Design über alle Kanäle: Web, Print & Social Media",
+  "Individuell gestaltet – kein Template, keine 08/15-Lösung",
+  "Persönliche Zusammenarbeit direkt mit Jagoda – von Anfang bis Ende",
+  "Schnelle Umsetzung mit klaren, sichtbaren Ergebnissen",
+  "SEO-Grundoptimierung für bessere Sichtbarkeit bei Google",
+  "20 % Rabatt auf alle Design-Leistungen für Website-Kunden",
 ];
 
 const steps = [
@@ -103,7 +105,7 @@ const steps = [
   {
     n: "02",
     title: "Demo erhalten",
-    desc: "Ich erstelle eine erste Version deiner Website – abgestimmt auf dein Studio.",
+    desc: "Ich erstelle einen ersten Entwurf – abgestimmt auf dein Studio, deine Marke und deine Ziele.",
   },
   {
     n: "03",
@@ -112,8 +114,8 @@ const steps = [
   },
   {
     n: "04",
-    title: "Online gehen",
-    desc: "Ich unterstütze dich bei Veröffentlichung, Domain und Hosting.",
+    title: "Fertigstellung & Launch",
+    desc: "Dein Auftritt geht live – ich begleite dich bei jedem Schritt.",
   },
 ];
 
@@ -161,6 +163,18 @@ const faqs = [
   {
     q: "Arbeite ich direkt mit dir oder mit einem Team?",
     a: "Du arbeitest ausschließlich mit mir – Jagoda. Kein anonymes Team, keine Weiterleitung. Ich bin deine direkte Ansprechpartnerin von Anfang bis Ende.",
+  },
+  {
+    q: "Kann ich auch nur ein Logo oder Social Media Design bestellen – ohne Website?",
+    a: "Ja – alle Grafik- und Designleistungen sind einzeln buchbar. Du brauchst keine Website bei mir, um Flyer, Logo oder Social Media Posts zu beauftragen. Ich stimme alles auf dein bestehendes Branding oder deine Website ab.",
+  },
+  {
+    q: "Wie lange dauert es, bis ein Logo oder Flyer fertig ist?",
+    a: "Für ein Logo plane 5–7 Werktage (3 Entwürfe inkl. Korrekturrunden). Für Flyer und Print-Designs rechne mit 3–5 Werktagen.",
+  },
+  {
+    q: "Lohnt es sich, Website und Social Media Design zusammen zu buchen?",
+    a: "Sehr – ein einheitliches Design über alle Kanäle macht deinen Auftritt stärker und professioneller. Als Website-Kundin erhältst du außerdem 20 % Rabatt auf alle Grafik- und Design-Leistungen.",
   },
 ];
 
@@ -310,16 +324,16 @@ function Announcement() {
       <div className="max-w-5xl mx-auto px-6 py-8 md:py-10 flex flex-col md:flex-row items-center gap-6 md:gap-10 text-center md:text-left">
         <div className="flex-shrink-0 inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.25em] text-mauve">
           <span className="h-px w-6 bg-mauve/60" />
-          Limitiert
+          Angebot
         </div>
         <p className="flex-1 font-serif text-base md:text-lg leading-relaxed text-ink">
-          Ich nehme aktuell <span className="text-mauve font-medium">3 neue Studios</span> auf — und baue ihnen eine vollständige, fertige Website. Kostenlos, live online, auf dein Studio zugeschnitten.
+          Kostenlose Website-Analyse &amp; Demo für Beauty Studios — sieh deinen Auftritt online, bevor du dich entscheidest.
         </p>
         <Link
           to="/demo-anfrage"
           className="flex-shrink-0 inline-flex items-center justify-center px-6 py-3 bg-mauve text-white text-sm tracking-wide hover:bg-primary transition-colors rounded-sm shadow-sm"
         >
-          Jetzt Platz sichern
+          Kostenlose Demo
         </Link>
       </div>
     </section>
@@ -477,11 +491,12 @@ function Angebot() {
   ];
   const paid = [
     "Individuelle Website-Erstellung",
-    "Mobile Optimierung",
+    "Logo Design & Branding-Elemente",
+    "Flyer, Visitenkarten & Print-Design (druckfertig)",
+    "Social Media Design (Posts, Stories, Cover Sets)",
+    "Mobile Optimierung & SEO-Grundoptimierung",
     "Domain & Hosting Einrichtung",
     "Buchungs-/Kalenderlösungen",
-    "SEO-Grundoptimierung",
-    "Logo Erstellung & Branding-Elemente",
     "Zusätzliche Unterseiten oder Erweiterungen",
     "Änderungen, Pflege & laufende Betreuung der Inhalte",
   ];
@@ -496,7 +511,7 @@ function Angebot() {
             Was du bei mir bekommst
           </h2>
           <p className="reveal reveal-delay mt-4 text-muted-foreground text-lg">
-            Transparente Leistungen – vom kostenlosen Erstgespräch bis zur fertigen Website inklusive Betreuung.
+            Transparente Leistungen – von der kostenlosen Erstberatung bis zum fertigen Gesamtauftritt.
           </p>
         </div>
 
@@ -537,7 +552,7 @@ function Angebot() {
               Kostenpflichtige Leistungen
             </h3>
             <p className="mt-3 text-muted-foreground leading-relaxed">
-              Alles, was deine Website professionell, sichtbar und wartbar macht.
+              Alles, was dein Studio professionell, sichtbar und unverwechselbar macht – online wie offline.
             </p>
             <ul className="mt-8 grid sm:grid-cols-1 gap-y-4">
               {paid.map((item) => (
@@ -566,20 +581,17 @@ function Javera() {
             Warum Javera Studio
           </div>
           <h2 className="reveal font-serif text-4xl md:text-5xl text-ink leading-tight">
-            Websites für Beauty Studios – die nicht nur gut aussehen, sondern Kundinnen bringen.
+            Mehr als eine Website – dein komplettes visuelles Erscheinungsbild, das Kundinnen bringt.
           </h2>
           <div className="reveal reveal-delay mt-6 space-y-4 text-muted-foreground text-lg leading-relaxed">
             <p>
-              Ich helfe Beauty Studios dabei, online professionell aufzutreten und mehr Kundinnen
-              zu gewinnen – durch Websites, die klar aufgebaut sind und gezielt zur Anfrage oder
-              Terminbuchung führen.
+              Von der Website über das Logo bis zu Instagram-Posts und Flyern – ich gestalte alles, was dein Beauty Studio sichtbar und unverwechselbar macht.
             </p>
             <p>
-              Du bekommst keine Standardlösung, sondern ein Design, das zu deinem Studio passt
-              und deine Leistungen richtig präsentiert.
+              Du bekommst kein Fertigprodukt von der Stange, sondern ein durchgängiges visuelles Konzept, das zu deiner Marke, deinem Stil und deinen Kundinnen passt.
             </p>
             <p className="text-ink font-medium">
-              Starte mit einer kostenlosen Analyse & Demo – sieh dein Studio online, bevor du dich entscheidest.
+              Starte mit einer kostenlosen Website-Analyse – ich zeige dir, wo Potenzial steckt und was dein Auftritt wirklich braucht.
             </p>
           </div>
         </div>
@@ -619,7 +631,7 @@ function Ablauf() {
             Ablauf
           </div>
           <h2 className="reveal font-serif text-4xl md:text-5xl text-ink leading-tight">
-            So einfach kommst du zu deiner Website
+            So läuft unsere Zusammenarbeit ab
           </h2>
         </div>
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -783,7 +795,7 @@ function Preise() {
             Transparente Preise
           </h2>
           <p className="text-muted-foreground max-w-lg mx-auto">
-            Du bekommst vorab eine kostenlose Analyse &amp; Demo – komplett unverbindlich.
+            Du bekommst vorab eine kostenlose Website-Analyse &amp; Demo – komplett unverbindlich. Alle anderen Leistungen sind direkt einzeln buchbar.
           </p>
         </div>
 
@@ -982,10 +994,7 @@ function About() {
           </h2>
           <div className="mt-8 space-y-5 text-muted-foreground leading-relaxed text-[1.05rem]">
             <p className="reveal reveal-stagger-1">
-              Ich bin Jagoda – Webdesignerin aus Wien, spezialisiert auf Beauty Studios. Ich
-              verbinde klares Design mit Funktion, damit deine Website nicht nur gut aussieht,
-              sondern Kundinnen bringt. Du arbeitest direkt mit mir – unkompliziert, persönlich
-              und Schritt für Schritt.
+              Ich bin Jagoda – Webdesignerin & Grafikerin aus Wien, spezialisiert auf Beauty Studios. Ich begleite dich beim Aufbau eines professionellen Gesamtauftritts – von der Website über das Branding bis zu Social-Media-Design und Print.
             </p>
             <p className="reveal reveal-stagger-2">
               Durch meine Erfahrung in der IT verbinde ich klares Design mit Struktur und
@@ -1092,7 +1101,7 @@ function CTA() {
         </div>
         <div className="order-1 md:order-2 text-center md:text-left">
           <h2 className="reveal font-serif text-4xl md:text-5xl lg:text-6xl text-ink leading-tight">
-            Bereit für eine Website, die zu deinem Studio passt und Kundinnen bringt?
+            Bereit für einen Auftritt, der dein Studio wirklich widerspiegelt – und neue Kundinnen bringt?
           </h2>
           <p className="reveal reveal-delay mt-6 text-lg text-muted-foreground">
             Schick mir eine kurze Anfrage – ich melde mich persönlich bei dir.
