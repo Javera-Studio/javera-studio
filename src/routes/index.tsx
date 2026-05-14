@@ -176,11 +176,16 @@ function Nav() {
           aria-label="Javera Studio – zur Startseite"
           onClick={close}
         >
-          <img
-            src={logo}
-            alt="Javera Studio"
-            className="h-16 md:h-20 w-auto transition-all duration-500 ease-out group-hover:scale-[1.04] group-hover:opacity-80 group-hover:drop-shadow-[0_4px_12px_rgba(0,0,0,0.08)]"
-          />
+          <div className="flex flex-col">
+            <img
+              src={logo}
+              alt="Javera Studio"
+              className="h-16 md:h-20 w-auto transition-all duration-500 ease-out group-hover:scale-[1.04] group-hover:opacity-80 group-hover:drop-shadow-[0_4px_12px_rgba(0,0,0,0.08)]"
+            />
+            <span className="text-[9px] uppercase tracking-[0.18em] text-muted-foreground mt-0.5 pl-0.5">
+              Webdesign · Grafik · Branding · Wien
+            </span>
+          </div>
         </a>
         <nav className="hidden md:flex items-center gap-8 text-sm text-muted-foreground">
           <a href="#demos" className="hover:text-ink transition">Demos</a>
@@ -755,105 +760,213 @@ function Preise() {
     { included: true, title: "Unbegrenzte Überarbeitungen", desc: "Gemeinsame Feinanpassung bis alles perfekt passt" },
     { included: true, title: "30 Tage Premium-Support", desc: "Persönliche Betreuung nach Veröffentlichung" },
   ];
-}
+
+  const grafikItems = [
+    { title: "Flyer (einseitig, druckfertig)", desc: "A5 oder A6 · inkl. 2 Korrekturschleifen", price: "100 €" },
+    { title: "Flyer (zweiseitig, druckfertig)", desc: "A5 oder A6 · inkl. 2 Korrekturschleifen", price: "150 €" },
+    { title: "Roll-Up / Banner (druckfertig)", desc: "Druckfertige Datei · Druckkoordination auf Anfrage", price: "200 €" },
+    { title: "Visitenkarte (beidseitig)", desc: "Druckfertig · PNG & PDF", price: "100 €" },
+    { title: "Logo Design", desc: "3 Entwürfe · inkl. Farbvarianten · PNG & druckfertige PDF", price: "250 €" },
+  ];
+
+  const socialItems = [
+    { title: "Social Media Post (1 Stück)", desc: "Instagram/Facebook · im Brand-Design", price: "65 €" },
+    { title: "Social Media Paket (5 Posts)", desc: "Thematisch abgestimmt · alle Formate", price: "220 €" },
+    { title: "Story / Reel Cover Set (10 Stück)", desc: "Einheitliches Design · individuell angepasst", price: "150 €" },
+    { title: "Instagram Highlight Icons (10 Stück)", desc: "Passend zum Brand", price: "60 €" },
+  ];
 
   return (
     <section id="preise" className="py-16 md:py-24 bg-cream">
-      <div className="max-w-4xl mx-auto px-6">
-        <div className="text-center mb-10">
-          <p className="text-xs uppercase tracking-[0.08em] text-muted-foreground mb-2">
-            Angebot
-          </p>
+      <div className="max-w-5xl mx-auto px-6">
+
+        <div className="text-center mb-12">
+          <p className="text-xs uppercase tracking-[0.08em] text-muted-foreground mb-2">Preise</p>
           <h2 className="reveal font-serif text-3xl md:text-4xl text-ink mb-3">
-            Deine Website – modern &amp; verkaufsstark
+            Transparente Preise
           </h2>
           <p className="text-muted-foreground max-w-lg mx-auto">
-            Du bekommst vorab eine kostenlose Analyse & Demo – komplett unverbindlich. So siehst du, wie dein Studio online wirkt, und entscheidest in Ruhe.
+            Du bekommst vorab eine kostenlose Analyse &amp; Demo – komplett unverbindlich.
           </p>
         </div>
 
+        {/* WEBSITE */}
+        <p className="text-[11px] font-semibold uppercase tracking-[0.15em] text-muted-foreground mb-5">Website</p>
         <div className="grid md:grid-cols-2 gap-5">
-          {/* STARTER */}
           <div className="reveal-card bg-background border border-border rounded-2xl p-8">
-            <p className="text-lg font-semibold text-ink mb-1">Starter</p>
-            <p className="text-sm text-muted-foreground mb-5">
-              Für Studios die sichtbar werden wollen
-            </p>
+            <p className="text-lg font-semibold text-ink mb-1">Starter Website</p>
+            <p className="text-sm text-muted-foreground mb-5">One-Pager · alle Infos auf einer Seite · Treatwell-Link</p>
             <div className="text-3xl font-bold text-ink leading-none">
-              ab 400 €{" "}
+              400 – 500 €{" "}
               <span className="text-sm font-normal text-muted-foreground">einmalig</span>
             </div>
             <div className="flex gap-2 mt-3 flex-wrap">
-              <span className="text-xs bg-secondary text-foreground/70 rounded-full px-2.5 py-0.5">
-                1 Seite
-              </span>
-              <span className="text-xs bg-secondary text-foreground/70 rounded-full px-2.5 py-0.5">
-                5–7 Tage
-              </span>
+              <span className="text-xs bg-secondary text-foreground/70 rounded-full px-2.5 py-0.5">1 Seite</span>
+              <span className="text-xs bg-secondary text-foreground/70 rounded-full px-2.5 py-0.5">5–7 Tage</span>
             </div>
             <hr className="border-t border-border/60 my-5" />
-
             <SectionLabel>Design & Inhalt</SectionLabel>
             {starterDesignContent.map((f) => <FeatureRow key={f.title} {...f} />)}
-
             <SectionLabel>Buchung & Sichtbarkeit</SectionLabel>
             {starterBooking.map((f) => <FeatureRow key={f.title} {...f} />)}
-
             <SectionLabel>Support</SectionLabel>
             {starterSupport.map((f) => <FeatureRow key={f.title} {...f} />)}
-
             <Link
               to="/demo-anfrage"
-              className="block text-center mt-4 py-3 bg-secondary text-ink font-semibold text-sm rounded-xl hover:bg-secondary/80 transition"
+              className="block text-center mt-6 py-3 bg-secondary text-ink font-semibold text-sm rounded-xl hover:bg-secondary/80 transition"
             >
               Kostenlose Analyse & Demo
             </Link>
           </div>
 
-          {/* PREMIUM */}
           <div className="reveal-card reveal-stagger-2 relative bg-background border-2 border-primary rounded-2xl p-8">
             <div className="absolute -top-3 left-8 bg-accent text-primary text-[11px] font-semibold px-3 py-1 rounded-full">
               Empfohlen
             </div>
-            <p className="text-lg font-semibold text-ink mb-1">Premium</p>
-            <p className="text-sm text-muted-foreground mb-5">
-              Für Studios die wachsen wollen
-            </p>
+            <p className="text-lg font-semibold text-ink mb-1">Premium Website</p>
+            <p className="text-sm text-muted-foreground mb-5">Multi-Page · Animationen · Instagram Feed · Vorher/Nachher Slider</p>
             <div className="text-3xl font-bold text-ink leading-none">
-              ab 700 €{" "}
+              700 – 900 €{" "}
               <span className="text-sm font-normal text-muted-foreground">einmalig</span>
             </div>
             <div className="flex gap-2 mt-3 flex-wrap">
-              <span className="text-xs bg-secondary text-foreground/70 rounded-full px-2.5 py-0.5">
-                3–5 Seiten
-              </span>
-              <span className="text-xs bg-secondary text-foreground/70 rounded-full px-2.5 py-0.5">
-                10–14 Tage
-              </span>
+              <span className="text-xs bg-secondary text-foreground/70 rounded-full px-2.5 py-0.5">3–5 Seiten</span>
+              <span className="text-xs bg-secondary text-foreground/70 rounded-full px-2.5 py-0.5">10–14 Tage</span>
             </div>
             <hr className="border-t border-border/60 my-5" />
-
             <SectionLabel>Design & Inhalt</SectionLabel>
             {premiumDesignContent.map((f) => <FeatureRow key={f.title} {...f} />)}
-
             <SectionLabel>Interaktiv & Buchung</SectionLabel>
             {premiumInteractive.map((f) => <FeatureRow key={f.title} {...f} />)}
-
             <SectionLabel>Support</SectionLabel>
             {premiumSupport.map((f) => <FeatureRow key={f.title} {...f} />)}
-
             <Link
               to="/demo-anfrage"
-              className="block text-center mt-4 py-3 bg-primary text-primary-foreground font-semibold text-sm rounded-xl hover:bg-primary/90 transition"
+              className="block text-center mt-6 py-3 bg-primary text-primary-foreground font-semibold text-sm rounded-xl hover:bg-primary/90 transition"
             >
               Kostenlose Analyse & Demo
             </Link>
           </div>
         </div>
 
-        <p className="text-center text-[13px] text-muted-foreground mt-4">
+        {/* Laufende Kosten */}
+        <div className="mt-5 grid sm:grid-cols-3 gap-4">
+          <div className="reveal-card bg-background border border-border rounded-2xl p-6">
+            <p className="font-semibold text-ink">Domain &amp; Hosting</p>
+            <p className="text-xs text-muted-foreground mt-1 mb-3">Eigene www-Adresse + Website online halten</p>
+            <p className="text-2xl font-bold text-ink">
+              15 €{" "}
+              <span className="text-sm font-normal text-muted-foreground">/ Monat</span>
+            </p>
+            <p className="text-xs text-muted-foreground/80 mt-2 italic">direkt beim Anbieter — läuft auf deinen Namen</p>
+          </div>
+          <div className="reveal-card reveal-stagger-2 bg-background border border-border rounded-2xl p-6">
+            <p className="font-semibold text-ink">Wartungspaket</p>
+            <p className="text-xs text-muted-foreground mt-1 mb-3">Updates, neue Fotos, Texte, Aktionen — alles inklusive</p>
+            <p className="text-2xl font-bold text-ink">
+              30 €{" "}
+              <span className="text-sm font-normal text-muted-foreground">/ Monat</span>
+            </p>
+          </div>
+          <div className="reveal-card reveal-stagger-3 bg-background border border-border rounded-2xl p-6">
+            <p className="font-semibold text-ink">Einzeländerung</p>
+            <p className="text-xs text-muted-foreground mt-1 mb-3">Leistung, Foto oder Text anpassen — auf Anfrage</p>
+            <p className="text-2xl font-bold text-ink">
+              40 – 50 €{" "}
+              <span className="text-sm font-normal text-muted-foreground">einmalig</span>
+            </p>
+          </div>
+        </div>
+
+        {/* GRAFIK & PRINT */}
+        <div className="mt-14">
+          <p className="text-[11px] font-semibold uppercase tracking-[0.15em] text-muted-foreground mb-5">Grafik &amp; Print Design</p>
+          <div className="reveal-card bg-background border border-border rounded-2xl overflow-hidden">
+            {grafikItems.map((item, i) => (
+              <div
+                key={item.title}
+                className={`flex items-center justify-between px-6 py-4 border-b border-border/40 last:border-0 ${i % 2 !== 0 ? "bg-cream/50" : ""}`}
+              >
+                <div>
+                  <p className="text-sm font-medium text-ink">{item.title}</p>
+                  <p className="text-xs text-muted-foreground">{item.desc}</p>
+                </div>
+                <p className="text-sm font-bold text-ink shrink-0 ml-6">{item.price}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* SOCIAL MEDIA */}
+        <div className="mt-10">
+          <p className="text-[11px] font-semibold uppercase tracking-[0.15em] text-muted-foreground mb-5">Social Media Design</p>
+          <div className="reveal-card bg-background border border-border rounded-2xl overflow-hidden">
+            {socialItems.map((item, i) => (
+              <div
+                key={item.title}
+                className={`flex items-center justify-between px-6 py-4 border-b border-border/40 last:border-0 ${i % 2 !== 0 ? "bg-cream/50" : ""}`}
+              >
+                <div>
+                  <p className="text-sm font-medium text-ink">{item.title}</p>
+                  <p className="text-xs text-muted-foreground">{item.desc}</p>
+                </div>
+                <p className="text-sm font-bold text-ink shrink-0 ml-6">{item.price}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* PAKETE */}
+        <div className="mt-14">
+          <p className="text-[11px] font-semibold uppercase tracking-[0.15em] text-muted-foreground mb-5">Pakete</p>
+          <div className="grid sm:grid-cols-3 gap-5">
+            <div className="reveal-card bg-background border border-border rounded-2xl p-6">
+              <p className="font-semibold text-ink mb-1">Starter Branding</p>
+              <p className="text-xs text-muted-foreground mb-4">Logo + Visitenkarte + 5 Social Media Posts</p>
+              <p className="text-2xl font-bold text-ink">ab 450 €</p>
+            </div>
+            <div className="reveal-card reveal-stagger-2 relative bg-background border-2 border-primary rounded-2xl p-6">
+              <div className="absolute -top-3 left-6 bg-accent text-primary text-[11px] font-semibold px-3 py-1 rounded-full">
+                Komplett
+              </div>
+              <p className="font-semibold text-ink mb-1 mt-1">Beauty Studio Komplett</p>
+              <p className="text-xs text-muted-foreground mb-4">Website Premium + Logo + 10 Social Posts + Flyer</p>
+              <p className="text-2xl font-bold text-ink">ab 1.099 €</p>
+            </div>
+            <div className="reveal-card reveal-stagger-3 bg-background border border-border rounded-2xl p-6">
+              <p className="font-semibold text-ink mb-1">Social Media Monatspaket</p>
+              <p className="text-xs text-muted-foreground mb-4">8 Posts + 4 Stories monatlich aktualisiert</p>
+              <p className="text-2xl font-bold text-ink">
+                200 €{" "}
+                <span className="text-sm font-normal text-muted-foreground">/ Monat</span>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* 20% Rabatt */}
+        <div className="reveal mt-8 flex items-start gap-3 bg-peach-soft border border-mauve/20 rounded-2xl px-6 py-4">
+          <span className="text-mauve text-lg leading-none shrink-0 mt-0.5">★</span>
+          <p className="text-sm text-ink">
+            <strong>Website-Kunden erhalten 20 % Rabatt</strong> auf alle Design-Leistungen (Grafik, Print &amp; Social Media).
+          </p>
+        </div>
+
+        <p className="text-center text-[12px] text-muted-foreground mt-6">
+          Alle Preise exkl. MwSt. (Kleinunternehmer) · Individuelle Angebote auf Anfrage
+        </p>
+        <p className="text-center text-[13px] text-muted-foreground mt-2">
           Nicht sicher welches Paket passt? Demo anfragen — ich berate dich kurz und kostenlos.
         </p>
+        <div className="mt-6 text-center reveal">
+          <Link
+            to="/demo-anfrage"
+            className="inline-block px-7 py-3.5 rounded-full bg-primary text-primary-foreground hover:bg-mauve transition font-medium"
+          >
+            Kostenlose Analyse & Demo
+          </Link>
+        </div>
+
       </div>
     </section>
   );
