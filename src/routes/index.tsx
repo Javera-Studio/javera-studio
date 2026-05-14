@@ -200,7 +200,7 @@ function Nav() {
           <a href="#demos" className="hover:text-ink transition">Demos</a>
           <a href="#warum" className="hover:text-ink transition">Warum</a>
           <a href="#ablauf" className="hover:text-ink transition">Ablauf</a>
-          <a href="#preise" className="hover:text-ink transition">Preise</a>
+          <Link to="/preise" className="hover:text-ink transition">Preise</Link>
           <a href="#about" className="hover:text-ink transition">Über mich</a>
           <a href="#faq" className="hover:text-ink transition">FAQ</a>
           <Link to="/blog" className="hover:text-ink transition">Blog</Link>
@@ -233,7 +233,7 @@ function Nav() {
             <a href="#demos" onClick={close} className="py-2.5 hover:text-ink transition">Demos</a>
             <a href="#warum" onClick={close} className="py-2.5 hover:text-ink transition">Warum</a>
             <a href="#ablauf" onClick={close} className="py-2.5 hover:text-ink transition">Ablauf</a>
-            <a href="#preise" onClick={close} className="py-2.5 hover:text-ink transition">Preise</a>
+            <Link to="/preise" onClick={close} className="py-2.5 hover:text-ink transition">Preise</Link>
             <a href="#about" onClick={close} className="py-2.5 hover:text-ink transition">Über mich</a>
             <a href="#faq" onClick={close} className="py-2.5 hover:text-ink transition">FAQ</a>
             <Link to="/blog" onClick={close} className="py-2.5 hover:text-ink transition">Blog</Link>
@@ -567,6 +567,14 @@ function Angebot() {
             </p>
           </div>
         </div>
+        <div className="mt-12 text-center">
+          <Link
+            to="/preise"
+            className="inline-flex items-center gap-2 text-sm font-medium text-ink border-b border-ink/30 pb-1 hover:border-ink transition"
+          >
+            Alle Preise ansehen <span aria-hidden>→</span>
+          </Link>
+        </div>
       </div>
     </section>
   );
@@ -692,290 +700,6 @@ function Zweifel() {
         >
           Kostenlose Analyse & Demo
         </Link>
-      </div>
-    </section>
-  );
-}
-
-type FeatureItem = { included: boolean; title: string; desc?: string };
-
-function FeatureRow({ included, title, desc }: FeatureItem) {
-  return (
-    <div className={`flex gap-2.5 mb-2.5 text-sm ${included ? "" : "opacity-40"}`}>
-      <span
-        className="shrink-0 leading-tight text-base"
-        style={{ color: included ? "#0F6E56" : undefined }}
-      >
-        {included ? "✓" : "✕"}
-      </span>
-      <div>
-        <strong className="text-ink">{title}</strong>
-        {desc && (
-          <>
-            <br />
-            <span className="text-muted-foreground">{desc}</span>
-          </>
-        )}
-      </div>
-    </div>
-  );
-}
-
-function SectionLabel({ children }: { children: React.ReactNode }) {
-  return (
-    <p className="text-[11px] font-semibold text-muted-foreground/70 uppercase tracking-[0.06em] mt-4 mb-2.5 first:mt-0">
-      {children}
-    </p>
-  );
-}
-
-function Preise() {
-  const starterDesignContent: FeatureItem[] = [
-    { included: true, title: "Individuelles Design", desc: "Farben, Stil & Aufbau passend zu deinem Studio" },
-    { included: true, title: "Texte & Struktur", desc: "Professionelle Struktur mit vorbereiteten Texten" },
-    { included: true, title: "Galerie", desc: "Saubere Bildergalerie mit bis zu 9 Fotos" },
-    { included: true, title: "Mobil optimiert", desc: "Perfekt angepasst für Smartphone, Tablet & Desktop" },
-  ];
-
-  const starterBooking: FeatureItem[] = [
-    { included: true, title: "Buchungslink integriert", desc: "Verlinkung zu Treatwell, Booksy oder Fresha" },
-    { included: true, title: "SEO-Basisoptimierung", desc: "Bessere Sichtbarkeit bei Google" },
-    { included: false, title: "Interaktive Animationen" },
-    { included: false, title: "Vorher/Nachher-Slider" },
-    { included: false, title: "Direktes Buchungs-Widget" },
-  ];
-
-  const starterSupport: FeatureItem[] = [
-    { included: true, title: "2 Überarbeitungsrunden", desc: "Feinanpassungen nach deinem Feedback" },
-    { included: true, title: "14 Tage Nachbetreuung", desc: "Support nach dem Launch der Website" },
-  ];
-
-  const premiumDesignContent: FeatureItem[] = [
-    { included: true, title: "Premium Branding & Design", desc: "Individuelle Markenwirkung mit hochwertigem Look" },
-    { included: true, title: "Fertige Premium-Texte", desc: "Komplette Texte auf Basis eines kurzen Briefings" },
-    { included: true, title: "Erweiterte Galerie", desc: "Unbegrenzte Bilder mit Kategorien & Filtern" },
-    { included: true, title: "Mobil optimiert", desc: "Perfekt abgestimmt auf alle Geräte" },
-  ];
-
-  const premiumInteractive: FeatureItem[] = [
-    { included: true, title: "Elegante Scroll-Animationen", desc: "Sanfte Premium-Animationen beim Scrollen" },
-    { included: true, title: "Vorher/Nachher-Slider", desc: "Ideal für Beauty-, Haut- & Laserbehandlungen" },
-    { included: true, title: "Buchungs-Widget integriert", desc: "Termine direkt auf der Website buchen" },
-    { included: true, title: "SEO erweitert + Google Maps", desc: "Mehr Sichtbarkeit & professioneller Google-Auftritt" },
-    { included: true, title: "Erweiterbar mit Blog & CMS", desc: "Preise, Blog oder Inhalte später selbst editierbar möglich" },
-  ];
-
-  const premiumSupport: FeatureItem[] = [
-    { included: true, title: "Unbegrenzte Überarbeitungen", desc: "Gemeinsame Feinanpassung bis alles perfekt passt" },
-    { included: true, title: "30 Tage Premium-Support", desc: "Persönliche Betreuung nach Veröffentlichung" },
-  ];
-
-  const grafikItems = [
-    { title: "Flyer (einseitig, druckfertig)", desc: "A5 oder A6 · inkl. 2 Korrekturschleifen", price: "100 €" },
-    { title: "Flyer (zweiseitig, druckfertig)", desc: "A5 oder A6 · inkl. 2 Korrekturschleifen", price: "150 €" },
-    { title: "Roll-Up / Banner (druckfertig)", desc: "Druckfertige Datei · Druckkoordination auf Anfrage", price: "200 €" },
-    { title: "Visitenkarte (beidseitig)", desc: "Druckfertig · PNG & PDF", price: "100 €" },
-    { title: "Logo Design", desc: "3 Entwürfe · inkl. Farbvarianten · PNG & druckfertige PDF", price: "250 €" },
-  ];
-
-  const socialItems = [
-    { title: "Social Media Post (1 Stück)", desc: "Instagram/Facebook · im Brand-Design", price: "65 €" },
-    { title: "Social Media Paket (5 Posts)", desc: "Thematisch abgestimmt · alle Formate", price: "220 €" },
-    { title: "Story / Reel Cover Set (10 Stück)", desc: "Einheitliches Design · individuell angepasst", price: "150 €" },
-    { title: "Instagram Highlight Icons (10 Stück)", desc: "Passend zum Brand", price: "60 €" },
-  ];
-
-  return (
-    <section id="preise" className="py-16 md:py-24 bg-cream">
-      <div className="max-w-5xl mx-auto px-6">
-
-        <div className="text-center mb-12">
-          <p className="text-xs uppercase tracking-[0.08em] text-muted-foreground mb-2">Preise</p>
-          <h2 className="reveal font-serif text-3xl md:text-4xl text-ink mb-3">
-            Transparente Preise
-          </h2>
-          <p className="text-muted-foreground max-w-lg mx-auto">
-            Du bekommst vorab eine kostenlose Website-Analyse &amp; Demo – komplett unverbindlich. Alle anderen Leistungen sind direkt einzeln buchbar.
-          </p>
-        </div>
-
-        {/* WEBSITE */}
-        <p className="text-[11px] font-semibold uppercase tracking-[0.15em] text-muted-foreground mb-5">Website</p>
-        <div className="grid md:grid-cols-2 gap-5">
-          <div className="reveal-card bg-background border border-border rounded-2xl p-8">
-            <p className="text-lg font-semibold text-ink mb-1">Starter Website</p>
-            <p className="text-sm text-muted-foreground mb-5">One-Pager · alle Infos auf einer Seite · Treatwell-Link</p>
-            <div className="text-3xl font-bold text-ink leading-none">
-              400 – 500 €{" "}
-              <span className="text-sm font-normal text-muted-foreground">einmalig</span>
-            </div>
-            <div className="flex gap-2 mt-3 flex-wrap">
-              <span className="text-xs bg-secondary text-foreground/70 rounded-full px-2.5 py-0.5">1 Seite</span>
-              <span className="text-xs bg-secondary text-foreground/70 rounded-full px-2.5 py-0.5">5–7 Tage</span>
-            </div>
-            <hr className="border-t border-border/60 my-5" />
-            <SectionLabel>Design & Inhalt</SectionLabel>
-            {starterDesignContent.map((f) => <FeatureRow key={f.title} {...f} />)}
-            <SectionLabel>Buchung & Sichtbarkeit</SectionLabel>
-            {starterBooking.map((f) => <FeatureRow key={f.title} {...f} />)}
-            <SectionLabel>Support</SectionLabel>
-            {starterSupport.map((f) => <FeatureRow key={f.title} {...f} />)}
-            <Link
-              to="/demo-anfrage"
-              className="block text-center mt-6 py-3 bg-secondary text-ink font-semibold text-sm rounded-xl hover:bg-secondary/80 transition"
-            >
-              Kostenlose Analyse & Demo
-            </Link>
-          </div>
-
-          <div className="reveal-card reveal-stagger-2 relative bg-background border-2 border-primary rounded-2xl p-8">
-            <div className="absolute -top-3 left-8 bg-accent text-primary text-[11px] font-semibold px-3 py-1 rounded-full">
-              Empfohlen
-            </div>
-            <p className="text-lg font-semibold text-ink mb-1">Premium Website</p>
-            <p className="text-sm text-muted-foreground mb-5">Multi-Page · Animationen · Instagram Feed · Vorher/Nachher Slider</p>
-            <div className="text-3xl font-bold text-ink leading-none">
-              700 – 900 €{" "}
-              <span className="text-sm font-normal text-muted-foreground">einmalig</span>
-            </div>
-            <div className="flex gap-2 mt-3 flex-wrap">
-              <span className="text-xs bg-secondary text-foreground/70 rounded-full px-2.5 py-0.5">3–5 Seiten</span>
-              <span className="text-xs bg-secondary text-foreground/70 rounded-full px-2.5 py-0.5">10–14 Tage</span>
-            </div>
-            <hr className="border-t border-border/60 my-5" />
-            <SectionLabel>Design & Inhalt</SectionLabel>
-            {premiumDesignContent.map((f) => <FeatureRow key={f.title} {...f} />)}
-            <SectionLabel>Interaktiv & Buchung</SectionLabel>
-            {premiumInteractive.map((f) => <FeatureRow key={f.title} {...f} />)}
-            <SectionLabel>Support</SectionLabel>
-            {premiumSupport.map((f) => <FeatureRow key={f.title} {...f} />)}
-            <Link
-              to="/demo-anfrage"
-              className="block text-center mt-6 py-3 bg-primary text-primary-foreground font-semibold text-sm rounded-xl hover:bg-primary/90 transition"
-            >
-              Kostenlose Analyse & Demo
-            </Link>
-          </div>
-        </div>
-
-        {/* Laufende Kosten */}
-        <div className="mt-5 grid sm:grid-cols-3 gap-4">
-          <div className="reveal-card bg-background border border-border rounded-2xl p-6">
-            <p className="font-semibold text-ink">Domain &amp; Hosting</p>
-            <p className="text-xs text-muted-foreground mt-1 mb-3">Eigene www-Adresse + Website online halten</p>
-            <p className="text-2xl font-bold text-ink">
-              15 €{" "}
-              <span className="text-sm font-normal text-muted-foreground">/ Monat</span>
-            </p>
-            <p className="text-xs text-muted-foreground/80 mt-2 italic">direkt beim Anbieter — läuft auf deinen Namen</p>
-          </div>
-          <div className="reveal-card reveal-stagger-2 bg-background border border-border rounded-2xl p-6">
-            <p className="font-semibold text-ink">Wartungspaket</p>
-            <p className="text-xs text-muted-foreground mt-1 mb-3">Updates, neue Fotos, Texte, Aktionen — alles inklusive</p>
-            <p className="text-2xl font-bold text-ink">
-              30 €{" "}
-              <span className="text-sm font-normal text-muted-foreground">/ Monat</span>
-            </p>
-          </div>
-          <div className="reveal-card reveal-stagger-3 bg-background border border-border rounded-2xl p-6">
-            <p className="font-semibold text-ink">Einzeländerung</p>
-            <p className="text-xs text-muted-foreground mt-1 mb-3">Leistung, Foto oder Text anpassen — auf Anfrage</p>
-            <p className="text-2xl font-bold text-ink">
-              40 – 50 €{" "}
-              <span className="text-sm font-normal text-muted-foreground">einmalig</span>
-            </p>
-          </div>
-        </div>
-
-        {/* GRAFIK & PRINT */}
-        <div className="mt-14">
-          <p className="text-[11px] font-semibold uppercase tracking-[0.15em] text-muted-foreground mb-5">Grafik &amp; Print Design</p>
-          <div className="reveal-card bg-background border border-border rounded-2xl overflow-hidden">
-            {grafikItems.map((item, i) => (
-              <div
-                key={item.title}
-                className={`flex items-center justify-between px-6 py-4 border-b border-border/40 last:border-0 ${i % 2 !== 0 ? "bg-cream/50" : ""}`}
-              >
-                <div>
-                  <p className="text-sm font-medium text-ink">{item.title}</p>
-                  <p className="text-xs text-muted-foreground">{item.desc}</p>
-                </div>
-                <p className="text-sm font-bold text-ink shrink-0 ml-6">{item.price}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* SOCIAL MEDIA */}
-        <div className="mt-10">
-          <p className="text-[11px] font-semibold uppercase tracking-[0.15em] text-muted-foreground mb-5">Social Media Design</p>
-          <div className="reveal-card bg-background border border-border rounded-2xl overflow-hidden">
-            {socialItems.map((item, i) => (
-              <div
-                key={item.title}
-                className={`flex items-center justify-between px-6 py-4 border-b border-border/40 last:border-0 ${i % 2 !== 0 ? "bg-cream/50" : ""}`}
-              >
-                <div>
-                  <p className="text-sm font-medium text-ink">{item.title}</p>
-                  <p className="text-xs text-muted-foreground">{item.desc}</p>
-                </div>
-                <p className="text-sm font-bold text-ink shrink-0 ml-6">{item.price}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* PAKETE */}
-        <div className="mt-14">
-          <p className="text-[11px] font-semibold uppercase tracking-[0.15em] text-muted-foreground mb-5">Pakete</p>
-          <div className="grid sm:grid-cols-3 gap-5">
-            <div className="reveal-card bg-background border border-border rounded-2xl p-6">
-              <p className="font-semibold text-ink mb-1">Starter Branding</p>
-              <p className="text-xs text-muted-foreground mb-4">Logo + Visitenkarte + 5 Social Media Posts</p>
-              <p className="text-2xl font-bold text-ink">ab 450 €</p>
-            </div>
-            <div className="reveal-card reveal-stagger-2 relative bg-background border-2 border-primary rounded-2xl p-6">
-              <div className="absolute -top-3 left-6 bg-accent text-primary text-[11px] font-semibold px-3 py-1 rounded-full">
-                Komplett
-              </div>
-              <p className="font-semibold text-ink mb-1 mt-1">Beauty Studio Komplett</p>
-              <p className="text-xs text-muted-foreground mb-4">Website Premium + Logo + 10 Social Posts + Flyer</p>
-              <p className="text-2xl font-bold text-ink">ab 1.099 €</p>
-            </div>
-            <div className="reveal-card reveal-stagger-3 bg-background border border-border rounded-2xl p-6">
-              <p className="font-semibold text-ink mb-1">Social Media Monatspaket</p>
-              <p className="text-xs text-muted-foreground mb-4">8 Posts + 4 Stories monatlich aktualisiert</p>
-              <p className="text-2xl font-bold text-ink">
-                200 €{" "}
-                <span className="text-sm font-normal text-muted-foreground">/ Monat</span>
-              </p>
-            </div>
-          </div>
-        </div>
-
-        {/* 20% Rabatt */}
-        <div className="reveal mt-8 flex items-start gap-3 bg-peach-soft border border-mauve/20 rounded-2xl px-6 py-4">
-          <span className="text-mauve text-lg leading-none shrink-0 mt-0.5">★</span>
-          <p className="text-sm text-ink">
-            <strong>Website-Kunden erhalten 20 % Rabatt</strong> auf alle Design-Leistungen (Grafik, Print &amp; Social Media).
-          </p>
-        </div>
-
-        <p className="text-center text-[12px] text-muted-foreground mt-6">
-          Alle Preise exkl. MwSt. (Kleinunternehmer) · Individuelle Angebote auf Anfrage
-        </p>
-        <p className="text-center text-[13px] text-muted-foreground mt-2">
-          Nicht sicher welches Paket passt? Demo anfragen — ich berate dich kurz und kostenlos.
-        </p>
-        <div className="mt-6 text-center reveal">
-          <Link
-            to="/demo-anfrage"
-            className="inline-block px-7 py-3.5 rounded-full bg-primary text-primary-foreground hover:bg-mauve transition font-medium"
-          >
-            Kostenlose Analyse & Demo
-          </Link>
-        </div>
-
       </div>
     </section>
   );
@@ -1305,7 +1029,6 @@ function Index() {
       <Javera />
       <Ablauf />
       <Zweifel />
-      <Preise />
       <FAQ />
       <CTA />
       <SchreibMir />
