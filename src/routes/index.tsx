@@ -176,16 +176,11 @@ function Nav() {
           aria-label="Javera Studio – zur Startseite"
           onClick={close}
         >
-          <div className="flex flex-col">
-            <img
-              src={logo}
-              alt="Javera Studio"
-              className="h-16 md:h-20 w-auto transition-all duration-500 ease-out group-hover:scale-[1.04] group-hover:opacity-80 group-hover:drop-shadow-[0_4px_12px_rgba(0,0,0,0.08)]"
-            />
-            <span className="text-[9px] uppercase tracking-[0.18em] text-muted-foreground mt-0.5 pl-0.5">
-              Webdesign · Grafik · Branding · Wien
-            </span>
-          </div>
+          <img
+            src={logo}
+            alt="Javera Studio"
+            className="h-16 md:h-20 w-auto transition-all duration-500 ease-out group-hover:scale-[1.04] group-hover:opacity-80 group-hover:drop-shadow-[0_4px_12px_rgba(0,0,0,0.08)]"
+          />
         </a>
         <nav className="hidden md:flex items-center gap-8 text-sm text-muted-foreground">
           <a href="#demos" className="hover:text-ink transition">Demos</a>
@@ -279,8 +274,7 @@ function Hero() {
           Mehr Kundinnen &amp; Buchungen für dein <em className="text-white/75">Beauty Studio</em> – mit einer Website, die verkauft.
         </h1>
         <p className="hero-subtitle mt-6 text-lg text-white/85 max-w-2xl mx-auto leading-relaxed">
-          Ich erstelle moderne Websites für Nagelstudios, Kosmetikstudios, Friseure und
-          Beauty-Kliniken – klar, hochwertig und optimiert für mehr Terminbuchungen.
+          Ich helfe Beautystudios mit modernem Webdesign, Branding und visueller Gestaltung professionell sichtbar zu werden – für einen hochwertigen Auftritt und mehr Terminbuchungen.
         </p>
         <div className="hero-cta mt-8 flex flex-wrap gap-3 justify-center">
           <Link
