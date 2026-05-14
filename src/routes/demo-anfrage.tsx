@@ -36,8 +36,8 @@ const STYLES = [
 const CONTENT = ["Ja, alles bereit", "Teilweise", "Nein, brauche Unterstützung"] as const;
 const START = ["Sofort", "In den nächsten Wochen", "Erstmal nur informieren"] as const;
 const PACKAGES = [
-  { value: "Starter Website – ab 350€", title: "Starter Website", price: "ab 350€" },
-  { value: "Premium Website – ab 600€", title: "Premium Website", price: "ab 600€" },
+  { value: "Starter Website – ab 400€", title: "Starter Website", price: "ab 400€" },
+  { value: "Premium Website – ab 700€", title: "Premium Website", price: "ab 700€" },
   { value: "Noch unsicher – bitte beraten", title: "Noch unsicher", price: "bitte beraten" },
 ] as const;
 const PACKAGE_VALUES = PACKAGES.map((p) => p.value) as [string, ...string[]];

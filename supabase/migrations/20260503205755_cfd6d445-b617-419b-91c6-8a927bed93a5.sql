@@ -19,7 +19,7 @@ WITH CHECK (
   AND has_website = ANY (ARRAY['Ja', 'Nein'])
   AND content_status = ANY (ARRAY['Ja, alles bereit', 'Teilweise', 'Nein, brauche Unterstützung'])
   AND start_time = ANY (ARRAY['Sofort', 'In den nächsten Wochen', 'Erstmal nur informieren'])
-  AND budget = ANY (ARRAY['Starter Website – ab 350€', 'Premium Website – ab 600€', 'Kostenlose Website (falls noch Plätze vorhanden)'])
+  AND budget = ANY (ARRAY['Starter Website – ab 400€', 'Premium Website – ab 700€', 'Kostenlose Website (falls noch Plätze vorhanden)'])
   AND array_length(goals, 1) >= 1
   AND array_length(goals, 1) <= 10
   AND array_length(styles, 1) >= 1

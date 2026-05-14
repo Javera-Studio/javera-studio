@@ -24,7 +24,7 @@ CREATE POLICY "Anyone can submit demo request"
     AND has_website IN ('Ja','Nein')
     AND content_status IN ('Ja, alles bereit','Teilweise','Nein, brauche Unterstützung')
     AND start_time IN ('Sofort','In den nächsten Wochen','Erstmal nur informieren')
-    AND budget IN ('Starter Website – ab 350€','Premium Website – ab 600€')
+    AND budget IN ('Starter Website – ab 400€','Premium Website – ab 700€')
     AND array_length(goals, 1) BETWEEN 1 AND 10
     AND array_length(styles, 1) BETWEEN 1 AND 10
     AND (notes IS NULL OR char_length(notes) <= 2000)

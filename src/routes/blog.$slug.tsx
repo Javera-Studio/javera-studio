@@ -102,7 +102,7 @@ const posts: Record<string, Post> = {
           <>
             <p>
               Eine professionelle Nagelstudio-Website in Wien kostet einmalig
-              ab 350 € (Starter) bis ab 600 € (Premium) — je nach Umfang. Dazu
+              ab 400 € (Starter) bis ab 700 € (Premium) — je nach Umfang. Dazu
               kommen ca. 10–20 € pro Jahr für die Domain und ca. 5–15 € pro
               Monat für Hosting. Verglichen mit dem Umsatz einer einzigen
               Neukunde pro Monat rechnet sich das sehr schnell.

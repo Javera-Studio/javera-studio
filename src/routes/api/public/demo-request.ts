@@ -31,8 +31,8 @@ const schema = z.object({
   content_status: z.enum(['Ja, alles bereit', 'Teilweise', 'Nein, brauche Unterstützung']),
   start_time: z.enum(['Sofort', 'In den nächsten Wochen', 'Erstmal nur informieren']),
   budget: z.enum([
-    'Starter Website – ab 350€',
-    'Premium Website – ab 600€',
+    'Starter Website – ab 400€',
+    'Premium Website – ab 700€',
     'Noch unsicher – bitte beraten',
   ]),
   notes: z.string().trim().max(2000).nullish(),

@@ -780,7 +780,7 @@ function Preise() {
               Für Studios die sichtbar werden wollen
             </p>
             <div className="text-3xl font-bold text-ink leading-none">
-              ab 350 €{" "}
+              ab 400 €{" "}
               <span className="text-sm font-normal text-muted-foreground">einmalig</span>
             </div>
             <div className="flex gap-2 mt-3 flex-wrap">
@@ -820,7 +820,7 @@ function Preise() {
               Für Studios die wachsen wollen
             </p>
             <div className="text-3xl font-bold text-ink leading-none">
-              ab 600 €{" "}
+              ab 700 €{" "}
               <span className="text-sm font-normal text-muted-foreground">einmalig</span>
             </div>
             <div className="flex gap-2 mt-3 flex-wrap">
