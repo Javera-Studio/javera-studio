@@ -364,8 +364,8 @@ function Demos() {
             Zielgruppe.
           </p>
         </div>
-        <div className="grid md:grid-cols-2 gap-6 md:gap-8">
-          {demos.map((d, i) => (
+        <div className="grid md:grid-cols-3 gap-6 md:gap-8">
+          {demos.filter((d) => d.title !== "Luxe Nails Vienna").map((d, i) => (
             <div
               key={d.title}
               className={`reveal-card reveal-stagger-${(i % 4) + 1} group relative bg-background rounded-3xl p-6 md:p-8 border border-border/60 hover:shadow-xl hover:shadow-ink/5 transition overflow-hidden`}
