@@ -7,6 +7,10 @@ import logo from "@/assets/javera-logo.png";
 import problemImg from "@/assets/problem.jpg";
 import successImg from "@/assets/success.jpg";
 import ctaImg from "@/assets/cta.jpg";
+import demoLuxeNails from "@/assets/demo-luxe-nails.png";
+import demoPureSkin from "@/assets/demo-pure-skin.png";
+import demoSalonNoir from "@/assets/demo-salon-noir.png";
+import demoLumea from "@/assets/demo-lumea.png";
 import { SiteFooter as Footer } from "@/components/SiteFooter";
 
 export const Route = createFileRoute("/")({
@@ -48,6 +52,7 @@ const demos = [
     focus: "klare Preise & mehr Buchungen",
     url: "https://luxe-nails-wien.lovable.app",
     accent: "peach",
+    image: demoLuxeNails,
   },
   {
     title: "PURE SKIN Studio",
@@ -56,6 +61,7 @@ const demos = [
     focus: "Vertrauen & hochwertige Präsentation",
     url: "https://pure-skin-studio-wien.lovable.app",
     accent: "mint",
+    image: demoPureSkin,
   },
   {
     title: "Salon Noir",
@@ -64,6 +70,7 @@ const demos = [
     focus: "Markenwirkung & Sichtbarkeit",
     url: "https://salon-noir.lovable.app",
     accent: "peach",
+    image: demoSalonNoir,
   },
   {
     title: "LUMEA Laser Clinic",
@@ -72,6 +79,7 @@ const demos = [
     focus: "Seriosität & Beratung",
     url: "https://lumea-laser-clinic.lovable.app",
     accent: "mint",
+    image: demoLumea,
   },
 ];
 
@@ -360,15 +368,22 @@ function Demos() {
           {demos.map((d, i) => (
             <div
               key={d.title}
-              className={`reveal-card reveal-stagger-${(i % 4) + 1} group relative bg-background rounded-3xl p-8 md:p-10 border border-border/60 hover:shadow-xl hover:shadow-ink/5 transition`}
+              className={`reveal-card reveal-stagger-${(i % 4) + 1} group relative bg-background rounded-3xl p-6 md:p-8 border border-border/60 hover:shadow-xl hover:shadow-ink/5 transition overflow-hidden`}
             >
               <div
-                className="w-12 h-12 rounded-full mb-6"
+                className="relative rounded-2xl overflow-hidden mb-6 aspect-[16/10] flex items-center justify-center"
                 style={{
                   backgroundColor:
                     d.accent === "mint" ? "var(--mint-soft)" : "var(--peach-soft)",
                 }}
-              />
+              >
+                <img
+                  src={d.image}
+                  alt={`${d.title} Demo Vorschau`}
+                  loading="lazy"
+                  className="w-full h-full object-contain transition duration-500 group-hover:scale-[1.03]"
+                />
+              </div>
               <div className="text-xs uppercase tracking-wider text-muted-foreground">
                 {d.category}
               </div>
