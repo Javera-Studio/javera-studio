@@ -364,8 +364,8 @@ function Demos() {
             Zielgruppe.
           </p>
         </div>
-        <div className="grid md:grid-cols-2 gap-6 md:gap-8">
-          {demos.map((d, i) => (
+        <div className="grid md:grid-cols-3 gap-6 md:gap-8">
+          {demos.filter((d) => d.title !== "Luxe Nails Vienna").map((d, i) => (
             <div
               key={d.title}
               className={`reveal-card reveal-stagger-${(i % 4) + 1} group relative bg-background rounded-3xl p-6 md:p-8 border border-border/60 hover:shadow-xl hover:shadow-ink/5 transition overflow-hidden`}
@@ -1010,6 +1010,178 @@ function SchreibMir() {
   );
 }
 
+function FeaturedLuxe() {
+  // Branding mockup slots — replace src with real uploads later.
+  const mockups: { src?: string; alt: string; span: string; aspect: string; label: string }[] = [
+    { src: demoLuxeNails, alt: "Visitenkarten Mockup", span: "md:col-span-7", aspect: "aspect-[4/3]", label: "Visitenkarten" },
+    { src: demoLuxeNails, alt: "Gutschein Mockup", span: "md:col-span-5", aspect: "aspect-[4/5]", label: "Gutscheine" },
+    { src: demoLuxeNails, alt: "Social Media Template 1", span: "md:col-span-4", aspect: "aspect-square", label: "Social Post" },
+    { src: demoLuxeNails, alt: "Social Media Template 2", span: "md:col-span-4", aspect: "aspect-square", label: "Social Post" },
+    { src: demoLuxeNails, alt: "Social Media Template 3", span: "md:col-span-4", aspect: "aspect-square", label: "Social Post" },
+    { src: demoLuxeNails, alt: "Preisliste Mockup", span: "md:col-span-12", aspect: "aspect-[16/9]", label: "Preisliste" },
+  ];
+
+  const bullets = [
+    "Website Design",
+    "Logo Design",
+    "Preislisten",
+    "Gutscheine",
+    "Social Media Templates",
+    "Visitenkarten",
+  ];
+
+  return (
+    <section className="relative py-28 md:py-40 bg-background overflow-hidden">
+      {/* soft warm wash */}
+      <div
+        aria-hidden
+        className="absolute inset-0 pointer-events-none opacity-60"
+        style={{
+          background:
+            "radial-gradient(60% 50% at 50% 0%, color-mix(in oklab, var(--peach-soft) 70%, transparent) 0%, transparent 70%)",
+        }}
+      />
+
+      <div className="relative max-w-6xl mx-auto px-6">
+        {/* Intro */}
+        <div className="max-w-2xl mx-auto text-center mb-20 md:mb-28">
+          <div className="reveal text-xs uppercase tracking-[0.28em] text-muted-foreground mb-5">
+            <span className="editorial-rule mr-3" />
+            Komplettes Branding
+            <span className="editorial-rule ml-3" />
+          </div>
+          <h2 className="reveal font-serif text-4xl md:text-6xl text-ink leading-[1.05] tracking-tight">
+            Mehr als nur Webseiten
+          </h2>
+          <p className="reveal reveal-delay mt-6 text-muted-foreground text-lg leading-relaxed">
+            Ich entwickle nicht nur moderne Websites, sondern komplette visuelle
+            Markenauftritte für Beauty Studios — abgestimmt auf Stil, Zielgruppe
+            und Markenwirkung.
+          </p>
+        </div>
+
+        {/* Featured hero — asymmetric */}
+        <div className="grid md:grid-cols-12 gap-10 md:gap-16 items-center">
+          <div className="reveal-card md:col-span-7 order-2 md:order-1">
+            <div
+              className="relative rounded-[2rem] overflow-hidden group"
+              style={{
+                boxShadow:
+                  "0 30px 80px -30px color-mix(in oklab, var(--ink) 25%, transparent)",
+              }}
+            >
+              <div
+                className="aspect-[4/5] md:aspect-[5/6] w-full"
+                style={{ backgroundColor: "var(--peach-soft)" }}
+              >
+                <img
+                  src={demoLuxeNails}
+                  alt="Luxe Nails Vienna — Website & Branding Hero"
+                  loading="lazy"
+                  className="w-full h-full object-cover transition duration-[1200ms] ease-out group-hover:scale-[1.04]"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div className="md:col-span-5 order-1 md:order-2 reveal reveal-delay">
+            <div className="text-[11px] uppercase tracking-[0.32em] text-rose-gold mb-5">
+              Featured Project
+            </div>
+            <h3 className="font-serif text-4xl md:text-5xl text-ink leading-[1.05] tracking-tight">
+              Luxe Nails<br />Vienna
+            </h3>
+            <div className="mt-6 h-px w-12 bg-ink/20" />
+            <p className="mt-6 text-muted-foreground leading-relaxed text-base md:text-lg">
+              Luxuriöses Branding-Konzept für ein modernes Wiener Nagelstudio —
+              inklusive Website, Preislisten, Gutscheinen, Visitenkarten und
+              Social Media Assets.
+            </p>
+
+            <ul className="mt-8 grid grid-cols-2 gap-x-6 gap-y-3">
+              {bullets.map((b) => (
+                <li
+                  key={b}
+                  className="flex items-center gap-3 text-sm text-ink/80"
+                >
+                  <span
+                    aria-hidden
+                    className="inline-block h-[6px] w-[6px] rounded-full"
+                    style={{ backgroundColor: "var(--rose-gold)" }}
+                  />
+                  {b}
+                </li>
+              ))}
+            </ul>
+
+            <a
+              href="https://luxe-nails-wien.lovable.app"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group inline-flex items-center gap-2 mt-10 text-sm font-medium tracking-wide text-ink border-b border-ink/30 pb-1 hover:border-ink transition"
+            >
+              Projekt ansehen
+              <span
+                aria-hidden
+                className="transition-transform duration-300 group-hover:translate-x-1"
+              >
+                →
+              </span>
+            </a>
+          </div>
+        </div>
+
+        {/* Branding mockups gallery */}
+        <div className="mt-24 md:mt-36">
+          <div className="flex items-end justify-between mb-10 md:mb-14">
+            <div>
+              <div className="text-[11px] uppercase tracking-[0.28em] text-muted-foreground mb-3">
+                Brand Identity
+              </div>
+              <h4 className="font-serif text-2xl md:text-3xl text-ink">
+                Visuelle Markenwelt
+              </h4>
+            </div>
+            <div className="hidden md:block text-xs text-muted-foreground italic">
+              Branding · Print · Social
+            </div>
+          </div>
+
+          <div className="grid md:grid-cols-12 gap-5 md:gap-6">
+            {mockups.map((m, i) => (
+              <figure
+                key={i}
+                className={`reveal-card reveal-stagger-${(i % 6) + 1} ${m.span} group relative overflow-hidden rounded-2xl bg-cream`}
+                style={{
+                  boxShadow:
+                    "0 20px 50px -25px color-mix(in oklab, var(--ink) 18%, transparent)",
+                }}
+              >
+                <div className={`${m.aspect} w-full overflow-hidden`}>
+                  {m.src ? (
+                    <img
+                      src={m.src}
+                      alt={m.alt}
+                      loading="lazy"
+                      className="w-full h-full object-cover transition duration-[900ms] ease-out group-hover:scale-[1.05]"
+                    />
+                  ) : (
+                    <div className="w-full h-full flex items-center justify-center text-xs uppercase tracking-[0.25em] text-muted-foreground">
+                      {m.label}
+                    </div>
+                  )}
+                </div>
+                <figcaption className="absolute left-4 bottom-4 text-[10px] uppercase tracking-[0.25em] text-ink/0 group-hover:text-ink/70 bg-background/0 group-hover:bg-background/80 backdrop-blur-sm rounded-full px-3 py-1 transition-all duration-500">
+                  {m.label}
+                </figcaption>
+              </figure>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
 
 function Index() {
   useEffect(() => {
@@ -1041,6 +1213,7 @@ function Index() {
       <Warum />
       <Angebot />
       <Demos />
+      <FeaturedLuxe />
       <Javera />
       <Ablauf />
       <Zweifel />
