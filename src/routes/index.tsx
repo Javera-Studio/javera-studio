@@ -1041,6 +1041,7 @@ function Index() {
       <Warum />
       <Angebot />
       <Demos />
+      <FeaturedLuxe />
       <Javera />
       <Ablauf />
       <Zweifel />
