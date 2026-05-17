@@ -1154,6 +1154,9 @@ function FeaturedLuxe() {
               <h4 className="font-serif text-2xl md:text-3xl text-ink">
                 Visuelle Markenwelt
               </h4>
+              <p className="mt-3 text-sm text-muted-foreground max-w-md leading-relaxed">
+                Jedes Element — vom Logo bis zum Gutschein — ist aufeinander abgestimmt und auf deine Zielgruppe zugeschnitten.
+              </p>
             </div>
             <div className="hidden md:block text-xs text-muted-foreground italic">
               Branding · Print · Social
