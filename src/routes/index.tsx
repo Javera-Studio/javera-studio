@@ -1016,14 +1016,18 @@ function SchreibMir() {
 }
 
 function FeaturedLuxe() {
-  // Branding mockup slots — replace src with real uploads later.
   const mockups: { src?: string; alt: string; span: string; aspect: string; label: string }[] = [
-    { src: "/luxe-visitenkarten.png", alt: "Visitenkarten Mockup", span: "md:col-span-7", aspect: "aspect-[3/4]", label: "Visitenkarten" },
-    { src: "/luxe-gutschein.png", alt: "Gutschein Mockup", span: "md:col-span-4", aspect: "aspect-[4/3]", label: "Gutscheine" },
-    { src: "/luxe-social-1.png", alt: "Social Media Template 1", span: "md:col-span-4", aspect: "aspect-[9/16]", label: "Social Post" },
-    { src: "/luxe-social-2.png", alt: "Social Media Template 2", span: "md:col-span-4", aspect: "aspect-[9/16]", label: "Social Post" },
-    { src: "/luxe-social-3.png", alt: "Social Media Template 3", span: "md:col-span-4", aspect: "aspect-[9/16]", label: "Social Post" },
-    { src: "/luxe-preisliste.png", alt: "Preisliste Mockup", span: "md:col-span-12", aspect: "aspect-[3/4]", label: "Preisliste" },
+    // Zeile 1: Visitenkarten + Preisliste nebeneinander
+    { src: "/luxe-visitenkarten.png", alt: "Visitenkarten Mockup",    span: "md:col-span-6",  aspect: "aspect-[3/4]",  label: "Visitenkarten" },
+    { src: "/luxe-preisliste.png",    alt: "Preisliste Mockup",       span: "md:col-span-6",  aspect: "aspect-[3/4]",  label: "Preisliste" },
+
+    // Zeile 2: Social Posts
+    { src: "/luxe-social-1.png",      alt: "Social Media Template 1", span: "md:col-span-4",  aspect: "aspect-[9/16]", label: "Social Post" },
+    { src: "/luxe-social-2.png",      alt: "Social Media Template 2", span: "md:col-span-4",  aspect: "aspect-[9/16]", label: "Social Post" },
+    { src: "/luxe-social-3.png",      alt: "Social Media Template 3", span: "md:col-span-4",  aspect: "aspect-[9/16]", label: "Social Post" },
+
+    // Zeile 3: Gutschein groß unten
+    { src: "/luxe-gutschein.png",     alt: "Gutschein Mockup",        span: "md:col-span-12", aspect: "aspect-[16/9]", label: "Gutscheine" },
   ];
 
   const bullets = [
