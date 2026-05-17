@@ -377,6 +377,12 @@ function Demos() {
                     d.accent === "mint" ? "var(--mint-soft)" : "var(--peach-soft)",
                 }}
               >
+                {i === 0 && (
+                  <span className="absolute top-3 right-3 z-10 inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-background/90 backdrop-blur-sm border border-border/50 text-[10px] uppercase tracking-wider font-medium text-ink shadow-sm">
+                    <span className="w-1.5 h-1.5 rounded-full bg-mauve" />
+                    Showcase Project
+                  </span>
+                )}
                 <img
                   src={d.image}
                   alt={`${d.title} Demo Vorschau`}
