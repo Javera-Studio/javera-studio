@@ -304,12 +304,12 @@ function PreisePage() {
           </p>
 
           {/* 20% Rabatt */}
-          <div className="mt-4 flex items-start gap-3 bg-peach-soft border border-mauve/20 rounded-2xl px-6 py-4">
-            <span className="text-mauve text-lg leading-none shrink-0 mt-0.5">★</span>
-            <p className="text-sm text-ink">
-              <strong>Website-Kunden erhalten 20 % Rabatt</strong> auf alle Design-Leistungen (Grafik, Print &amp; Social Media).
-            </p>
-          </div>
+<div className="mt-4 bg-peach-soft border border-mauve/20 rounded-2xl px-6 py-4 text-center">
+  <p className="text-sm text-ink">
+    <span className="text-mauve mr-1">★</span>
+    <strong>Website-Kunden erhalten 20 % Rabatt</strong> auf alle Design-Leistungen (Grafik, Print &amp; Social Media).
+  </p>
+</div>
 
           <p className="text-center text-[12px] text-muted-foreground mt-6">
             Alle Preise exkl. MwSt. (Kleinunternehmer) · Individuelle Angebote auf Anfrage
