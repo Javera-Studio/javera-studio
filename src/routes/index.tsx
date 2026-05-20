@@ -348,6 +348,152 @@ function Announcement() {
   );
 }
 
+function StarIcon() {
+  return (
+    <svg viewBox="0 0 20 20" fill="currentColor" className="w-5 h-5 text-yellow-400" aria-hidden>
+      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+    </svg>
+  );
+}
+
+function PaulaVenc() {
+  const leistungen = [
+    "Komplette Website gestaltet",
+    "Mobile Optimierung umgesetzt",
+    "Domain eingerichtet",
+    "Treatwell integriert",
+    "Gesamte technische Einrichtung übernommen",
+  ];
+
+  return (
+    <section className="py-24 md:py-32">
+      <div className="max-w-6xl mx-auto px-6">
+        <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-4">
+          Kundenprojekt
+        </div>
+
+        <div className="grid md:grid-cols-2 gap-12 md:gap-20 items-center">
+          <div>
+            <h2 className="reveal font-serif text-4xl md:text-5xl text-ink leading-tight">
+              Paula Venc –<br />Private Nailartist Wien
+            </h2>
+            <p className="reveal reveal-delay mt-6 text-muted-foreground text-lg leading-relaxed">
+              Für Paula durfte ich eine elegante Premium-Website entwickeln, die perfekt zu ihrem Studio und ihrer ruhigen, privaten Atmosphäre passt.
+            </p>
+            <p className="reveal mt-5 text-sm text-muted-foreground uppercase tracking-widest">Gemeinsam haben wir:</p>
+            <ul className="reveal mt-4 space-y-3">
+              {leistungen.map((l) => (
+                <li key={l} className="flex items-start gap-3 text-ink">
+                  <span className="mt-2 h-1.5 w-1.5 rounded-full bg-mauve flex-shrink-0" />
+                  <span>{l}</span>
+                </li>
+              ))}
+            </ul>
+            <p className="reveal mt-8 font-serif text-lg text-ink leading-relaxed">
+              Das Ergebnis: Eine professionelle Online-Präsenz, die Vertrauen schafft und ihre Arbeit hochwertig präsentiert.
+            </p>
+            <div className="reveal mt-8 flex flex-wrap gap-4">
+              <a
+                href="https://paulavenc.at"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-primary text-primary-foreground hover:bg-mauve transition font-medium"
+              >
+                Website ansehen
+                <span aria-hidden>→</span>
+              </a>
+            </div>
+          </div>
+
+          <div className="reveal flex justify-center md:justify-end">
+            <div className="w-56 md:w-72 drop-shadow-2xl">
+              <img
+                src="/paula-mockup.png"
+                alt="Website paulavenc.at am Smartphone"
+                loading="lazy"
+                className="w-full"
+              />
+            </div>
+          </div>
+        </div>
+
+        {/* Google Bewertung */}
+        <div className="reveal mt-16 max-w-2xl">
+          <div className="rounded-3xl bg-background border border-border/60 p-8 shadow-sm">
+            <div className="flex items-center gap-1 mb-1">
+              {[0,1,2,3,4].map((i) => <StarIcon key={i} />)}
+            </div>
+            <p className="text-xs text-muted-foreground mb-5">5 von 5 Sternen · Google Bewertung</p>
+            <blockquote className="font-serif text-xl text-ink leading-relaxed">
+              „Absolut zu empfehlen! Ich habe lange keine Website gehabt – ich habe alles der lieben Jagoda anvertraut und bin mega glücklich mit dem Ergebnis. Professionell, schnell und zuverlässig! Sie hat mich super unterstützt und war bei jeder Frage sofort da. Danke dir, liebe Jagoda!"
+            </blockquote>
+            <div className="mt-6 flex items-center gap-3">
+              <div className="w-9 h-9 rounded-full bg-peach-soft flex items-center justify-center text-ink font-serif text-base">P</div>
+              <div>
+                <p className="font-medium text-ink text-sm">Paula Venc</p>
+                <p className="text-xs text-muted-foreground">paulavenc.at</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function DigitaleLösungen() {
+  const benefits = [
+    "Gemeinsame Kalender",
+    "Handyfreundlich",
+    "Für Teams geeignet",
+    "Einfache Anleitung",
+  ];
+
+  return (
+    <section className="py-24 md:py-32 bg-mint-soft">
+      <div className="max-w-6xl mx-auto px-6">
+        <div className="grid md:grid-cols-2 gap-12 md:gap-20 items-center">
+          <div>
+            <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-4">
+              Mehr als Design
+            </div>
+            <h2 className="reveal font-serif text-4xl md:text-5xl text-ink leading-tight">
+              Digitale Lösungen für Beauty Studios
+            </h2>
+            <p className="reveal reveal-delay mt-6 text-muted-foreground text-lg leading-relaxed">
+              Nicht jedes Studio braucht sofort teure Software. Für eine Kundin habe ich ein übersichtliches Google-Kalender-System für drei Mitarbeiterinnen eingerichtet – inklusive gemeinsamer Terminübersicht, Farben pro Mitarbeiterin und einer einfachen Anleitung für das Team.
+            </p>
+            <p className="reveal mt-5 font-serif text-lg text-ink leading-relaxed">
+              Das Ergebnis: mehr Übersicht, weniger Chaos und ein einfacherer Studio-Alltag.
+            </p>
+            <ul className="reveal mt-8 grid grid-cols-2 gap-3">
+              {benefits.map((b) => (
+                <li key={b} className="flex items-center gap-3 text-sm text-ink bg-background rounded-2xl px-4 py-3 border border-border/60 shadow-sm">
+                  <span className="h-1.5 w-1.5 rounded-full bg-mauve flex-shrink-0" />
+                  {b}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="reveal flex justify-center md:justify-end">
+            <div className="relative max-w-[280px] w-full">
+              <div className="rounded-3xl overflow-hidden shadow-2xl shadow-ink/10 border border-white/60">
+                <img
+                  src="/kalender-feedback.jpg"
+                  alt="Kundenfeedback zur Kalender-Einrichtung"
+                  loading="lazy"
+                  className="w-full"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function Demos() {
   return (
     <section id="demos" className="py-24 md:py-32 bg-cream">
@@ -1228,6 +1374,8 @@ function Index() {
       <About />
       <Warum />
       <Angebot />
+      <PaulaVenc />
+      <DigitaleLösungen />
       <Demos />
       <FeaturedLuxe />
       <Javera />
