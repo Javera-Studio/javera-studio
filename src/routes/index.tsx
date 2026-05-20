@@ -406,7 +406,7 @@ function PaulaVenc() {
           </div>
 
           <div className="reveal flex justify-center md:justify-end">
-            <div className="w-56 md:w-72 drop-shadow-2xl">
+            <div className="w-full drop-shadow-2xl">
               <img
                 src="/paula-mockup.png"
                 alt="Website paulavenc.at am Smartphone"
@@ -461,7 +461,7 @@ function DigitaleLösungen() {
               Digitale Lösungen für Beauty Studios
             </h2>
             <p className="reveal reveal-delay mt-6 text-muted-foreground text-lg leading-relaxed">
-              Nicht jedes Studio braucht sofort teure Software. Für eine Kundin habe ich ein übersichtliches Google-Kalender-System für drei Mitarbeiterinnen eingerichtet – inklusive gemeinsamer Terminübersicht, Farben pro Mitarbeiterin und einer einfachen Anleitung für das Team.
+              Nicht jedes Studio braucht sofort teure Software. Für eine Kundin habe ich ein übersichtliches Google-Kalender-System für drei Mitarbeiterinnen eingerichtet – inklusive gemeinsamer Terminübersicht, Farben pro Mitarbeiterin und einer persönlichen Schritt-für-Schritt-Anleitung, die ich eigens für sie erstellt habe, damit das Team es sofort selbstständig nutzen kann.
             </p>
             <p className="reveal mt-5 font-serif text-lg text-ink leading-relaxed">
               Das Ergebnis: mehr Übersicht, weniger Chaos und ein einfacherer Studio-Alltag.
@@ -476,9 +476,9 @@ function DigitaleLösungen() {
             </ul>
           </div>
 
-          <div className="reveal flex justify-center md:justify-end">
-            <div className="relative max-w-[280px] w-full">
-              <div className="rounded-3xl overflow-hidden shadow-2xl shadow-ink/10 border border-white/60">
+          <div className="reveal flex flex-col sm:flex-row md:flex-col gap-5 items-center md:items-end justify-center md:justify-end">
+            <div className="relative max-w-[260px] w-full">
+              <div className="rounded-3xl overflow-hidden shadow-xl shadow-ink/10 border border-white/60">
                 <img
                   src="/kalender-feedback.jpg"
                   alt="Kundenfeedback zur Kalender-Einrichtung"
@@ -486,6 +486,19 @@ function DigitaleLösungen() {
                   className="w-full"
                 />
               </div>
+            </div>
+            <div className="relative max-w-[260px] w-full">
+              <div className="rounded-2xl overflow-hidden shadow-xl shadow-ink/10 border border-border/40 bg-background">
+                <img
+                  src="/kalender-anleitung.png"
+                  alt="Individuelle Anleitung für das Studio-Team"
+                  loading="lazy"
+                  className="w-full"
+                />
+              </div>
+              <p className="mt-2 text-center text-[11px] uppercase tracking-[0.2em] text-muted-foreground">
+                Individuelle Team-Anleitung
+              </p>
             </div>
           </div>
         </div>
