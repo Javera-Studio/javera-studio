@@ -158,7 +158,7 @@ const faqs = [
   },
   {
     q: "Muss ich sofort bezahlen?",
-    a: "Nein. Erst wenn du mit der Demo zufrieden bist und wir alles abgestimmt haben, beginnt die Zusammenarbeit. Keine Vorauszahlung, keine versteckten Kosten.",
+    a: "Nein. Erst wenn du mit der Demo zufrieden bist und es zur Auftragserteilung kommt, wird eine Anzahlung von 50 % fällig. Die restlichen 50 % bezahlst du erst, wenn deine Website live ist und du zufrieden bist.",
   },
   {
     q: "Was passiert, wenn mir die Website nicht gefällt?",
