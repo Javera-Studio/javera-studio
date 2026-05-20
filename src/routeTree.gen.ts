@@ -9,6 +9,7 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as PreiseRouteImport } from './routes/preise'
 import { Route as ImpressumRouteImport } from './routes/impressum'
 import { Route as DemoAnfrageRouteImport } from './routes/demo-anfrage'
 import { Route as DatenschutzRouteImport } from './routes/datenschutz'
@@ -27,6 +28,11 @@ import { Route as LovableEmailQueueProcessRouteImport } from './routes/lovable/e
 import { Route as LovableEmailAuthWebhookRouteImport } from './routes/lovable/email/auth/webhook'
 import { Route as LovableEmailAuthPreviewRouteImport } from './routes/lovable/email/auth/preview'
 
+const PreiseRoute = PreiseRouteImport.update({
+  id: '/preise',
+  path: '/preise',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ImpressumRoute = ImpressumRouteImport.update({
   id: '/impressum',
   path: '/impressum',
@@ -121,6 +127,7 @@ export interface FileRoutesByFullPath {
   '/datenschutz': typeof DatenschutzRoute
   '/demo-anfrage': typeof DemoAnfrageRoute
   '/impressum': typeof ImpressumRoute
+  '/preise': typeof PreiseRoute
   '/admin/email-log': typeof AdminEmailLogRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/email/unsubscribe': typeof EmailUnsubscribeRoute
@@ -140,6 +147,7 @@ export interface FileRoutesByTo {
   '/datenschutz': typeof DatenschutzRoute
   '/demo-anfrage': typeof DemoAnfrageRoute
   '/impressum': typeof ImpressumRoute
+  '/preise': typeof PreiseRoute
   '/admin/email-log': typeof AdminEmailLogRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/email/unsubscribe': typeof EmailUnsubscribeRoute
@@ -160,6 +168,7 @@ export interface FileRoutesById {
   '/datenschutz': typeof DatenschutzRoute
   '/demo-anfrage': typeof DemoAnfrageRoute
   '/impressum': typeof ImpressumRoute
+  '/preise': typeof PreiseRoute
   '/admin/email-log': typeof AdminEmailLogRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/email/unsubscribe': typeof EmailUnsubscribeRoute
@@ -181,6 +190,7 @@ export interface FileRouteTypes {
     | '/datenschutz'
     | '/demo-anfrage'
     | '/impressum'
+    | '/preise'
     | '/admin/email-log'
     | '/blog/$slug'
     | '/email/unsubscribe'
@@ -200,6 +210,7 @@ export interface FileRouteTypes {
     | '/datenschutz'
     | '/demo-anfrage'
     | '/impressum'
+    | '/preise'
     | '/admin/email-log'
     | '/blog/$slug'
     | '/email/unsubscribe'
@@ -219,6 +230,7 @@ export interface FileRouteTypes {
     | '/datenschutz'
     | '/demo-anfrage'
     | '/impressum'
+    | '/preise'
     | '/admin/email-log'
     | '/blog/$slug'
     | '/email/unsubscribe'
@@ -239,6 +251,7 @@ export interface RootRouteChildren {
   DatenschutzRoute: typeof DatenschutzRoute
   DemoAnfrageRoute: typeof DemoAnfrageRoute
   ImpressumRoute: typeof ImpressumRoute
+  PreiseRoute: typeof PreiseRoute
   AdminEmailLogRoute: typeof AdminEmailLogRoute
   BlogSlugRoute: typeof BlogSlugRoute
   EmailUnsubscribeRoute: typeof EmailUnsubscribeRoute
@@ -256,6 +269,13 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/preise': {
+      id: '/preise'
+      path: '/preise'
+      fullPath: '/preise'
+      preLoaderRoute: typeof PreiseRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/impressum': {
       id: '/impressum'
       path: '/impressum'
@@ -383,6 +403,7 @@ const rootRouteChildren: RootRouteChildren = {
   DatenschutzRoute: DatenschutzRoute,
   DemoAnfrageRoute: DemoAnfrageRoute,
   ImpressumRoute: ImpressumRoute,
+  PreiseRoute: PreiseRoute,
   AdminEmailLogRoute: AdminEmailLogRoute,
   BlogSlugRoute: BlogSlugRoute,
   EmailUnsubscribeRoute: EmailUnsubscribeRoute,
