@@ -42,7 +42,6 @@ export const Route = createFileRoute("/blog/")({
   component: BlogIndex,
 });
 
-
 function BlogIndex() {
   return (
     <div className="min-h-screen bg-background flex flex-col">
