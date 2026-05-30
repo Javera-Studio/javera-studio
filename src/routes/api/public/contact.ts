@@ -22,19 +22,24 @@ export const Route = createFileRoute('/api/public/contact')({
           return Response.json({ error: 'Ungültige Formulardaten' }, { status: 400 })
         }
 
-        const response = await fetch('https://api.web3forms.com/submit', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-          body: JSON.stringify({
-            access_key: accessKey,
-            name: parsed.name,
-            email: parsed.email,
-            message: parsed.message,
-            subject: `Neue Kontaktanfrage von ${parsed.name}`,
-          }),
-        })
-
-        const result = (await response.json()) as { success: boolean; message?: string }
+        let result: { success: boolean; message?: string }
+        try {
+          const response = await fetch('https://api.web3forms.com/submit', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+            body: JSON.stringify({
+              access_key: accessKey,
+              name: parsed.name,
+              email: parsed.email,
+              message: parsed.message,
+              subject: `Neue Kontaktanfrage von ${parsed.name}`,
+            }),
+          })
+          result = (await response.json()) as { success: boolean; message?: string }
+        } catch (err) {
+          console.error('Web3Forms fetch error', err)
+          return Response.json({ error: 'Versand fehlgeschlagen' }, { status: 500 })
+        }
 
         if (!result.success) {
           console.error('Web3Forms submission failed', result)

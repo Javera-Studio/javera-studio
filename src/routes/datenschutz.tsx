@@ -44,73 +44,98 @@ function DatenschutzPage() {
 
           <Section title="1. Allgemeine Hinweise">
             <p>
-              Der Schutz Ihrer persönlichen Daten ist uns ein besonderes Anliegen. Ihre Daten
-              werden daher ausschließlich auf Grundlage der gesetzlichen Bestimmungen (DSGVO,
-              TKG 2003) verarbeitet.
+              Der Schutz Ihrer persönlichen Daten ist uns ein besonderes Anliegen. Wir verarbeiten
+              Ihre Daten ausschließlich auf Grundlage der gesetzlichen Bestimmungen (DSGVO, TKG 2003).
+            </p>
+            <p>Verantwortlich für die Datenverarbeitung:</p>
+            <p>
+              JAVERA STUDIO<br />
+              Jagoda Teresa Okafor<br />
+              Fahngasse 6/4/2<br />
+              1220 Wien<br />
+              Österreich<br />
+              E-Mail:{" "}
+              <a href="mailto:hallo@javera-studio.at" className="underline hover:text-ink">
+                hallo@javera-studio.at
+              </a>
             </p>
           </Section>
 
-          <Section title="2. Kontakt mit uns">
+          <Section title="2. Kontaktaufnahme">
             <p>
-              Wenn Sie per Formular auf der Website oder per E-Mail Kontakt mit uns aufnehmen,
-              werden Ihre angegebenen Daten zwecks Bearbeitung der Anfrage und für den Fall von
-              Anschlussfragen bei uns gespeichert.
+              Wenn Sie per Kontaktformular auf dieser Website oder per E-Mail Kontakt mit uns
+              aufnehmen, werden Ihre angegebenen Daten zwecks Bearbeitung Ihrer Anfrage sowie für
+              mögliche Anschlussfragen gespeichert.
+            </p>
+            <p>
+              Die Verarbeitung erfolgt auf Grundlage von Art. 6 Abs. 1 lit. b DSGVO
+              (vorvertragliche Maßnahmen) bzw. Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse
+              an der Bearbeitung von Anfragen).
             </p>
             <p>Diese Daten geben wir nicht ohne Ihre Einwilligung weiter.</p>
           </Section>
 
-          <Section title="3. Gespeicherte Daten">
+          <Section title="3. Verarbeitung personenbezogener Daten">
             <p>Folgende Daten können verarbeitet werden:</p>
             <ul className="list-disc pl-5 space-y-1">
               <li>Name</li>
               <li>E-Mail-Adresse</li>
-              <li>Angaben zum Studio / Anfrage</li>
-              <li>ggf. weitere freiwillige Angaben</li>
+              <li>Telefonnummer</li>
+              <li>Angaben zum Unternehmen bzw. Studio</li>
+              <li>Inhalte Ihrer Anfrage</li>
+              <li>freiwillig übermittelte Informationen</li>
             </ul>
           </Section>
 
-          <Section title="4. Zweck der Datenverarbeitung">
-            <p>Die Datenverarbeitung erfolgt zum Zweck:</p>
-            <ul className="list-disc pl-5 space-y-1">
-              <li>Bearbeitung von Anfragen</li>
-              <li>Erstellung von Angeboten</li>
-              <li>Kommunikation mit Interessenten</li>
-            </ul>
-          </Section>
-
-          <Section title="5. Speicherdauer">
+          <Section title="4. Hosting und technische Daten">
             <p>
-              Ihre Daten werden nur so lange gespeichert, wie dies zur Bearbeitung Ihrer
-              Anfrage notwendig ist oder gesetzliche Aufbewahrungspflichten bestehen.
+              Diese Website wird über externe Hosting- und Website-Dienstleister betrieben. Dabei
+              können automatisch technische Informationen verarbeitet werden, darunter:
+            </p>
+            <ul className="list-disc pl-5 space-y-1">
+              <li>IP-Adresse</li>
+              <li>Browsertyp</li>
+              <li>Betriebssystem</li>
+              <li>Datum und Uhrzeit des Zugriffs</li>
+              <li>besuchte Seiten</li>
+            </ul>
+            <p>Diese Daten dienen der technischen Sicherheit und Stabilität der Website.</p>
+          </Section>
+
+          <Section title="5. Cookies">
+            <p>
+              Diese Website kann technisch notwendige Cookies verwenden, um grundlegende
+              Funktionen der Website bereitzustellen.
             </p>
           </Section>
 
-          <Section title="6. Hosting">
+          <Section title="6. Speicherdauer">
             <p>
-              Diese Website wird über den Dienst „Lovable" betrieben. Dabei können Daten auf
-              Servern des Anbieters gespeichert werden.
+              Ihre personenbezogenen Daten werden nur so lange gespeichert, wie dies zur
+              Bearbeitung Ihrer Anfrage erforderlich ist oder gesetzliche Aufbewahrungspflichten
+              bestehen.
             </p>
           </Section>
 
           <Section title="7. Ihre Rechte">
-            <p>Ihnen stehen grundsätzlich die Rechte auf:</p>
+            <p>Ihnen stehen grundsätzlich folgende Rechte zu:</p>
             <ul className="list-disc pl-5 space-y-1">
               <li>Auskunft</li>
               <li>Berichtigung</li>
               <li>Löschung</li>
-              <li>Einschränkung</li>
+              <li>Einschränkung der Verarbeitung</li>
               <li>Datenübertragbarkeit</li>
-              <li>Widerruf</li>
+              <li>Widerruf erteilter Einwilligungen</li>
             </ul>
             <p>
-              Wenn Sie glauben, dass die Verarbeitung Ihrer Daten gegen das Datenschutzrecht
-              verstößt, können Sie sich bei der Datenschutzbehörde beschweren.
+              Wenn Sie der Ansicht sind, dass die Verarbeitung Ihrer Daten gegen Datenschutzrecht
+              verstößt, können Sie sich bei der österreichischen Datenschutzbehörde beschweren.
             </p>
           </Section>
 
           <Section title="8. Kontakt">
             <p>
-              Für Fragen zum Datenschutz kontaktieren Sie uns unter:{" "}
+              Bei Fragen zum Datenschutz kontaktieren Sie uns unter:{" "}
               <a href="mailto:hallo@javera-studio.at" className="underline hover:text-ink">
                 hallo@javera-studio.at
               </a>

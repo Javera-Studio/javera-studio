@@ -36,7 +36,12 @@ function ImpressumPage() {
           </p>
 
           <section className="space-y-2 mb-8">
-            <h2 className="text-lg font-medium">Name</h2>
+            <h2 className="text-lg font-medium">Unternehmensbezeichnung</h2>
+            <p className="text-muted-foreground">JAVERA STUDIO</p>
+          </section>
+
+          <section className="space-y-2 mb-8">
+            <h2 className="text-lg font-medium">Inhaberin</h2>
             <p className="text-muted-foreground">Jagoda Teresa Okafor</p>
           </section>
 
@@ -60,9 +65,30 @@ function ImpressumPage() {
           </section>
 
           <section className="space-y-2 mb-8">
-            <h2 className="text-lg font-medium">Tätigkeit</h2>
+            <h2 className="text-lg font-medium">Unternehmensgegenstand</h2>
             <p className="text-muted-foreground">
-              Webdesign, Erstellung von Websites sowie digitale Dienstleistungen
+              Werbeagentur<br />
+              Webdesign, Branding, Social Media Design sowie digitale Marketing- und Gestaltungsdienstleistungen
+            </p>
+          </section>
+
+          <section className="space-y-2 mb-8">
+            <h2 className="text-lg font-medium">Gewerbebehörde</h2>
+            <p className="text-muted-foreground">Magistratisches Bezirksamt für den 22. Bezirk Wien</p>
+          </section>
+
+          <section className="space-y-2 mb-8">
+            <h2 className="text-lg font-medium">GISA-Zahl</h2>
+            <p className="text-muted-foreground">39749697</p>
+          </section>
+
+          <section className="space-y-2 mb-8">
+            <h2 className="text-lg font-medium">Anwendbare Rechtsvorschriften</h2>
+            <p className="text-muted-foreground">
+              Gewerbeordnung:{" "}
+              <a href="https://www.ris.bka.gv.at" target="_blank" rel="noopener noreferrer" className="underline hover:text-ink">
+                www.ris.bka.gv.at
+              </a>
             </p>
           </section>
 
@@ -80,6 +106,13 @@ function ImpressumPage() {
             <p className="text-muted-foreground">
               Die Inhalte und Werke auf dieser Website unterliegen dem Urheberrecht. Jede
               Vervielfältigung oder Verwendung bedarf der schriftlichen Zustimmung.
+            </p>
+          </section>
+
+          <section className="space-y-2 mb-8">
+            <h2 className="text-lg font-medium">Bildnachweise</h2>
+            <p className="text-muted-foreground">
+              Eigene Inhalte sowie lizenzierte bzw. KI-generierte Bilder.
             </p>
           </section>
         </div>
