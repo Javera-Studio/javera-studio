@@ -180,29 +180,41 @@ function DemoAnfrage() {
       return;
     }
     setSubmitting(true);
-    const response = await fetch("/api/public/demo-request", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        name: parsed.data.name,
-        email: parsed.data.email,
-        studio_name: parsed.data.studio_name,
-        studio_type: parsed.data.studio_type,
-        has_website: parsed.data.has_website,
-        goals: parsed.data.goals,
-        styles: parsed.data.styles,
-        content_status: parsed.data.content_status,
-        start_time: parsed.data.start_time,
-        budget: parsed.data.budget,
-        notes: parsed.data.notes ?? null,
-      }),
-    });
-    setSubmitting(false);
-    if (!response.ok) {
+    try {
+      const d = parsed.data;
+      const message = [
+        `Studio: ${d.studio_name} (${d.studio_type})`,
+        `Website vorhanden: ${d.has_website}`,
+        `Ziele: ${d.goals.join(", ")}`,
+        `Stil: ${d.styles.join(", ")}`,
+        `Inhalte bereit: ${d.content_status}`,
+        `Startzeitpunkt: ${d.start_time}`,
+        `Budget: ${d.budget}`,
+        d.notes ? `Anmerkungen: ${d.notes}` : null,
+      ]
+        .filter(Boolean)
+        .join("\n");
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          access_key: "5c831a25-cd2b-4666-ae44-91194af7bc49",
+          name: d.name,
+          email: d.email,
+          subject: `Neue Demo-Anfrage von ${d.name} – ${d.studio_name}`,
+          message,
+        }),
+      });
+      const result = (await response.json()) as { success: boolean; message?: string };
+      if (!result.success) {
+        setServerError("Etwas ist schiefgelaufen. Bitte versuch es gleich nochmal.");
+        return;
+      }
+    } catch {
       setServerError("Etwas ist schiefgelaufen. Bitte versuch es gleich nochmal.");
       return;
+    } finally {
+      setSubmitting(false);
     }
     setDone(true);
     if (typeof window !== "undefined") window.scrollTo({ top: 0, behavior: "smooth" });
