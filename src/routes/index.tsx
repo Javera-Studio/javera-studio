@@ -1062,16 +1062,16 @@ function SchreibMir() {
           subject: `Neue Kontaktanfrage von ${name}`,
         }),
       });
-      const result = (await response.json()) as { success: boolean };
+      const result = (await response.json()) as { success: boolean; message?: string };
       if (!result.success) {
-        toast.error("Etwas ist schiefgelaufen. Bitte versuch es gleich nochmal.");
+        toast.error(`Fehler: ${result.message ?? "Unbekannter Fehler"}`);
         return;
       }
       setDone(true);
       toast.success("Danke für deine Anfrage – ich melde mich in Kürze.");
       form.reset();
-    } catch {
-      toast.error("Etwas ist schiefgelaufen. Bitte versuch es gleich nochmal.");
+    } catch (err) {
+      toast.error(`Netzwerkfehler: ${err instanceof Error ? err.message : String(err)}`);
     } finally {
       setSubmitting(false);
     }
