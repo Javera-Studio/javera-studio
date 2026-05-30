@@ -28,17 +28,17 @@ export const Route = createFileRoute("/")({
         content:
           "Website, Branding & Grafik für Beauty Studios in Wien. Von der Website über das Logo bis zu Flyern & Social Media – individuell gestaltet, professionell umgesetzt.",
       },
-      { property: "og:image", content: "https://javera-studio.lovable.app/og-image.jpg" },
+      { property: "og:image", content: "https://www.javera-studio.at/og-image.jpg" },
       { property: "og:image:width", content: "1200" },
       { property: "og:image:height", content: "630" },
-      { property: "og:url", content: "https://javera-studio.lovable.app/" },
+      { property: "og:url", content: "https://www.javera-studio.at/" },
       { name: "twitter:title", content: "Javera Studio — Webdesign · Grafik · Branding für Beauty Studios Wien" },
       {
         name: "twitter:description",
         content:
           "Website, Branding & Grafik für Beauty Studios in Wien – individuell gestaltet, professionell umgesetzt.",
       },
-      { name: "twitter:image", content: "https://javera-studio.lovable.app/og-image.jpg" },
+      { name: "twitter:image", content: "https://www.javera-studio.at/og-image.jpg" },
     ],
   }),
   component: Index,
@@ -50,7 +50,7 @@ const demos = [
     category: "Nagelstudio",
     desc: "Elegante Website für ein Premium-Nagelstudio mit klarer Preisstruktur und Fokus auf Terminbuchungen.",
     focus: "klare Preise & mehr Buchungen",
-    url: "https://luxe-nails-wien.lovable.app",
+    url: "https://remix-of-luxe-nails-vienna.vercel.app",
     accent: "peach",
     image: demoLuxeNails,
   },
@@ -59,7 +59,7 @@ const demos = [
     category: "Kosmetikstudio",
     desc: "Cleanes, ruhiges Design für mehr Vertrauen, klare Angebote und mehr Anfragen.",
     focus: "Vertrauen & hochwertige Präsentation",
-    url: "https://pure-skin-studio-wien.lovable.app",
+    url: "https://remix-of-pure-skin-studio-launch.vercel.app",
     accent: "mint",
     image: demoPureSkin,
   },
@@ -68,7 +68,7 @@ const demos = [
     category: "Friseursalon",
     desc: "Auffällige Website für starke Markenwirkung, mehr Sichtbarkeit und neue Kundinnen.",
     focus: "Markenwirkung & Sichtbarkeit",
-    url: "https://salon-noir.lovable.app",
+    url: "https://remix-of-noir-vision.vercel.app",
     accent: "peach",
     image: demoSalonNoir,
   },
@@ -77,7 +77,7 @@ const demos = [
     category: "Beauty Klinik",
     desc: "Seriöse Klinik-Website mit Fokus auf Vertrauen, Beratung und professionelle Darstellung.",
     focus: "Seriosität & Beratung",
-    url: "https://lumea-laser-clinic.lovable.app",
+    url: "https://remix-of-lumea-laser-clinic.vercel.app",
     accent: "mint",
     image: demoLumea,
   },
@@ -1050,22 +1050,31 @@ function SchreibMir() {
     }
 
     setSubmitting(true);
-    const response = await fetch("/api/public/contact", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ name, email, message }),
-    });
-    setSubmitting(false);
-
-    if (!response.ok) {
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          access_key: "5c831a25-cd2b-4666-ae44-91194af7bc49",
+          name,
+          email,
+          message,
+          subject: `Neue Kontaktanfrage von ${name}`,
+        }),
+      });
+      const result = (await response.json()) as { success: boolean };
+      if (!result.success) {
+        toast.error("Etwas ist schiefgelaufen. Bitte versuch es gleich nochmal.");
+        return;
+      }
+      setDone(true);
+      toast.success("Danke für deine Anfrage – ich melde mich in Kürze.");
+      form.reset();
+    } catch {
       toast.error("Etwas ist schiefgelaufen. Bitte versuch es gleich nochmal.");
-      return;
+    } finally {
+      setSubmitting(false);
     }
-    setDone(true);
-    toast.success("Danke für deine Anfrage – ich melde mich in Kürze.");
-    form.reset();
   }
 
   return (
@@ -1287,7 +1296,7 @@ function FeaturedLuxe() {
             </ul>
 
             <a
-              href="https://luxe-nails-wien.lovable.app"
+              href="https://remix-of-luxe-nails-vienna.vercel.app"
               target="_blank"
               rel="noopener noreferrer"
               className="group inline-flex items-center gap-2 mt-10 text-sm font-medium tracking-wide text-ink border-b border-ink/30 pb-1 hover:border-ink transition"
