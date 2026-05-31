@@ -42,7 +42,7 @@ function FeatureRow({ included, title, desc }: FeatureItem) {
 
 function SectionLabel({ children }: { children: React.ReactNode }) {
   return (
-    <p className="text-[11px] font-semibold text-muted-foreground/70 uppercase tracking-[0.06em] mt-4 mb-2.5 first:mt-0">
+    <p className="text-[11px] font-semibold text-muted-foreground/70 uppercase tracking-[0.06em] mt-8 mb-4">
       {children}
     </p>
   );
@@ -51,41 +51,37 @@ function SectionLabel({ children }: { children: React.ReactNode }) {
 function PreisePage() {
   const starterDesignContent: FeatureItem[] = [
     { included: true, title: "Individuelles Design", desc: "Farben, Stil & Aufbau passend zu deinem Studio" },
-    { included: true, title: "Texte & Struktur", desc: "Professionelle Struktur mit vorbereiteten Texten" },
-    { included: true, title: "Galerie", desc: "Saubere Bildergalerie mit bis zu 9 Fotos" },
-    { included: true, title: "Mobil optimiert", desc: "Perfekt angepasst für Smartphone, Tablet & Desktop" },
+    { included: true, title: "Professionelle Texte", desc: "Struktur und Inhalte werden gemeinsam erarbeitet" },
+    { included: true, title: "Bildergalerie", desc: "Bis zu 9 Fotos sauber integriert" },
+    { included: true, title: "Mobil optimiert", desc: "Perfekt auf Smartphone, Tablet & Desktop" },
   ];
 
   const starterBooking: FeatureItem[] = [
-    { included: true, title: "Buchungslink integriert", desc: "Verlinkung zu Treatwell, Booksy oder Fresha" },
-    { included: true, title: "SEO-Basisoptimierung", desc: "Bessere Sichtbarkeit bei Google" },
-    { included: false, title: "Interaktive Animationen" },
-    { included: false, title: "Vorher/Nachher-Slider" },
-    { included: false, title: "Direktes Buchungs-Widget" },
+    { included: true, title: "Buchungslink integriert", desc: "Verlinkung zu Instagram, WhatsApp oder Buchungstool" },
+    { included: true, title: "SEO-Basisoptimierung", desc: "Bessere Auffindbarkeit bei Google" },
   ];
 
   const starterSupport: FeatureItem[] = [
     { included: true, title: "2 Überarbeitungsrunden", desc: "Feinanpassungen nach deinem Feedback" },
-    { included: true, title: "14 Tage Nachbetreuung", desc: "Support nach dem Launch der Website" },
+    { included: true, title: "14 Tage Nachbetreuung", desc: "Persönliche Unterstützung nach dem Launch" },
   ];
 
   const premiumDesignContent: FeatureItem[] = [
-    { included: true, title: "Premium Branding & Design", desc: "Individuelle Markenwirkung mit hochwertigem Look" },
-    { included: true, title: "Fertige Texte", desc: "Komplette Texte auf Basis eines kurzen Briefings" },
-    { included: true, title: "Erweiterte Galerie", desc: "Unbegrenzte Bilder mit Kategorien & Filtern" },
-    { included: true, title: "Mobil optimiert", desc: "Perfekt abgestimmt auf alle Geräte" },
+    { included: true, title: "Premium Branding & Design", desc: "Individuelle Markenwirkung mit hochwertiger Ästhetik" },
+    { included: true, title: "Fertige Texte inklusive", desc: "Komplette Texte auf Basis eines kurzen Briefings" },
+    { included: true, title: "Erweiterte Galerie", desc: "Unbegrenzte Fotos, professionell integriert" },
+    { included: true, title: "Mobil optimiert", desc: "Perfekt abgestimmt auf alle Geräte & Bildschirmgrößen" },
   ];
 
   const premiumOptionen: FeatureItem[] = [
-    { included: true, title: "Instagram-Einbindung", desc: "Feed direkt auf der Website eingebunden" },
+    { included: true, title: "Instagram Feed eingebunden", desc: "Deine Posts live direkt auf der Website" },
     { included: true, title: "Buchungs-Widget", desc: "Termine direkt auf der Website buchen" },
-    { included: true, title: "Vorher/Nachher-Slider", desc: "Ideal für Beauty-, Haut- & Laserbehandlungen" },
-    { included: true, title: "Blog & CMS", desc: "Inhalte später selbst bearbeitbar" },
     { included: true, title: "Scroll-Animationen", desc: "Sanfte Premium-Animationen beim Scrollen" },
+    { included: true, title: "Blog & CMS", desc: "Inhalte später selbst bearbeitbar" },
   ];
 
   const premiumSupport: FeatureItem[] = [
-    { included: true, title: "Unbegrenzte Überarbeitungen", desc: "Gemeinsame Feinanpassung bis alles perfekt passt" },
+    { included: true, title: "Unbegrenzte Überarbeitungen", desc: "Gemeinsam bis alles perfekt passt" },
     { included: true, title: "30 Tage Premium-Support", desc: "Persönliche Betreuung nach Veröffentlichung" },
   ];
 
@@ -149,59 +145,64 @@ function PreisePage() {
 
           {/* WEBSITE */}
           <p className="text-[11px] font-semibold uppercase tracking-[0.15em] text-muted-foreground mb-5">Website</p>
-          <div className="grid md:grid-cols-2 gap-5">
-            <div className="bg-background border border-border rounded-2xl p-8">
+          <div className="grid md:grid-cols-2 gap-5 items-stretch">
+            {/* Starter Website */}
+            <div className="bg-background border border-border rounded-2xl p-8 flex flex-col">
               <p className="text-lg font-semibold text-ink mb-1">Starter Website</p>
-              <p className="text-sm text-muted-foreground mb-5">One-Pager · alle Infos auf einer Seite · Treatwell-Link</p>
-              <div className="text-3xl font-bold text-ink leading-none">
-                500–600 €{" "}
-                <span className="text-sm font-normal text-muted-foreground">einmalig</span>
-              </div>
-              <div className="flex gap-2 mt-3 flex-wrap">
-                <span className="text-xs bg-secondary text-foreground/70 rounded-full px-2.5 py-0.5">1 Seite</span>
-                <span className="text-xs bg-secondary text-foreground/70 rounded-full px-2.5 py-0.5">5–7 Tage</span>
+              <p className="text-sm text-muted-foreground mb-5">One-Pager · alle Infos auf einer Seite</p>
+              <div className="min-h-[88px]">
+                <div className="text-3xl font-bold text-ink leading-none">
+                  500 €{" "}
+                  <span className="text-sm font-normal text-muted-foreground">einmalig</span>
+                </div>
+                <p className="text-sm text-muted-foreground mt-2">1 Seite · 5–7 Tage</p>
               </div>
               <hr className="border-t border-border/60 my-5" />
-              <SectionLabel>Design & Inhalt</SectionLabel>
+              <SectionLabel>Design &amp; Inhalt</SectionLabel>
               {starterDesignContent.map((f) => <FeatureRow key={f.title} {...f} />)}
-              <SectionLabel>Buchung & Sichtbarkeit</SectionLabel>
+              <SectionLabel>Buchung &amp; Sichtbarkeit</SectionLabel>
               {starterBooking.map((f) => <FeatureRow key={f.title} {...f} />)}
               <SectionLabel>Support</SectionLabel>
               {starterSupport.map((f) => <FeatureRow key={f.title} {...f} />)}
-              <Link
-                to="/demo-anfrage"
-                className="block text-center mt-6 py-3 bg-secondary text-ink font-semibold text-sm rounded-xl hover:bg-secondary/80 transition"
-              >
-                Kostenlose Analyse & Demo
-              </Link>
+              <div className="mt-auto pt-6">
+                <Link
+                  to="/demo-anfrage"
+                  className="block text-center py-3 border border-border text-ink font-semibold text-sm rounded-xl hover:bg-secondary transition"
+                >
+                  Kostenlose Analyse &amp; Demo anfragen
+                </Link>
+              </div>
             </div>
 
-            <div className="relative bg-background border-2 border-primary rounded-2xl p-8">
+            {/* Premium Website */}
+            <div className="relative bg-background border-2 border-primary rounded-2xl p-8 flex flex-col">
               <div className="absolute -top-3 left-8 bg-accent text-primary text-[11px] font-semibold px-3 py-1 rounded-full">
                 Empfohlen
               </div>
               <p className="text-lg font-semibold text-ink mb-1">Premium Website</p>
               <p className="text-sm text-muted-foreground mb-5">Mehrseiter · je nach Wunsch &amp; Umfang</p>
-              <div className="text-3xl font-bold text-ink leading-none">
-                ab 800 €{" "}
-                <span className="text-sm font-normal text-muted-foreground">einmalig</span>
+              <div className="min-h-[88px]">
+                <div className="text-3xl font-bold text-ink leading-none">
+                  800 €{" "}
+                  <span className="text-sm font-normal text-muted-foreground">einmalig</span>
+                </div>
+                <p className="text-sm text-muted-foreground mt-2">Mehrere Seiten · 10–14 Tage</p>
               </div>
-              <p className="text-sm text-muted-foreground mt-3 leading-relaxed">
-                Seitenanzahl, Instagram-Einbindung, Buchungs-Widget, Blog &amp; mehr – je nach Wunsch zusammengestellt. Kostenloses Angebot auf Anfrage.
-              </p>
               <hr className="border-t border-border/60 my-5" />
               <SectionLabel>Design &amp; Inhalt</SectionLabel>
               {premiumDesignContent.map((f) => <FeatureRow key={f.title} {...f} />)}
-              <SectionLabel>Möglichkeiten je nach Wunsch</SectionLabel>
+              <SectionLabel>Optionale Erweiterungen</SectionLabel>
               {premiumOptionen.map((f) => <FeatureRow key={f.title} {...f} />)}
               <SectionLabel>Support</SectionLabel>
               {premiumSupport.map((f) => <FeatureRow key={f.title} {...f} />)}
-              <Link
-                to="/demo-anfrage"
-                className="block text-center mt-6 py-3 bg-primary text-primary-foreground font-semibold text-sm rounded-xl hover:bg-primary/90 transition"
-              >
-                Kostenlose Analyse & Demo
-              </Link>
+              <div className="mt-auto pt-6">
+                <Link
+                  to="/demo-anfrage"
+                  className="block text-center py-3 bg-primary text-primary-foreground font-semibold text-sm rounded-xl hover:bg-primary/90 transition"
+                >
+                  Kostenlose Analyse &amp; Demo anfragen
+                </Link>
+              </div>
             </div>
           </div>
 
