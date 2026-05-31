@@ -69,14 +69,24 @@ function PreisePage() {
     { included: true, title: "14 Tage Nachbetreuung", desc: "Support nach dem Launch der Website" },
   ];
 
-  const premiumMoeglichkeiten = [
-    "Seitenanzahl nach Wunsch",
-    "Instagram-Einbindung",
-    "Buchungs-Widget",
-    "Vorher/Nachher-Slider",
-    "Blog & CMS",
-    "SEO + Google Maps",
-    "Scroll-Animationen",
+  const premiumDesignContent: FeatureItem[] = [
+    { included: true, title: "Premium Branding & Design", desc: "Individuelle Markenwirkung mit hochwertigem Look" },
+    { included: true, title: "Fertige Texte", desc: "Komplette Texte auf Basis eines kurzen Briefings" },
+    { included: true, title: "Erweiterte Galerie", desc: "Unbegrenzte Bilder mit Kategorien & Filtern" },
+    { included: true, title: "Mobil optimiert", desc: "Perfekt abgestimmt auf alle Geräte" },
+  ];
+
+  const premiumOptionen: FeatureItem[] = [
+    { included: true, title: "Instagram-Einbindung", desc: "Feed direkt auf der Website eingebunden" },
+    { included: true, title: "Buchungs-Widget", desc: "Termine direkt auf der Website buchen" },
+    { included: true, title: "Vorher/Nachher-Slider", desc: "Ideal für Beauty-, Haut- & Laserbehandlungen" },
+    { included: true, title: "Blog & CMS", desc: "Inhalte später selbst bearbeitbar" },
+    { included: true, title: "Scroll-Animationen", desc: "Sanfte Premium-Animationen beim Scrollen" },
+  ];
+
+  const premiumSupport: FeatureItem[] = [
+    { included: true, title: "Unbegrenzte Überarbeitungen", desc: "Gemeinsame Feinanpassung bis alles perfekt passt" },
+    { included: true, title: "30 Tage Premium-Support", desc: "Persönliche Betreuung nach Veröffentlichung" },
   ];
 
   const grafikItems = [
@@ -180,13 +190,12 @@ function PreisePage() {
                 Seitenanzahl, Instagram-Einbindung, Buchungs-Widget, Blog &amp; mehr – je nach Wunsch zusammengestellt. Kostenloses Angebot auf Anfrage.
               </p>
               <hr className="border-t border-border/60 my-5" />
+              <SectionLabel>Design &amp; Inhalt</SectionLabel>
+              {premiumDesignContent.map((f) => <FeatureRow key={f.title} {...f} />)}
               <SectionLabel>Möglichkeiten je nach Wunsch</SectionLabel>
-              <div className="flex flex-wrap gap-2">
-                {premiumMoeglichkeiten.map((m) => (
-                  <span key={m} className="text-xs bg-secondary text-foreground/70 rounded-full px-2.5 py-1">{m}</span>
-                ))}
-              </div>
-              <p className="text-xs text-muted-foreground mt-4">Unbegrenzte Überarbeitungen · 30 Tage Support nach Launch</p>
+              {premiumOptionen.map((f) => <FeatureRow key={f.title} {...f} />)}
+              <SectionLabel>Support</SectionLabel>
+              {premiumSupport.map((f) => <FeatureRow key={f.title} {...f} />)}
               <Link
                 to="/demo-anfrage"
                 className="block text-center mt-6 py-3 bg-primary text-primary-foreground font-semibold text-sm rounded-xl hover:bg-primary/90 transition"
