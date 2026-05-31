@@ -211,28 +211,28 @@ function PreisePage() {
           </div>
 
           {/* Laufende Kosten */}
-          <div className="mt-5 grid sm:grid-cols-3 gap-4">
-            <div className="bg-background border border-border rounded-2xl p-6">
+          <div className="mt-5 grid sm:grid-cols-3 gap-4 items-stretch">
+            <div className="bg-background border border-border rounded-2xl p-6 flex flex-col">
               <p className="font-semibold text-ink">Domain &amp; Hosting</p>
-              <p className="text-xs text-muted-foreground mt-1 mb-3">Eigene www-Adresse + Website online halten (bei externem Anbieter)</p>
-              <p className="text-2xl font-bold text-ink">
+              <p className="text-xs text-muted-foreground mt-1">Eigene www-Adresse + Website online halten (bei externem Anbieter)</p>
+              <p className="text-xs text-muted-foreground/80 mt-1 italic">direkt beim Anbieter — läuft auf deinen Namen</p>
+              <p className="text-2xl font-bold text-ink mt-auto pt-4">
                 15 €{" "}
                 <span className="text-sm font-normal text-muted-foreground">/ Monat</span>
               </p>
-              <p className="text-xs text-muted-foreground/80 mt-2 italic">direkt beim Anbieter — läuft auf deinen Namen</p>
             </div>
-            <div className="bg-background border border-border rounded-2xl p-6">
+            <div className="bg-background border border-border rounded-2xl p-6 flex flex-col">
               <p className="font-semibold text-ink">Wartungspaket</p>
-              <p className="text-xs text-muted-foreground mt-1 mb-3">Kleine laufende Anpassungen, neue Fotos, Texte & Aktionen · bis zu 4 Änderungen pro Monat</p>
-              <p className="text-2xl font-bold text-ink">
-                30 €{" "}
+              <p className="text-xs text-muted-foreground mt-1">Kleine laufende Anpassungen, neue Fotos, Texte & Aktionen · bis zu 4 Änderungen pro Monat</p>
+              <p className="text-2xl font-bold text-ink mt-auto pt-4">
+                40 €{" "}
                 <span className="text-sm font-normal text-muted-foreground">/ Monat</span>
               </p>
             </div>
-            <div className="bg-background border border-border rounded-2xl p-6">
+            <div className="bg-background border border-border rounded-2xl p-6 flex flex-col">
               <p className="font-semibold text-ink">Einzeländerung</p>
-              <p className="text-xs text-muted-foreground mt-1 mb-3">Einzelne spontane Änderungen ohne Wartungspaket</p>
-              <p className="text-2xl font-bold text-ink">
+              <p className="text-xs text-muted-foreground mt-1">Einzelne spontane Änderungen ohne Wartungspaket</p>
+              <p className="text-2xl font-bold text-ink mt-auto pt-4">
                 50 €{" "}
                 <span className="text-sm font-normal text-muted-foreground">einmalig</span>
               </p>
