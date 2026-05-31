@@ -11,6 +11,8 @@ import demoLuxeNails from "@/assets/demo-luxe-nails.png";
 import demoPureSkin from "@/assets/demo-pure-skin.png";
 import demoSalonNoir from "@/assets/demo-salon-noir.png";
 import demoLumea from "@/assets/demo-lumea.png";
+import demoNailAtelier from "@/assets/demo-nail-atelier.png";
+import demoLumisKlinik from "@/assets/demo-lumis-klinik.png";
 import { SiteFooter as Footer } from "@/components/SiteFooter";
 
 export const Route = createFileRoute("/")({
@@ -50,7 +52,7 @@ const demos = [
     category: "Nagelstudio",
     desc: "Elegante Website für ein Premium-Nagelstudio mit klarer Preisstruktur und Fokus auf Terminbuchungen.",
     focus: "klare Preise & mehr Buchungen",
-    url: "https://remix-of-luxe-nails-vienna.vercel.app",
+    url: "https://demo-luxe-nails-vienna.vercel.app",
     accent: "peach",
     image: demoLuxeNails,
   },
@@ -59,7 +61,7 @@ const demos = [
     category: "Kosmetikstudio",
     desc: "Cleanes, ruhiges Design für mehr Vertrauen, klare Angebote und mehr Anfragen.",
     focus: "Vertrauen & hochwertige Präsentation",
-    url: "https://remix-of-pure-skin-studio-launch.vercel.app",
+    url: "https://demo-pure-skin-studio-launch.vercel.app",
     accent: "mint",
     image: demoPureSkin,
   },
@@ -68,7 +70,7 @@ const demos = [
     category: "Friseursalon",
     desc: "Auffällige Website für starke Markenwirkung, mehr Sichtbarkeit und neue Kundinnen.",
     focus: "Markenwirkung & Sichtbarkeit",
-    url: "https://remix-of-noir-vision.vercel.app",
+    url: "https://demo-noir-vision.vercel.app",
     accent: "peach",
     image: demoSalonNoir,
   },
@@ -77,9 +79,27 @@ const demos = [
     category: "Beauty Klinik",
     desc: "Seriöse Klinik-Website mit Fokus auf Vertrauen, Beratung und professionelle Darstellung.",
     focus: "Seriosität & Beratung",
-    url: "https://remix-of-lumea-laser-clinic.vercel.app",
+    url: "https://demo-lumea-laser-clinic.vercel.app",
     accent: "mint",
     image: demoLumea,
+  },
+  {
+    title: "Nail Atelier",
+    category: "Nagelstudio",
+    desc: "Elegantes Nail-Studio Design mit Fokus auf Ästhetik, Vertrauen und einen modernen Markenauftritt.",
+    focus: "Eleganz & Markenwirkung",
+    url: "#",
+    accent: "peach",
+    image: demoNailAtelier,
+  },
+  {
+    title: "Lumis Klinik",
+    category: "Beauty Klinik",
+    desc: "Moderne Klinik-Website mit Fokus auf Vertrauen, hochwertige Darstellung und professionelle Außenwirkung.",
+    focus: "Vertrauen & Professionalität",
+    url: "#",
+    accent: "mint",
+    image: demoLumisKlinik,
   },
 ];
 
