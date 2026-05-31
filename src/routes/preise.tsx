@@ -69,24 +69,14 @@ function PreisePage() {
     { included: true, title: "14 Tage Nachbetreuung", desc: "Support nach dem Launch der Website" },
   ];
 
-  const premiumDesignContent: FeatureItem[] = [
-    { included: true, title: "Premium Branding & Design", desc: "Individuelle Markenwirkung mit hochwertigem Look" },
-    { included: true, title: "Fertige Premium-Texte", desc: "Komplette Texte auf Basis eines kurzen Briefings" },
-    { included: true, title: "Erweiterte Galerie", desc: "Unbegrenzte Bilder mit Kategorien & Filtern" },
-    { included: true, title: "Mobil optimiert", desc: "Perfekt abgestimmt auf alle Geräte" },
-  ];
-
-  const premiumInteractive: FeatureItem[] = [
-    { included: true, title: "Elegante Scroll-Animationen", desc: "Sanfte Premium-Animationen beim Scrollen" },
-    { included: true, title: "Vorher/Nachher-Slider", desc: "Ideal für Beauty-, Haut- & Laserbehandlungen" },
-    { included: true, title: "Buchungs-Widget integriert", desc: "Termine direkt auf der Website buchen" },
-    { included: true, title: "SEO erweitert + Google Maps", desc: "Mehr Sichtbarkeit & professioneller Google-Auftritt" },
-    { included: true, title: "Erweiterbar mit Blog & CMS", desc: "Preise, Blog oder Inhalte später selbst editierbar möglich" },
-  ];
-
-  const premiumSupport: FeatureItem[] = [
-    { included: true, title: "Unbegrenzte Überarbeitungen", desc: "Gemeinsame Feinanpassung bis alles perfekt passt" },
-    { included: true, title: "30 Tage Premium-Support", desc: "Persönliche Betreuung nach Veröffentlichung" },
+  const premiumMoeglichkeiten = [
+    "Seitenanzahl nach Wunsch",
+    "Instagram-Einbindung",
+    "Buchungs-Widget",
+    "Vorher/Nachher-Slider",
+    "Blog & CMS",
+    "SEO + Google Maps",
+    "Scroll-Animationen",
   ];
 
   const grafikItems = [
@@ -154,7 +144,7 @@ function PreisePage() {
               <p className="text-lg font-semibold text-ink mb-1">Starter Website</p>
               <p className="text-sm text-muted-foreground mb-5">One-Pager · alle Infos auf einer Seite · Treatwell-Link</p>
               <div className="text-3xl font-bold text-ink leading-none">
-                400 – 500 €{" "}
+                500–600 €{" "}
                 <span className="text-sm font-normal text-muted-foreground">einmalig</span>
               </div>
               <div className="flex gap-2 mt-3 flex-wrap">
@@ -181,22 +171,22 @@ function PreisePage() {
                 Empfohlen
               </div>
               <p className="text-lg font-semibold text-ink mb-1">Premium Website</p>
-              <p className="text-sm text-muted-foreground mb-5">Multi-Page · Animationen · Instagram Feed · Vorher/Nachher Slider</p>
+              <p className="text-sm text-muted-foreground mb-5">Mehrseiter · je nach Wunsch &amp; Umfang</p>
               <div className="text-3xl font-bold text-ink leading-none">
-                700 – 900 €{" "}
+                ab 800 €{" "}
                 <span className="text-sm font-normal text-muted-foreground">einmalig</span>
               </div>
-              <div className="flex gap-2 mt-3 flex-wrap">
-                <span className="text-xs bg-secondary text-foreground/70 rounded-full px-2.5 py-0.5">3–5 Seiten</span>
-                <span className="text-xs bg-secondary text-foreground/70 rounded-full px-2.5 py-0.5">10–14 Tage</span>
-              </div>
+              <p className="text-sm text-muted-foreground mt-3 leading-relaxed">
+                Seitenanzahl, Instagram-Einbindung, Buchungs-Widget, Blog &amp; mehr – je nach Wunsch zusammengestellt. Kostenloses Angebot auf Anfrage.
+              </p>
               <hr className="border-t border-border/60 my-5" />
-              <SectionLabel>Design & Inhalt</SectionLabel>
-              {premiumDesignContent.map((f) => <FeatureRow key={f.title} {...f} />)}
-              <SectionLabel>Interaktiv & Buchung</SectionLabel>
-              {premiumInteractive.map((f) => <FeatureRow key={f.title} {...f} />)}
-              <SectionLabel>Support</SectionLabel>
-              {premiumSupport.map((f) => <FeatureRow key={f.title} {...f} />)}
+              <SectionLabel>Möglichkeiten je nach Wunsch</SectionLabel>
+              <div className="flex flex-wrap gap-2">
+                {premiumMoeglichkeiten.map((m) => (
+                  <span key={m} className="text-xs bg-secondary text-foreground/70 rounded-full px-2.5 py-1">{m}</span>
+                ))}
+              </div>
+              <p className="text-xs text-muted-foreground mt-4">Unbegrenzte Überarbeitungen · 30 Tage Support nach Launch</p>
               <Link
                 to="/demo-anfrage"
                 className="block text-center mt-6 py-3 bg-primary text-primary-foreground font-semibold text-sm rounded-xl hover:bg-primary/90 transition"
@@ -229,7 +219,7 @@ function PreisePage() {
               <p className="font-semibold text-ink">Einzeländerung</p>
               <p className="text-xs text-muted-foreground mt-1 mb-3">Einzelne spontane Änderungen ohne Wartungspaket</p>
               <p className="text-2xl font-bold text-ink">
-                40 – 50 €{" "}
+                50 €{" "}
                 <span className="text-sm font-normal text-muted-foreground">einmalig</span>
               </p>
             </div>
@@ -280,20 +270,23 @@ function PreisePage() {
               <div className="bg-background border border-border rounded-2xl p-6">
                 <p className="font-semibold text-ink mb-1">Starter Branding</p>
                 <p className="text-xs text-muted-foreground mb-4">Logo + Visitenkarte + 5 Social Media Posts</p>
-                <p className="text-2xl font-bold text-ink">ab 550 €</p>
+                <p className="text-2xl font-bold text-ink">500 €</p>
+                <p className="text-xs text-muted-foreground mt-1">statt 570 € einzeln</p>
               </div>
               <div className="relative bg-background border-2 border-primary rounded-2xl p-6">
                 <div className="absolute -top-3 left-6 bg-accent text-primary text-[11px] font-semibold px-3 py-1 rounded-full">
                   Komplett
                 </div>
                 <p className="font-semibold text-ink mb-1 mt-1">Beauty Studio Komplett</p>
-                <p className="text-xs text-muted-foreground mb-4">Premium Website + Logo + 10 Social Posts + Flyer</p>
-                <p className="text-2xl font-bold text-ink">ab 1.099 €</p>
+                <p className="text-xs text-muted-foreground mb-4">Premium Website + Logo + 10 Social Media Posts + Flyer</p>
+                <p className="text-2xl font-bold text-ink">1.390 €</p>
+                <p className="text-xs text-muted-foreground mt-1">statt 1.640 € einzeln</p>
               </div>
               <div className="bg-background border border-border rounded-2xl p-6">
                 <p className="font-semibold text-ink mb-1">Social Media Visibility Paket</p>
                 <p className="text-xs text-muted-foreground mb-4">5 Social Media Posts + 5 Story Templates + 6 Highlight Covers</p>
-                <p className="text-2xl font-bold text-ink">ab 420 €</p>
+                <p className="text-2xl font-bold text-ink">420 €</p>
+                <p className="text-xs text-muted-foreground mt-1">statt 460 € einzeln</p>
               </div>
             </div>
           </div>
