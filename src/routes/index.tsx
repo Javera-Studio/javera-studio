@@ -88,7 +88,7 @@ const demos = [
     category: "Nagelstudio",
     desc: "Elegantes Nail-Studio Design mit Fokus auf Ästhetik, Vertrauen und einen modernen Markenauftritt.",
     focus: "Eleganz & Markenwirkung",
-    url: "#",
+    url: "https://demo-nailatelier.vercel.app",
     accent: "peach",
     image: demoNailAtelier,
   },
