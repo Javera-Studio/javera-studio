@@ -149,28 +149,30 @@ function PreisePage() {
             {/* Starter Website */}
             <div className="bg-background border border-border rounded-2xl p-8 flex flex-col">
               <p className="text-lg font-semibold text-ink mb-1">Starter Website</p>
-              <p className="text-sm text-muted-foreground mb-5">One-Pager · alle Infos auf einer Seite</p>
-              <div className="min-h-[88px]">
+              <p className="text-sm text-muted-foreground">One-Pager · alle Infos auf einer Seite</p>
+              <div className="py-5">
                 <div className="text-3xl font-bold text-ink leading-none">
                   500 €{" "}
                   <span className="text-sm font-normal text-muted-foreground">einmalig</span>
                 </div>
                 <p className="text-sm text-muted-foreground mt-2">1 Seite · 5–7 Tage</p>
               </div>
-              <hr className="border-t border-border/60 my-5" />
+              <hr className="border-t border-border/60 mb-5" />
               <SectionLabel>Design &amp; Inhalt</SectionLabel>
               {starterDesignContent.map((f) => <FeatureRow key={f.title} {...f} />)}
               <SectionLabel>Buchung &amp; Sichtbarkeit</SectionLabel>
               {starterBooking.map((f) => <FeatureRow key={f.title} {...f} />)}
-              <SectionLabel>Support</SectionLabel>
-              {starterSupport.map((f) => <FeatureRow key={f.title} {...f} />)}
-              <div className="mt-auto pt-6">
-                <Link
-                  to="/demo-anfrage"
-                  className="block text-center py-3 border border-border text-ink font-semibold text-sm rounded-xl hover:bg-secondary transition"
-                >
-                  Kostenlose Analyse &amp; Demo anfragen
-                </Link>
+              <div className="mt-auto">
+                <SectionLabel>Support</SectionLabel>
+                {starterSupport.map((f) => <FeatureRow key={f.title} {...f} />)}
+                <div className="pt-6">
+                  <Link
+                    to="/demo-anfrage"
+                    className="block text-center py-3 border border-border text-ink font-semibold text-sm rounded-xl hover:bg-secondary transition"
+                  >
+                    Kostenlose Analyse &amp; Demo anfragen
+                  </Link>
+                </div>
               </div>
             </div>
 
@@ -180,28 +182,30 @@ function PreisePage() {
                 Empfohlen
               </div>
               <p className="text-lg font-semibold text-ink mb-1">Premium Website</p>
-              <p className="text-sm text-muted-foreground mb-5">Mehrseiter · je nach Wunsch &amp; Umfang</p>
-              <div className="min-h-[88px]">
+              <p className="text-sm text-muted-foreground">Mehrseiter · je nach Wunsch &amp; Umfang</p>
+              <div className="py-5">
                 <div className="text-3xl font-bold text-ink leading-none">
-                  800 €{" "}
+                  ab 800 €{" "}
                   <span className="text-sm font-normal text-muted-foreground">einmalig</span>
                 </div>
                 <p className="text-sm text-muted-foreground mt-2">Mehrere Seiten · 10–14 Tage</p>
               </div>
-              <hr className="border-t border-border/60 my-5" />
+              <hr className="border-t border-border/60 mb-5" />
               <SectionLabel>Design &amp; Inhalt</SectionLabel>
               {premiumDesignContent.map((f) => <FeatureRow key={f.title} {...f} />)}
               <SectionLabel>Optionale Erweiterungen</SectionLabel>
               {premiumOptionen.map((f) => <FeatureRow key={f.title} {...f} />)}
-              <SectionLabel>Support</SectionLabel>
-              {premiumSupport.map((f) => <FeatureRow key={f.title} {...f} />)}
-              <div className="mt-auto pt-6">
-                <Link
-                  to="/demo-anfrage"
-                  className="block text-center py-3 bg-primary text-primary-foreground font-semibold text-sm rounded-xl hover:bg-primary/90 transition"
-                >
-                  Kostenlose Analyse &amp; Demo anfragen
-                </Link>
+              <div className="mt-auto">
+                <SectionLabel>Support</SectionLabel>
+                {premiumSupport.map((f) => <FeatureRow key={f.title} {...f} />)}
+                <div className="pt-6">
+                  <Link
+                    to="/demo-anfrage"
+                    className="block text-center py-3 bg-primary text-primary-foreground font-semibold text-sm rounded-xl hover:bg-primary/90 transition"
+                  >
+                    Kostenlose Analyse &amp; Demo anfragen
+                  </Link>
+                </div>
               </div>
             </div>
           </div>
