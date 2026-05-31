@@ -97,7 +97,7 @@ const demos = [
     category: "Beauty Klinik",
     desc: "Moderne Klinik-Website mit Fokus auf Vertrauen, hochwertige Darstellung und professionelle Außenwirkung.",
     focus: "Vertrauen & Professionalität",
-    url: "#",
+    url: "https://demo-lumis-klinik.vercel.app",
     accent: "mint",
     image: demoLumisKlinik,
   },
