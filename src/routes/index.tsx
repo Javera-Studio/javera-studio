@@ -527,7 +527,56 @@ function DigitaleLösungen() {
   );
 }
 
+function DemoCard({ d, i, featured = false }: { d: typeof demos[0]; i: number; featured?: boolean }) {
+  return (
+    <div
+      key={d.title}
+      className={`reveal-card reveal-stagger-${(i % 4) + 1} group relative bg-background rounded-3xl border border-border/60 hover:shadow-xl hover:shadow-ink/5 transition overflow-hidden ${featured ? "p-7 md:p-10" : "p-6 md:p-8"}`}
+    >
+      <div
+        className={`relative rounded-2xl overflow-hidden mb-6 flex items-center justify-center ${featured ? "aspect-[16/9]" : "aspect-[16/10]"}`}
+        style={{
+          backgroundColor: d.accent === "mint" ? "var(--mint-soft)" : "var(--peach-soft)",
+        }}
+      >
+        <span className="absolute top-3 right-3 z-10 inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-background/90 backdrop-blur-sm border border-border/50 text-[10px] uppercase tracking-wider font-medium text-ink shadow-sm">
+          <span className="w-1.5 h-1.5 rounded-full bg-mauve" />
+          Showcase Project
+        </span>
+        <img
+          src={d.image}
+          alt={`${d.title} Demo Vorschau`}
+          loading="lazy"
+          className="w-full h-full object-contain transition duration-500 group-hover:scale-[1.03]"
+        />
+      </div>
+      <div className="text-xs uppercase tracking-wider text-muted-foreground">
+        {d.category}
+      </div>
+      <h3 className={`font-serif text-ink mt-2 ${featured ? "text-3xl md:text-4xl" : "text-2xl md:text-3xl"}`}>{d.title}</h3>
+      <p className="mt-3 text-muted-foreground leading-relaxed">{d.desc}</p>
+      <p className="mt-3 text-sm text-ink/70 italic">→ Fokus: {d.focus}</p>
+      <a
+        href={d.url}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="inline-flex items-center gap-2 mt-6 text-sm font-medium text-ink border-b border-ink/30 pb-1 hover:border-ink transition"
+      >
+        Demo ansehen
+        <span aria-hidden>→</span>
+      </a>
+    </div>
+  );
+}
+
 function Demos() {
+  const row1 = demos.filter((d) =>
+    ["Nail Atelier", "Salon Noir", "LUMEA Laser Clinic"].includes(d.title)
+  );
+  const row2 = demos.filter((d) =>
+    ["PURE SKIN Studio", "Lumis Klinik"].includes(d.title)
+  );
+
   return (
     <section id="demos" className="py-24 md:py-32 bg-cream">
       <div className="max-w-6xl mx-auto px-6">
@@ -543,49 +592,21 @@ function Demos() {
             Zielgruppe.
           </p>
         </div>
+
+        {/* Row 1: 3 standard cards */}
         <div className="grid md:grid-cols-3 gap-6 md:gap-8">
-          {demos.filter((d) => d.title !== "Luxe Nails Vienna").map((d, i) => (
-            <div
-              key={d.title}
-              className={`reveal-card reveal-stagger-${(i % 4) + 1} group relative bg-background rounded-3xl p-6 md:p-8 border border-border/60 hover:shadow-xl hover:shadow-ink/5 transition overflow-hidden`}
-            >
-              <div
-                className="relative rounded-2xl overflow-hidden mb-6 aspect-[16/10] flex items-center justify-center"
-                style={{
-                  backgroundColor:
-                    d.accent === "mint" ? "var(--mint-soft)" : "var(--peach-soft)",
-                }}
-              >
-        
-                  <span className="absolute top-3 right-3 z-10 inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-background/90 backdrop-blur-sm border border-border/50 text-[10px] uppercase tracking-wider font-medium text-ink shadow-sm">
-  <span className="w-1.5 h-1.5 rounded-full bg-mauve" />
-  Showcase Project
-  </span>
-                  <img
-                  src={d.image}
-                  alt={`${d.title} Demo Vorschau`}
-                  loading="lazy"
-                  className="w-full h-full object-contain transition duration-500 group-hover:scale-[1.03]"
-                />
-              </div>
-              <div className="text-xs uppercase tracking-wider text-muted-foreground">
-                {d.category}
-              </div>
-              <h3 className="font-serif text-2xl md:text-3xl text-ink mt-2">{d.title}</h3>
-              <p className="mt-3 text-muted-foreground leading-relaxed">{d.desc}</p>
-              <p className="mt-3 text-sm text-ink/70 italic">→ Fokus: {d.focus}</p>
-              <a
-                href={d.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 mt-6 text-sm font-medium text-ink border-b border-ink/30 pb-1 hover:border-ink transition"
-              >
-                Demo ansehen
-                <span aria-hidden>→</span>
-              </a>
-            </div>
+          {row1.map((d, i) => (
+            <DemoCard key={d.title} d={d} i={i} />
           ))}
         </div>
+
+        {/* Row 2: 2 featured cards */}
+        <div className="grid md:grid-cols-2 gap-6 md:gap-8 mt-10 md:mt-14">
+          {row2.map((d, i) => (
+            <DemoCard key={d.title} d={d} i={i} featured />
+          ))}
+        </div>
+
         <div className="mt-16 text-center reveal">
           <Link
             to="/demo-anfrage"
