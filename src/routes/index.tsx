@@ -6,7 +6,6 @@ import aboutImg from "@/assets/portrait.png";
 import logo from "@/assets/javera-logo.png";
 import problemImg from "@/assets/problem.jpg";
 import successImg from "@/assets/success.jpg";
-import ctaImg from "@/assets/cta.jpg";
 import demoLuxeNails from "@/assets/demo-luxe-nails.png";
 import demoPureSkin from "@/assets/demo-pure-skin.png";
 import demoSalonNoir from "@/assets/demo-salon-noir.png";
@@ -1027,7 +1026,7 @@ function CTA() {
         <div className="relative order-2 md:order-1">
           <div className="reveal aspect-[4/3] rounded-3xl overflow-hidden shadow-xl shadow-ink/10">
             <img
-              src={ctaImg}
+              src="/anfrage.png"
               alt="Beauty Studio Besitzerin arbeitet entspannt am Laptop"
               loading="lazy"
               width={1536}
@@ -1335,7 +1334,7 @@ function FeaturedLuxe() {
             </ul>
 
             <a
-              href="https://remix-of-luxe-nails-vienna.vercel.app"
+              href="https://demo-luxe-nails-vienna.vercel.app"
               target="_blank"
               rel="noopener noreferrer"
               className="group inline-flex items-center gap-2 mt-10 text-sm font-medium tracking-wide text-ink border-b border-ink/30 pb-1 hover:border-ink transition"
