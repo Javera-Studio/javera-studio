@@ -118,7 +118,7 @@ const javeraPoints = [
   "Website, Branding & Grafik aus einer Hand",
   "Einheitliches Design über alle Kanäle: Web, Print & Social Media",
   "Individuell gestaltet – kein Template, keine 08/15-Lösung",
-  "Persönliche Zusammenarbeit direkt mit Jagoda – von Anfang bis Ende",
+  "Persönliche Zusammenarbeit direkt mit mir – von Anfang bis Ende",
   "Schnelle Umsetzung mit klaren, sichtbaren Ergebnissen",
   "SEO-Grundoptimierung für bessere Sichtbarkeit bei Google",
   "20 % Rabatt auf alle Design-Leistungen für Website-Kunden",
