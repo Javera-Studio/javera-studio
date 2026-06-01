@@ -223,8 +223,8 @@ function Nav() {
             className="h-16 md:h-20 w-auto transition-all duration-500 ease-out group-hover:scale-[1.04] group-hover:opacity-80 group-hover:drop-shadow-[0_4px_12px_rgba(0,0,0,0.08)]"
           />
         </a>
-        <nav className="hidden md:flex items-center gap-8 text-sm text-muted-foreground">
-          <a href="#demos" className="hover:text-ink transition">Demos</a>
+        <nav className="hidden md:flex items-center gap-6 text-xs text-muted-foreground">
+          <a href="#demos" className="hover:text-ink transition">Meine Arbeit</a>
           <a href="#warum" className="hover:text-ink transition">Warum</a>
           <a href="#ablauf" className="hover:text-ink transition">Ablauf</a>
           <Link to="/preise" className="hover:text-ink transition">Preise</Link>
@@ -257,7 +257,7 @@ function Nav() {
       {open && (
         <div className="md:hidden border-t border-border/60 bg-background/95 backdrop-blur-md">
           <nav className="flex flex-col px-6 py-4 gap-1 text-sm text-muted-foreground">
-            <a href="#demos" onClick={close} className="py-2.5 hover:text-ink transition">Demos</a>
+            <a href="#demos" onClick={close} className="py-2.5 hover:text-ink transition">Meine Arbeit</a>
             <a href="#warum" onClick={close} className="py-2.5 hover:text-ink transition">Warum</a>
             <a href="#ablauf" onClick={close} className="py-2.5 hover:text-ink transition">Ablauf</a>
             <Link to="/preise" onClick={close} className="py-2.5 hover:text-ink transition">Preise</Link>
@@ -1022,9 +1022,9 @@ function FAQ() {
 function CTA() {
   return (
     <section id="kontakt" className="relative py-24 md:py-32 overflow-hidden">
-      <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-12 md:gap-16 items-center">
-        <div className="relative order-2 md:order-1">
-          <div className="reveal aspect-[4/3] rounded-3xl overflow-hidden shadow-xl shadow-ink/10">
+      <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-12 md:gap-16 items-stretch">
+        <div className="relative order-2 md:order-1 flex flex-col">
+          <div className="reveal flex-1 rounded-3xl overflow-hidden shadow-xl shadow-ink/10">
             <img
               src="/anfrage.png"
               alt="Beauty Studio Besitzerin arbeitet entspannt am Laptop"
