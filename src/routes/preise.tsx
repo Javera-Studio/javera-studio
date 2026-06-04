@@ -310,7 +310,7 @@ function PreisePage() {
             Bestellung, Druck & Lieferung vieler Printprodukte kann vollständig von JAVERA STUDIO übernommen werden – Preis auf Anfrage.
           </p>
 
-          {/* 20% Rabatt */}
+          {/* 10% Rabatt */}
 <div className="mt-4 bg-peach-soft border border-mauve/20 rounded-2xl px-6 py-4 text-center">
   <p className="text-sm text-ink">
     <span className="text-mauve mr-1">★</span>
