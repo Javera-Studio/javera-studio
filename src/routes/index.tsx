@@ -120,7 +120,7 @@ const javeraPoints = [
   "Persönliche Zusammenarbeit direkt mit mir – von Anfang bis Ende",
   "Schnelle Umsetzung mit klaren, sichtbaren Ergebnissen",
   "SEO-Grundoptimierung für bessere Sichtbarkeit bei Google",
-  "20 % Rabatt auf alle Design-Leistungen für Website-Kunden",
+  "10 % Rabatt auf alle Design-Leistungen für Website-Kunden",
 ];
 
 const steps = [
@@ -201,7 +201,7 @@ const faqs = [
   },
   {
     q: "Lohnt es sich, Website und Social Media Design zusammen zu buchen?",
-    a: "Sehr – ein einheitliches Design über alle Kanäle macht deinen Auftritt stärker und professioneller. Als Website-Kundin erhältst du außerdem 20 % Rabatt auf alle Grafik- und Design-Leistungen.",
+    a: "Sehr – ein einheitliches Design über alle Kanäle macht deinen Auftritt stärker und professioneller. Als Website-Kundin erhältst du außerdem 10 % Rabatt auf alle Grafik- und Design-Leistungen.",
   },
 ];
 
@@ -224,7 +224,7 @@ function Nav() {
           />
         </a>
         <nav className="hidden md:flex items-center gap-6 text-xs text-muted-foreground">
-          <a href="#demos" className="hover:text-ink transition">Meine Arbeit</a>
+          <a href="#kundenprojekte" className="hover:text-ink transition">Meine Arbeit</a>
           <a href="#warum" className="hover:text-ink transition">Warum</a>
           <a href="#ablauf" className="hover:text-ink transition">Ablauf</a>
           <Link to="/preise" className="hover:text-ink transition">Preise</Link>
@@ -257,7 +257,7 @@ function Nav() {
       {open && (
         <div className="md:hidden border-t border-border/60 bg-background/95 backdrop-blur-md">
           <nav className="flex flex-col px-6 py-4 gap-1 text-sm text-muted-foreground">
-            <a href="#demos" onClick={close} className="py-2.5 hover:text-ink transition">Meine Arbeit</a>
+            <a href="#kundenprojekte" onClick={close} className="py-2.5 hover:text-ink transition">Meine Arbeit</a>
             <a href="#warum" onClick={close} className="py-2.5 hover:text-ink transition">Warum</a>
             <a href="#ablauf" onClick={close} className="py-2.5 hover:text-ink transition">Ablauf</a>
             <Link to="/preise" onClick={close} className="py-2.5 hover:text-ink transition">Preise</Link>
@@ -385,7 +385,7 @@ function PaulaVenc() {
   ];
 
   return (
-    <section className="py-24 md:py-32">
+    <section id="kundenprojekte" className="py-24 md:py-32">
       <div className="max-w-6xl mx-auto px-6">
         <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-4">
           Kundenprojekt

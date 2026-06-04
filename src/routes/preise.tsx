@@ -314,7 +314,7 @@ function PreisePage() {
 <div className="mt-4 bg-peach-soft border border-mauve/20 rounded-2xl px-6 py-4 text-center">
   <p className="text-sm text-ink">
     <span className="text-mauve mr-1">★</span>
-    <strong>Website-Kunden erhalten 20 % Rabatt</strong> auf alle Design-Leistungen (Grafik, Print &amp; Social Media).
+    <strong>Website-Kunden erhalten 10 % Rabatt</strong> auf alle Design-Leistungen (Grafik, Print &amp; Social Media).
   </p>
 </div>
 

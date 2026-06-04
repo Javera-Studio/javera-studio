@@ -3,7 +3,19 @@
     "allow": [
       "Bash(git *)",
       "Bash(gh repo *)",
-      "Bash(gh auth *)"
+      "Bash(gh auth *)",
+      "Bash(cp \"C:\\\\Users\\\\jagod\\\\OneDrive\\\\Desktop\\\\Privat\\\\Jagoda\\\\JAVERA GitHub\\\\javera-studio\\\\Kundenfeedbacks\\\\paula.webseite.mockup.png\" \"C:\\\\Users\\\\jagod\\\\OneDrive\\\\Desktop\\\\Privat\\\\Jagoda\\\\JAVERA GitHub\\\\javera-studio\\\\public\\\\paula-mockup.png\")",
+      "Bash(cp \"C:\\\\Users\\\\jagod\\\\OneDrive\\\\Desktop\\\\Privat\\\\Jagoda\\\\JAVERA GitHub\\\\javera-studio\\\\Kundenfeedbacks\\\\1.google bewertung.png\" \"C:\\\\Users\\\\jagod\\\\OneDrive\\\\Desktop\\\\Privat\\\\Jagoda\\\\JAVERA GitHub\\\\javera-studio\\\\public\\\\paula-bewertung.png\")",
+      "Bash(cp \"C:\\\\Users\\\\jagod\\\\OneDrive\\\\Desktop\\\\Privat\\\\Jagoda\\\\JAVERA GitHub\\\\javera-studio\\\\Kundenfeedbacks\\\\feedback.kalendereinrichtung.jpeg\" \"C:\\\\Users\\\\jagod\\\\OneDrive\\\\Desktop\\\\Privat\\\\Jagoda\\\\JAVERA GitHub\\\\javera-studio\\\\public\\\\kalender-feedback.jpg\")",
+      "Bash(cp \"C:\\\\Users\\\\jagod\\\\OneDrive\\\\Desktop\\\\Privat\\\\Jagoda\\\\JAVERA GitHub\\\\javera-studio\\\\Kundenfeedbacks\\\\Kalender Anleitung entstehung.png\" \"C:\\\\Users\\\\jagod\\\\OneDrive\\\\Desktop\\\\Privat\\\\Jagoda\\\\JAVERA GitHub\\\\javera-studio\\\\public\\\\kalender-anleitung.png\")",
+      "WebFetch(domain:tanstack.com)",
+      "WebFetch(domain:unpkg.com)",
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "WebFetch(domain:github.com)",
+      "WebSearch",
+      "WebFetch(domain:vercel.com)",
+      "Bash(python -c \"from PIL import Image; print\\('Pillow OK'\\)\")",
+      "Bash(python *)"
     ]
   }
 }
