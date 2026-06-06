@@ -20,21 +20,16 @@ type FeatureItem = { included: boolean; title: string; desc?: string };
 
 function FeatureRow({ included, title, desc }: FeatureItem) {
   return (
-    <div className={`flex gap-2.5 mb-2.5 text-sm ${included ? "" : "opacity-40"}`}>
+    <div className={`flex gap-2.5 mb-2 ${included ? "" : "opacity-40"}`}>
       <span
-        className="shrink-0 leading-tight text-base"
+        className="shrink-0 text-sm leading-[1.4] mt-px"
         style={{ color: included ? "#0F6E56" : undefined }}
       >
         {included ? "✓" : "✕"}
       </span>
       <div>
-        <strong className="text-ink">{title}</strong>
-        {desc && (
-          <>
-            <br />
-            <span className="text-muted-foreground">{desc}</span>
-          </>
-        )}
+        <p className="text-sm font-medium text-ink leading-[1.4]">{title}</p>
+        {desc && <p className="text-[11px] text-muted-foreground/70 mt-0.5 leading-snug">{desc}</p>}
       </div>
     </div>
   );
@@ -50,39 +45,50 @@ function SectionLabel({ children }: { children: React.ReactNode }) {
 
 function PreisePage() {
   const starterDesignContent: FeatureItem[] = [
-    { included: true, title: "Individuelles Design", desc: "Farben, Stil & Aufbau passend zu deinem Studio" },
-    { included: true, title: "Professionelle Texte", desc: "Struktur und Inhalte werden gemeinsam erarbeitet" },
-    { included: true, title: "Bildergalerie", desc: "Bis zu 9 Fotos sauber integriert" },
-    { included: true, title: "Mobil optimiert", desc: "Perfekt auf Smartphone, Tablet & Desktop" },
+    { included: true, title: "Individuelles Design", desc: "Passend zu deinem Studio, deinen Farben und deiner Marke." },
+    { included: true, title: "Mobil optimiert", desc: "Perfekte Darstellung auf Smartphone, Tablet und PC." },
+    { included: true, title: "Professionelle Texte", desc: "Texte werden auf Basis deiner Informationen erstellt." },
+    { included: true, title: "Bildergalerie", desc: "Präsentiere deine Arbeiten und Ergebnisse professionell." },
   ];
 
   const starterBooking: FeatureItem[] = [
-    { included: true, title: "Buchungslink integriert", desc: "Verlinkung zu Instagram, WhatsApp oder Buchungstool" },
-    { included: true, title: "SEO-Basisoptimierung", desc: "Bessere Auffindbarkeit bei Google" },
+    { included: true, title: "Kontaktformular", desc: "Interessenten können dich direkt über die Website kontaktieren." },
+    { included: true, title: "Integration bestehender Buchungslinks", desc: "Verlinkung zu Planity, Treatwell, Beautinda oder deinem Buchungssystem." },
+    { included: true, title: "SEO-Basisoptimierung", desc: "Damit deine Website von Google besser gefunden werden kann." },
   ];
 
   const starterSupport: FeatureItem[] = [
-    { included: true, title: "2 Überarbeitungsrunden", desc: "Feinanpassungen nach deinem Feedback" },
-    { included: true, title: "14 Tage Nachbetreuung", desc: "Persönliche Unterstützung nach dem Launch" },
+    { included: true, title: "2 Korrekturrunden", desc: "Anpassungen nach deinen Wünschen vor der Veröffentlichung." },
+    { included: true, title: "14 Tage Support", desc: "Kleine Änderungen und Unterstützung nach dem Launch." },
   ];
 
   const premiumDesignContent: FeatureItem[] = [
-    { included: true, title: "Premium Branding & Design", desc: "Individuelle Markenwirkung mit hochwertiger Ästhetik" },
-    { included: true, title: "Fertige Texte inklusive", desc: "Komplette Texte auf Basis eines kurzen Briefings" },
-    { included: true, title: "Erweiterte Galerie", desc: "Unbegrenzte Fotos, professionell integriert" },
-    { included: true, title: "Mobil optimiert", desc: "Perfekt abgestimmt auf alle Geräte & Bildschirmgrößen" },
+    { included: true, title: "Premium Branding & Design", desc: "Hochwertiger Markenauftritt mit exklusivem Design." },
+    { included: true, title: "Mehrere Seiten", desc: "Mehr Platz für Leistungen, Bewertungen, Über mich und mehr." },
+    { included: true, title: "Professionelle Texte", desc: "Texte werden individuell auf dein Business abgestimmt." },
+    { included: true, title: "Erweiterte Galerie", desc: "Mehr Bilder, Vorher-Nachher-Ergebnisse und Referenzen." },
   ];
 
   const premiumOptionen: FeatureItem[] = [
-    { included: true, title: "Instagram Feed eingebunden", desc: "Deine Posts live direkt auf der Website" },
-    { included: true, title: "Buchungs-Widget", desc: "Termine direkt auf der Website buchen" },
-    { included: true, title: "Scroll-Animationen", desc: "Sanfte Premium-Animationen beim Scrollen" },
-    { included: true, title: "Blog & CMS", desc: "Inhalte später selbst bearbeitbar" },
+    { included: true, title: "Sanfte Premium-Animationen", desc: "Elegante Effekte sorgen für einen modernen und hochwertigen Eindruck." },
+    { included: true, title: "Instagram Feed Integration", desc: "Deine neuesten Instagram-Beiträge direkt auf der Website." },
+    { included: true, title: "Integration bestehender Buchungssysteme", desc: "Vorhandene Buchungstools werden professionell eingebunden." },
+    { included: true, title: "SEO-Basisoptimierung", desc: "Optimierung für eine bessere Auffindbarkeit bei Google." },
   ];
 
   const premiumSupport: FeatureItem[] = [
-    { included: true, title: "Unbegrenzte Überarbeitungen", desc: "Gemeinsam bis alles perfekt passt" },
-    { included: true, title: "30 Tage Premium-Support", desc: "Persönliche Betreuung nach Veröffentlichung" },
+    { included: true, title: "4 Korrekturrunden", desc: "Mehr Flexibilität für Anpassungen und Feinschliff." },
+    { included: true, title: "30 Tage Premium Support", desc: "Unterstützung und kleinere Änderungen nach dem Launch." },
+  ];
+
+  const erweiterungen = [
+    { title: "Zusätzliche Leistungsseiten", desc: "Für Studios mit vielen Behandlungen oder Angeboten." },
+    { title: "Mehrsprachige Website", desc: "In mehreren Sprachen für internationale Kundinnen." },
+    { title: "Blog & CMS", desc: "Inhalte und Beiträge später selbst verwalten." },
+    { title: "Einrichtung eines neuen Buchungssystems", desc: "Komplette Einrichtung und Konfiguration nach Aufwand." },
+    { title: "Academy- oder Schulungsbereich", desc: "Ideal für Ausbildungen, Kurse und Workshops." },
+    { title: "Online-Shop", desc: "Produkte direkt über die Website verkaufen." },
+    { title: "Individuelle Sonderfunktionen", desc: "Spezielle Wünsche und Funktionen nach Absprache." },
   ];
 
   const grafikItems = [
@@ -185,7 +191,7 @@ function PreisePage() {
               <p className="text-sm text-muted-foreground">Mehrseiter · je nach Wunsch &amp; Umfang</p>
               <div className="py-5">
                 <div className="text-3xl font-bold text-ink leading-none">
-                  ab 800 €{" "}
+                  ab 900 €{" "}
                   <span className="text-sm font-normal text-muted-foreground">einmalig</span>
                 </div>
                 <p className="text-sm text-muted-foreground mt-2">Mehrere Seiten · 10–14 Tage</p>
@@ -193,7 +199,7 @@ function PreisePage() {
               <hr className="border-t border-border/60 mb-5" />
               <SectionLabel>Design &amp; Inhalt</SectionLabel>
               {premiumDesignContent.map((f) => <FeatureRow key={f.title} {...f} />)}
-              <SectionLabel>Optionale Erweiterungen</SectionLabel>
+              <SectionLabel>Premium Features</SectionLabel>
               {premiumOptionen.map((f) => <FeatureRow key={f.title} {...f} />)}
               <div className="mt-auto">
                 <SectionLabel>Support</SectionLabel>
@@ -207,6 +213,22 @@ function PreisePage() {
                   </Link>
                 </div>
               </div>
+            </div>
+          </div>
+
+          {/* Erweiterungen nach Wunsch */}
+          <div className="mt-5 bg-background border border-border rounded-2xl p-6 md:p-8">
+            <p className="text-[11px] font-semibold uppercase tracking-[0.15em] text-muted-foreground mb-4">Erweiterungen nach Wunsch</p>
+            <div className="grid sm:grid-cols-2 gap-x-8 gap-y-0">
+              {erweiterungen.map((item) => (
+                <div key={item.title} className="flex gap-2.5 mb-2.5">
+                  <span className="shrink-0 text-sm leading-[1.4] mt-px text-mauve">➕</span>
+                  <div>
+                    <p className="text-sm font-medium text-ink leading-[1.4]">{item.title}</p>
+                    <p className="text-[11px] text-muted-foreground/70 mt-0.5 leading-snug">{item.desc}</p>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
 

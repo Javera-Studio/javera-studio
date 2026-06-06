@@ -38,8 +38,8 @@ const STYLES = [
 const CONTENT = ["Ja, alles bereit", "Teilweise", "Nein, brauche Unterstützung"] as const;
 const START = ["Sofort", "In den nächsten Wochen", "Erstmal nur informieren"] as const;
 const PACKAGES = [
-  { value: "Website Starter – 400–500€", title: "Website Starter", price: "400–500€" },
-  { value: "Website Premium – 700–900€", title: "Website Premium", price: "700–900€" },
+  { value: "Website Starter – 500€", title: "Website Starter", price: "500€" },
+  { value: "Website Premium – ab 900€", title: "Website Premium", price: "ab 900€" },
   { value: "Logo Design – 250€", title: "Logo Design", price: "250€" },
   { value: "Grafik & Print – ab 100€", title: "Grafik & Print", price: "ab 100€" },
   { value: "Social Media Design – ab 60€", title: "Social Media Design", price: "ab 60€" },
