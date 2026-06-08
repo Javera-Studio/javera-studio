@@ -8,7 +8,7 @@ export function SiteFooter() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-8 items-start">
 
           {/* Col 1: Logo + tagline */}
-          <div>
+          <div className="flex flex-col items-center text-center">
             <img src={logo} alt="Javera Studio" className="h-[84px] w-auto opacity-90" />
             <p className="mt-4 text-sm text-white/70 leading-relaxed">
               Webdesign &amp; Branding für Beauty Businesses.
@@ -16,7 +16,7 @@ export function SiteFooter() {
           </div>
 
           {/* Col 2: Kontakt + Folge uns */}
-          <div className="flex flex-col gap-6">
+          <div className="flex flex-col gap-6 md:translate-x-[30%]">
             <div>
               <p className="text-xs uppercase tracking-widest text-white/40 mb-3">Kontakt</p>
               <a
