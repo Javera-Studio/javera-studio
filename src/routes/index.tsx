@@ -75,15 +75,6 @@ const demos = [
     image: demoIvoryStudio,
   },
   {
-    title: "Luxe Nails Vienna",
-    category: "Nagelstudio",
-    desc: "Elegante Website für ein Premium-Nagelstudio mit klarer Preisstruktur und Fokus auf Terminbuchungen.",
-    focus: "klare Preise & mehr Buchungen",
-    url: "https://demo-luxe-nails-vienna.vercel.app",
-    accent: "peach",
-    image: demoLuxeNails,
-  },
-  {
     title: "LUMEA Laser Clinic",
     category: "Beauty Klinik",
     desc: "Seriöse Klinik-Website mit Fokus auf Vertrauen, Beratung und professionelle Darstellung.",
@@ -578,8 +569,7 @@ function DemoCard({ d, i, featured = false }: { d: typeof demos[0]; i: number; f
 
 function Demos() {
   const row1 = demos.slice(0, 3);
-  const row2 = demos.slice(3, 5);
-  const row3 = demos.slice(5);
+  const row2 = demos.slice(3);
 
   return (
     <section id="demos" className="py-24 md:py-32 bg-cream">
@@ -596,23 +586,16 @@ function Demos() {
           </p>
         </div>
 
-        {/* Row 1: 3 standard cards */}
+        {/* Row 1: 3 cards */}
         <div className="grid md:grid-cols-3 gap-6 md:gap-8">
           {row1.map((d, i) => (
             <DemoCard key={d.title} d={d} i={i} />
           ))}
         </div>
 
-        {/* Row 2: 2 featured cards */}
-        <div className="grid md:grid-cols-2 gap-6 md:gap-8 mt-10 md:mt-14">
+        {/* Row 2: 3 cards */}
+        <div className="grid md:grid-cols-3 gap-6 md:gap-8 mt-10 md:mt-14">
           {row2.map((d, i) => (
-            <DemoCard key={d.title} d={d} i={i} featured />
-          ))}
-        </div>
-
-        {/* Row 3: 2 standard cards */}
-        <div className="grid md:grid-cols-2 gap-6 md:gap-8 mt-10 md:mt-14">
-          {row3.map((d, i) => (
             <DemoCard key={d.title} d={d} i={i} />
           ))}
         </div>
