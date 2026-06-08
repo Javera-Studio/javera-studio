@@ -71,7 +71,7 @@ export function SiteFooter() {
 
         {/* Bottom bar */}
         <div className="mt-12 pt-6 border-t border-white/10 text-xs text-white/30 text-center">
-          © {new Date().getFullYear()} Javera Studio · Made in Vienna
+          © {new Date().getFullYear()} Javera Studio
         </div>
       </div>
     </footer>
