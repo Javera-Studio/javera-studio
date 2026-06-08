@@ -12,6 +12,7 @@ import demoSalonNoir from "@/assets/demo-salon-noir.png";
 import demoLumea from "@/assets/demo-lumea.png";
 import demoNailAtelier from "@/assets/demo-nail-atelier.png";
 import demoLumisKlinik from "@/assets/demo-lumis-klinik.png";
+import demoIvoryStudio from "@/assets/demo-ivorystudio.png";
 import { SiteFooter as Footer } from "@/components/SiteFooter";
 
 export const Route = createFileRoute("/")({
@@ -47,15 +48,6 @@ export const Route = createFileRoute("/")({
 
 const demos = [
   {
-    title: "Luxe Nails Vienna",
-    category: "Nagelstudio",
-    desc: "Elegante Website für ein Premium-Nagelstudio mit klarer Preisstruktur und Fokus auf Terminbuchungen.",
-    focus: "klare Preise & mehr Buchungen",
-    url: "https://demo-luxe-nails-vienna.vercel.app",
-    accent: "peach",
-    image: demoLuxeNails,
-  },
-  {
     title: "PURE SKIN Studio",
     category: "Kosmetikstudio",
     desc: "Cleanes, ruhiges Design für mehr Vertrauen, klare Angebote und mehr Anfragen.",
@@ -63,24 +55,6 @@ const demos = [
     url: "https://demo-pure-skin-studio-launch.vercel.app",
     accent: "mint",
     image: demoPureSkin,
-  },
-  {
-    title: "Salon Noir",
-    category: "Friseursalon",
-    desc: "Auffällige Website für starke Markenwirkung, mehr Sichtbarkeit und neue Kundinnen.",
-    focus: "Markenwirkung & Sichtbarkeit",
-    url: "https://demo-noir-vision.vercel.app",
-    accent: "peach",
-    image: demoSalonNoir,
-  },
-  {
-    title: "LUMEA Laser Clinic",
-    category: "Beauty Klinik",
-    desc: "Seriöse Klinik-Website mit Fokus auf Vertrauen, Beratung und professionelle Darstellung.",
-    focus: "Seriosität & Beratung",
-    url: "https://demo-lumea-laser-clinic.vercel.app",
-    accent: "mint",
-    image: demoLumea,
   },
   {
     title: "Nail Atelier",
@@ -92,6 +66,33 @@ const demos = [
     image: demoNailAtelier,
   },
   {
+    title: "Ivory Bridal Studio",
+    category: "Bridal Stylistin",
+    desc: "Elegante Onepage-Website für Brautstylistinnen – modern, vertrauensvoll und perfekt für Anfragen rund um den Hochzeitstag.",
+    focus: "Vertrauen & Premium-Auftritt",
+    url: "https://demo-ivorybridalstudio.vercel.app",
+    accent: "mint",
+    image: demoIvoryStudio,
+  },
+  {
+    title: "Luxe Nails Vienna",
+    category: "Nagelstudio",
+    desc: "Elegante Website für ein Premium-Nagelstudio mit klarer Preisstruktur und Fokus auf Terminbuchungen.",
+    focus: "klare Preise & mehr Buchungen",
+    url: "https://demo-luxe-nails-vienna.vercel.app",
+    accent: "peach",
+    image: demoLuxeNails,
+  },
+  {
+    title: "LUMEA Laser Clinic",
+    category: "Beauty Klinik",
+    desc: "Seriöse Klinik-Website mit Fokus auf Vertrauen, Beratung und professionelle Darstellung.",
+    focus: "Seriosität & Beratung",
+    url: "https://demo-lumea-laser-clinic.vercel.app",
+    accent: "mint",
+    image: demoLumea,
+  },
+  {
     title: "Lumis Klinik",
     category: "Beauty Klinik",
     desc: "Moderne Klinik-Website mit Fokus auf Vertrauen, hochwertige Darstellung und professionelle Außenwirkung.",
@@ -99,6 +100,15 @@ const demos = [
     url: "https://demo-lumis-klinik.vercel.app",
     accent: "mint",
     image: demoLumisKlinik,
+  },
+  {
+    title: "Salon Noir",
+    category: "Friseursalon",
+    desc: "Auffällige Website für starke Markenwirkung, mehr Sichtbarkeit und neue Kundinnen.",
+    focus: "Markenwirkung & Sichtbarkeit",
+    url: "https://demo-noir-vision.vercel.app",
+    accent: "peach",
+    image: demoSalonNoir,
   },
 ];
 
@@ -567,12 +577,9 @@ function DemoCard({ d, i, featured = false }: { d: typeof demos[0]; i: number; f
 }
 
 function Demos() {
-  const row1 = demos.filter((d) =>
-    ["Nail Atelier", "Salon Noir", "LUMEA Laser Clinic"].includes(d.title)
-  );
-  const row2 = demos.filter((d) =>
-    ["PURE SKIN Studio", "Lumis Klinik"].includes(d.title)
-  );
+  const row1 = demos.slice(0, 3);
+  const row2 = demos.slice(3, 5);
+  const row3 = demos.slice(5);
 
   return (
     <section id="demos" className="py-24 md:py-32 bg-cream">
@@ -585,8 +592,7 @@ function Demos() {
             Beispiel-Websites für Beauty Businesses
           </h2>
           <p className="reveal reveal-delay mt-4 text-muted-foreground text-lg">
-            So könnte deine Website aussehen – abgestimmt auf dein Studio, deinen Stil und deine
-            Zielgruppe.
+            Jede Demo wurde für eine andere Zielgruppe und Markenidentität entwickelt. So bekommst du ein Gefühl dafür, wie unterschiedlich ein Webauftritt wirken kann – und welche Richtung zu deinem Business passt.
           </p>
         </div>
 
@@ -601,6 +607,13 @@ function Demos() {
         <div className="grid md:grid-cols-2 gap-6 md:gap-8 mt-10 md:mt-14">
           {row2.map((d, i) => (
             <DemoCard key={d.title} d={d} i={i} featured />
+          ))}
+        </div>
+
+        {/* Row 3: 2 standard cards */}
+        <div className="grid md:grid-cols-2 gap-6 md:gap-8 mt-10 md:mt-14">
+          {row3.map((d, i) => (
+            <DemoCard key={d.title} d={d} i={i} />
           ))}
         </div>
 
