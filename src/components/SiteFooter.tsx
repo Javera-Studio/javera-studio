@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import logo from "@/assets/javera-logo.png";
+import logo from "@/assets/logotransparent.png";
 
 export function SiteFooter() {
   return (
