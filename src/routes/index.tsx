@@ -531,7 +531,7 @@ function DemoCard({ d, i, featured = false }: { d: typeof demos[0]; i: number; f
   return (
     <div
       key={d.title}
-      className={`reveal-card reveal-stagger-${(i % 4) + 1} group relative bg-background rounded-3xl border border-border/60 hover:shadow-xl hover:shadow-ink/5 transition overflow-hidden ${featured ? "p-7 md:p-10" : "p-6 md:p-8"}`}
+      className={`reveal-card reveal-stagger-${(i % 4) + 1} group relative bg-background rounded-3xl border border-border/60 hover:shadow-xl hover:shadow-ink/5 transition overflow-hidden flex flex-col ${featured ? "p-7 md:p-10" : "p-6 md:p-8"}`}
     >
       <div
         className={`relative rounded-2xl overflow-hidden mb-6 flex items-center justify-center ${featured ? "aspect-[16/9]" : "aspect-[16/10]"}`}
@@ -553,12 +553,12 @@ function DemoCard({ d, i, featured = false }: { d: typeof demos[0]; i: number; f
       </div>
       <h3 className={`font-serif text-ink mt-2 ${featured ? "text-3xl md:text-4xl" : "text-2xl md:text-3xl"}`}>{d.title}</h3>
       <p className="mt-3 text-muted-foreground leading-relaxed">{d.desc}</p>
-      <p className="mt-3 text-sm text-ink/70 italic">→ Fokus: {d.focus}</p>
+      <p className="mt-auto pt-4 text-sm text-ink/70 italic">→ Fokus: {d.focus}</p>
       <a
         href={d.url}
         target="_blank"
         rel="noopener noreferrer"
-        className="inline-flex items-center gap-2 mt-6 text-sm font-medium text-ink border-b border-ink/30 pb-1 hover:border-ink transition"
+        className="inline-flex items-center gap-2 mt-4 text-sm font-medium text-ink border-b border-ink/30 pb-1 hover:border-ink transition"
       >
         Demo ansehen
         <span aria-hidden>→</span>
