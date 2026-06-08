@@ -3,32 +3,37 @@ import logo from "@/assets/javera-logo.png";
 
 export function SiteFooter() {
   return (
-    <footer className="py-12 border-t border-border/60 bg-cream">
-      <div className="max-w-6xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-8 text-sm text-muted-foreground">
-        <img src={logo} alt="Javera Studio" className="h-40 md:h-48 w-auto" />
-        <div className="flex flex-col items-center md:items-end gap-3 text-center md:text-right">
-          <nav className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs">
-            <Link to="/impressum" className="hover:text-ink transition-colors py-2">
-              Impressum
-            </Link>
-            <Link to="/datenschutz" className="hover:text-ink transition-colors py-2">
-              Datenschutzerklärung
-            </Link>
-          </nav>
-          <div className="flex flex-wrap items-center justify-center md:justify-end gap-x-3 gap-y-1 text-xs">
+    <footer className="py-14 bg-mauve">
+      <div className="max-w-6xl mx-auto px-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-8 items-start">
+
+          {/* Col 1: Logo + tagline */}
+          <div>
+            <img src={logo} alt="Javera Studio" className="h-16 w-auto opacity-90" />
+            <p className="mt-4 text-sm text-white/70 leading-relaxed">
+              Webdesign &amp; Branding für Beauty Businesses.
+            </p>
+          </div>
+
+          {/* Col 2: E-Mail */}
+          <div className="flex flex-col items-start md:items-center">
+            <p className="text-xs uppercase tracking-widest text-white/40 mb-3">Kontakt</p>
             <a
               href="mailto:hallo@javera-studio.at"
-              className="hover:text-ink transition-colors py-1"
+              className="text-sm text-white/80 hover:text-white transition-colors"
             >
               hallo@javera-studio.at
             </a>
-            <span aria-hidden className="opacity-40">·</span>
+          </div>
+
+          {/* Col 3: Instagram + Legal */}
+          <div className="flex flex-col items-start md:items-end gap-3">
+            <p className="text-xs uppercase tracking-widest text-white/40 mb-0">Folge uns</p>
             <a
               href="https://www.instagram.com/javerastudio/"
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="Javera Studio auf Instagram"
-              className="inline-flex items-center gap-1.5 hover:text-ink transition-colors py-1"
+              className="inline-flex items-center gap-2 text-sm text-white/80 hover:text-white transition-colors"
             >
               <svg
                 viewBox="0 0 24 24"
@@ -46,11 +51,27 @@ export function SiteFooter() {
               </svg>
               @javerastudio
             </a>
+            <div className="flex flex-col items-start md:items-end gap-1.5 mt-2">
+              <Link
+                to="/impressum"
+                className="text-xs text-white/50 hover:text-white/80 transition-colors"
+              >
+                Impressum
+              </Link>
+              <Link
+                to="/datenschutz"
+                className="text-xs text-white/50 hover:text-white/80 transition-colors"
+              >
+                Datenschutzerklärung
+              </Link>
+            </div>
           </div>
-          <div className="text-xs">
-            <div>© {new Date().getFullYear()} Javera Studio</div>
-            <div>Made in Vienna</div>
-          </div>
+
+        </div>
+
+        {/* Bottom bar */}
+        <div className="mt-12 pt-6 border-t border-white/10 text-xs text-white/30 text-center">
+          © {new Date().getFullYear()} Javera Studio · Made in Vienna
         </div>
       </div>
     </footer>
