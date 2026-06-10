@@ -234,7 +234,7 @@ function PreisePage() {
                 </p>
               </div>
               <div className="shrink-0">
-                <div className="text-2xl font-bold text-ink leading-none">149 €</div>
+                <div className="text-2xl font-bold text-ink leading-none">150 €</div>
                 <p className="text-xs text-muted-foreground mt-1">einmalig</p>
               </div>
             </div>

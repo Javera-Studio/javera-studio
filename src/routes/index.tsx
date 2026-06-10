@@ -800,7 +800,7 @@ function Angebot() {
               </p>
             </div>
             <div className="shrink-0 sm:text-right mt-2">
-              <p className="font-serif text-3xl text-ink leading-none">149 €</p>
+              <p className="font-serif text-3xl text-ink leading-none">150 €</p>
               <p className="text-sm text-muted-foreground mt-1">einmalig</p>
             </div>
           </div>
