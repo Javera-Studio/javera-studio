@@ -794,7 +794,9 @@ function Angebot() {
                 Online-Präsenz Analyse
               </h3>
               <p className="mt-3 text-muted-foreground leading-relaxed max-w-xl">
-                Für Beauty Studios, die bereits eine Website oder einen Online-Auftritt haben und wissen wollen, was wirklich verbessert werden muss – mit konkreten Handlungsempfehlungen.
+                Du hast bereits eine Website oder einen bestehenden Online-Auftritt und möchtest wissen, wo Potenzial verloren geht?
+                <br /><br />
+                Die Online-Präsenz Analyse bewertet Website, Google-Profil, Sichtbarkeit und Außenwirkung und liefert konkrete Empfehlungen zur Verbesserung.
               </p>
             </div>
             <div className="shrink-0 sm:text-right mt-2">

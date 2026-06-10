@@ -228,7 +228,9 @@ function PreisePage() {
               <div>
                 <p className="text-lg font-semibold text-ink mb-1">Online-Präsenz Analyse</p>
                 <p className="text-sm text-muted-foreground max-w-lg leading-relaxed">
-                  Nicht sicher, ob deine Website, dein Google-Profil oder dein Online-Auftritt noch das Beste aus deinem Studio herausholen? Mit der Online-Präsenz Analyse erhältst du eine professionelle Einschätzung deines aktuellen Auftritts inklusive konkreter Verbesserungsvorschläge.
+                  Du hast bereits eine Website oder einen bestehenden Online-Auftritt und möchtest wissen, wo Potenzial verloren geht?
+                  <br /><br />
+                  Die Online-Präsenz Analyse bewertet Website, Google-Profil, Sichtbarkeit und Außenwirkung und liefert konkrete Empfehlungen zur Verbesserung.
                 </p>
               </div>
               <div className="shrink-0">
