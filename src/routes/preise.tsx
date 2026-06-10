@@ -239,7 +239,7 @@ function PreisePage() {
             <hr className="border-t border-border/60 mb-5" />
             <div className="grid sm:grid-cols-2 gap-x-8 gap-y-0 mb-5">
               {[
-                "Website-Check",
+                "Website-Analyse",
                 "Google Business Profil Check",
                 "Branding & Außenwirkung",
                 "Auffindbarkeit & Sichtbarkeit",
