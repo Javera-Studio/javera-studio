@@ -703,6 +703,7 @@ function Angebot() {
     "Beratung zu Aufbau, Buchungssystem & Struktur",
   ];
   const paid = [
+    "Online-Präsenz Analyse & Optimierungsplan",
     "Individuelle Website-Erstellung",
     "Logo Design & Branding-Elemente",
     "Flyer, Visitenkarten & Print-Design (druckfertig)",
@@ -780,6 +781,53 @@ function Angebot() {
             </p>
           </div>
         </div>
+
+        {/* Online-Präsenz Analyse – standalone premium service */}
+        <div className="reveal mt-8 relative rounded-3xl border border-mauve/30 bg-gradient-to-br from-peach-soft via-background to-accent/40 p-8 md:p-10 shadow-sm">
+          <div className="absolute -top-3 left-8 inline-flex items-center gap-2 px-3 py-1 rounded-full bg-mauve text-white text-[11px] uppercase tracking-[0.2em]">
+            <span className="h-1.5 w-1.5 rounded-full bg-white/80" />
+            Strategie-Service
+          </div>
+          <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4">
+            <div>
+              <h3 className="font-serif text-2xl md:text-3xl text-ink mt-2">
+                Online-Präsenz Analyse
+              </h3>
+              <p className="mt-3 text-muted-foreground leading-relaxed max-w-xl">
+                Für Beauty Studios, die bereits eine Website oder einen Online-Auftritt haben und wissen wollen, was wirklich verbessert werden muss – mit konkreten Handlungsempfehlungen.
+              </p>
+            </div>
+            <div className="shrink-0 sm:text-right mt-2">
+              <p className="font-serif text-3xl text-ink leading-none">149 €</p>
+              <p className="text-sm text-muted-foreground mt-1">einmalig</p>
+            </div>
+          </div>
+          <ul className="mt-8 grid sm:grid-cols-2 gap-x-8 gap-y-3">
+            {[
+              "Website Analyse",
+              "Google Business Profil Analyse",
+              "Sichtbarkeit & Auffindbarkeit",
+              "Branding & Vertrauen",
+              "Buchungs- und Kontaktmöglichkeiten",
+              "Konkreter Optimierungsplan",
+            ].map((item) => (
+              <li key={item} className="flex items-start gap-3 text-ink">
+                <span className="mt-2 h-1.5 w-1.5 rounded-full bg-mauve flex-shrink-0" />
+                <span className="leading-relaxed">{item}</span>
+              </li>
+            ))}
+          </ul>
+          <p className="mt-6 text-sm text-ink/80 italic leading-relaxed">
+            Ergebnis: Ein strukturierter Bericht mit klaren Verbesserungsvorschlägen und priorisierten Handlungspunkten.
+          </p>
+          <div className="mt-5 flex items-start gap-2 bg-background/60 border border-mauve/20 rounded-2xl px-4 py-3">
+            <span className="shrink-0 text-base leading-[1.5]">💎</span>
+            <p className="text-sm text-ink">
+              <strong>Bei Buchung einer Premium Website kostenlos enthalten (Wert: 149 €).</strong>
+            </p>
+          </div>
+        </div>
+
         <div className="mt-12 text-center">
           <Link
             to="/preise"

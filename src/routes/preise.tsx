@@ -201,6 +201,13 @@ function PreisePage() {
               {premiumDesignContent.map((f) => <FeatureRow key={f.title} {...f} />)}
               <SectionLabel>Premium Features</SectionLabel>
               {premiumOptionen.map((f) => <FeatureRow key={f.title} {...f} />)}
+              <div className="mt-3 flex gap-2.5 bg-peach-soft/60 border border-mauve/20 rounded-xl px-3 py-2.5">
+                <span className="shrink-0 text-sm leading-[1.4] mt-px">✨</span>
+                <p className="text-sm font-semibold text-ink leading-[1.4]">
+                  Online-Präsenz Analyse inklusive{" "}
+                  <span className="text-muted-foreground font-normal">(Wert: 149 €)</span>
+                </p>
+              </div>
               <div className="mt-auto">
                 <SectionLabel>Support</SectionLabel>
                 {premiumSupport.map((f) => <FeatureRow key={f.title} {...f} />)}
@@ -213,6 +220,44 @@ function PreisePage() {
                   </Link>
                 </div>
               </div>
+            </div>
+          </div>
+
+          {/* Online-Präsenz Analyse */}
+          <div className="mt-5 bg-background border border-border rounded-2xl p-6 md:p-8">
+            <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 mb-5">
+              <div>
+                <p className="text-lg font-semibold text-ink mb-1">Online-Präsenz Analyse</p>
+                <p className="text-sm text-muted-foreground max-w-lg leading-relaxed">
+                  Nicht sicher, ob deine Website, dein Google-Profil oder dein Online-Auftritt noch das Beste aus deinem Studio herausholen? Mit der Online-Präsenz Analyse erhältst du eine professionelle Einschätzung deines aktuellen Auftritts inklusive konkreter Verbesserungsvorschläge.
+                </p>
+              </div>
+              <div className="shrink-0">
+                <div className="text-2xl font-bold text-ink leading-none">149 €</div>
+                <p className="text-xs text-muted-foreground mt-1">einmalig</p>
+              </div>
+            </div>
+            <hr className="border-t border-border/60 mb-5" />
+            <div className="grid sm:grid-cols-2 gap-x-8 gap-y-0 mb-5">
+              {[
+                "Website-Check",
+                "Google Business Profil Check",
+                "Branding & Außenwirkung",
+                "Auffindbarkeit & Sichtbarkeit",
+                "Buchungs- & Kontaktmöglichkeiten",
+                "Persönliche Handlungsempfehlungen",
+              ].map((item) => (
+                <div key={item} className="flex gap-2.5 mb-2.5">
+                  <span className="shrink-0 text-sm leading-[1.4] mt-px" style={{ color: "#0F6E56" }}>✓</span>
+                  <p className="text-sm font-medium text-ink leading-[1.4]">{item}</p>
+                </div>
+              ))}
+            </div>
+            <div className="bg-peach-soft border border-mauve/20 rounded-xl px-4 py-3 flex items-start gap-2">
+              <span className="shrink-0 text-base leading-[1.4] mt-px">💎</span>
+              <p className="text-sm text-ink">
+                <strong>Bei Buchung einer Premium Website kostenlos enthalten (Wert: 149 €).</strong>
+              </p>
             </div>
           </div>
 
