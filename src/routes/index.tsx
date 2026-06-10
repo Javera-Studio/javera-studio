@@ -697,7 +697,7 @@ function Warum() {
 function Angebot() {
   const free = [
     "Erstgespräch & Kennenlernen",
-    "Analyse deines Studios, Brandings oder deiner bestehenden Website",
+    "Projektbesprechung & erste Ideen",
     "Erste Design-/Demo-Vorschau",
     "Individuelle Konzeptideen für deinen Online-Auftritt",
     "Beratung zu Aufbau, Buchungssystem & Struktur",
@@ -753,7 +753,7 @@ function Angebot() {
               to="/demo-anfrage"
               className="inline-block mt-10 px-7 py-3.5 rounded-full bg-primary text-primary-foreground hover:bg-mauve transition font-medium"
             >
-              Erstgespräch anfragen
+              Kostenlose Demo anfragen
             </Link>
           </div>
 
