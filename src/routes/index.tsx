@@ -823,7 +823,7 @@ function Angebot() {
           <div className="mt-5 flex items-start gap-2 bg-background/60 border border-mauve/20 rounded-2xl px-4 py-3">
             <span className="shrink-0 text-base leading-[1.5]">💎</span>
             <p className="text-sm text-ink">
-              <strong>Bei Buchung einer Premium Website kostenlos enthalten (Wert: 149 €).</strong>
+              <strong>Bei Buchung einer Premium Website kostenlos enthalten.</strong>
             </p>
           </div>
         </div>

@@ -204,8 +204,7 @@ function PreisePage() {
               <div className="mt-3 flex gap-2.5 bg-peach-soft/60 border border-mauve/20 rounded-xl px-3 py-2.5">
                 <span className="shrink-0 text-sm leading-[1.4] mt-px">✨</span>
                 <p className="text-sm font-semibold text-ink leading-[1.4]">
-                  Online-Präsenz Analyse inklusive{" "}
-                  <span className="text-muted-foreground font-normal">(Wert: 149 €)</span>
+                  Online-Präsenz Analyse inklusive
                 </p>
               </div>
               <div className="mt-auto">
@@ -256,7 +255,7 @@ function PreisePage() {
             <div className="bg-peach-soft border border-mauve/20 rounded-xl px-4 py-3 flex items-start gap-2">
               <span className="shrink-0 text-base leading-[1.4] mt-px">💎</span>
               <p className="text-sm text-ink">
-                <strong>Bei Buchung einer Premium Website kostenlos enthalten (Wert: 149 €).</strong>
+                <strong>Bei Buchung einer Premium Website kostenlos enthalten.</strong>
               </p>
             </div>
           </div>
