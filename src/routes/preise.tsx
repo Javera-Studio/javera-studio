@@ -352,7 +352,7 @@ function PreisePage() {
               <div className="bg-background border border-border rounded-2xl p-6 flex flex-col">
                 <p className="font-semibold text-ink mb-1">Starter Branding</p>
                 <p className="text-xs text-muted-foreground">Logo + Visitenkarte + 5 Social Media Posts</p>
-                <p className="text-2xl font-bold text-ink mt-auto pt-4">500 €</p>
+                <p className="text-2xl font-bold text-ink mt-auto pt-4">550 €</p>
                 <p className="text-xs text-muted-foreground mt-1">statt 570 € einzeln</p>
               </div>
               <div className="relative bg-background border-2 border-primary rounded-2xl p-6">
