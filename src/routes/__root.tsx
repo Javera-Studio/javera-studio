@@ -50,11 +50,35 @@ export const Route = createRootRoute({
   notFoundComponent: NotFoundComponent,
 });
 
+const localBusinessSchema = {
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  name: "Javera Studio",
+  description: "Webdesign, Grafik & Branding für Beauty Studios in Wien",
+  url: "https://www.javera-studio.at",
+  email: "hallo@javera-studio.at",
+  image: "https://www.javera-studio.at/og-logo.png",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "Fahngasse 6/4/2",
+    postalCode: "1220",
+    addressLocality: "Wien",
+    addressCountry: "AT",
+  },
+  areaServed: { "@type": "City", name: "Wien" },
+  sameAs: ["https://www.instagram.com/javerastudio/"],
+  priceRange: "€€",
+};
+
 function RootShell({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="de">
       <head>
         <HeadContent />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
+        />
       </head>
       <body>
         {children}

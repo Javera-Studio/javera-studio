@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+Disallow: /admin
+Disallow: /api/
+Disallow: /lovable/
+Disallow: /email/
+
+Sitemap: https://www.javera-studio.at/sitemap.xml
