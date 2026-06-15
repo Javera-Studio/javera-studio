@@ -217,6 +217,131 @@ const posts: Record<string, Post> = {
     ctaTo: "/",
     ctaHash: "contact",
   },
+  "instagram-oder-website": {
+    slug: "instagram-oder-website",
+    tag: "Sichtbarkeit & Branding",
+    title: "Instagram oder Website? Warum viele erfolgreiche Studios beides kombinieren",
+    description:
+      "Instagram ist für viele Beauty Studios einer der wichtigsten Kanäle, um sichtbar zu werden und Vertrauen aufzubauen. Doch immer mehr erfolgreiche Studios ergänzen ihren Auftritt durch eine eigene Website. Warum die Kombination aus Instagram, Website und einem einheitlichen Branding oft besonders professionell wirkt.",
+    keywords:
+      "Instagram Beauty Studio, Website Beauty Studio, Branding Wien, Instagram und Website kombinieren, Online-Auftritt Studio Wien",
+    date: "15. Juni 2026",
+    readTime: "4 min Lesezeit",
+    intro:
+      "Instagram ist stark – aber viele erfolgreiche Studios merken irgendwann, dass ein Kanal allein nicht ausreicht. Warum die Kombination aus Social Media, eigener Website und einheitlichem Branding heute so wirkungsvoll ist.",
+    sections: [
+      {
+        title: "Instagram bleibt unverzichtbar",
+        body: (
+          <p>
+            Instagram ist für Beauty Studios eine großartige Möglichkeit, Arbeiten zu
+            zeigen, Persönlichkeit zu vermitteln und mit Kundinnen in Kontakt zu bleiben.
+            Viele erfolgreiche Studios gewinnen einen Großteil ihrer Anfragen direkt über
+            Social Media – und das aus gutem Grund. Die Plattform ist visuell, persönlich
+            und erlaubt eine direkte Verbindung zur Community.
+          </p>
+        ),
+        tags: ["Instagram", "Social Media", "Reichweite"],
+      },
+      {
+        title: "Warum manche Studios zusätzlich auf eine Website setzen",
+        body: (
+          <>
+            <p>
+              Während Instagram perfekt für aktuelle Inhalte, Stories und Kundennähe ist,
+              bietet eine Website einen festen Ort für alle wichtigen Informationen:
+            </p>
+            <ul className="list-none space-y-1 mt-3 pl-0">
+              {[
+                "Leistungen und Preise",
+                "Behandlungen",
+                "Schulungen und Workshops",
+                "Kontaktmöglichkeiten",
+                "Bewertungen",
+                "Häufige Fragen",
+              ].map((item) => (
+                <li key={item} className="flex items-start gap-2">
+                  <span className="mt-2 h-1.5 w-1.5 rounded-full bg-rose-gold flex-shrink-0" />
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+            <p className="mt-4">
+              Interessentinnen finden dadurch schneller die Informationen, die sie suchen –
+              ohne durch den Feed scrollen zu müssen.
+            </p>
+          </>
+        ),
+        tags: ["Website", "Leistungen", "Informationsstruktur"],
+      },
+      {
+        title: "Der professionelle Eindruck einer starken Marke",
+        body: (
+          <p>
+            Besonders hochwertig wirkt ein Studio, wenn Website, Instagram, Farben,
+            Schriften und Bildsprache aufeinander abgestimmt sind. Ein einheitliches
+            Branding schafft Vertrauen und Wiedererkennung. Kundinnen erkennen sofort,
+            dass alles zusammengehört und professionell aufgebaut wurde – das vermittelt
+            Seriosität, noch bevor der erste Termin gebucht wird.
+          </p>
+        ),
+        tags: ["Branding", "Einheitlichkeit", "Vertrauen"],
+      },
+      {
+        title: "Mehr Übersicht für Kundinnen",
+        body: (
+          <>
+            <p>
+              Je größer ein Studio wird, desto wichtiger wird eine klare Struktur.
+              Gerade bei:
+            </p>
+            <ul className="list-none space-y-1 mt-3 pl-0">
+              {[
+                "mehreren Behandlungen",
+                "Schulungen",
+                "Workshops",
+                "Aktionen",
+                "Teammitgliedern",
+              ].map((item) => (
+                <li key={item} className="flex items-start gap-2">
+                  <span className="mt-2 h-1.5 w-1.5 rounded-full bg-rose-gold flex-shrink-0" />
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+            <p className="mt-4">
+              … kann eine Website helfen, Informationen übersichtlich darzustellen –
+              statt alles in Highlights und Story-Archiven zu verstecken.
+            </p>
+          </>
+        ),
+        tags: ["Übersicht", "Struktur", "Wachstum"],
+      },
+      {
+        title: "Das Beste aus beiden Welten",
+        body: (
+          <p>
+            Instagram und eine Website müssen keine Konkurrenz sein. Viele erfolgreiche
+            Beauty Studios nutzen Instagram für Reichweite, Persönlichkeit und aktuelle
+            Inhalte – und ihre Website als zentrale Anlaufstelle für alle wichtigen
+            Informationen. Die beiden Kanäle ergänzen sich, statt sich gegenseitig zu
+            ersetzen.
+          </p>
+        ),
+        tags: ["Instagram", "Website", "Strategie"],
+      },
+    ],
+    closingQuote:
+      "Eine Website ersetzt Instagram nicht. Und Instagram ersetzt keine Website. Die Kombination aus beiden Kanälen kann jedoch dabei helfen, professioneller aufzutreten, Informationen übersichtlich darzustellen und eine starke Marke aufzubauen, die Vertrauen schafft und im Gedächtnis bleibt.",
+    transition: {
+      heading: "Bereit, deinen Online-Auftritt auf das nächste Level zu bringen?",
+      body: "Ich erstelle dir vorab kostenlos eine individuelle Demo – angepasst an dein Studio, deine Leistungen und deine Persönlichkeit. So siehst du, wie deine Website aussehen könnte, bevor du dich entscheidest.",
+    },
+    highlight:
+      "✦ Du bekommst vorab eine kostenlose Analyse & Demo deines Studios – damit du siehst, wie dein Auftritt online wirken könnte. Unverbindlich und individuell gestaltet.",
+    ctaLabel: "Kostenlose Analyse & Demo",
+    ctaTo: "/demo-anfrage",
+  },
 };
 
 export const Route = createFileRoute("/blog/$slug")({

@@ -20,6 +20,15 @@ const posts = [
     date: "2. Mai 2026",
     readTime: "4 min Lesezeit",
   },
+  {
+    slug: "instagram-oder-website",
+    tag: "Sichtbarkeit & Branding",
+    title: "Instagram oder Website? Warum viele erfolgreiche Studios beides kombinieren",
+    excerpt:
+      "Instagram ist für viele Beauty Studios einer der wichtigsten Kanäle, um sichtbar zu werden und Vertrauen aufzubauen. Doch immer mehr erfolgreiche Studios ergänzen ihren Auftritt durch eine eigene Website. Warum die Kombination aus Instagram, Website und einem einheitlichen Branding oft besonders professionell wirkt.",
+    date: "15. Juni 2026",
+    readTime: "4 min Lesezeit",
+  },
 ];
 
 export const Route = createFileRoute("/blog/")({
