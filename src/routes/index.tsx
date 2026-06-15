@@ -393,14 +393,22 @@ function FaceAndMore() {
           Kundenprojekt
         </div>
 
-        <div className="grid md:grid-cols-2 gap-12 md:gap-20 items-center">
-          <div className="reveal flex justify-center md:justify-start">
+        <div className="grid md:grid-cols-2 gap-12 md:gap-20 items-start">
+          <div className="reveal flex flex-col items-center md:items-start gap-5 md:-mt-6">
             <div className="w-full drop-shadow-2xl">
               <img
                 src="/faceandmoremockup.png"
                 alt="Website faceandmore.at am Smartphone"
                 loading="lazy"
                 className="w-full"
+              />
+            </div>
+            <div className="w-3/4 md:w-2/3">
+              <img
+                src="/faceandmorebewertung.png"
+                alt="Kundenbewertung Face and More"
+                loading="lazy"
+                className="w-full rounded-2xl shadow-sm"
               />
             </div>
           </div>
@@ -469,7 +477,7 @@ function PaulaVenc() {
               Paula Venc –<br />Private Nailartist Wien
             </h2>
             <p className="reveal reveal-delay mt-6 text-muted-foreground text-lg leading-relaxed">
-              Für Paula durfte ich eine elegante Premium-Website entwickeln, die perfekt zu ihrem Studio und ihrer ruhigen, privaten Atmosphäre passt.
+              Für Paula durfte ich einen eleganten One-Pager entwickeln, der perfekt zu ihrem Studio und ihrer ruhigen, privaten Atmosphäre passt. Alle wichtigen Informationen sind übersichtlich an einem Ort gebündelt – professionell, modern und genau auf ihre Bedürfnisse abgestimmt.
             </p>
             <p className="reveal mt-5 text-sm text-muted-foreground uppercase tracking-widest">Gemeinsam haben wir:</p>
             <ul className="reveal mt-4 space-y-3">
@@ -480,8 +488,8 @@ function PaulaVenc() {
                 </li>
               ))}
             </ul>
-            <p className="reveal mt-8 font-serif text-lg text-ink leading-relaxed">
-              Das Ergebnis: Eine professionelle Online-Präsenz, die Vertrauen schafft und ihre Arbeit hochwertig präsentiert.
+            <p className="reveal mt-8 font-serif italic text-lg text-mauve leading-relaxed">
+              „Die richtige Lösung ist nicht immer die größte Website, sondern die passende Website."
             </p>
             <div className="reveal mt-8 flex flex-wrap gap-4">
               <a
