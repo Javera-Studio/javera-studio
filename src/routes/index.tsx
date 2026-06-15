@@ -376,6 +376,81 @@ function StarIcon() {
   );
 }
 
+function FaceAndMore() {
+  const leistungen = [
+    "Kompletter Website-Relaunch",
+    "Migration von Wix zu Vercel",
+    "Mobile Optimierung",
+    "Domain & E-Mail Einrichtung",
+    "Leistungsseiten & FAQ-Bereich",
+    "SEO-freundliche Struktur",
+  ];
+
+  return (
+    <section id="kundenprojekte" className="py-24 md:py-32">
+      <div className="max-w-6xl mx-auto px-6">
+        <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-4">
+          Kundenprojekt
+        </div>
+
+        <div className="grid md:grid-cols-2 gap-12 md:gap-20 items-center">
+          <div className="reveal flex justify-center md:justify-start">
+            <div className="w-full drop-shadow-2xl">
+              <img
+                src="/faceandmoremockup.png"
+                alt="Website faceandmore.at am Smartphone"
+                loading="lazy"
+                className="w-full"
+              />
+            </div>
+          </div>
+
+          <div>
+            <h2 className="reveal font-serif text-4xl md:text-5xl text-ink leading-tight">
+              Face and More –<br />Hautanalyse & Premium Hautpflege Wien
+            </h2>
+            <p className="reveal reveal-delay mt-6 text-muted-foreground text-lg leading-relaxed">
+              Für Face and More durfte ich einen kompletten Website-Relaunch umsetzen – modern, klar und auf Premium ausgerichtet.
+            </p>
+            <p className="reveal mt-5 text-sm text-muted-foreground uppercase tracking-widest">Gemeinsam haben wir:</p>
+            <ul className="reveal mt-4 space-y-3">
+              {leistungen.map((l) => (
+                <li key={l} className="flex items-start gap-3 text-ink">
+                  <span className="mt-2 h-1.5 w-1.5 rounded-full bg-mauve flex-shrink-0" />
+                  <span>{l}</span>
+                </li>
+              ))}
+            </ul>
+            <p className="reveal mt-8 font-serif text-lg text-ink leading-relaxed">
+              Das Ergebnis: Eine moderne Premium-Website, die Kompetenz sichtbar macht und Vertrauen schafft.
+            </p>
+            <div className="reveal mt-8 flex flex-wrap gap-4">
+              <a
+                href="https://faceandmore.at"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-primary text-primary-foreground hover:bg-mauve transition font-medium"
+              >
+                Projekt ansehen
+                <span aria-hidden>→</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div className="reveal mt-16 max-w-2xl">
+          <img
+            src="/faceandmorebewertung.png"
+            alt="Kundenbewertung Face and More"
+            loading="lazy"
+            className="w-full rounded-3xl shadow-sm"
+          />
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function PaulaVenc() {
   const leistungen = [
     "Komplette Website gestaltet",
@@ -386,12 +461,8 @@ function PaulaVenc() {
   ];
 
   return (
-    <section id="kundenprojekte" className="py-24 md:py-32">
+    <section className="py-24 md:py-32 bg-stone-50/50">
       <div className="max-w-6xl mx-auto px-6">
-        <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-4">
-          Kundenprojekt
-        </div>
-
         <div className="grid md:grid-cols-2 gap-12 md:gap-20 items-center">
           <div>
             <h2 className="reveal font-serif text-4xl md:text-5xl text-ink leading-tight">
@@ -1480,6 +1551,7 @@ function Index() {
       <About />
       <Warum />
       <Angebot />
+      <FaceAndMore />
       <PaulaVenc />
       <DigitaleLösungen />
       <Demos />
