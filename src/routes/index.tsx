@@ -381,7 +381,7 @@ function FaceAndMore() {
     "Kompletter Website-Relaunch",
     "Migration von Wix zu Vercel",
     "Mobile Optimierung",
-    "Domain & E-Mail Einrichtung",
+    "Domain erfolgreich migriert",
     "Leistungsseiten & FAQ-Bereich",
     "SEO-freundliche Struktur",
   ];
@@ -394,21 +394,13 @@ function FaceAndMore() {
         </div>
 
         <div className="grid md:grid-cols-2 gap-12 md:gap-20 items-start">
-          <div className="reveal flex flex-col items-center md:items-start gap-5 md:-mt-6">
+          <div className="reveal flex justify-center md:justify-start">
             <div className="w-full drop-shadow-2xl">
               <img
                 src="/faceandmoremockup.png"
                 alt="Website faceandmore.at am Smartphone"
                 loading="lazy"
                 className="w-full"
-              />
-            </div>
-            <div className="w-3/4 md:w-2/3">
-              <img
-                src="/faceandmorebewertung.png"
-                alt="Kundenbewertung Face and More"
-                loading="lazy"
-                className="w-full rounded-2xl shadow-sm"
               />
             </div>
           </div>
@@ -447,12 +439,22 @@ function FaceAndMore() {
         </div>
 
         <div className="reveal mt-16 max-w-2xl">
-          <img
-            src="/faceandmorebewertung.png"
-            alt="Kundenbewertung Face and More"
-            loading="lazy"
-            className="w-full rounded-3xl shadow-sm"
-          />
+          <div className="rounded-3xl bg-background border border-border/60 p-8 shadow-sm">
+            <div className="flex items-center gap-1 mb-1">
+              {[0,1,2,3,4].map((i) => <StarIcon key={i} />)}
+            </div>
+            <p className="text-xs text-muted-foreground mb-5">5 von 5 Sternen · Google Bewertung</p>
+            <blockquote className="font-serif text-xl text-ink leading-relaxed">
+              „Wenn ich Sterne vergeben könnte, dann 10 von 5. Jagoda hat mich angeschrieben wegen meiner Homepage. Sie hat der Himmel geschickt! Ich war schon lange unglücklich mit meiner alten und hatte keine Zeit und Kontakte für eine neue Homepage. Jagoda hat meine Vorstellungen so was von übertroffen, alles top! Du hast mich und mein Studio so schnell, ästhetisch, authentisch und professionell umgesetzt, mir fehlen noch immer die Worte und ich hab Gänsehaut, wenn ich auf faceandmore klicke! Ich kann Javera nur wärmstens weiterempfehlen. Dankeschön 🙏 liebe Jagoda, ich bin überglücklich!"
+            </blockquote>
+            <div className="mt-6 flex items-center gap-3">
+              <div className="w-9 h-9 rounded-full bg-peach-soft flex items-center justify-center text-ink font-serif text-base">M</div>
+              <div>
+                <p className="font-medium text-ink text-sm">Michaela Kornherr</p>
+                <p className="text-xs text-muted-foreground">faceandmore.at</p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
