@@ -235,7 +235,7 @@ function Nav() {
         </nav>
         <div className="flex items-center gap-3">
           <Link
-            to="/demo-anfrage"
+            to="/" hash="schreib-mir"
             className="hidden sm:inline-flex text-sm px-4 py-2 rounded-full bg-primary text-primary-foreground hover:bg-mauve transition"
           >
             Kostenlose Analyse & Demo
@@ -266,7 +266,7 @@ function Nav() {
             <a href="#faq" onClick={close} className="py-2.5 hover:text-ink transition">FAQ</a>
             <Link to="/blog" onClick={close} className="py-2.5 hover:text-ink transition">Blog</Link>
             <Link
-              to="/demo-anfrage"
+              to="/" hash="schreib-mir"
               onClick={close}
               className="mt-3 inline-flex justify-center text-sm px-4 py-3 rounded-full bg-primary text-primary-foreground hover:bg-mauve transition"
             >
@@ -323,7 +323,7 @@ function Hero() {
         </p>
         <div className="hero-cta mt-8 flex flex-wrap gap-3 justify-center">
           <Link
-            to="/demo-anfrage"
+            to="/" hash="schreib-mir"
             className="px-7 py-3.5 rounded-full bg-primary text-primary-foreground hover:bg-mauve transition font-medium"
           >
             Kostenlose Analyse & Demo
@@ -358,7 +358,7 @@ function Announcement() {
           Kostenlose Website-Analyse &amp; Demo für Beauty Studios — sieh deinen Auftritt online, bevor du dich entscheidest.
         </p>
         <Link
-          to="/demo-anfrage"
+          to="/" hash="schreib-mir"
           className="flex-shrink-0 inline-flex items-center justify-center px-6 py-3 bg-mauve text-white text-sm tracking-wide hover:bg-primary transition-colors rounded-sm shadow-sm"
         >
           Kostenlose Demo
@@ -683,7 +683,7 @@ function Demos() {
 
         <div className="mt-16 text-center reveal">
           <Link
-            to="/demo-anfrage"
+            to="/" hash="schreib-mir"
             className="inline-block px-7 py-3.5 rounded-full bg-primary text-primary-foreground hover:bg-mauve transition font-medium"
           >
             Kostenlose Analyse & Demo
@@ -721,7 +721,7 @@ function Warum() {
               </p>
             </div>
             <Link
-              to="/demo-anfrage"
+              to="/" hash="schreib-mir"
               className="reveal inline-block mt-8 px-7 py-3.5 rounded-full bg-primary text-primary-foreground hover:bg-mauve transition font-medium"
             >
               Kostenlose Analyse & Demo
@@ -831,7 +831,7 @@ function Angebot() {
               ))}
             </ul>
             <Link
-              to="/demo-anfrage"
+              to="/" hash="schreib-mir"
               className="inline-block mt-10 px-7 py-3.5 rounded-full bg-primary text-primary-foreground hover:bg-mauve transition font-medium"
             >
               Kostenlose Demo anfragen
@@ -963,7 +963,7 @@ function Javera() {
         </div>
         <div className="mt-12 reveal">
           <Link
-            to="/demo-anfrage"
+            to="/" hash="schreib-mir"
             className="inline-block px-7 py-3.5 rounded-full bg-primary text-primary-foreground hover:bg-mauve transition font-medium"
           >
             Kostenlose Analyse & Demo
@@ -1003,7 +1003,7 @@ function Ablauf() {
         </p>
         <div className="mt-8 text-center reveal">
           <Link
-            to="/demo-anfrage"
+            to="/" hash="schreib-mir"
             className="inline-block px-7 py-3.5 rounded-full bg-primary text-primary-foreground hover:bg-mauve transition font-medium"
           >
             Jetzt starten
@@ -1039,7 +1039,7 @@ function Zweifel() {
           </p>
         </div>
         <Link
-          to="/demo-anfrage"
+          to="/" hash="schreib-mir"
           className="reveal inline-block mt-10 px-7 py-3.5 rounded-full bg-primary text-primary-foreground hover:bg-mauve transition font-medium"
         >
           Kostenlose Analyse & Demo
@@ -1132,7 +1132,7 @@ function FAQ() {
         </div>
         <div className="mt-12 text-center reveal">
           <Link
-            to="/demo-anfrage"
+            to="/" hash="schreib-mir"
             className="inline-block px-7 py-3.5 rounded-full bg-primary text-primary-foreground hover:bg-mauve transition font-medium"
           >
             Kostenlose Analyse & Demo
@@ -1175,7 +1175,7 @@ function CTA() {
             Schick mir eine kurze Anfrage – ich melde mich persönlich bei dir.
           </p>
           <Link
-            to="/demo-anfrage"
+            to="/" hash="schreib-mir"
             className="reveal inline-block mt-10 px-8 py-4 rounded-full bg-primary text-primary-foreground hover:bg-mauve transition font-medium"
           >
             Kostenlose Analyse & Demo
@@ -1203,11 +1203,11 @@ function SchreibMir() {
     const data = new FormData(form);
     const name = String(data.get("name") || "").trim();
     const email = String(data.get("email") || "").trim();
+    const subject = String(data.get("subject") || "").trim();
     const message = String(data.get("message") || "").trim();
-
     const privacy = data.get("privacy") === "on";
 
-    if (!name || !email || !message) {
+    if (!name || !email || !subject || !message) {
       toast.error("Bitte fülle alle Felder aus.");
       return;
     }
@@ -1215,7 +1215,7 @@ function SchreibMir() {
       toast.error("Bitte stimme der Datenschutzerklärung zu.");
       return;
     }
-    if (name.length > 120 || email.length > 255 || message.length > 5000) {
+    if (name.length > 120 || email.length > 255 || subject.length > 200 || message.length > 5000) {
       toast.error("Eingaben sind zu lang.");
       return;
     }
@@ -1229,9 +1229,9 @@ function SchreibMir() {
           access_key: "5c831a25-cd2b-4666-ae44-91194af7bc49",
           name,
           email,
+          subject,
           message,
           datenschutz_zustimmung: "Ja – Datenschutzerklärung gelesen und akzeptiert",
-          subject: `Neue Kontaktanfrage von ${name}`,
         }),
       });
       const result = (await response.json()) as { success: boolean; message?: string };
@@ -1268,67 +1268,57 @@ function SchreibMir() {
               className="w-14 h-14 mx-auto rounded-full grid place-content-center mb-6"
               style={{ backgroundColor: "var(--mint-soft, #e6f4ee)" }}
             >
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1.5"
-                className="w-7 h-7 text-ink"
-              >
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-7 h-7 text-ink">
                 <path d="m5 12 5 5L20 7" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </div>
-            <h3 className="font-serif text-2xl md:text-3xl text-ink">
-              Danke für deine Anfrage!
-            </h3>
-            <p className="mt-3 text-muted-foreground">
-              Ich melde mich in Kürze persönlich bei dir.
-            </p>
-            <button
-              type="button"
-              onClick={() => setDone(false)}
-              className="mt-6 text-sm text-ink underline hover:opacity-70"
-            >
+            <h3 className="font-serif text-2xl md:text-3xl text-ink">Danke für deine Anfrage!</h3>
+            <p className="mt-3 text-muted-foreground">Ich melde mich in Kürze persönlich bei dir.</p>
+            <button type="button" onClick={() => setDone(false)} className="mt-6 text-sm text-ink underline hover:opacity-70">
               Weitere Nachricht schreiben
             </button>
           </div>
         ) : (
-          <form
-            onSubmit={handleSubmit}
-            className="reveal mt-12 space-y-5 p-8 md:p-10 rounded-3xl bg-background border border-border/60"
-          >
+          <form onSubmit={handleSubmit} className="reveal mt-12 space-y-5 p-8 md:p-10 rounded-3xl bg-background border border-border/60">
+            <div className="grid sm:grid-cols-2 gap-5">
+              <div>
+                <label htmlFor="sm-name" className="block text-sm text-ink mb-2">Name</label>
+                <input
+                  id="sm-name"
+                  name="name"
+                  type="text"
+                  required
+                  maxLength={120}
+                  autoComplete="name"
+                  className="w-full px-4 py-3 rounded-xl border border-border bg-background text-ink focus:outline-none focus:ring-2 focus:ring-ring"
+                />
+              </div>
+              <div>
+                <label htmlFor="sm-email" className="block text-sm text-ink mb-2">E-Mail</label>
+                <input
+                  id="sm-email"
+                  name="email"
+                  type="email"
+                  required
+                  maxLength={255}
+                  autoComplete="email"
+                  className="w-full px-4 py-3 rounded-xl border border-border bg-background text-ink focus:outline-none focus:ring-2 focus:ring-ring"
+                />
+              </div>
+            </div>
             <div>
-              <label htmlFor="sm-name" className="block text-sm text-ink mb-2">
-                Name
-              </label>
+              <label htmlFor="sm-subject" className="block text-sm text-ink mb-2">Betreff</label>
               <input
-                id="sm-name"
-                name="name"
+                id="sm-subject"
+                name="subject"
                 type="text"
                 required
-                maxLength={120}
-                autoComplete="name"
+                maxLength={200}
                 className="w-full px-4 py-3 rounded-xl border border-border bg-background text-ink focus:outline-none focus:ring-2 focus:ring-ring"
               />
             </div>
             <div>
-              <label htmlFor="sm-email" className="block text-sm text-ink mb-2">
-                E-Mail
-              </label>
-              <input
-                id="sm-email"
-                name="email"
-                type="email"
-                required
-                maxLength={255}
-                autoComplete="email"
-                className="w-full px-4 py-3 rounded-xl border border-border bg-background text-ink focus:outline-none focus:ring-2 focus:ring-ring"
-              />
-            </div>
-            <div>
-              <label htmlFor="sm-message" className="block text-sm text-ink mb-2">
-                Nachricht
-              </label>
+              <label htmlFor="sm-message" className="block text-sm text-ink mb-2">Nachricht</label>
               <textarea
                 id="sm-message"
                 name="message"
@@ -1362,7 +1352,7 @@ function SchreibMir() {
               {submitting ? "Wird gesendet…" : "Nachricht senden"}
             </button>
             <p className="text-xs text-center text-muted-foreground">
-              Deine Nachricht wird direkt an hello@javera-studio.at übermittelt.
+              Deine Nachricht wird direkt an hallo@javera-studio.at übermittelt.
             </p>
           </form>
         )}
