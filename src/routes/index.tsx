@@ -387,7 +387,7 @@ function FaceAndMore() {
   ];
 
   return (
-    <section id="kundenprojekte" className="py-24 md:py-32">
+    <section id="kundenprojekte" className="py-12 md:py-16">
       <div className="max-w-6xl mx-auto px-6">
         <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-4">
           Kundenprojekt
@@ -438,7 +438,7 @@ function FaceAndMore() {
           </div>
         </div>
 
-        <div className="reveal mt-16 max-w-2xl">
+        <div className="reveal mt-10 max-w-3xl mx-auto">
           <div className="rounded-3xl bg-background border border-border/60 p-8 shadow-sm">
             <div className="flex items-center gap-1 mb-1">
               {[0,1,2,3,4].map((i) => <StarIcon key={i} />)}
@@ -471,7 +471,7 @@ function PaulaVenc() {
   ];
 
   return (
-    <section className="py-24 md:py-32 bg-stone-50/50">
+    <section className="py-12 md:py-16 bg-stone-50/50">
       <div className="max-w-6xl mx-auto px-6">
         <div className="grid md:grid-cols-2 gap-12 md:gap-20 items-center">
           <div>
@@ -519,7 +519,7 @@ function PaulaVenc() {
         </div>
 
         {/* Google Bewertung */}
-        <div className="reveal mt-16 max-w-2xl">
+        <div className="reveal mt-10 max-w-3xl mx-auto">
           <div className="rounded-3xl bg-background border border-border/60 p-8 shadow-sm">
             <div className="flex items-center gap-1 mb-1">
               {[0,1,2,3,4].map((i) => <StarIcon key={i} />)}
@@ -542,6 +542,82 @@ function PaulaVenc() {
   );
 }
 
+function WeiTereProjekte() {
+  const projekte = [
+    {
+      title: "Pure Skin Studio",
+      category: "Kosmetikstudio",
+      desc: "Cleanes, ruhiges Design für mehr Vertrauen und mehr Anfragen.",
+      url: "https://demo-pure-skin-studio-launch.vercel.app",
+      image: demoPureSkin,
+    },
+    {
+      title: "Nail Atelier",
+      category: "Nagelstudio",
+      desc: "Elegantes Design mit Fokus auf Ästhetik und modernem Markenauftritt.",
+      url: "https://demo-nailatelier.vercel.app",
+      image: demoNailAtelier,
+    },
+    {
+      title: "Ivory Bridal Studio",
+      category: "Bridal Stylistin",
+      desc: "Elegante Onepage-Website für Brautstylistinnen – modern und vertrauensvoll.",
+      url: "https://demo-ivorybridalstudio.vercel.app",
+      image: demoIvoryStudio,
+    },
+  ];
+
+  return (
+    <section className="py-12 md:py-16 bg-background">
+      <div className="max-w-6xl mx-auto px-6">
+        <div className="mb-10 md:mb-12">
+          <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-3">
+            Weitere Projekte
+          </div>
+          <h2 className="reveal font-serif text-3xl md:text-4xl text-ink leading-tight">
+            Weitere Projekte
+          </h2>
+          <p className="reveal reveal-delay mt-3 text-muted-foreground text-lg">
+            Entdecke weitere Webdesign-Projekte für Beauty-Businesses.
+          </p>
+        </div>
+        <div className="grid md:grid-cols-3 gap-6">
+          {projekte.map((p, i) => (
+            <div
+              key={p.title}
+              className={`reveal-card reveal-stagger-${i + 1} group rounded-3xl border border-border/60 bg-background overflow-hidden hover:shadow-xl hover:shadow-ink/5 transition flex flex-col`}
+            >
+              <div className="aspect-[4/3] overflow-hidden bg-cream flex items-center justify-center">
+                <img
+                  src={p.image}
+                  alt={`${p.title} Vorschau`}
+                  loading="lazy"
+                  className="w-full h-full object-contain transition duration-500 group-hover:scale-[1.03]"
+                />
+              </div>
+              <div className="p-6 flex flex-col flex-1">
+                <div className="text-xs uppercase tracking-wider text-muted-foreground mb-2">
+                  {p.category}
+                </div>
+                <h3 className="font-serif text-xl text-ink">{p.title}</h3>
+                <p className="mt-2 text-sm text-muted-foreground leading-relaxed flex-1">{p.desc}</p>
+                <a
+                  href={p.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 mt-5 text-sm font-medium text-ink border-b border-ink/30 pb-1 hover:border-ink transition w-fit"
+                >
+                  Projekt ansehen <span aria-hidden>→</span>
+                </a>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function DigitaleLösungen() {
   const benefits = [
     "Gemeinsame Kalender",
@@ -551,7 +627,7 @@ function DigitaleLösungen() {
   ];
 
   return (
-    <section className="py-24 md:py-32 bg-mint-soft">
+    <section className="py-12 md:py-16 bg-mint-soft">
       <div className="max-w-6xl mx-auto px-6">
         <div className="grid md:grid-cols-2 gap-12 md:gap-20 items-center">
           <div>
@@ -653,7 +729,7 @@ function Demos() {
   const row2 = demos.slice(3);
 
   return (
-    <section id="demos" className="py-24 md:py-32 bg-cream">
+    <section id="demos" className="py-12 md:py-16 bg-cream">
       <div className="max-w-6xl mx-auto px-6">
         <div className="max-w-2xl mb-16">
           <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-4">
@@ -699,7 +775,7 @@ function Demos() {
 
 function Warum() {
   return (
-    <section id="warum" className="py-24 md:py-32">
+    <section id="warum" className="py-12 md:py-16">
       <div className="max-w-6xl mx-auto px-6">
         <div className="grid md:grid-cols-2 gap-16 items-start">
           <div className="md:sticky md:top-28">
@@ -796,7 +872,7 @@ function Angebot() {
     "Änderungen, Pflege & laufende Betreuung der Inhalte",
   ];
   return (
-    <section id="angebot" className="py-24 md:py-32 bg-cream">
+    <section id="angebot" className="py-12 md:py-16 bg-cream">
       <div className="max-w-6xl mx-auto px-6">
         <div className="max-w-2xl mb-16">
           <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-4">
@@ -926,7 +1002,7 @@ function Angebot() {
 
 function Javera() {
   return (
-    <section className="py-24 md:py-32 bg-mint-soft">
+    <section className="py-12 md:py-16 bg-mint-soft">
       <div className="max-w-6xl mx-auto px-6">
         <div className="max-w-3xl">
           <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-4">
@@ -976,7 +1052,7 @@ function Javera() {
 
 function Ablauf() {
   return (
-    <section id="ablauf" className="py-24 md:py-32">
+    <section id="ablauf" className="py-12 md:py-16">
       <div className="max-w-6xl mx-auto px-6">
         <div className="max-w-2xl mb-16">
           <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-4">
@@ -1016,7 +1092,7 @@ function Ablauf() {
 
 function Zweifel() {
   return (
-    <section className="py-24 md:py-32 bg-peach-soft">
+    <section className="py-12 md:py-16 bg-peach-soft">
       <div className="max-w-3xl mx-auto px-6 text-center">
         <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-4">
           Keine Sorge
@@ -1051,7 +1127,7 @@ function Zweifel() {
 
 function About() {
   return (
-    <section id="about" className="py-24 md:py-32">
+    <section id="about" className="py-12 md:py-16">
       <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
         <div className="order-2 md:order-1">
           <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-4">
@@ -1103,7 +1179,7 @@ function About() {
 
 function FAQ() {
   return (
-    <section id="faq" className="py-24 md:py-32 bg-cream">
+    <section id="faq" className="py-12 md:py-16 bg-cream">
       <div className="max-w-3xl mx-auto px-6">
         <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-4 text-center">
           FAQ
@@ -1148,7 +1224,7 @@ function FAQ() {
 
 function CTA() {
   return (
-    <section id="kontakt" className="relative py-24 md:py-32 overflow-hidden">
+    <section id="kontakt" className="relative py-12 md:py-16 overflow-hidden">
       <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-12 md:gap-16 items-stretch">
         <div className="relative order-2 md:order-1 flex flex-col">
           <div className="reveal flex-1 rounded-3xl overflow-hidden shadow-xl shadow-ink/10">
@@ -1250,7 +1326,7 @@ function SchreibMir() {
   }
 
   return (
-    <section id="schreib-mir" className="py-24 md:py-32 bg-cream">
+    <section id="schreib-mir" className="py-12 md:py-16 bg-cream">
       <div className="max-w-2xl mx-auto px-6">
         <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-4 text-center">
           Kontakt
@@ -1386,7 +1462,7 @@ function FeaturedLuxe() {
   ];
 
   return (
-    <section className="relative py-28 md:py-40 bg-background overflow-hidden">
+    <section className="relative py-14 md:py-20 bg-background overflow-hidden">
       {/* soft warm wash */}
       <div
         aria-hidden
@@ -1576,6 +1652,7 @@ function Index() {
       <Angebot />
       <FaceAndMore />
       <PaulaVenc />
+      <WeiTereProjekte />
       <DigitaleLösungen />
       <Demos />
       <FeaturedLuxe />
