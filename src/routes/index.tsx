@@ -1205,8 +1205,14 @@ function SchreibMir() {
     const email = String(data.get("email") || "").trim();
     const message = String(data.get("message") || "").trim();
 
+    const privacy = data.get("privacy") === "on";
+
     if (!name || !email || !message) {
       toast.error("Bitte fülle alle Felder aus.");
+      return;
+    }
+    if (!privacy) {
+      toast.error("Bitte stimme der Datenschutzerklärung zu.");
       return;
     }
     if (name.length > 120 || email.length > 255 || message.length > 5000) {
@@ -1224,6 +1230,7 @@ function SchreibMir() {
           name,
           email,
           message,
+          datenschutz_zustimmung: "Ja – Datenschutzerklärung gelesen und akzeptiert",
           subject: `Neue Kontaktanfrage von ${name}`,
         }),
       });
@@ -1330,6 +1337,22 @@ function SchreibMir() {
                 maxLength={5000}
                 className="w-full px-4 py-3 rounded-xl border border-border bg-background text-ink focus:outline-none focus:ring-2 focus:ring-ring"
               />
+            </div>
+            <div className="flex items-start gap-3">
+              <input
+                id="sm-privacy"
+                name="privacy"
+                type="checkbox"
+                required
+                className="mt-1 h-4 w-4 shrink-0 rounded border border-border accent-mauve cursor-pointer"
+              />
+              <label htmlFor="sm-privacy" className="text-sm text-muted-foreground leading-relaxed cursor-pointer">
+                Ich habe die{" "}
+                <Link to="/datenschutz" className="underline hover:text-ink transition-colors">
+                  Datenschutzerklärung
+                </Link>{" "}
+                gelesen und stimme der Verarbeitung meiner Angaben zur Bearbeitung meiner Anfrage zu.
+              </label>
             </div>
             <button
               type="submit"

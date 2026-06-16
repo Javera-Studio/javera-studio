@@ -61,18 +61,37 @@ function DatenschutzPage() {
             </p>
           </Section>
 
-          <Section title="2. Kontaktaufnahme">
+          <Section title="2. Kontaktformular und Kontaktaufnahme">
             <p>
-              Wenn Sie per Kontaktformular auf dieser Website oder per E-Mail Kontakt mit uns
-              aufnehmen, werden Ihre angegebenen Daten zwecks Bearbeitung Ihrer Anfrage sowie für
-              mögliche Anschlussfragen gespeichert.
+              Wenn Sie über das Kontaktformular auf dieser Website oder per E-Mail Kontakt mit uns
+              aufnehmen, werden die von Ihnen angegebenen Daten zwecks Bearbeitung Ihrer Anfrage
+              sowie für mögliche Anschlussfragen verarbeitet.
             </p>
             <p>
               Die Verarbeitung erfolgt auf Grundlage von Art. 6 Abs. 1 lit. b DSGVO
-              (vorvertragliche Maßnahmen) bzw. Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse
-              an der Bearbeitung von Anfragen).
+              (vorvertragliche Maßnahmen) sowie gegebenenfalls auf Grundlage Ihrer Einwilligung
+              gemäß Art. 6 Abs. 1 lit. a DSGVO.
             </p>
-            <p>Diese Daten geben wir nicht ohne Ihre Einwilligung weiter.</p>
+            <p>
+              Für die technische Übermittlung von Kontaktformular-Anfragen verwenden wir den Dienst
+              Web3Forms. Die von Ihnen eingegebenen Daten werden an Web3Forms übermittelt und
+              anschließend an unsere hinterlegte E-Mail-Adresse weitergeleitet.
+            </p>
+            <p>
+              Weitere Informationen finden Sie unter:{" "}
+              <a
+                href="https://web3forms.com/privacy"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline hover:text-ink"
+              >
+                https://web3forms.com/privacy
+              </a>
+            </p>
+            <p>
+              Die Daten werden nicht ohne Ihre ausdrückliche Zustimmung an Dritte weitergegeben,
+              sofern dies nicht zur Bearbeitung Ihrer Anfrage erforderlich ist.
+            </p>
           </Section>
 
           <Section title="3. Verarbeitung personenbezogener Daten">
@@ -100,6 +119,11 @@ function DatenschutzPage() {
               <li>besuchte Seiten</li>
             </ul>
             <p>Diese Daten dienen der technischen Sicherheit und Stabilität der Website.</p>
+            <p>
+              Diese Website wird über Vercel gehostet. Im Rahmen des Hostings können technisch
+              notwendige Daten verarbeitet werden, die für den Betrieb und die Sicherheit der
+              Website erforderlich sind.
+            </p>
           </Section>
 
           <Section title="5. Cookies">
