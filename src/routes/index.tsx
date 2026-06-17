@@ -13,9 +13,6 @@ import demoLumea from "@/assets/demo-lumea.png";
 import demoNailAtelier from "@/assets/demo-nail-atelier.png";
 import demoLumisKlinik from "@/assets/demo-lumis-klinik.png";
 import demoIvoryStudio from "@/assets/demo-ivorystudio.png";
-import divineImg from "@/assets/divinemockup.png";
-import divineBewertung from "@/assets/divinebewertung.png";
-import paulaVencMockupImg from "@/assets/paulavencmockup.png";
 import { SiteFooter as Footer } from "@/components/SiteFooter";
 
 export const Route = createFileRoute("/")({
@@ -508,7 +505,7 @@ function PaulaVenc() {
           <div className="reveal flex flex-col justify-start gap-6">
             <div className="w-full drop-shadow-2xl">
               <img
-                src={paulaVencMockupImg}
+                src="/paulavencmockup.png"
                 alt="Website paulavenc.at am Smartphone"
                 loading="lazy"
                 className="w-full"
@@ -555,14 +552,12 @@ function PaulaVenc() {
 
 function DivineBeautyNails() {
   const leistungen = [
-    "Digitales Kalendersystem für das Team eingerichtet",
-    "Gemeinsame Terminübersicht geschaffen",
-    "Individuelle Schritt-für-Schritt-Anleitung erstellt",
+    "Digitales Kalendersystem für das Team",
     "Komplette Website entwickelt",
     "Mobile Optimierung umgesetzt",
-    "Treatwell & Kontaktmöglichkeiten integriert",
-    "Übersichtliche Leistungsdarstellung erstellt",
-    "SEO-freundliche Struktur aufgebaut",
+    "Kontaktmöglichkeiten integriert",
+    "Übersichtliche Leistungsdarstellung",
+    "SEO-freundliche Struktur",
   ];
 
   return (
@@ -571,19 +566,25 @@ function DivineBeautyNails() {
         <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-4">
           Kundenprojekt
         </div>
+        <h2 className="reveal font-serif text-4xl md:text-5xl text-ink leading-tight">
+          Divine Beauty &amp; Nails Studio
+        </h2>
+        <p className="reveal reveal-delay mt-3 text-muted-foreground text-lg mb-12 md:mb-16">
+          Website, digitale Studioorganisation &amp; ein professioneller Online-Auftritt für ein Beauty Studio in Wien.
+        </p>
 
         <div className="grid md:grid-cols-2 gap-12 md:gap-20 items-start">
-          <div className="reveal flex flex-col justify-center md:justify-start gap-6">
+          <div className="reveal flex flex-col gap-6">
             <div className="w-full drop-shadow-2xl">
               <img
-                src={divineImg}
+                src="/divinenailsmockup.png"
                 alt="Website divinenails.at am Smartphone"
                 loading="lazy"
                 className="w-full"
               />
             </div>
-            <p className="font-serif text-lg text-ink leading-relaxed">
-              Das Ergebnis: Eine ganzheitliche digitale Lösung für das Studio – von einer einfacheren Terminorganisation bis hin zu einer professionellen Website, die Vertrauen schafft und das Studio online hochwertig präsentiert.
+            <p className="font-serif text-base text-ink leading-relaxed">
+              Das Ergebnis: Ein digitaler Auftritt, der Studioorganisation und professionelle Sichtbarkeit verbindet.
             </p>
             <a
               href="https://divinenails.at"
@@ -597,16 +598,13 @@ function DivineBeautyNails() {
           </div>
 
           <div>
-            <h2 className="reveal font-serif text-4xl md:text-5xl text-ink leading-tight">
-              Divine Beauty &amp; Nails Studio –<br />Website &amp; digitale Studioorganisation
-            </h2>
-            <p className="reveal reveal-delay mt-6 text-muted-foreground text-lg leading-relaxed">
-              Die Zusammenarbeit mit Divine Beauty &amp; Nails begann nicht mit einer Website, sondern mit einer praktischen Lösung für den Studioalltag. Für das Team durfte ich ein übersichtliches digitales Kalendersystem einrichten, das die Terminverwaltung für mehrere Mitarbeiterinnen vereinfacht und den täglichen Ablauf deutlich strukturierter gemacht hat.
+            <p className="reveal text-muted-foreground text-lg leading-relaxed">
+              Die Zusammenarbeit mit Divine Beauty &amp; Nails begann mit einer praktischen Lösung für den Studioalltag: einem übersichtlichen digitalen Kalendersystem für mehrere Mitarbeiterinnen.
             </p>
             <p className="reveal mt-4 text-muted-foreground text-lg leading-relaxed">
-              Nach der erfolgreichen Einführung der Kalenderlösung durfte ich anschließend auch den neuen Online-Auftritt des Studios umsetzen.
+              Nach der erfolgreichen Einführung durfte ich anschließend auch den neuen Online-Auftritt des Studios umsetzen – modern, mobil optimiert und passend zur Atmosphäre des Studios.
             </p>
-            <p className="reveal mt-5 text-sm text-muted-foreground uppercase tracking-widest">Gemeinsam haben wir:</p>
+            <p className="reveal mt-6 text-sm text-muted-foreground uppercase tracking-widest">Gemeinsam haben wir:</p>
             <ul className="reveal mt-4 space-y-3">
               {leistungen.map((l) => (
                 <li key={l} className="flex items-start gap-3 text-ink">
@@ -618,28 +616,28 @@ function DivineBeautyNails() {
           </div>
         </div>
 
-        <div className="reveal mt-12 rounded-3xl bg-background border border-border/60 p-7 md:p-8 shadow-sm">
-          <div className="flex flex-col sm:flex-row gap-8 items-start">
-            <div className="flex gap-4 flex-shrink-0">
-              <div className="max-w-[155px] w-full">
-                <div className="rounded-2xl overflow-hidden shadow-md border border-white/60">
+        <div className="reveal mt-14 md:mt-20 rounded-3xl bg-background border border-border/60 p-8 md:p-12 shadow-sm">
+          <div className="grid md:grid-cols-2 gap-8 md:gap-14 items-start">
+            <div className="grid grid-cols-2 gap-4">
+              <div>
+                <div className="rounded-2xl overflow-hidden shadow-lg border border-white/60">
                   <img src="/kalender-feedback.jpg" alt="Feedback zur Kalender-Lösung" loading="lazy" className="w-full" />
                 </div>
               </div>
-              <div className="max-w-[155px] w-full">
-                <div className="rounded-xl overflow-hidden shadow-md border border-border/40 bg-background">
+              <div>
+                <div className="rounded-2xl overflow-hidden shadow-lg border border-border/40 bg-background">
                   <img src="/kalender-anleitung.png" alt="Individuelle Team-Anleitung" loading="lazy" className="w-full" />
                 </div>
-                <p className="mt-1.5 text-center text-[11px] uppercase tracking-[0.2em] text-muted-foreground">Team-Anleitung</p>
+                <p className="mt-2 text-center text-[11px] uppercase tracking-[0.2em] text-muted-foreground">Team-Anleitung</p>
               </div>
             </div>
-            <div className="flex-1">
-              <p className="text-[11px] uppercase tracking-[0.2em] text-muted-foreground mb-3">Wie alles begann</p>
-              <p className="font-serif text-lg text-ink leading-relaxed">
+            <div className="flex flex-col justify-center">
+              <p className="text-[11px] uppercase tracking-[0.2em] text-muted-foreground mb-4">Wie alles begann</p>
+              <h3 className="font-serif text-2xl md:text-3xl text-ink leading-tight">
                 Manchmal beginnt eine gute Zusammenarbeit mit einer kleinen, praktischen Lösung.
-              </p>
-              <p className="mt-3 text-sm text-muted-foreground leading-relaxed">
-                Das Kalender-System für das Team von Divine Beauty &amp; Nails vereinfachte den Studioalltag spürbar: gemeinsame Terminübersicht, Farben pro Mitarbeiterin und eine eigens erstellte Anleitung, damit das Team sofort selbstständig loslegen konnte.
+              </h3>
+              <p className="mt-5 text-muted-foreground leading-relaxed">
+                Für das Team von Divine Beauty &amp; Nails entstand zuerst ein einfaches Kalendersystem mit gemeinsamer Terminübersicht, Farben pro Mitarbeiterin und einer individuellen Anleitung, damit das Team sofort selbstständig arbeiten konnte.
               </p>
             </div>
           </div>
@@ -651,12 +649,16 @@ function DivineBeautyNails() {
               {[0,1,2,3,4].map((i) => <StarIcon key={i} />)}
             </div>
             <p className="text-xs text-muted-foreground mb-5">5 von 5 Sternen · Google Bewertung</p>
-            <img
-              src={divineBewertung}
-              alt="Google Bewertung Divine Beauty & Nails Studio"
-              loading="lazy"
-              className="w-full rounded-2xl"
-            />
+            <blockquote className="font-serif text-xl text-ink leading-relaxed">
+              „Absolute Herzensempfehlung! Nach 8 Jahren Selbstständigkeit habe ich endlich jemanden gefunden, der meine Vorstellungen zu 100 % verstanden und perfekt umgesetzt hat. Von der ersten Minute an wusste ich, dass ich in den richtigen Händen bin. Sie hat nicht einfach nur eine Webseite erstellt, sondern meine Vision sichtbar gemacht und meinem Studio einen professionellen Online-Auftritt gegeben, der zu 100 % zu mir passt."
+            </blockquote>
+            <div className="mt-6 flex items-center gap-3">
+              <div className="w-9 h-9 rounded-full bg-peach-soft flex items-center justify-center text-ink font-serif text-base">D</div>
+              <div>
+                <p className="font-medium text-ink text-sm">Danijela Boskovic</p>
+                <p className="text-xs text-muted-foreground">Divine Beauty &amp; Nails Studio</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
