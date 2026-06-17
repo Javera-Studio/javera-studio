@@ -617,7 +617,7 @@ function DivineBeautyNails() {
         </div>
 
         <div className="reveal mt-14 md:mt-20 rounded-3xl bg-background border border-border/60 p-8 md:p-12 shadow-sm">
-          <div className="grid md:grid-cols-2 gap-8 md:gap-14 items-start">
+          <div className="grid md:grid-cols-[3fr_2fr] gap-8 md:gap-14 items-start">
             <div className="grid grid-cols-2 gap-4">
               <div>
                 <div className="rounded-2xl overflow-hidden shadow-lg border border-white/60">
