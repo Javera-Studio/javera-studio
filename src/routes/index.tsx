@@ -488,23 +488,9 @@ function PaulaVenc() {
                 </li>
               ))}
             </ul>
-            <p className="reveal mt-8 font-serif italic text-lg text-mauve leading-relaxed">
-              „Die richtige Lösung ist nicht immer die größte Website, sondern die passende Website."
-            </p>
-            <div className="reveal mt-8 flex flex-wrap gap-4">
-              <a
-                href="https://paulavenc.at"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-primary text-primary-foreground hover:bg-mauve transition font-medium"
-              >
-                Website ansehen
-                <span aria-hidden>→</span>
-              </a>
-            </div>
           </div>
 
-          <div className="reveal flex justify-center md:justify-end">
+          <div className="reveal flex flex-col justify-start gap-6">
             <div className="w-full drop-shadow-2xl">
               <img
                 src="/paula-mockup.png"
@@ -513,6 +499,18 @@ function PaulaVenc() {
                 className="w-full"
               />
             </div>
+            <p className="font-serif italic text-lg text-mauve leading-relaxed">
+              „Die richtige Lösung ist nicht immer die größte Website, sondern die passende Website."
+            </p>
+            <a
+              href="https://paulavenc.at"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-primary text-primary-foreground hover:bg-mauve transition font-medium w-fit"
+            >
+              Website ansehen
+              <span aria-hidden>→</span>
+            </a>
           </div>
         </div>
 
