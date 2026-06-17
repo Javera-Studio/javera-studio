@@ -13,6 +13,9 @@ import demoLumea from "@/assets/demo-lumea.png";
 import demoNailAtelier from "@/assets/demo-nail-atelier.png";
 import demoLumisKlinik from "@/assets/demo-lumis-klinik.png";
 import demoIvoryStudio from "@/assets/demo-ivorystudio.png";
+import divineImg from "@/assets/divinemockup.png";
+import divineBewertung from "@/assets/divinebewertung.png";
+import paulaVencMockupImg from "@/assets/paulavencmockup.png";
 import { SiteFooter as Footer } from "@/components/SiteFooter";
 
 export const Route = createFileRoute("/")({
@@ -493,7 +496,7 @@ function PaulaVenc() {
           <div className="reveal flex flex-col justify-start gap-6">
             <div className="w-full drop-shadow-2xl">
               <img
-                src="/paula-mockup.png"
+                src={paulaVencMockupImg}
                 alt="Website paulavenc.at am Smartphone"
                 loading="lazy"
                 className="w-full"
@@ -538,141 +541,110 @@ function PaulaVenc() {
   );
 }
 
-function WeiTereProjekte() {
-  const projekte = [
-    {
-      title: "Pure Skin Studio",
-      category: "Kosmetikstudio",
-      desc: "Cleanes, ruhiges Design für mehr Vertrauen und mehr Anfragen.",
-      url: "https://demo-pure-skin-studio-launch.vercel.app",
-      image: demoPureSkin,
-    },
-    {
-      title: "Nail Atelier",
-      category: "Nagelstudio",
-      desc: "Elegantes Design mit Fokus auf Ästhetik und modernem Markenauftritt.",
-      url: "https://demo-nailatelier.vercel.app",
-      image: demoNailAtelier,
-    },
-    {
-      title: "Ivory Bridal Studio",
-      category: "Bridal Stylistin",
-      desc: "Elegante Onepage-Website für Brautstylistinnen – modern und vertrauensvoll.",
-      url: "https://demo-ivorybridalstudio.vercel.app",
-      image: demoIvoryStudio,
-    },
+function DivineBeautyNails() {
+  const leistungen = [
+    "Digitales Kalendersystem für das Team eingerichtet",
+    "Gemeinsame Terminübersicht geschaffen",
+    "Individuelle Schritt-für-Schritt-Anleitung erstellt",
+    "Komplette Website entwickelt",
+    "Mobile Optimierung umgesetzt",
+    "Treatwell & Kontaktmöglichkeiten integriert",
+    "Übersichtliche Leistungsdarstellung erstellt",
+    "SEO-freundliche Struktur aufgebaut",
   ];
 
   return (
-    <section className="py-12 md:py-16 bg-background">
+    <section className="py-12 md:py-16">
       <div className="max-w-6xl mx-auto px-6">
-        <div className="mb-10 md:mb-12">
-          <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-3">
-            Weitere Projekte
-          </div>
-          <h2 className="reveal font-serif text-3xl md:text-4xl text-ink leading-tight">
-            Weitere Projekte
-          </h2>
-          <p className="reveal reveal-delay mt-3 text-muted-foreground text-lg">
-            Entdecke weitere Webdesign-Projekte für Beauty-Businesses.
-          </p>
+        <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-4">
+          Kundenprojekt
         </div>
-        <div className="grid md:grid-cols-3 gap-6">
-          {projekte.map((p, i) => (
-            <div
-              key={p.title}
-              className={`reveal-card reveal-stagger-${i + 1} group rounded-3xl border border-border/60 bg-background overflow-hidden hover:shadow-xl hover:shadow-ink/5 transition flex flex-col`}
+
+        <div className="grid md:grid-cols-2 gap-12 md:gap-20 items-start">
+          <div className="reveal flex flex-col justify-center md:justify-start gap-6">
+            <div className="w-full drop-shadow-2xl">
+              <img
+                src={divineImg}
+                alt="Website divinenails.at am Smartphone"
+                loading="lazy"
+                className="w-full"
+              />
+            </div>
+            <p className="font-serif text-lg text-ink leading-relaxed">
+              Das Ergebnis: Eine ganzheitliche digitale Lösung für das Studio – von einer einfacheren Terminorganisation bis hin zu einer professionellen Website, die Vertrauen schafft und das Studio online hochwertig präsentiert.
+            </p>
+            <a
+              href="https://divinenails.at"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-primary text-primary-foreground hover:bg-mauve transition font-medium w-fit"
             >
-              <div className="aspect-[4/3] overflow-hidden bg-cream flex items-center justify-center">
-                <img
-                  src={p.image}
-                  alt={`${p.title} Vorschau`}
-                  loading="lazy"
-                  className="w-full h-full object-contain transition duration-500 group-hover:scale-[1.03]"
-                />
-              </div>
-              <div className="p-6 flex flex-col flex-1">
-                <div className="text-xs uppercase tracking-wider text-muted-foreground mb-2">
-                  {p.category}
-                </div>
-                <h3 className="font-serif text-xl text-ink">{p.title}</h3>
-                <p className="mt-2 text-sm text-muted-foreground leading-relaxed flex-1">{p.desc}</p>
-                <a
-                  href={p.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 mt-5 text-sm font-medium text-ink border-b border-ink/30 pb-1 hover:border-ink transition w-fit"
-                >
-                  Projekt ansehen <span aria-hidden>→</span>
-                </a>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
+              Website ansehen
+              <span aria-hidden>→</span>
+            </a>
+          </div>
 
-function DigitaleLösungen() {
-  const benefits = [
-    "Gemeinsame Kalender",
-    "Handyfreundlich",
-    "Für Teams geeignet",
-    "Einfache Anleitung",
-  ];
-
-  return (
-    <section className="py-12 md:py-16 bg-mint-soft">
-      <div className="max-w-6xl mx-auto px-6">
-        <div className="grid md:grid-cols-2 gap-12 md:gap-20 items-center">
           <div>
-            <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-4">
-              Mehr als Design
-            </div>
             <h2 className="reveal font-serif text-4xl md:text-5xl text-ink leading-tight">
-              Digitale Lösungen für Beauty Studios
+              Divine Beauty &amp; Nails Studio –<br />Website &amp; digitale Studioorganisation
             </h2>
             <p className="reveal reveal-delay mt-6 text-muted-foreground text-lg leading-relaxed">
-              Nicht jedes Studio braucht sofort teure Software. Für eine Kundin habe ich ein übersichtliches Google-Kalender-System für drei Mitarbeiterinnen eingerichtet – inklusive gemeinsamer Terminübersicht, Farben pro Mitarbeiterin und einer persönlichen Schritt-für-Schritt-Anleitung, die ich eigens für sie erstellt habe, damit das Team es sofort selbstständig nutzen kann.
+              Die Zusammenarbeit mit Divine Beauty &amp; Nails begann nicht mit einer Website, sondern mit einer praktischen Lösung für den Studioalltag. Für das Team durfte ich ein übersichtliches digitales Kalendersystem einrichten, das die Terminverwaltung für mehrere Mitarbeiterinnen vereinfacht und den täglichen Ablauf deutlich strukturierter gemacht hat.
             </p>
-            <p className="reveal mt-5 font-serif text-lg text-ink leading-relaxed">
-              Das Ergebnis: mehr Übersicht, weniger Chaos und ein einfacherer Studio-Alltag.
+            <p className="reveal mt-4 text-muted-foreground text-lg leading-relaxed">
+              Nach der erfolgreichen Einführung der Kalenderlösung durfte ich anschließend auch den neuen Online-Auftritt des Studios umsetzen.
             </p>
-            <ul className="reveal mt-8 grid grid-cols-2 gap-3">
-              {benefits.map((b) => (
-                <li key={b} className="flex items-center gap-3 text-sm text-ink bg-background rounded-2xl px-4 py-3 border border-border/60 shadow-sm">
-                  <span className="h-1.5 w-1.5 rounded-full bg-mauve flex-shrink-0" />
-                  {b}
+            <p className="reveal mt-5 text-sm text-muted-foreground uppercase tracking-widest">Gemeinsam haben wir:</p>
+            <ul className="reveal mt-4 space-y-3">
+              {leistungen.map((l) => (
+                <li key={l} className="flex items-start gap-3 text-ink">
+                  <span className="mt-2 h-1.5 w-1.5 rounded-full bg-mauve flex-shrink-0" />
+                  <span>{l}</span>
                 </li>
               ))}
             </ul>
           </div>
+        </div>
 
-          <div className="reveal flex flex-col sm:flex-row md:flex-col gap-5 items-center md:items-end justify-center md:justify-end">
-            <div className="relative max-w-[260px] w-full">
-              <div className="rounded-3xl overflow-hidden shadow-xl shadow-ink/10 border border-white/60">
-                <img
-                  src="/kalender-feedback.jpg"
-                  alt="Kundenfeedback zur Kalender-Einrichtung"
-                  loading="lazy"
-                  className="w-full"
-                />
+        <div className="reveal mt-12 rounded-3xl bg-background border border-border/60 p-7 md:p-8 shadow-sm">
+          <div className="flex flex-col sm:flex-row gap-8 items-start">
+            <div className="flex gap-4 flex-shrink-0">
+              <div className="max-w-[155px] w-full">
+                <div className="rounded-2xl overflow-hidden shadow-md border border-white/60">
+                  <img src="/kalender-feedback.jpg" alt="Feedback zur Kalender-Lösung" loading="lazy" className="w-full" />
+                </div>
+              </div>
+              <div className="max-w-[155px] w-full">
+                <div className="rounded-xl overflow-hidden shadow-md border border-border/40 bg-background">
+                  <img src="/kalender-anleitung.png" alt="Individuelle Team-Anleitung" loading="lazy" className="w-full" />
+                </div>
+                <p className="mt-1.5 text-center text-[11px] uppercase tracking-[0.2em] text-muted-foreground">Team-Anleitung</p>
               </div>
             </div>
-            <div className="relative max-w-[260px] w-full">
-              <div className="rounded-2xl overflow-hidden shadow-xl shadow-ink/10 border border-border/40 bg-background">
-                <img
-                  src="/kalender-anleitung.png"
-                  alt="Individuelle Anleitung für das Studio-Team"
-                  loading="lazy"
-                  className="w-full"
-                />
-              </div>
-              <p className="mt-2 text-center text-[11px] uppercase tracking-[0.2em] text-muted-foreground">
-                Individuelle Team-Anleitung
+            <div className="flex-1">
+              <p className="text-[11px] uppercase tracking-[0.2em] text-muted-foreground mb-3">Wie alles begann</p>
+              <p className="font-serif text-lg text-ink leading-relaxed">
+                Manchmal beginnt eine gute Zusammenarbeit mit einer kleinen, praktischen Lösung.
+              </p>
+              <p className="mt-3 text-sm text-muted-foreground leading-relaxed">
+                Das Kalender-System für das Team von Divine Beauty &amp; Nails vereinfachte den Studioalltag spürbar: gemeinsame Terminübersicht, Farben pro Mitarbeiterin und eine eigens erstellte Anleitung, damit das Team sofort selbstständig loslegen konnte.
               </p>
             </div>
+          </div>
+        </div>
+
+        <div className="reveal mt-10 max-w-3xl mx-auto">
+          <div className="rounded-3xl bg-background border border-border/60 p-8 shadow-sm">
+            <div className="flex items-center gap-1 mb-1">
+              {[0,1,2,3,4].map((i) => <StarIcon key={i} />)}
+            </div>
+            <p className="text-xs text-muted-foreground mb-5">5 von 5 Sternen · Google Bewertung</p>
+            <img
+              src={divineBewertung}
+              alt="Google Bewertung Divine Beauty & Nails Studio"
+              loading="lazy"
+              className="w-full rounded-2xl"
+            />
           </div>
         </div>
       </div>
@@ -1648,8 +1620,7 @@ function Index() {
       <Angebot />
       <FaceAndMore />
       <PaulaVenc />
-      <WeiTereProjekte />
-      <DigitaleLösungen />
+      <DivineBeautyNails />
       <Demos />
       <FeaturedLuxe />
       <Javera />
