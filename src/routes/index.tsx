@@ -642,9 +642,11 @@ function Testimonials() {
     setTimeout(() => {
       setActive(idx);
       setVisible(true);
-    }, 350);
+    }, 300);
   };
 
+  const prev = () => goTo((active - 1 + testimonials.length) % testimonials.length);
+  const next = () => goTo((active + 1) % testimonials.length);
   const t = testimonials[active];
 
   return (
@@ -656,24 +658,47 @@ function Testimonials() {
         </div>
 
         <div className="max-w-3xl mx-auto">
-          <div
-            className="rounded-3xl bg-background border border-border/60 p-8 md:p-12 shadow-sm"
-            style={{ transition: "opacity 350ms ease", opacity: visible ? 1 : 0 }}
-          >
-            <div className="flex items-center gap-1 mb-1">
-              {[0,1,2,3,4].map((i) => <StarIcon key={i} />)}
-            </div>
-            <p className="text-xs text-muted-foreground mb-6">5 von 5 Sternen · Google Bewertung</p>
-            <blockquote className="font-serif text-xl md:text-2xl text-ink leading-relaxed">
-              „{t.quote}"
-            </blockquote>
-            <div className="mt-8 flex items-center gap-3">
-              <div className="w-10 h-10 rounded-full bg-peach-soft flex items-center justify-center text-ink font-serif text-base flex-shrink-0">
-                {t.initial}
+          <div className="relative">
+            <button
+              type="button"
+              onClick={prev}
+              aria-label="Vorherige Bewertung"
+              className="absolute -left-5 md:-left-16 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full border border-border/60 bg-background flex items-center justify-center text-ink hover:bg-peach-soft transition z-10 shadow-sm"
+            >
+              <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-4 h-4">
+                <path d="M12.5 5l-5 5 5 5" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </button>
+            <button
+              type="button"
+              onClick={next}
+              aria-label="Nächste Bewertung"
+              className="absolute -right-5 md:-right-16 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full border border-border/60 bg-background flex items-center justify-center text-ink hover:bg-peach-soft transition z-10 shadow-sm"
+            >
+              <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-4 h-4">
+                <path d="M7.5 5l5 5-5 5" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </button>
+
+            <div
+              className="rounded-3xl bg-background border border-border/60 p-8 md:p-12 shadow-sm"
+              style={{ transition: "opacity 300ms ease", opacity: visible ? 1 : 0 }}
+            >
+              <div className="flex items-center gap-1 mb-1">
+                {[0,1,2,3,4].map((i) => <StarIcon key={i} />)}
               </div>
-              <div>
-                <p className="font-medium text-ink text-sm">{t.name}</p>
-                <p className="text-xs text-muted-foreground">{t.studio}</p>
+              <p className="text-xs text-muted-foreground mb-6">5 von 5 Sternen · Google Bewertung</p>
+              <blockquote className="font-serif text-xl md:text-2xl text-ink leading-relaxed">
+                „{t.quote}"
+              </blockquote>
+              <div className="mt-8 flex items-center gap-3">
+                <div className="w-10 h-10 rounded-full bg-peach-soft flex items-center justify-center text-ink font-serif text-base flex-shrink-0">
+                  {t.initial}
+                </div>
+                <div>
+                  <p className="font-medium text-ink text-sm">{t.name}</p>
+                  <p className="text-xs text-muted-foreground">{t.studio}</p>
+                </div>
               </div>
             </div>
           </div>
