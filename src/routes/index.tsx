@@ -394,7 +394,7 @@ function FaceAndMore() {
         </div>
 
         <div className="grid md:grid-cols-2 gap-12 md:gap-20 items-start">
-          <div className="reveal flex justify-center md:justify-start">
+          <div className="reveal flex flex-col justify-center md:justify-start gap-6">
             <div className="w-full drop-shadow-2xl">
               <img
                 src="/faceandmoremockup.png"
@@ -403,6 +403,18 @@ function FaceAndMore() {
                 className="w-full"
               />
             </div>
+            <p className="font-serif text-lg text-ink leading-relaxed">
+              Das Ergebnis: Eine moderne Premium-Website, die Kompetenz sichtbar macht und Vertrauen schafft.
+            </p>
+            <a
+              href="https://faceandmore.at"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-primary text-primary-foreground hover:bg-mauve transition font-medium w-fit"
+            >
+              Projekt ansehen
+              <span aria-hidden>→</span>
+            </a>
           </div>
 
           <div>
@@ -421,20 +433,6 @@ function FaceAndMore() {
                 </li>
               ))}
             </ul>
-            <p className="reveal mt-8 font-serif text-lg text-ink leading-relaxed">
-              Das Ergebnis: Eine moderne Premium-Website, die Kompetenz sichtbar macht und Vertrauen schafft.
-            </p>
-            <div className="reveal mt-8 flex flex-wrap gap-4">
-              <a
-                href="https://faceandmore.at"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-primary text-primary-foreground hover:bg-mauve transition font-medium"
-              >
-                Projekt ansehen
-                <span aria-hidden>→</span>
-              </a>
-            </div>
           </div>
         </div>
 
