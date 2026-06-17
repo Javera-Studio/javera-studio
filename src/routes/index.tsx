@@ -407,12 +407,12 @@ function FaceAndMore() {
 
         <div className="grid md:grid-cols-12 gap-10 md:gap-16 items-center">
           <div className="reveal md:col-span-7 flex flex-col gap-6">
-            <div className="w-full drop-shadow-2xl overflow-hidden group cursor-pointer">
+            <div className="w-full drop-shadow-2xl">
               <img
                 src="/faceandmoremockup.png"
                 alt="Website faceandmore.at am Smartphone"
                 loading="lazy"
-                className="w-full transition duration-700 ease-out group-hover:scale-[1.3]"
+                className="w-full"
               />
             </div>
             <p className="font-serif text-lg text-ink leading-relaxed">
@@ -485,12 +485,12 @@ function PaulaVenc() {
           </div>
 
           <div className="reveal md:col-span-7 flex flex-col gap-6">
-            <div className="w-full drop-shadow-2xl overflow-hidden group cursor-pointer">
+            <div className="w-full drop-shadow-2xl">
               <img
                 src="/paulavencmockup.png"
                 alt="Website paulavenc.at am Smartphone"
                 loading="lazy"
-                className="w-full transition duration-700 ease-out group-hover:scale-[1.3]"
+                className="w-full"
               />
             </div>
             <p className="font-serif italic text-lg text-mauve leading-relaxed">
@@ -538,12 +538,12 @@ function DivineBeautyNails() {
 
         <div className="grid md:grid-cols-12 gap-10 md:gap-16 items-center">
           <div className="reveal md:col-span-7 flex flex-col gap-6">
-            <div className="w-full drop-shadow-2xl overflow-hidden group cursor-pointer">
+            <div className="w-full drop-shadow-2xl">
               <img
                 src="/divinenailsmockup.png"
                 alt="Website divinenails.at am Smartphone"
                 loading="lazy"
-                className="w-full transition duration-700 ease-out group-hover:scale-[1.3]"
+                className="w-full"
               />
             </div>
             <p className="font-serif text-base text-ink leading-relaxed">
