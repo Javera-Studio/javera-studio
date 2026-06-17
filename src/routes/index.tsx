@@ -405,14 +405,14 @@ function FaceAndMore() {
           Kundenprojekt
         </div>
 
-        <div className="grid md:grid-cols-2 gap-12 md:gap-20 items-start">
-          <div className="reveal flex flex-col justify-center md:justify-start gap-6">
-            <div className="w-full drop-shadow-2xl">
+        <div className="grid md:grid-cols-12 gap-10 md:gap-16 items-center">
+          <div className="reveal md:col-span-7 flex flex-col gap-6">
+            <div className="w-full drop-shadow-2xl overflow-hidden group cursor-pointer">
               <img
                 src="/faceandmoremockup.png"
                 alt="Website faceandmore.at am Smartphone"
                 loading="lazy"
-                className="w-full"
+                className="w-full transition duration-700 ease-out group-hover:scale-[1.3]"
               />
             </div>
             <p className="font-serif text-lg text-ink leading-relaxed">
@@ -429,7 +429,7 @@ function FaceAndMore() {
             </a>
           </div>
 
-          <div>
+          <div className="md:col-span-5">
             <h2 className="reveal font-serif text-4xl md:text-5xl text-ink leading-tight">
               Face and More –<br />Hautanalyse & Premium Hautpflege Wien
             </h2>
@@ -483,8 +483,8 @@ function PaulaVenc() {
   return (
     <section className="py-12 md:py-16 bg-stone-50/50">
       <div className="max-w-6xl mx-auto px-6">
-        <div className="grid md:grid-cols-2 gap-12 md:gap-20 items-center">
-          <div>
+        <div className="grid md:grid-cols-12 gap-10 md:gap-16 items-center">
+          <div className="md:col-span-5">
             <h2 className="reveal font-serif text-4xl md:text-5xl text-ink leading-tight">
               Paula Venc –<br />Private Nailartist Wien
             </h2>
@@ -502,13 +502,13 @@ function PaulaVenc() {
             </ul>
           </div>
 
-          <div className="reveal flex flex-col justify-start gap-6">
-            <div className="w-full drop-shadow-2xl">
+          <div className="reveal md:col-span-7 flex flex-col gap-6">
+            <div className="w-full drop-shadow-2xl overflow-hidden group cursor-pointer">
               <img
                 src="/paulavencmockup.png"
                 alt="Website paulavenc.at am Smartphone"
                 loading="lazy"
-                className="w-full"
+                className="w-full transition duration-700 ease-out group-hover:scale-[1.3]"
               />
             </div>
             <p className="font-serif italic text-lg text-mauve leading-relaxed">
@@ -573,14 +573,14 @@ function DivineBeautyNails() {
           Website, digitale Studioorganisation &amp; ein professioneller Online-Auftritt für ein Beauty Studio in Wien.
         </p>
 
-        <div className="grid md:grid-cols-2 gap-12 md:gap-20 items-start">
-          <div className="reveal flex flex-col gap-6">
-            <div className="w-full drop-shadow-2xl">
+        <div className="grid md:grid-cols-12 gap-10 md:gap-16 items-center">
+          <div className="reveal md:col-span-7 flex flex-col gap-6">
+            <div className="w-full drop-shadow-2xl overflow-hidden group cursor-pointer">
               <img
                 src="/divinenailsmockup.png"
                 alt="Website divinenails.at am Smartphone"
                 loading="lazy"
-                className="w-full"
+                className="w-full transition duration-700 ease-out group-hover:scale-[1.3]"
               />
             </div>
             <p className="font-serif text-base text-ink leading-relaxed">
@@ -597,7 +597,7 @@ function DivineBeautyNails() {
             </a>
           </div>
 
-          <div>
+          <div className="md:col-span-5">
             <p className="reveal text-muted-foreground text-lg leading-relaxed">
               Die Zusammenarbeit mit Divine Beauty &amp; Nails begann mit einer praktischen Lösung für den Studioalltag: einem übersichtlichen digitalen Kalendersystem für mehrere Mitarbeiterinnen.
             </p>
