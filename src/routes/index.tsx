@@ -392,6 +392,18 @@ function FaceAndMore() {
   return (
     <section id="kundenprojekte" className="py-12 md:py-16">
       <div className="max-w-6xl mx-auto px-6">
+        <div className="max-w-2xl mb-14 md:mb-20">
+          <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-4">
+            Kundenprojekte
+          </div>
+          <h2 className="reveal font-serif text-4xl md:text-5xl text-ink leading-tight">
+            Aus Ideen werden Ergebnisse
+          </h2>
+          <p className="reveal reveal-delay mt-4 text-muted-foreground text-lg leading-relaxed">
+            Von modernen Websites bis zu praktischen digitalen Lösungen: Hier findest du ausgewählte Projekte, die ich gemeinsam mit Beauty Studios umgesetzt habe – individuell, durchdacht und abgestimmt auf die Bedürfnisse jedes Unternehmens.
+          </p>
+        </div>
+
         <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-4">
           Kundenprojekt
         </div>
