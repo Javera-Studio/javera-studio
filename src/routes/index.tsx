@@ -324,7 +324,7 @@ function Hero() {
         <div className="hero-cta mt-8 flex flex-wrap gap-3 justify-center">
           <Link
             to="/" hash="schreib-mir"
-            className="px-7 py-3.5 rounded-full bg-primary text-primary-foreground hover:bg-mauve transition font-medium"
+            className="px-7 py-3.5 rounded-full bg-primary text-primary-foreground hover:bg-mauve transition-all hover:scale-[1.02] hover:shadow-md font-medium"
           >
             Kostenlose Analyse & Demo
           </Link>
@@ -422,7 +422,7 @@ function FaceAndMore() {
               href="https://faceandmore.at"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-primary text-primary-foreground hover:bg-mauve transition font-medium w-fit"
+              className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-primary text-primary-foreground hover:bg-mauve transition-all hover:scale-[1.02] hover:shadow-md font-medium w-fit"
             >
               Projekt ansehen
               <span aria-hidden>→</span>
@@ -448,24 +448,6 @@ function FaceAndMore() {
           </div>
         </div>
 
-        <div className="reveal mt-10 max-w-3xl mx-auto">
-          <div className="rounded-3xl bg-background border border-border/60 p-8 shadow-sm">
-            <div className="flex items-center gap-1 mb-1">
-              {[0,1,2,3,4].map((i) => <StarIcon key={i} />)}
-            </div>
-            <p className="text-xs text-muted-foreground mb-5">5 von 5 Sternen · Google Bewertung</p>
-            <blockquote className="font-serif text-xl text-ink leading-relaxed">
-              „Wenn ich Sterne vergeben könnte, dann 10 von 5. Jagoda hat mich angeschrieben wegen meiner Homepage. Sie hat der Himmel geschickt! Ich war schon lange unglücklich mit meiner alten und hatte keine Zeit und Kontakte für eine neue Homepage. Jagoda hat meine Vorstellungen so was von übertroffen, alles top! Du hast mich und mein Studio so schnell, ästhetisch, authentisch und professionell umgesetzt, mir fehlen noch immer die Worte und ich hab Gänsehaut, wenn ich auf faceandmore klicke! Ich kann Javera nur wärmstens weiterempfehlen. Dankeschön 🙏 liebe Jagoda, ich bin überglücklich!"
-            </blockquote>
-            <div className="mt-6 flex items-center gap-3">
-              <div className="w-9 h-9 rounded-full bg-peach-soft flex items-center justify-center text-ink font-serif text-base">M</div>
-              <div>
-                <p className="font-medium text-ink text-sm">Michaela Kornherr</p>
-                <p className="text-xs text-muted-foreground">faceandmore.at</p>
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
     </section>
   );
@@ -518,7 +500,7 @@ function PaulaVenc() {
               href="https://paulavenc.at"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-primary text-primary-foreground hover:bg-mauve transition font-medium w-fit"
+              className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-primary text-primary-foreground hover:bg-mauve transition-all hover:scale-[1.02] hover:shadow-md font-medium w-fit"
             >
               Website ansehen
               <span aria-hidden>→</span>
@@ -526,25 +508,6 @@ function PaulaVenc() {
           </div>
         </div>
 
-        {/* Google Bewertung */}
-        <div className="reveal mt-10 max-w-3xl mx-auto">
-          <div className="rounded-3xl bg-background border border-border/60 p-8 shadow-sm">
-            <div className="flex items-center gap-1 mb-1">
-              {[0,1,2,3,4].map((i) => <StarIcon key={i} />)}
-            </div>
-            <p className="text-xs text-muted-foreground mb-5">5 von 5 Sternen · Google Bewertung</p>
-            <blockquote className="font-serif text-xl text-ink leading-relaxed">
-              „Absolut zu empfehlen! Ich habe lange keine Website gehabt – ich habe alles der lieben Jagoda anvertraut und bin mega glücklich mit dem Ergebnis. Professionell, schnell und zuverlässig! Sie hat mich super unterstützt und war bei jeder Frage sofort da. Danke dir, liebe Jagoda!"
-            </blockquote>
-            <div className="mt-6 flex items-center gap-3">
-              <div className="w-9 h-9 rounded-full bg-peach-soft flex items-center justify-center text-ink font-serif text-base">P</div>
-              <div>
-                <p className="font-medium text-ink text-sm">Paula Venc</p>
-                <p className="text-xs text-muted-foreground">paulavenc.at</p>
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
     </section>
   );
@@ -590,7 +553,7 @@ function DivineBeautyNails() {
               href="https://divinenails.at"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-primary text-primary-foreground hover:bg-mauve transition font-medium w-fit"
+              className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-primary text-primary-foreground hover:bg-mauve transition-all hover:scale-[1.02] hover:shadow-md font-medium w-fit"
             >
               Website ansehen
               <span aria-hidden>→</span>
@@ -643,22 +606,92 @@ function DivineBeautyNails() {
           </div>
         </div>
 
-        <div className="reveal mt-10 max-w-3xl mx-auto">
-          <div className="rounded-3xl bg-background border border-border/60 p-8 shadow-sm">
+      </div>
+    </section>
+  );
+}
+
+const testimonials = [
+  {
+    quote: "Wenn ich Sterne vergeben könnte, dann 10 von 5. Jagoda hat mich angeschrieben wegen meiner Homepage. Sie hat der Himmel geschickt! Ich war schon lange unglücklich mit meiner alten und hatte keine Zeit und Kontakte für eine neue Homepage. Jagoda hat meine Vorstellungen so was von übertroffen, alles top! Du hast mich und mein Studio so schnell, ästhetisch, authentisch und professionell umgesetzt, mir fehlen noch immer die Worte und ich hab Gänsehaut, wenn ich auf faceandmore klicke! Ich kann Javera nur wärmstens weiterempfehlen.",
+    name: "Michaela Kornherr",
+    studio: "faceandmore.at",
+    initial: "M",
+  },
+  {
+    quote: "Absolut zu empfehlen! Ich habe lange keine Website gehabt – ich habe alles der lieben Jagoda anvertraut und bin mega glücklich mit dem Ergebnis. Professionell, schnell und zuverlässig! Sie hat mich super unterstützt und war bei jeder Frage sofort da. Danke dir, liebe Jagoda!",
+    name: "Paula Venc",
+    studio: "paulavenc.at",
+    initial: "P",
+  },
+  {
+    quote: "Absolute Herzensempfehlung! Nach 8 Jahren Selbstständigkeit habe ich endlich jemanden gefunden, der meine Vorstellungen zu 100 % verstanden und perfekt umgesetzt hat. Von der ersten Minute an wusste ich, dass ich in den richtigen Händen bin. Sie hat nicht einfach nur eine Webseite erstellt, sondern meine Vision sichtbar gemacht und meinem Studio einen professionellen Online-Auftritt gegeben, der zu 100 % zu mir passt.",
+    name: "Danijela Boskovic",
+    studio: "Divine Beauty & Nails Studio",
+    initial: "D",
+  },
+];
+
+function Testimonials() {
+  const [active, setActive] = useState(0);
+  const [visible, setVisible] = useState(true);
+
+  const goTo = (idx: number) => {
+    if (idx === active) return;
+    setVisible(false);
+    setTimeout(() => {
+      setActive(idx);
+      setVisible(true);
+    }, 350);
+  };
+
+  const t = testimonials[active];
+
+  return (
+    <section className="py-14 md:py-20 bg-cream">
+      <div className="max-w-6xl mx-auto px-6">
+        <div className="text-center mb-12">
+          <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-4">Stimmen meiner Kundinnen</div>
+          <h2 className="reveal font-serif text-4xl md:text-5xl text-ink leading-tight">Was Kundinnen sagen</h2>
+        </div>
+
+        <div className="max-w-3xl mx-auto">
+          <div
+            className="rounded-3xl bg-background border border-border/60 p-8 md:p-12 shadow-sm"
+            style={{ transition: "opacity 350ms ease", opacity: visible ? 1 : 0 }}
+          >
             <div className="flex items-center gap-1 mb-1">
               {[0,1,2,3,4].map((i) => <StarIcon key={i} />)}
             </div>
-            <p className="text-xs text-muted-foreground mb-5">5 von 5 Sternen · Google Bewertung</p>
-            <blockquote className="font-serif text-xl text-ink leading-relaxed">
-              „Absolute Herzensempfehlung! Nach 8 Jahren Selbstständigkeit habe ich endlich jemanden gefunden, der meine Vorstellungen zu 100 % verstanden und perfekt umgesetzt hat. Von der ersten Minute an wusste ich, dass ich in den richtigen Händen bin. Sie hat nicht einfach nur eine Webseite erstellt, sondern meine Vision sichtbar gemacht und meinem Studio einen professionellen Online-Auftritt gegeben, der zu 100 % zu mir passt."
+            <p className="text-xs text-muted-foreground mb-6">5 von 5 Sternen · Google Bewertung</p>
+            <blockquote className="font-serif text-xl md:text-2xl text-ink leading-relaxed">
+              „{t.quote}"
             </blockquote>
-            <div className="mt-6 flex items-center gap-3">
-              <div className="w-9 h-9 rounded-full bg-peach-soft flex items-center justify-center text-ink font-serif text-base">D</div>
+            <div className="mt-8 flex items-center gap-3">
+              <div className="w-10 h-10 rounded-full bg-peach-soft flex items-center justify-center text-ink font-serif text-base flex-shrink-0">
+                {t.initial}
+              </div>
               <div>
-                <p className="font-medium text-ink text-sm">Danijela Boskovic</p>
-                <p className="text-xs text-muted-foreground">Divine Beauty &amp; Nails Studio</p>
+                <p className="font-medium text-ink text-sm">{t.name}</p>
+                <p className="text-xs text-muted-foreground">{t.studio}</p>
               </div>
             </div>
+          </div>
+
+          <div className="flex justify-center gap-3 mt-8">
+            {testimonials.map((_, i) => (
+              <button
+                key={i}
+                type="button"
+                onClick={() => goTo(i)}
+                aria-label={`Bewertung ${i + 1}`}
+                className="h-1.5 rounded-full transition-all duration-500 ease-in-out"
+                style={{
+                  width: i === active ? "1.75rem" : "0.375rem",
+                  backgroundColor: i === active ? "var(--ink)" : "color-mix(in oklab, var(--ink) 25%, transparent)",
+                }}
+              />
+            ))}
           </div>
         </div>
       </div>
@@ -742,7 +775,7 @@ function Demos() {
         <div className="mt-16 text-center reveal">
           <Link
             to="/" hash="schreib-mir"
-            className="inline-block px-7 py-3.5 rounded-full bg-primary text-primary-foreground hover:bg-mauve transition font-medium"
+            className="inline-block px-7 py-3.5 rounded-full bg-primary text-primary-foreground hover:bg-mauve transition-all hover:scale-[1.02] hover:shadow-md font-medium"
           >
             Kostenlose Analyse & Demo
           </Link>
@@ -780,7 +813,7 @@ function Warum() {
             </div>
             <Link
               to="/" hash="schreib-mir"
-              className="reveal inline-block mt-8 px-7 py-3.5 rounded-full bg-primary text-primary-foreground hover:bg-mauve transition font-medium"
+              className="reveal inline-block mt-8 px-7 py-3.5 rounded-full bg-primary text-primary-foreground hover:bg-mauve transition-all hover:scale-[1.02] hover:shadow-md font-medium"
             >
               Kostenlose Analyse & Demo
             </Link>
@@ -890,7 +923,7 @@ function Angebot() {
             </ul>
             <Link
               to="/" hash="schreib-mir"
-              className="inline-block mt-10 px-7 py-3.5 rounded-full bg-primary text-primary-foreground hover:bg-mauve transition font-medium"
+              className="inline-block mt-10 px-7 py-3.5 rounded-full bg-primary text-primary-foreground hover:bg-mauve transition-all hover:scale-[1.02] hover:shadow-md font-medium"
             >
               Kostenlose Demo anfragen
             </Link>
@@ -1022,7 +1055,7 @@ function Javera() {
         <div className="mt-12 reveal">
           <Link
             to="/" hash="schreib-mir"
-            className="inline-block px-7 py-3.5 rounded-full bg-primary text-primary-foreground hover:bg-mauve transition font-medium"
+            className="inline-block px-7 py-3.5 rounded-full bg-primary text-primary-foreground hover:bg-mauve transition-all hover:scale-[1.02] hover:shadow-md font-medium"
           >
             Kostenlose Analyse & Demo
           </Link>
@@ -1062,7 +1095,7 @@ function Ablauf() {
         <div className="mt-8 text-center reveal">
           <Link
             to="/" hash="schreib-mir"
-            className="inline-block px-7 py-3.5 rounded-full bg-primary text-primary-foreground hover:bg-mauve transition font-medium"
+            className="inline-block px-7 py-3.5 rounded-full bg-primary text-primary-foreground hover:bg-mauve transition-all hover:scale-[1.02] hover:shadow-md font-medium"
           >
             Jetzt starten
           </Link>
@@ -1098,7 +1131,7 @@ function Zweifel() {
         </div>
         <Link
           to="/" hash="schreib-mir"
-          className="reveal inline-block mt-10 px-7 py-3.5 rounded-full bg-primary text-primary-foreground hover:bg-mauve transition font-medium"
+          className="reveal inline-block mt-10 px-7 py-3.5 rounded-full bg-primary text-primary-foreground hover:bg-mauve transition-all hover:scale-[1.02] hover:shadow-md font-medium"
         >
           Kostenlose Analyse & Demo
         </Link>
@@ -1191,7 +1224,7 @@ function FAQ() {
         <div className="mt-12 text-center reveal">
           <Link
             to="/" hash="schreib-mir"
-            className="inline-block px-7 py-3.5 rounded-full bg-primary text-primary-foreground hover:bg-mauve transition font-medium"
+            className="inline-block px-7 py-3.5 rounded-full bg-primary text-primary-foreground hover:bg-mauve transition-all hover:scale-[1.02] hover:shadow-md font-medium"
           >
             Kostenlose Analyse & Demo
           </Link>
@@ -1234,7 +1267,7 @@ function CTA() {
           </p>
           <Link
             to="/" hash="schreib-mir"
-            className="reveal inline-block mt-10 px-8 py-4 rounded-full bg-primary text-primary-foreground hover:bg-mauve transition font-medium"
+            className="reveal inline-block mt-10 px-8 py-4 rounded-full bg-primary text-primary-foreground hover:bg-mauve transition-all hover:scale-[1.02] hover:shadow-md font-medium"
           >
             Kostenlose Analyse & Demo
           </Link>
@@ -1405,7 +1438,7 @@ function SchreibMir() {
             <button
               type="submit"
               disabled={submitting}
-              className="w-full px-7 py-3.5 rounded-full bg-primary text-primary-foreground hover:bg-mauve transition font-medium disabled:opacity-60 disabled:cursor-not-allowed"
+              className="w-full px-7 py-3.5 rounded-full bg-primary text-primary-foreground hover:bg-mauve transition-all hover:scale-[1.02] hover:shadow-md font-medium disabled:opacity-60 disabled:cursor-not-allowed"
             >
               {submitting ? "Wird gesendet…" : "Nachricht senden"}
             </button>
@@ -1635,6 +1668,7 @@ function Index() {
       <FaceAndMore />
       <PaulaVenc />
       <DivineBeautyNails />
+      <Testimonials />
       <Demos />
       <FeaturedLuxe />
       <Javera />
