@@ -8,16 +8,16 @@ function NotFoundComponent() {
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
       <div className="max-w-md text-center">
         <h1 className="text-7xl font-bold text-foreground">404</h1>
-        <h2 className="mt-4 text-xl font-semibold text-foreground">Page not found</h2>
+        <h2 className="mt-4 text-xl font-semibold text-foreground">Seite nicht gefunden</h2>
         <p className="mt-2 text-sm text-muted-foreground">
-          The page you're looking for doesn't exist or has been moved.
+          Diese Seite existiert nicht oder wurde verschoben.
         </p>
         <div className="mt-6">
           <Link
             to="/"
             className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
           >
-            Go home
+            Zur Startseite
           </Link>
         </div>
       </div>
@@ -33,16 +33,29 @@ export const Route = createRootRoute({
       { title: "Javera Studio — Webdesign für Beauty Studios Wien" },
       { name: "description", content: "Professionelle Websites für Nagelstudios, Kosmetikstudios & Beauty Brands in Wien. Individuell, modern und auf dein Studio abgestimmt." },
       { name: "author", content: "Javera Studio" },
-      { name: "twitter:card", content: "summary_large_image" },
       { property: "og:type", content: "website" },
       { property: "og:locale", content: "de_AT" },
       { property: "og:site_name", content: "Javera Studio" },
+      { property: "og:title", content: "Javera Studio — Webdesign für Beauty Studios Wien" },
+      { property: "og:description", content: "Professionelle Websites für Nagelstudios, Kosmetikstudios & Beauty Brands in Wien. Individuell, modern und auf dein Studio abgestimmt." },
+      { property: "og:image", content: "https://www.javera-studio.at/og-image.jpg" },
+      { property: "og:image:width", content: "1200" },
+      { property: "og:image:height", content: "630" },
+      { property: "og:url", content: "https://www.javera-studio.at/" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:site", content: "@javerastudio" },
+      { name: "twitter:title", content: "Javera Studio — Webdesign für Beauty Studios Wien" },
+      { name: "twitter:description", content: "Professionelle Websites für Nagelstudios, Kosmetikstudios & Beauty Brands in Wien." },
+      { name: "twitter:image", content: "https://www.javera-studio.at/og-image.jpg" },
     ],
     links: [
-      {
-        rel: "stylesheet",
-        href: appCss,
-      },
+      { rel: "stylesheet", href: appCss },
+      { rel: "canonical", href: "https://www.javera-studio.at/" },
+      { rel: "icon", type: "image/x-icon", href: "/favicon.ico" },
+      { rel: "icon", type: "image/png", sizes: "16x16", href: "/favicon-16x16.png" },
+      { rel: "icon", type: "image/png", sizes: "32x32", href: "/favicon-32x32.png" },
+      { rel: "apple-touch-icon", sizes: "180x180", href: "/apple-touch-icon.png" },
+      { rel: "manifest", href: "/site.webmanifest" },
     ],
   }),
   shellComponent: RootShell,

@@ -42,6 +42,9 @@ export const Route = createFileRoute("/")({
       },
       { name: "twitter:image", content: "https://www.javera-studio.at/og-image.jpg" },
     ],
+    links: [
+      { rel: "canonical", href: "https://www.javera-studio.at/" },
+    ],
   }),
   component: Index,
 });

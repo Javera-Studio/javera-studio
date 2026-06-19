@@ -7,7 +7,7 @@ export const Route = createFileRoute("/datenschutz")({
     meta: [
       { title: "Datenschutzerklärung – Javera Studio" },
       { name: "description", content: "Datenschutzerklärung von Javera Studio." },
-      { name: "robots", content: "noindex" },
+      { name: "robots", content: "noindex, follow" },
     ],
   }),
   component: DatenschutzPage,

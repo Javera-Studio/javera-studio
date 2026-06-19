@@ -353,15 +353,24 @@ export const Route = createFileRoute("/blog/$slug")({
   head: ({ loaderData }) => {
     if (!loaderData) return {};
     const { post } = loaderData;
+    const postUrl = `https://www.javera-studio.at/blog/${post.slug}`;
     const meta: Array<{ name?: string; property?: string; content: string; title?: string }> = [
       { title: `${post.title} — Javera Studio` } as { title: string; content: string },
       { name: "description", content: post.description },
       { property: "og:title", content: post.title },
       { property: "og:description", content: post.description },
       { property: "og:type", content: "article" },
+      { property: "og:image", content: "https://www.javera-studio.at/og-image.jpg" },
+      { property: "og:url", content: postUrl },
+      { name: "twitter:title", content: post.title },
+      { name: "twitter:description", content: post.description },
+      { name: "twitter:image", content: "https://www.javera-studio.at/og-image.jpg" },
     ];
     if (post.keywords) meta.push({ name: "keywords", content: post.keywords });
-    return { meta };
+    return {
+      meta,
+      links: [{ rel: "canonical", href: postUrl }],
+    };
   },
   notFoundComponent: () => (
     <div className="min-h-screen flex items-center justify-center px-6 text-center">

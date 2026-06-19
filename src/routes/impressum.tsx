@@ -7,7 +7,7 @@ export const Route = createFileRoute("/impressum")({
     meta: [
       { title: "Impressum – Javera Studio" },
       { name: "description", content: "Impressum von Javera Studio." },
-      { name: "robots", content: "noindex" },
+      { name: "robots", content: "noindex, follow" },
     ],
   }),
   component: ImpressumPage,

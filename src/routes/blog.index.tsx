@@ -46,6 +46,14 @@ export const Route = createFileRoute("/blog/")({
         content:
           "Editorial Insights rund um Webdesign, Beauty-Trends und Online-Buchung für Beauty Studios in Wien.",
       },
+      { property: "og:image", content: "https://www.javera-studio.at/og-image.jpg" },
+      { property: "og:url", content: "https://www.javera-studio.at/blog/" },
+      { name: "twitter:title", content: "Blog — Javera Studio" },
+      { name: "twitter:description", content: "Editorial Insights rund um Webdesign, Beauty-Trends und Online-Buchung für Beauty Studios in Wien." },
+      { name: "twitter:image", content: "https://www.javera-studio.at/og-image.jpg" },
+    ],
+    links: [
+      { rel: "canonical", href: "https://www.javera-studio.at/blog/" },
     ],
   }),
   component: BlogIndex,

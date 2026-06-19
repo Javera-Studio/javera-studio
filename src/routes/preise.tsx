@@ -11,6 +11,16 @@ export const Route = createFileRoute("/preise")({
         content:
           "Transparente Preise für Website, Logo, Grafik & Social Media Design. Alle Leistungen einzeln buchbar – für Beauty Studios in Wien.",
       },
+      { property: "og:title", content: "Preise – Javera Studio · Webdesign · Grafik · Branding Wien" },
+      { property: "og:description", content: "Transparente Preise für Website, Logo, Grafik & Social Media Design. Alle Leistungen einzeln buchbar – für Beauty Studios in Wien." },
+      { property: "og:image", content: "https://www.javera-studio.at/og-image.jpg" },
+      { property: "og:url", content: "https://www.javera-studio.at/preise" },
+      { name: "twitter:title", content: "Preise – Javera Studio · Webdesign · Grafik · Branding Wien" },
+      { name: "twitter:description", content: "Transparente Preise für Website, Logo, Grafik & Social Media Design für Beauty Studios in Wien." },
+      { name: "twitter:image", content: "https://www.javera-studio.at/og-image.jpg" },
+    ],
+    links: [
+      { rel: "canonical", href: "https://www.javera-studio.at/preise" },
     ],
   }),
   component: PreisePage,
