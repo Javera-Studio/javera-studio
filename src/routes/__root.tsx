@@ -1,5 +1,6 @@
 import { Outlet, Link, createRootRoute, HeadContent, Scripts } from "@tanstack/react-router";
 import { Toaster } from "@/components/ui/sonner";
+import { CookieConsent } from "@/components/CookieConsent";
 
 import appCss from "../styles.css?url";
 
@@ -95,6 +96,7 @@ function RootShell({ children }: { children: React.ReactNode }) {
       </head>
       <body>
         {children}
+        <CookieConsent />
         <Toaster richColors position="top-center" />
         <Scripts />
       </body>
