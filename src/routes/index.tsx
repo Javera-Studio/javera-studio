@@ -477,37 +477,38 @@ function FaceAndMoreSocial() {
             {/* Mobile: stacked */}
             <div className="flex flex-col gap-5 md:hidden">
               <img
-                src={instaMockup}
-                alt="Instagram-Profil Mockup für Face & More"
-                loading="lazy"
-                className="w-full rounded-2xl drop-shadow-xl"
-              />
-              <img
                 src={instaMockupFeed}
                 alt="Instagram Feed & Story Mockup für Face & More"
                 loading="lazy"
                 className="w-full rounded-2xl drop-shadow-xl"
               />
+              <img
+                src={instaMockup}
+                alt="Instagram-Profil Mockup für Face & More"
+                loading="lazy"
+                className="w-full"
+                style={{ filter: "drop-shadow(0 12px 30px rgba(0,0,0,0.13))" }}
+              />
             </div>
-            {/* Desktop: overlapping layout */}
+            {/* Desktop: overlapping layout – Feed groß, Profil versetzt */}
             <div className="hidden md:flex items-end">
-              <div className="flex-shrink-0 w-[65%] relative z-10 drop-shadow-2xl">
-                <img
-                  src={instaMockup}
-                  alt="Instagram-Profil Mockup für Face & More"
-                  loading="lazy"
-                  className="w-full rounded-2xl"
-                />
-              </div>
-              <div
-                className="-ml-10 w-[45%] relative z-20 mt-16"
-                style={{ filter: "drop-shadow(0 20px 50px rgba(0,0,0,0.14))" }}
-              >
+              <div className="flex-shrink-0 w-[68%] relative z-10 drop-shadow-2xl">
                 <img
                   src={instaMockupFeed}
                   alt="Instagram Feed & Story Mockup für Face & More"
                   loading="lazy"
                   className="w-full rounded-2xl"
+                />
+              </div>
+              <div
+                className="-ml-12 w-[44%] relative z-20 mb-12"
+                style={{ filter: "drop-shadow(0 20px 50px rgba(0,0,0,0.14))" }}
+              >
+                <img
+                  src={instaMockup}
+                  alt="Instagram-Profil Mockup für Face & More"
+                  loading="lazy"
+                  className="w-full"
                 />
               </div>
             </div>
