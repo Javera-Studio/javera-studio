@@ -491,8 +491,8 @@ function FaceAndMoreSocial() {
               />
             </div>
             {/* Desktop: overlapping layout – Feed groß, Profil versetzt */}
-            <div className="hidden md:flex items-end">
-              <div className="flex-shrink-0 w-[68%] relative z-10 drop-shadow-2xl">
+            <div className="hidden md:block relative" style={{ paddingBottom: "11rem" }}>
+              <div className="w-[70%] relative z-10 drop-shadow-2xl">
                 <img
                   src={instaMockupFeed}
                   alt="Instagram Feed & Story Mockup für Face & More"
@@ -501,8 +501,8 @@ function FaceAndMoreSocial() {
                 />
               </div>
               <div
-                className="-ml-5 w-[44%] relative z-20 mb-12"
-                style={{ filter: "drop-shadow(0 20px 50px rgba(0,0,0,0.14))" }}
+                className="absolute bottom-0 w-[57%] z-20"
+                style={{ left: "64%", filter: "drop-shadow(0 20px 50px rgba(0,0,0,0.14))" }}
               >
                 <img
                   src={instaMockup}
