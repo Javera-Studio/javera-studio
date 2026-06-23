@@ -16,7 +16,7 @@ export async function POST(req: NextRequest) {
   }
 
   const { error } = await resend.emails.send({
-    from: "JAVERA Studio Website <onboarding@resend.dev>",
+    from: "JAVERA Studio Website <website@javera-studio.at>",
     to: "hallo@javera-studio.at",
     replyTo: email,
     subject: `Neue Anfrage: ${subject}`,
