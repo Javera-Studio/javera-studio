@@ -502,7 +502,7 @@ function FaceAndMoreSocial() {
               </div>
               <div
                 className="absolute bottom-0 w-[51%] z-20"
-                style={{ left: "50%", filter: "drop-shadow(0 20px 50px rgba(0,0,0,0.14))" }}
+                style={{ left: "50%", transform: "translateY(-30%)", filter: "drop-shadow(0 20px 50px rgba(0,0,0,0.14))" }}
               >
                 <img
                   src={instaMockup}
