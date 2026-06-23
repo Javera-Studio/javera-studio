@@ -6,6 +6,8 @@ import aboutImg from "@/assets/portrait.png";
 import logo from "@/assets/javera-logo.png";
 import problemImg from "@/assets/problem.jpg";
 import successImg from "@/assets/success.jpg";
+import instaMockup from "@/assets/insta.mockup.png";
+import instaMockupFeed from "@/assets/insta.mockup.feed.png";
 import demoLuxeNails from "@/assets/demo-luxe-nails.png";
 import demoPureSkin from "@/assets/demo-pure-skin.png";
 import demoSalonNoir from "@/assets/demo-salon-noir.png";
@@ -451,6 +453,91 @@ function FaceAndMore() {
           </div>
         </div>
 
+      </div>
+    </section>
+  );
+}
+
+function FaceAndMoreSocial() {
+  const leistungen = [
+    "Instagram-Profil optimiert",
+    "6 Highlight-Cover gestaltet",
+    "1 Karussell-Post Vorlage erstellt",
+    "2 editierbare Beitragsvorlagen entwickelt",
+    "6 Story-Vorlagen für regelmäßige Inhalte",
+    "Einheitliches Branding für Website & Social Media",
+  ];
+
+  return (
+    <section className="pb-14 md:pb-20 bg-stone-50/40">
+      <div className="max-w-6xl mx-auto px-6">
+        <div className="grid md:grid-cols-12 gap-10 md:gap-16 items-start">
+          {/* Left: Mockup Images */}
+          <div className="reveal md:col-span-7">
+            {/* Mobile: stacked */}
+            <div className="flex flex-col gap-5 md:hidden">
+              <img
+                src={instaMockup}
+                alt="Instagram-Profil Mockup für Face & More"
+                loading="lazy"
+                className="w-full rounded-2xl drop-shadow-xl"
+              />
+              <img
+                src={instaMockupFeed}
+                alt="Instagram Feed & Story Mockup für Face & More"
+                loading="lazy"
+                className="w-full rounded-2xl drop-shadow-xl"
+              />
+            </div>
+            {/* Desktop: overlapping layout */}
+            <div className="hidden md:flex items-end">
+              <div className="flex-shrink-0 w-[65%] relative z-10 drop-shadow-2xl">
+                <img
+                  src={instaMockup}
+                  alt="Instagram-Profil Mockup für Face & More"
+                  loading="lazy"
+                  className="w-full rounded-2xl"
+                />
+              </div>
+              <div
+                className="-ml-10 w-[45%] relative z-20 mt-16"
+                style={{ filter: "drop-shadow(0 20px 50px rgba(0,0,0,0.14))" }}
+              >
+                <img
+                  src={instaMockupFeed}
+                  alt="Instagram Feed & Story Mockup für Face & More"
+                  loading="lazy"
+                  className="w-full rounded-2xl"
+                />
+              </div>
+            </div>
+            <p className="reveal mt-8 font-serif text-base text-ink/70 italic leading-relaxed">
+              „Ein professioneller Auftritt endet nicht bei der Website – er setzt sich auf Social Media fort."
+            </p>
+          </div>
+
+          {/* Right: Text */}
+          <div className="md:col-span-5">
+            <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-4">
+              Social Media Visibility Paket
+            </div>
+            <h2 className="reveal font-serif text-4xl md:text-5xl text-ink leading-tight">
+              Instagram-Auftritt mit Wiedererkennungswert
+            </h2>
+            <p className="reveal reveal-delay mt-6 text-muted-foreground text-lg leading-relaxed">
+              Neben dem Website-Relaunch wurde auch der Instagram-Auftritt von Face &amp; More überarbeitet. Ziel war ein professioneller, einheitlicher Markenauftritt, der Vertrauen schafft und die Expertise des Studios sichtbar macht.
+            </p>
+            <p className="reveal mt-5 text-sm text-muted-foreground uppercase tracking-widest">Gemeinsam haben wir:</p>
+            <ul className="reveal mt-4 space-y-3">
+              {leistungen.map((l) => (
+                <li key={l} className="flex items-start gap-3 text-ink">
+                  <span className="mt-2 h-1.5 w-1.5 rounded-full bg-mauve flex-shrink-0" />
+                  <span>{l}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
       </div>
     </section>
   );
@@ -1694,6 +1781,7 @@ function Index() {
       <Warum />
       <Angebot />
       <FaceAndMore />
+      <FaceAndMoreSocial />
       <PaulaVenc />
       <DivineBeautyNails />
       <Testimonials />
