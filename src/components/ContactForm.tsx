@@ -26,17 +26,13 @@ export function ContactForm() {
 
     setSubmitting(true);
     try {
-      const response = await fetch("https://api.web3forms.com/submit", {
+      const response = await fetch("/api/contact", {
         method: "POST",
-        headers: { "Content-Type": "application/json", Accept: "application/json" },
-        body: JSON.stringify({
-          access_key: "5c831a25-cd2b-4666-ae44-91194af7bc49",
-          name, email, subject, message,
-          datenschutz_zustimmung: "Ja – Datenschutzerklärung gelesen und akzeptiert",
-        }),
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, email, subject, message }),
       });
-      const result = (await response.json()) as { success: boolean; message?: string };
-      if (!result.success) { toast.error(`Fehler: ${result.message ?? "Unbekannter Fehler"}`); return; }
+      const result = (await response.json()) as { success?: boolean; error?: string };
+      if (!response.ok) { toast.error(result.error ?? "Fehler beim Senden. Bitte versuche es erneut."); return; }
       setDone(true);
       toast.success("Danke für deine Anfrage – ich melde mich in Kürze.");
       form.reset();
