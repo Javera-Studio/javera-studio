@@ -501,7 +501,7 @@ function FaceAndMoreSocial() {
                 />
               </div>
               <div
-                className="-ml-12 w-[44%] relative z-20 mb-12"
+                className="-ml-5 w-[44%] relative z-20 mb-12"
                 style={{ filter: "drop-shadow(0 20px 50px rgba(0,0,0,0.14))" }}
               >
                 <img
