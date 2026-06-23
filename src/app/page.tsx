@@ -99,8 +99,8 @@ function Hero() {
           <a href="#schreib-mir" className="px-7 py-3.5 rounded-full bg-primary text-primary-foreground hover:bg-mauve transition-all hover:scale-[1.02] hover:shadow-md font-medium">
             Kostenlose Analyse & Demo
           </a>
-          <a href="#demos" className="px-7 py-3.5 rounded-full border border-white/40 text-white hover:bg-white hover:text-ink transition font-medium">
-            Beispiele ansehen
+          <a href="#kundenprojekte" className="px-7 py-3.5 rounded-full border border-white/40 text-white hover:bg-white hover:text-ink transition font-medium">
+            Referenzen
           </a>
         </div>
         <p className="hero-cta mt-6 text-sm text-white/80">Unverbindlich · Antwort in 24h · kostenlos starten</p>
