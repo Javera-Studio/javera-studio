@@ -429,7 +429,7 @@ function FaceAndMore() {
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-primary text-primary-foreground hover:bg-mauve transition-all hover:scale-[1.02] hover:shadow-md font-medium w-fit"
             >
-              Projekt ansehen
+              Webseite ansehen
               <span aria-hidden>→</span>
             </a>
           </div>
