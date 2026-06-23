@@ -469,13 +469,13 @@ function FaceAndMoreSocial() {
   ];
 
   return (
-    <section className="pb-14 md:pb-20 bg-stone-50/40">
+    <section className="py-12 md:py-16 bg-stone-50/40">
       <div className="max-w-6xl mx-auto px-6">
         <div className="grid md:grid-cols-12 gap-10 md:gap-16 items-start">
           {/* Left: Mockup Images */}
           <div className="reveal md:col-span-7">
             {/* Mobile: stacked */}
-            <div className="flex flex-col gap-5 md:hidden">
+            <div className="flex flex-col gap-4 md:hidden">
               <img
                 src={instaMockupFeed}
                 alt="Instagram Feed & Story Mockup für Face & More"
@@ -486,7 +486,7 @@ function FaceAndMoreSocial() {
                 src={instaMockup}
                 alt="Instagram-Profil Mockup für Face & More"
                 loading="lazy"
-                className="w-full"
+                className="w-3/4 mx-auto"
                 style={{ filter: "drop-shadow(0 12px 30px rgba(0,0,0,0.13))" }}
               />
             </div>
@@ -501,8 +501,8 @@ function FaceAndMoreSocial() {
                 />
               </div>
               <div
-                className="absolute bottom-0 w-[57%] z-20"
-                style={{ left: "64%", filter: "drop-shadow(0 20px 50px rgba(0,0,0,0.14))" }}
+                className="absolute bottom-0 w-[51%] z-20"
+                style={{ left: "62%", filter: "drop-shadow(0 20px 50px rgba(0,0,0,0.14))" }}
               >
                 <img
                   src={instaMockup}
@@ -519,10 +519,10 @@ function FaceAndMoreSocial() {
 
           {/* Right: Text */}
           <div className="md:col-span-5">
-            <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-4">
+            <div className="text-xs uppercase tracking-[0.15em] text-muted-foreground mb-4 break-words">
               Social Media Visibility Paket
             </div>
-            <h2 className="reveal font-serif text-4xl md:text-5xl text-ink leading-tight">
+            <h2 className="reveal font-serif text-3xl md:text-5xl text-ink leading-tight">
               Instagram-Auftritt mit Wiedererkennungswert
             </h2>
             <p className="reveal reveal-delay mt-6 text-muted-foreground text-lg leading-relaxed">
