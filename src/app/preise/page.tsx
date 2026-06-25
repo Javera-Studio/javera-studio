@@ -179,7 +179,7 @@ export default function PreisePage() {
                     href="/#schreib-mir"
                     className="block text-center py-3 border border-border text-ink font-semibold text-sm rounded-xl hover:bg-secondary transition"
                   >
-                    Kostenlose Analyse &amp; Demo anfragen
+                    Kostenlose Demo anfragen
                   </Link>
                 </div>
               </div>
@@ -216,7 +216,7 @@ export default function PreisePage() {
                     href="/#schreib-mir"
                     className="block text-center py-3 bg-primary text-primary-foreground font-semibold text-sm rounded-xl hover:bg-primary/90 transition"
                   >
-                    Kostenlose Analyse &amp; Demo anfragen
+                    Kostenlose Demo anfragen
                   </Link>
                 </div>
               </div>

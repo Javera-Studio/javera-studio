@@ -97,7 +97,7 @@ function Hero() {
         </p>
         <div className="hero-cta mt-8 flex flex-wrap gap-3 justify-center">
           <a href="#schreib-mir" className="px-7 py-3.5 rounded-full bg-primary text-primary-foreground hover:bg-mauve transition-all hover:scale-[1.02] hover:shadow-md font-medium">
-            Kostenlose Analyse & Demo
+            Kostenlose Demo anfragen
           </a>
           <a href="#kundenprojekte" className="px-7 py-3.5 rounded-full border border-white/40 text-white hover:bg-white hover:text-ink transition font-medium">
             Referenzen
@@ -166,7 +166,7 @@ function Warum() {
               <p>Eine eigene Website sorgt dafür, dass du Vertrauen aufbaust, sichtbar wirst und konstant neue Kundinnen gewinnst – auch dann, wenn du gerade nicht arbeitest.</p>
             </div>
             <a href="#schreib-mir" className="reveal inline-block mt-8 px-7 py-3.5 rounded-full bg-primary text-primary-foreground hover:bg-mauve transition-all hover:scale-[1.02] hover:shadow-md font-medium">
-              Kostenlose Analyse & Demo
+              Kostenlose Demo anfragen
             </a>
           </div>
           <ul className="space-y-1">
@@ -555,7 +555,7 @@ function Demos() {
         </div>
         <div className="mt-16 text-center reveal">
           <a href="#schreib-mir" className="inline-block px-7 py-3.5 rounded-full bg-primary text-primary-foreground hover:bg-mauve transition-all hover:scale-[1.02] hover:shadow-md font-medium">
-            Kostenlose Analyse & Demo
+            Kostenlose Demo anfragen
           </a>
           <p className="mt-3 text-xs text-muted-foreground">Weitere Projekte in Umsetzung</p>
         </div>
@@ -663,7 +663,7 @@ function Javera() {
         </div>
         <div className="mt-12 reveal">
           <a href="#schreib-mir" className="inline-block px-7 py-3.5 rounded-full bg-primary text-primary-foreground hover:bg-mauve transition-all hover:scale-[1.02] hover:shadow-md font-medium">
-            Kostenlose Analyse & Demo
+            Kostenlose Demo anfragen
           </a>
         </div>
       </div>
@@ -711,7 +711,7 @@ function Zweifel() {
           <p>Du bekommst eine erste Demo – und wir passen alles gemeinsam an, bis es perfekt zu deinem Studio passt.</p>
         </div>
         <a href="#schreib-mir" className="reveal inline-block mt-10 px-7 py-3.5 rounded-full bg-primary text-primary-foreground hover:bg-mauve transition-all hover:scale-[1.02] hover:shadow-md font-medium">
-          Kostenlose Analyse & Demo
+          Kostenlose Demo anfragen
         </a>
       </div>
     </section>
@@ -737,7 +737,7 @@ function FAQ() {
         </div>
         <div className="mt-12 text-center reveal">
           <a href="#schreib-mir" className="inline-block px-7 py-3.5 rounded-full bg-primary text-primary-foreground hover:bg-mauve transition-all hover:scale-[1.02] hover:shadow-md font-medium">
-            Kostenlose Analyse & Demo
+            Kostenlose Demo anfragen
           </a>
           <p className="mt-3 text-xs text-muted-foreground">Unverbindlich · Antwort in 24h · kostenlos starten</p>
         </div>
@@ -760,7 +760,7 @@ function CTA() {
           <h2 className="reveal font-serif text-4xl md:text-5xl lg:text-6xl text-ink leading-tight">Bereit für einen Auftritt, der dein Studio wirklich widerspiegelt – und neue Kundinnen bringt?</h2>
           <p className="reveal reveal-delay mt-6 text-lg text-muted-foreground">Schick mir eine kurze Anfrage – ich melde mich persönlich bei dir.</p>
           <a href="#schreib-mir" className="reveal inline-block mt-10 px-8 py-4 rounded-full bg-primary text-primary-foreground hover:bg-mauve transition-all hover:scale-[1.02] hover:shadow-md font-medium">
-            Kostenlose Analyse & Demo
+            Kostenlose Demo anfragen
           </a>
           <p className="reveal mt-3 text-xs text-muted-foreground">Unverbindlich · Antwort in 24h · kostenlos starten</p>
           <p className="reveal mt-4 text-sm text-muted-foreground">speziell für Beauty Studios</p>
