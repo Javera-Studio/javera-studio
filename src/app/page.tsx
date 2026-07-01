@@ -35,13 +35,11 @@ const demos = [
 ];
 
 const benefits = [
-  "Mehr direkte Anfragen & Terminbuchungen durch einen Auftritt, der überzeugt",
-  "Ein konsistentes Markenbild – von der Website bis zum Flyer",
-  "Professioneller erster Eindruck auf jedem Kanal: online, print & social",
-  "Bessere Sichtbarkeit bei Google durch gezielte SEO-Optimierung",
-  "Social-Media-Content, der wirklich zu deiner Marke passt",
-  "Klare Positionierung, die dich von der Konkurrenz abhebt",
-  "Weniger Abhängigkeit von Instagram – mit einem starken eigenen Auftritt",
+  "Der erste Eindruck entsteht online — Noch bevor eine Kundin dein Studio besucht, informiert sie sich über Google oder Social Media.",
+  "Vertrauen entscheidet — Eine professionelle Website schafft Vertrauen und hebt dein Studio von der Konkurrenz ab.",
+  "Instagram allein reicht selten aus — Social Media ist wichtig – eine Website gibt deinem Studio ein dauerhaftes Zuhause im Internet und ergänzt deinen Online-Auftritt.",
+  "Bei Google gefunden werden — Viele Kundinnen suchen aktiv nach Beauty-Studios in ihrer Nähe. Eine suchmaschinenoptimierte Website erhöht deine Sichtbarkeit und sorgt für mehr Anfragen.",
+  "Ein einheitlicher Markenauftritt — Website, Logo, Social Media und Print arbeiten zusammen und sorgen für einen professionellen, wiedererkennbaren Auftritt.",
 ];
 
 const javeraPoints = [
@@ -155,10 +153,12 @@ function Warum() {
         <div className="grid md:grid-cols-2 gap-16 items-start">
           <div className="md:sticky md:top-28">
             <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-4">Warum eine Website</div>
-            <h2 className="reveal font-serif text-4xl md:text-5xl text-ink leading-tight">Warum Instagram allein nicht reicht</h2>
+            <h2 className="reveal font-serif text-4xl md:text-5xl text-ink leading-tight">Deine Website ist das Schaufenster deines Studios im Internet.</h2>
             <div className="reveal reveal-delay mt-6 space-y-4 text-muted-foreground text-lg leading-relaxed">
-              <p>Viele Kundinnen suchen direkt über Google nach Beauty Studios in ihrer Nähe. Ohne Website verlierst du täglich potenzielle Anfragen an Studios, die professioneller wirken und leichter auffindbar sind.</p>
-              <p>Eine eigene Website sorgt dafür, dass du Vertrauen aufbaust, sichtbar wirst und konstant neue Kundinnen gewinnst – auch dann, wenn du gerade nicht arbeitest.</p>
+              <p>Viele Beauty-Studios investieren Tausende Euro in ihre Einrichtung, hochwertige Geräte und regelmäßige Schulungen – und das aus gutem Grund.</p>
+              <p>Doch der erste Eindruck entsteht heute oft lange bevor eine Kundin dein Studio betritt.</p>
+              <p>Sie besucht deine Website, schaut sich deine Arbeiten an und entscheidet innerhalb weniger Sekunden, ob sie Vertrauen fasst oder weitersucht.</p>
+              <p>Deshalb verdient dein Studio eine Website, die genauso hochwertig wirkt wie deine Arbeit.</p>
             </div>
             <a href="#schreib-mir" className="reveal inline-block mt-8 px-7 py-3.5 rounded-full bg-primary text-primary-foreground hover:bg-mauve transition-all hover:scale-[1.02] hover:shadow-md font-medium">
               Kostenlose Demo anfragen
