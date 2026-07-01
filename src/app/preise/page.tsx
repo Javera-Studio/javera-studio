@@ -4,18 +4,18 @@ import Image from "next/image";
 import { SiteFooter } from "@/components/SiteFooter";
 
 export const metadata: Metadata = {
-  title: "Preise – Javera Studio · Webdesign · Grafik · Branding Wien",
-  description: "Transparente Preise für Website, Logo, Grafik & Social Media Design. Alle Leistungen einzeln buchbar – für Beauty Studios in Wien.",
+  title: "Preise Webdesign & Branding für Beauty-Studios | JAVERA Studio",
+  description: "Transparente Preise für Websites, Logo Design, Flyer, Visitenkarten und Social Media Design für Nagelstudios, Kosmetikstudios, Wimpernstudios, PMU-Studios und Waxing-Studios.",
   alternates: { canonical: "https://www.javera-studio.at/preise" },
   openGraph: {
-    title: "Preise – Javera Studio · Webdesign · Grafik · Branding Wien",
-    description: "Transparente Preise für Website, Logo, Grafik & Social Media Design. Alle Leistungen einzeln buchbar – für Beauty Studios in Wien.",
+    title: "Preise Webdesign & Branding für Beauty-Studios | JAVERA Studio",
+    description: "Transparente Preise für Websites, Logo Design, Flyer, Visitenkarten und Social Media Design für Nagelstudios, Kosmetikstudios, Wimpernstudios, PMU-Studios und Waxing-Studios.",
     url: "https://www.javera-studio.at/preise",
     images: [{ url: "/og-image.jpg", width: 1200, height: 630 }],
   },
   twitter: {
-    title: "Preise – Javera Studio · Webdesign · Grafik · Branding Wien",
-    description: "Transparente Preise für Website, Logo, Grafik & Social Media Design für Beauty Studios in Wien.",
+    title: "Preise Webdesign & Branding für Beauty-Studios | JAVERA Studio",
+    description: "Transparente Preise für Websites, Logo Design, Flyer, Visitenkarten und Social Media Design für Nagelstudios, Kosmetikstudios, Wimpernstudios, PMU-Studios und Waxing-Studios.",
     images: ["/og-image.jpg"],
   },
 };
@@ -107,8 +107,34 @@ export default function PreisePage() {
     { title: "Instagram Highlight Cover Set (6 Stück)", desc: "Minimalistische Cover Icons für Instagram Highlights", price: "90 €" },
   ];
 
+  const preiseFaqs = [
+    { q: "Was kostet eine Website für ein Nagelstudio?", a: "Eine Starter Website (One-Pager) startet bei 500 €, eine Premium Website mit mehreren Seiten ab 900 €. Der genaue Preis hängt vom Umfang deines Nagelstudios ab." },
+    { q: "Was kostet eine Website für ein Kosmetikstudio?", a: "Genau wie bei anderen Beauty-Studios: Starter Website ab 500 €, Premium Website ab 900 €. Beide Pakete werden individuell auf Kosmetikstudios zugeschnitten." },
+    { q: "Was kostet eine Website für ein Wimpernstudio oder PMU-Studio?", a: "Auch hier gelten die gleichen Pakete: 500 € für die Starter Website, ab 900 € für die Premium Website – unabhängig davon, ob du Wimpern, PMU oder Waxing anbietest." },
+    { q: "Was kostet ein Logo für ein Beauty-Studio?", a: "Ein Logo-Design kostet 250 € und beinhaltet 3 Entwürfe, Farbvarianten sowie PNG- und PDF-Dateien." },
+    { q: "Sind Hosting und Domain im Preis enthalten?", a: "Nein. Domain und Hosting laufen direkt über einen externen Anbieter auf deinen Namen und kosten ca. 15 € pro Jahr. So behältst du die volle Kontrolle über deine Website." },
+    { q: "Gibt es versteckte Kosten?", a: "Nein. Alle Preise sind transparent aufgelistet. Laufende Kosten wie Domain, Hosting und Wartung sind klar gekennzeichnet und werden vorab besprochen." },
+    { q: "Kann ich Website, Logo und Flyer zusammen buchen?", a: "Ja. Im Paket 'Beauty Studio Komplett' erhältst du Premium Website, Logo, 10 Social Media Posts und Flyer für 1.390 € statt 1.640 € einzeln." },
+    { q: "Wie viel kostet die laufende Wartung meiner Website?", a: "Das Wartungspaket kostet 40 € pro Monat und beinhaltet bis zu 4 kleine Änderungen (Texte, Fotos, Aktionen). Einzelne spontane Änderungen ohne Paket kosten 50 € einmalig." },
+    { q: "Gibt es Rabatt, wenn ich mehrere Leistungen kombiniere?", a: "Ja. Website-Kundinnen erhalten 10 % Rabatt auf alle Grafik-, Print- und Social-Media-Design-Leistungen." },
+  ];
+
+  const preiseFaqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: preiseFaqs.map((f) => ({
+      "@type": "Question",
+      name: f.q,
+      acceptedAnswer: { "@type": "Answer", text: f.a },
+    })),
+  };
+
   return (
     <main className="bg-background text-ink min-h-screen">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(preiseFaqSchema) }}
+      />
       {/* Header */}
       <header className="fixed top-0 inset-x-0 z-50 backdrop-blur-md bg-background/70 border-b border-border/60">
         <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
@@ -276,7 +302,7 @@ export default function PreisePage() {
               <p className="font-semibold text-ink">Domain &amp; Hosting</p>
               <p className="text-xs text-muted-foreground mt-1">Eigene www-Adresse + Website online halten (bei externem Anbieter)</p>
               <p className="text-xs text-muted-foreground/80 mt-1 italic">direkt beim Anbieter — läuft auf deinen Namen</p>
-              <p className="text-2xl font-bold text-ink mt-auto pt-4">15 € <span className="text-sm font-normal text-muted-foreground">/ Monat</span></p>
+              <p className="text-2xl font-bold text-ink mt-auto pt-4">15 € <span className="text-sm font-normal text-muted-foreground">/ Jahr</span></p>
             </div>
             <div className="bg-background border border-border rounded-2xl p-6 flex flex-col">
               <p className="font-semibold text-ink">Wartungspaket</p>
@@ -373,6 +399,25 @@ export default function PreisePage() {
             </p>
           </div>
 
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section id="faq" className="py-12 md:py-16 bg-cream">
+        <div className="max-w-3xl mx-auto px-6">
+          <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-4 text-center">FAQ</div>
+          <h2 className="font-serif text-4xl md:text-5xl text-ink leading-tight text-center">Häufige Fragen zu Preisen</h2>
+          <div className="mt-12 space-y-3">
+            {preiseFaqs.map((f) => (
+              <details key={f.q} className="group rounded-2xl bg-background border border-border/60 p-6 open:shadow-sm transition">
+                <summary className="flex items-center justify-between cursor-pointer list-none gap-6">
+                  <span className="font-serif text-lg md:text-xl text-ink">{f.q}</span>
+                  <span aria-hidden className="shrink-0 w-7 h-7 rounded-full border border-ink/20 flex items-center justify-center text-ink transition-transform group-open:rotate-45">+</span>
+                </summary>
+                <p className="mt-4 text-muted-foreground leading-relaxed">{f.a}</p>
+              </details>
+            ))}
+          </div>
         </div>
       </section>
 

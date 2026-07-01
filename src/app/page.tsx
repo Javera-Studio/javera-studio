@@ -63,20 +63,15 @@ const steps = [
 ];
 
 const faqs = [
-  { q: "Wie lange dauert es, bis meine Website fertig ist?", a: "In den meisten Fällen bekommst du deine erste Demo bereits innerhalb weniger Tage. Die finale Umsetzung hängt davon ab, wie schnell wir Anpassungen abstimmen, ist aber bewusst einfach und effizient gehalten." },
-  { q: "Brauche ich eigene Texte oder Bilder?", a: "Nein. Du musst nichts fertig vorbereitet haben. Ich helfe dir bei Struktur und Texten. Eigene Bilder sind ideal, aber nicht zwingend – ich kann dich auch dabei unterstützen." },
-  { q: "Ist meine Website auch für Handy optimiert?", a: "Ja, jede Website wird so aufgebaut, dass sie auf Smartphone, Tablet und Desktop perfekt funktioniert." },
-  { q: "Hilfst du mir bei Domain und Hosting?", a: "Ja. Ich erkläre dir alles verständlich und unterstütze dich beim Einrichten. Domain und Hosting laufen direkt über einen Anbieter auf deinen Namen, damit du volle Kontrolle hast." },
-  { q: "Wird meine Website bei Google gefunden?", a: "Ja, jede Website enthält eine SEO-Grundoptimierung, damit du besser gefunden wirst und online sichtbar bist." },
-  { q: "Was passiert nach der Demo?", a: "Du bekommst eine erste Version deiner Website. Danach passen wir alles gemeinsam an, bis es genau zu deinem Studio passt – erst dann geht sie online." },
-  { q: "Was kostet mich die Demo?", a: "Die Analyse & Demo-Vorschau ist kostenlos und unverbindlich. Du siehst, wie deine Website aussehen könnte – und entscheidest danach, ob du weitermachen möchtest." },
-  { q: "Muss ich sofort bezahlen?", a: "Nein. Erst wenn du mit der Demo zufrieden bist und es zur Auftragserteilung kommt, wird eine Anzahlung von 50 % fällig. Die restlichen 50 % bezahlst du erst, wenn deine Website live ist und du zufrieden bist." },
-  { q: "Was passiert, wenn mir die Website nicht gefällt?", a: "Wir passen so lange an, bis sie wirklich zu deinem Studio passt. Dein Feedback ist Teil des Prozesses – das ist kein Fertigprodukt von der Stange." },
-  { q: "Ich bin kein Technik-Mensch – ist das ein Problem?", a: "Überhaupt nicht. Du musst dich um nichts kümmern. Ich erkläre dir jeden Schritt verständlich und übernehme alles Technische für dich." },
-  { q: "Arbeite ich direkt mit dir oder mit einem Team?", a: "Du arbeitest ausschließlich mit mir – Jagoda. Kein anonymes Team, keine Weiterleitung. Ich bin deine direkte Ansprechpartnerin von Anfang bis Ende." },
-  { q: "Kann ich auch nur ein Logo oder Social Media Design bestellen – ohne Website?", a: "Ja – alle Grafik- und Designleistungen sind einzeln buchbar. Du brauchst keine Website bei mir, um Flyer, Logo oder Social Media Posts zu beauftragen. Ich stimme alles auf dein bestehendes Branding oder deine Website ab." },
-  { q: "Wie lange dauert es, bis ein Logo oder Flyer fertig ist?", a: "Für ein Logo plane 5–7 Werktage (3 Entwürfe inkl. Korrekturrunden). Für Flyer und Print-Designs rechne mit 3–5 Werktagen." },
-  { q: "Lohnt es sich, Website und Social Media Design zusammen zu buchen?", a: "Sehr – ein einheitliches Design über alle Kanäle macht deinen Auftritt stärker und professioneller. Als Website-Kundin erhältst du außerdem 10 % Rabatt auf alle Grafik- und Design-Leistungen." },
+  { q: "Erstellst du auch Websites für Nagelstudios, Kosmetikstudios, Wimpernstudios, PMU-Studios oder Waxing-Studios?", a: "Ja, genau darauf bin ich spezialisiert. Ich gestalte Websites, Branding und Grafik ausschließlich für Beauty-Professionals – egal ob Nagelstudio, Kosmetikstudio, Wimpernstudio, PMU-Studio oder Waxing-Studio." },
+  { q: "Was kostet eine Website für mein Beauty-Studio?", a: "Das hängt vom gewünschten Umfang ab. Auf meiner Preise-Seite findest du alle Pakete für Website, Branding und Social Media transparent aufgelistet – ohne versteckte Kosten." },
+  { q: "Wird meine Website bei Google gefunden?", a: "Ja. Jede Website enthält eine SEO-Grundoptimierung, damit dein Studio bei Suchen wie 'Nagelstudio Wien' oder 'Kosmetikstudio in meiner Nähe' gefunden wird." },
+  { q: "Was kostet mich die Demo?", a: "Nichts. Die Analyse & Demo-Vorschau ist kostenlos und unverbindlich – du entscheidest danach, ob du weitermachen möchtest." },
+  { q: "Brauche ich eigene Texte oder Bilder?", a: "Nein. Du musst keine fertigen Texte mitbringen. Es reicht, wenn du mir Stichpunkte zu deinem Studio, deinen Leistungen, Preisen und deiner Arbeitsweise gibst. Ich unterstütze dich bei der Struktur und formuliere die Website-Texte professionell für dein Beauty-Studio. Eigene Fotos sind hilfreich, aber nicht zwingend notwendig." },
+  { q: "Was passiert, wenn mir die Website nicht gefällt?", a: "Wir passen sie so lange an, bis sie wirklich zu deinem Studio passt. Dein Feedback ist fester Teil des Prozesses." },
+  { q: "Wie lange dauert es, bis meine Website fertig ist?", a: "Die erste Demo bekommst du meist innerhalb weniger Tage. Die finale Umsetzung hängt vom Abstimmungstempo ab, bleibt aber bewusst schnell und unkompliziert." },
+  { q: "Ich bin kein Technik-Mensch – ist das ein Problem?", a: "Nein. Ich erkläre dir jeden Schritt verständlich und übernehme die komplette Technik – Domain, Hosting und Einrichtung inklusive." },
+  { q: "Kann ich auch nur ein Logo oder Social Media Design bestellen – ohne Website?", a: "Ja. Website, Logo, Flyer und Social Media Design sind einzeln buchbar – ganz gleich ob du ein Nagelstudio, Wimpernstudio oder PMU-Studio führst." },
 ];
 
 function Hero() {
@@ -770,9 +765,23 @@ function CTA() {
   );
 }
 
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((f) => ({
+    "@type": "Question",
+    name: f.q,
+    acceptedAnswer: { "@type": "Answer", text: f.a },
+  })),
+};
+
 export default function Home() {
   return (
     <main className="bg-background text-ink">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
       <ScrollRevealInit />
       <Navbar />
       <Hero />
