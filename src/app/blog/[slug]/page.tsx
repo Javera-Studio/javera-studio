@@ -46,6 +46,35 @@ function ContentBlock({ block }: { block: BlogBlock }) {
   switch (block.type) {
     case "heading":
       return <h2 className="font-serif text-2xl md:text-3xl text-ink mt-10 mb-4">{block.text}</h2>;
+    case "subheading":
+      return <h3 className="font-serif text-lg md:text-xl font-semibold text-ink mt-6 mb-2">{block.text}</h3>;
+    case "table":
+      return (
+        <div className="my-6 overflow-x-auto rounded-2xl border border-border/60 bg-background">
+          <table className="w-full text-sm">
+            <thead>
+              <tr className="bg-peach-soft/40">
+                {block.headers.map((h) => (
+                  <th key={h} className="text-left font-medium text-ink px-4 py-3 border-b border-border/60">
+                    {h}
+                  </th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {block.rows.map((row, i) => (
+                <tr key={i} className={i % 2 !== 0 ? "bg-cream/40" : ""}>
+                  {row.map((cell, j) => (
+                    <td key={j} className="px-4 py-3 text-muted-foreground border-b border-border/40 last:border-0">
+                      {cell}
+                    </td>
+                  ))}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      );
     case "list":
       return (
         <ul className="list-none space-y-2 my-4 pl-0">
