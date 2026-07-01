@@ -108,15 +108,14 @@ export default function PreisePage() {
   ];
 
   const preiseFaqs = [
-    { q: "Was kostet eine Website für ein Nagelstudio?", a: "Eine Starter Website (One-Pager) startet bei 500 €, eine Premium Website mit mehreren Seiten ab 900 €. Der genaue Preis hängt vom Umfang deines Nagelstudios ab." },
-    { q: "Was kostet eine Website für ein Kosmetikstudio?", a: "Genau wie bei anderen Beauty-Studios: Starter Website ab 500 €, Premium Website ab 900 €. Beide Pakete werden individuell auf Kosmetikstudios zugeschnitten." },
-    { q: "Was kostet eine Website für ein Wimpernstudio oder PMU-Studio?", a: "Auch hier gelten die gleichen Pakete: 500 € für die Starter Website, ab 900 € für die Premium Website – unabhängig davon, ob du Wimpern, PMU oder Waxing anbietest." },
+    { q: "Was kostet eine Website für ein Beauty-Studio?", a: "Eine Starter Website (One-Pager) startet bei 500 €, eine Premium Website mit mehreren Seiten ab 900 €. Der genaue Preis hängt vom Umfang deines Studios ab." },
     { q: "Was kostet ein Logo für ein Beauty-Studio?", a: "Ein Logo-Design kostet 250 € und beinhaltet 3 Entwürfe, Farbvarianten sowie PNG- und PDF-Dateien." },
     { q: "Sind Hosting und Domain im Preis enthalten?", a: "Nein. Domain und Hosting laufen direkt über einen externen Anbieter auf deinen Namen und kosten ca. 15 € pro Jahr. So behältst du die volle Kontrolle über deine Website." },
     { q: "Gibt es versteckte Kosten?", a: "Nein. Alle Preise sind transparent aufgelistet. Laufende Kosten wie Domain, Hosting und Wartung sind klar gekennzeichnet und werden vorab besprochen." },
     { q: "Kann ich Website, Logo und Flyer zusammen buchen?", a: "Ja. Im Paket 'Beauty Studio Komplett' erhältst du Premium Website, Logo, 10 Social Media Posts und Flyer für 1.390 € statt 1.640 € einzeln." },
     { q: "Wie viel kostet die laufende Wartung meiner Website?", a: "Das Wartungspaket kostet 40 € pro Monat und beinhaltet bis zu 4 kleine Änderungen (Texte, Fotos, Aktionen). Einzelne spontane Änderungen ohne Paket kosten 50 € einmalig." },
-    { q: "Gibt es Rabatt, wenn ich mehrere Leistungen kombiniere?", a: "Ja. Website-Kundinnen erhalten 10 % Rabatt auf alle Grafik-, Print- und Social-Media-Design-Leistungen." },
+    { q: "Wie läuft die Bezahlung ab?", a: "Ich arbeite transparent und ohne versteckte Kosten. Nach dem Erstgespräch erhältst du ein individuelles Festpreis-Angebot. Nach deiner Zusage werden 50 % des Betrags als Anzahlung fällig, die restlichen 50 % nach Fertigstellung deiner Website oder deines Projekts." },
+    { q: "Warum kostet eine professionelle Website mehr als ein Baukasten?", a: "Eine professionelle Website ist individuell auf dein Beauty-Studio abgestimmt und wird speziell für deine Marke gestaltet. Im Gegensatz zu einem Baukastensystem erhältst du keine Standardvorlage, sondern eine Website, die dein Studio professionell präsentiert, Vertrauen schafft und auf deine Zielgruppe zugeschnitten ist. Dazu gehören unter anderem individuelles Design, eine klare Struktur, Suchmaschinenoptimierung, mobile Optimierung sowie persönliche Betreuung während des gesamten Projekts. Viele Beauty-Studios investieren mehrere Tausend Euro in ihre Einrichtung, Geräte oder Schulungen. Die Website ist jedoch oft der erste Eindruck, den potenzielle Kundinnen von deinem Studio bekommen – sie ist dein digitales Schaufenster und spielt eine entscheidende Rolle dabei, ob jemand Vertrauen fasst und einen Termin bei dir anfragt." },
   ];
 
   const preiseFaqSchema = {
