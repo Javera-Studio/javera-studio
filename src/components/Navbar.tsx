@@ -27,7 +27,7 @@ export function Navbar() {
           <a href="#ablauf" className="hover:text-ink transition">Ablauf</a>
           <Link href="/preise" className="hover:text-ink transition">Preise</Link>
           <a href="#about" className="hover:text-ink transition">Über mich</a>
-          <a href="#faq" className="hover:text-ink transition">FAQ</a>
+          <Link href="/faq" className="hover:text-ink transition">FAQ</Link>
           <Link href="/blog" className="hover:text-ink transition">Blog</Link>
         </nav>
         <div className="flex items-center gap-3">
@@ -60,7 +60,7 @@ export function Navbar() {
             <a href="#ablauf" onClick={close} className="py-2.5 hover:text-ink transition">Ablauf</a>
             <Link href="/preise" onClick={close} className="py-2.5 hover:text-ink transition">Preise</Link>
             <a href="#about" onClick={close} className="py-2.5 hover:text-ink transition">Über mich</a>
-            <a href="#faq" onClick={close} className="py-2.5 hover:text-ink transition">FAQ</a>
+            <Link href="/faq" onClick={close} className="py-2.5 hover:text-ink transition">FAQ</Link>
             <Link href="/blog" onClick={close} className="py-2.5 hover:text-ink transition">Blog</Link>
             <a
               href="#schreib-mir"
