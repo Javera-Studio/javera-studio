@@ -13,11 +13,11 @@ export function Navbar() {
       <div className="max-w-6xl mx-auto px-6 h-24 md:h-28 flex items-center justify-between">
         <a href="#top" className="flex items-center group" aria-label="Javera Studio – zur Startseite" onClick={close}>
           <Image
-            src="/javera-logo.png"
+            src="/Javera.logo.rund.png"
             alt="Javera Studio"
-            width={120}
-            height={80}
-            className="h-16 md:h-20 w-auto transition-all duration-500 ease-out group-hover:scale-[1.04] group-hover:opacity-80 group-hover:drop-shadow-[0_4px_12px_rgba(0,0,0,0.08)]"
+            width={100}
+            height={100}
+            className="h-16 w-16 md:h-20 md:w-20 transition-all duration-500 ease-out group-hover:scale-[1.04] group-hover:opacity-80 group-hover:drop-shadow-[0_4px_12px_rgba(0,0,0,0.08)]"
             priority
           />
         </a>
