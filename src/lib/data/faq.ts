@@ -30,7 +30,7 @@ export const faqCategories: FaqCategory[] = [
   {
     id: "websites",
     title: "Websites",
-    icon: "💻",
+    icon: "Monitor",
     items: [
       { id: "faq-website-notwendigkeit", question: "Brauche ich als Beauty-Studio überhaupt eine Website?", answer: "Antwort folgt in Kürze." },
       { id: "faq-website-instagram-reicht", question: "Reicht Instagram nicht aus?", answer: "Antwort folgt in Kürze." },
@@ -47,7 +47,7 @@ export const faqCategories: FaqCategory[] = [
   {
     id: "preise",
     title: "Preise",
-    icon: "💰",
+    icon: "Wallet",
     items: [
       { id: "faq-preise-website", question: "Was kostet eine Website?", answer: "Antwort folgt in Kürze." },
       { id: "faq-preise-logo", question: "Was kostet ein Logo?", answer: "Antwort folgt in Kürze." },
@@ -62,7 +62,7 @@ export const faqCategories: FaqCategory[] = [
   {
     id: "branding",
     title: "Branding & Design",
-    icon: "🎨",
+    icon: "Palette",
     items: [
       { id: "faq-branding-logo-warum", question: "Warum brauche ich ein Logo?", answer: "Antwort folgt in Kürze." },
       { id: "faq-branding-corporate-design", question: "Was gehört zu einem Corporate Design?", answer: "Antwort folgt in Kürze." },
@@ -75,7 +75,7 @@ export const faqCategories: FaqCategory[] = [
   {
     id: "seo",
     title: "Google & SEO",
-    icon: "📈",
+    icon: "TrendingUp",
     items: [
       { id: "faq-seo-google-gefunden", question: "Wird meine Website bei Google gefunden?", answer: "Antwort folgt in Kürze." },
       { id: "faq-seo-bedeutung", question: "Was bedeutet SEO?", answer: "Antwort folgt in Kürze." },
@@ -88,7 +88,7 @@ export const faqCategories: FaqCategory[] = [
   {
     id: "zusammenarbeit",
     title: "Zusammenarbeit",
-    icon: "🤝",
+    icon: "Handshake",
     items: [
       { id: "faq-zusammenarbeit-ablauf", question: "Wie läuft ein Website-Projekt ab?", answer: "Antwort folgt in Kürze." },
       { id: "faq-zusammenarbeit-texte", question: "Muss ich Texte selbst schreiben?", answer: "Antwort folgt in Kürze." },
@@ -101,7 +101,7 @@ export const faqCategories: FaqCategory[] = [
   {
     id: "beauty-studios",
     title: "Beauty-Studios",
-    icon: "💄",
+    icon: "Sparkles",
     items: [
       { id: "faq-branche-nagelstudio", question: "Erstellst du Websites für Nagelstudios?", answer: "Antwort folgt in Kürze." },
       { id: "faq-branche-kosmetikstudio", question: "Erstellst du Websites für Kosmetikstudios?", answer: "Antwort folgt in Kürze." },

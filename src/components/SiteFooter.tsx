@@ -16,12 +16,6 @@ export function SiteFooter() {
 
           <div className="flex flex-col gap-6 md:translate-x-[30%]">
             <div>
-              <p className="text-xs uppercase tracking-widest text-white/40 mb-3">Kontakt</p>
-              <a href="mailto:hallo@javera-studio.at" className="text-sm text-white/80 hover:text-white transition-colors">
-                hallo@javera-studio.at
-              </a>
-            </div>
-            <div>
               <p className="text-xs uppercase tracking-widest text-white/40 mb-3">Folge uns</p>
               <div className="flex flex-col gap-2.5">
                 <a
@@ -63,10 +57,18 @@ export function SiteFooter() {
             </div>
           </div>
 
-          <div className="flex flex-col gap-2">
-            <p className="text-xs uppercase tracking-widest text-white/40 mb-1">Rechtliches</p>
-            <Link href="/impressum" className="text-sm text-white/70 hover:text-white transition-colors">Impressum</Link>
-            <Link href="/datenschutz" className="text-sm text-white/70 hover:text-white transition-colors">Datenschutzerklärung</Link>
+          <div className="flex flex-col gap-6">
+            <div>
+              <p className="text-xs uppercase tracking-widest text-white/40 mb-3">Kontakt</p>
+              <a href="mailto:hallo@javera-studio.at" className="text-sm text-white/80 hover:text-white transition-colors">
+                hallo@javera-studio.at
+              </a>
+            </div>
+            <div className="flex flex-col gap-2">
+              <p className="text-xs uppercase tracking-widest text-white/40 mb-1">Rechtliches</p>
+              <Link href="/impressum" className="text-sm text-white/70 hover:text-white transition-colors">Impressum</Link>
+              <Link href="/datenschutz" className="text-sm text-white/70 hover:text-white transition-colors">Datenschutzerklärung</Link>
+            </div>
           </div>
 
         </div>

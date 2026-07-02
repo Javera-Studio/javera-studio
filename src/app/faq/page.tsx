@@ -1,7 +1,17 @@
 import type { Metadata } from "next";
+import { Monitor, Wallet, Palette, TrendingUp, Handshake, Sparkles, type LucideIcon } from "lucide-react";
 import { Navbar } from "@/components/Navbar";
 import { SiteFooter } from "@/components/SiteFooter";
 import { faqCategories, getAllFaqItems } from "@/lib/data/faq";
+
+const categoryIcons: Record<string, LucideIcon> = {
+  Monitor,
+  Wallet,
+  Palette,
+  TrendingUp,
+  Handshake,
+  Sparkles,
+};
 
 export const metadata: Metadata = {
   title: "Häufige Fragen (FAQ) | Websites, Branding & Webdesign für Beauty-Studios | JAVERA Studio",
@@ -62,10 +72,12 @@ export default function FaqPage() {
 
       <section className="py-12 md:py-16 bg-cream">
         <div className="max-w-3xl mx-auto px-6">
-          {faqCategories.map((category) => (
+          {faqCategories.map((category) => {
+            const Icon = categoryIcons[category.icon];
+            return (
             <div key={category.id} className="mb-14 last:mb-0">
               <h2 className="font-serif text-2xl md:text-3xl text-ink mb-6 flex items-center gap-3">
-                <span aria-hidden>{category.icon}</span>
+                {Icon && <Icon aria-hidden className="w-6 h-6 text-mauve" strokeWidth={1.5} />}
                 {category.title}
               </h2>
               <div className="space-y-3">
@@ -84,7 +96,8 @@ export default function FaqPage() {
                 ))}
               </div>
             </div>
-          ))}
+            );
+          })}
 
           <div className="mt-14 text-center">
             <a
