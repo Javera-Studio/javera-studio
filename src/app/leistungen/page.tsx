@@ -366,14 +366,6 @@ export default function LeistungenPage() {
       <section className="py-12 md:py-16">
         <div className="max-w-2xl mx-auto px-6 text-center">
           <h2 className="reveal font-serif text-3xl md:text-4xl text-ink leading-tight">Lass uns gemeinsam deinen professionellen Markenauftritt gestalten.</h2>
-          <div className="reveal reveal-delay mt-8 flex flex-wrap gap-3 justify-center">
-            <a href="#schreib-mir" className="px-7 py-3.5 rounded-full bg-primary text-primary-foreground hover:bg-mauve transition-all hover:scale-[1.02] hover:shadow-md font-medium">
-              Kostenlose Vorschau
-            </a>
-            <a href="#schreib-mir" className="px-7 py-3.5 rounded-full border border-border text-ink hover:bg-cream transition-all hover:scale-[1.02] font-medium">
-              Kontakt aufnehmen
-            </a>
-          </div>
         </div>
       </section>
 
