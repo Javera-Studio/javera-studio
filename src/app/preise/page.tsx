@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
+import { ContactForm } from "@/components/ContactForm";
 import { SiteFooter } from "@/components/SiteFooter";
 
 export const metadata: Metadata = {
@@ -182,7 +183,7 @@ export default function PreisePage() {
           <p id="website" className="text-[11px] font-semibold uppercase tracking-[0.15em] text-muted-foreground mb-5 scroll-mt-24">Website</p>
           <div className="grid md:grid-cols-2 gap-5 items-stretch">
             {/* Starter Website */}
-            <div className="bg-background border border-border rounded-2xl p-8 flex flex-col">
+            <div className="bg-background border border-ink/15 rounded-2xl p-8 flex flex-col shadow-sm">
               <p className="text-lg font-semibold text-ink mb-1">Starter Website</p>
               <p className="text-sm text-muted-foreground">One-Pager · alle Infos auf einer Seite</p>
               <div className="py-5">
@@ -202,7 +203,7 @@ export default function PreisePage() {
                 {starterSupport.map((f) => <FeatureRow key={f.title} {...f} />)}
                 <div className="pt-6">
                   <Link
-                    href="/#schreib-mir"
+                    href="#schreib-mir"
                     className="block text-center py-3 border border-border text-ink font-semibold text-sm rounded-xl hover:bg-secondary transition"
                   >
                     Kostenlose Demo anfragen
@@ -212,7 +213,7 @@ export default function PreisePage() {
             </div>
 
             {/* Premium Website */}
-            <div className="relative bg-background border-2 border-primary rounded-2xl p-8 flex flex-col">
+            <div className="relative bg-background border-2 border-primary rounded-2xl p-8 flex flex-col shadow-sm">
               <div className="absolute -top-3 left-8 bg-accent text-primary text-[11px] font-semibold px-3 py-1 rounded-full">
                 Empfohlen
               </div>
@@ -239,7 +240,7 @@ export default function PreisePage() {
                 {premiumSupport.map((f) => <FeatureRow key={f.title} {...f} />)}
                 <div className="pt-6">
                   <Link
-                    href="/#schreib-mir"
+                    href="#schreib-mir"
                     className="block text-center py-3 bg-primary text-primary-foreground font-semibold text-sm rounded-xl hover:bg-primary/90 transition"
                   >
                     Kostenlose Demo anfragen
@@ -391,7 +392,7 @@ export default function PreisePage() {
             Alle Preise exkl. MwSt. (Kleinunternehmer) · Individuelle Angebote auf Anfrage
           </p>
           <div className="mt-6 text-center">
-            <Link href="/#schreib-mir" className="inline-block px-7 py-3.5 rounded-full bg-primary text-primary-foreground hover:bg-mauve transition font-medium">
+            <Link href="#schreib-mir" className="inline-block px-7 py-3.5 rounded-full bg-primary text-primary-foreground hover:bg-mauve transition font-medium">
               Anfrage senden
             </Link>
             <p className="mt-3 text-xs text-muted-foreground">
@@ -402,27 +403,8 @@ export default function PreisePage() {
         </div>
       </section>
 
-      {/* FAQ */}
-      <section id="faq" className="py-12 md:py-16 bg-cream">
-        <div className="max-w-3xl mx-auto px-6">
-          <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-4 text-center">FAQ</div>
-          <h2 className="font-serif text-4xl md:text-5xl text-ink leading-tight text-center">Häufige Fragen zu Preisen</h2>
-          <div className="mt-12 space-y-3">
-            {preiseFaqs.map((f) => (
-              <details key={f.q} className="group rounded-2xl bg-background border border-border/60 p-6 open:shadow-sm transition">
-                <summary className="flex items-center justify-between cursor-pointer list-none gap-6">
-                  <span className="font-serif text-lg md:text-xl text-ink">{f.q}</span>
-                  <span aria-hidden className="shrink-0 w-7 h-7 rounded-full border border-ink/20 flex items-center justify-center text-ink transition-transform group-open:rotate-45">+</span>
-                </summary>
-                <p className="mt-4 text-muted-foreground leading-relaxed">{f.a}</p>
-              </details>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Zinsfreie Ratenzahlung */}
-      <section className="py-12 md:py-16">
+      <section id="finanzierung" className="py-12 md:py-16 scroll-mt-24">
         <div className="max-w-5xl mx-auto px-6">
           <div className="rounded-3xl border-2 border-primary bg-peach-soft/60 p-8 md:p-12 grid md:grid-cols-[1.3fr_1fr] gap-10 items-center overflow-hidden">
             <div>
@@ -459,7 +441,7 @@ export default function PreisePage() {
 
               <div className="mt-8">
                 <Link
-                  href="/#schreib-mir"
+                  href="#schreib-mir"
                   className="inline-block px-7 py-3.5 rounded-full bg-primary text-primary-foreground hover:bg-mauve transition-all hover:scale-[1.02] hover:shadow-md font-medium"
                 >
                   Ratenzahlung anfragen
@@ -479,6 +461,26 @@ export default function PreisePage() {
         </div>
       </section>
 
+      {/* FAQ */}
+      <section id="faq" className="py-12 md:py-16 bg-cream">
+        <div className="max-w-3xl mx-auto px-6">
+          <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-4 text-center">FAQ</div>
+          <h2 className="font-serif text-4xl md:text-5xl text-ink leading-tight text-center">Häufige Fragen zu Preisen</h2>
+          <div className="mt-12 space-y-3">
+            {preiseFaqs.map((f) => (
+              <details key={f.q} className="group rounded-2xl bg-background border border-border/60 p-6 open:shadow-sm transition">
+                <summary className="flex items-center justify-between cursor-pointer list-none gap-6">
+                  <span className="font-serif text-lg md:text-xl text-ink">{f.q}</span>
+                  <span aria-hidden className="shrink-0 w-7 h-7 rounded-full border border-ink/20 flex items-center justify-center text-ink transition-transform group-open:rotate-45">+</span>
+                </summary>
+                <p className="mt-4 text-muted-foreground leading-relaxed">{f.a}</p>
+              </details>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <ContactForm />
       <SiteFooter />
     </main>
   );

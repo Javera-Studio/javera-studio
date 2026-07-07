@@ -5,22 +5,24 @@ import { Navbar } from "@/components/Navbar";
 import { SiteFooter } from "@/components/SiteFooter";
 import { faqCategories, getAllFaqItems, type FaqItem, type FaqLink } from "@/lib/data/faq";
 
-function renderAnswer(item: FaqItem) {
-  if (!item.relatedLinks || item.relatedLinks.length === 0) return item.answer;
+function renderParagraphText(text: string, links: FaqLink[] | undefined): React.ReactNode {
+  if (!links || links.length === 0) return text;
 
-  const matches = item.relatedLinks
+  const matches = links
     .map((link) => {
-      const start = item.answer.indexOf(link.label);
+      const start = text.indexOf(link.label);
       return start === -1 ? null : { start, end: start + link.label.length, link };
     })
     .filter((m): m is { start: number; end: number; link: FaqLink } => m !== null)
     .sort((a, b) => a.start - b.start);
 
+  if (matches.length === 0) return text;
+
   const nodes: React.ReactNode[] = [];
   let cursor = 0;
   matches.forEach((m, i) => {
     if (m.start < cursor) return;
-    nodes.push(item.answer.slice(cursor, m.start));
+    nodes.push(text.slice(cursor, m.start));
     nodes.push(
       <Link key={i} href={m.link.href} className="underline hover:text-ink transition-colors">
         {m.link.label}
@@ -28,8 +30,17 @@ function renderAnswer(item: FaqItem) {
     );
     cursor = m.end;
   });
-  nodes.push(item.answer.slice(cursor));
+  nodes.push(text.slice(cursor));
   return nodes;
+}
+
+function renderAnswer(item: FaqItem) {
+  const paragraphs = item.answer.split("\n\n");
+  return paragraphs.map((paragraph, i) => (
+    <p key={i} className={i === 0 ? "mt-4 text-muted-foreground leading-relaxed" : "mt-3 text-muted-foreground leading-relaxed"}>
+      {renderParagraphText(paragraph, item.relatedLinks)}
+    </p>
+  ));
 }
 
 const categoryIcons: Record<string, LucideIcon> = {
@@ -119,7 +130,7 @@ export default function FaqPage() {
                       <span className="font-serif text-lg md:text-xl text-ink">{item.question}</span>
                       <span aria-hidden className="shrink-0 w-7 h-7 rounded-full border border-ink/20 flex items-center justify-center text-ink transition-transform group-open:rotate-45">+</span>
                     </summary>
-                    <p className="mt-4 text-muted-foreground leading-relaxed">{renderAnswer(item)}</p>
+                    {renderAnswer(item)}
                   </details>
                 ))}
               </div>
