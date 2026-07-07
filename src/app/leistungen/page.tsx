@@ -215,12 +215,12 @@ export default function LeistungenPage() {
         </div>
       </section>
 
-      {/* Unsere Leistungen */}
+      {/* Meine Leistungen */}
       <section className="py-12 md:py-16">
         <div className="max-w-6xl mx-auto px-6">
           <div className="max-w-2xl mb-14">
             <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-4">Leistungen</div>
-            <h2 className="reveal font-serif text-4xl md:text-5xl text-ink leading-tight">Unsere Leistungen</h2>
+            <h2 className="reveal font-serif text-4xl md:text-5xl text-ink leading-tight">Meine Leistungen</h2>
             <p className="reveal reveal-delay mt-4 text-muted-foreground text-lg">Von der ersten Analyse bis zum fertigen Markenauftritt – einzeln buchbar oder als Komplettpaket.</p>
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -347,7 +347,7 @@ export default function LeistungenPage() {
       <section id="faq" className="py-12 md:py-16 bg-cream">
         <div className="max-w-3xl mx-auto px-6">
           <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-4 text-center">FAQ</div>
-          <h2 className="reveal font-serif text-4xl md:text-5xl text-ink leading-tight text-center">Häufige Fragen zu unseren Leistungen</h2>
+          <h2 className="reveal font-serif text-4xl md:text-5xl text-ink leading-tight text-center">Häufige Fragen zu meinen Leistungen</h2>
           <div className="mt-12 space-y-3">
             {faqs.map((f, i) => (
               <details key={f.q} className={`reveal reveal-stagger-${(i % 6) + 1} group scroll-mt-28 rounded-2xl bg-background border border-border/60 p-6 open:shadow-sm transition`}>

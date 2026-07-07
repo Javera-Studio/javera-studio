@@ -106,7 +106,7 @@ function Hero() {
 }
 
 const featureBadges = [
-  { icon: Heart, title: "1 Monat persönliche Nachbetreuung", href: "#ablauf" },
+  { icon: Heart, title: "1 Monat persönliche Nachbetreuung nach Webseitenlaunch", href: "#ablauf" },
   { icon: Palette, title: "Individuelle Vorschau in 48 Std.", href: "#kontakt" },
   { icon: Handshake, title: "Webdesign, Branding & Drucksorten aus einer Hand", href: "/preise#preise" },
   { icon: CreditCard, title: "Bis zu 4 zinsfreie Teilzahlungen", href: "/preise#finanzierung" },
