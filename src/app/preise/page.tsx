@@ -304,7 +304,7 @@ export default function PreisePage() {
               <p className="text-xs text-muted-foreground/80 mt-1 italic">direkt beim Anbieter — läuft auf deinen Namen</p>
               <p className="text-2xl font-bold text-ink mt-auto pt-4">15 € <span className="text-sm font-normal text-muted-foreground">/ Jahr</span></p>
             </div>
-            <div className="bg-background border border-border rounded-2xl p-6 flex flex-col">
+            <div id="wartung" className="bg-background border border-border rounded-2xl p-6 flex flex-col scroll-mt-24">
               <p className="font-semibold text-ink">Wartungspaket</p>
               <p className="text-xs text-muted-foreground mt-1">Kleine laufende Anpassungen, neue Fotos, Texte & Aktionen · bis zu 4 Änderungen pro Monat</p>
               <p className="text-2xl font-bold text-ink mt-auto pt-4">60 € <span className="text-sm font-normal text-muted-foreground">/ Monat</span></p>

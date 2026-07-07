@@ -1,8 +1,27 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { Monitor, Wallet, Palette, TrendingUp, Handshake, Sparkles, type LucideIcon } from "lucide-react";
 import { Navbar } from "@/components/Navbar";
 import { SiteFooter } from "@/components/SiteFooter";
-import { faqCategories, getAllFaqItems } from "@/lib/data/faq";
+import { faqCategories, getAllFaqItems, type FaqItem } from "@/lib/data/faq";
+
+function renderAnswer(item: FaqItem) {
+  const link = item.relatedLinks?.find((l) => item.answer.includes(l.label));
+  if (!link) return item.answer;
+
+  const index = item.answer.indexOf(link.label);
+  const before = item.answer.slice(0, index);
+  const after = item.answer.slice(index + link.label.length);
+  return (
+    <>
+      {before}
+      <Link href={link.href} className="underline hover:text-ink transition-colors">
+        {link.label}
+      </Link>
+      {after}
+    </>
+  );
+}
 
 const categoryIcons: Record<string, LucideIcon> = {
   Monitor,
@@ -91,7 +110,7 @@ export default function FaqPage() {
                       <span className="font-serif text-lg md:text-xl text-ink">{item.question}</span>
                       <span aria-hidden className="shrink-0 w-7 h-7 rounded-full border border-ink/20 flex items-center justify-center text-ink transition-transform group-open:rotate-45">+</span>
                     </summary>
-                    <p className="mt-4 text-muted-foreground leading-relaxed">{item.answer}</p>
+                    <p className="mt-4 text-muted-foreground leading-relaxed">{renderAnswer(item)}</p>
                   </details>
                 ))}
               </div>
