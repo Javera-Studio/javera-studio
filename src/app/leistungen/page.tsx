@@ -118,7 +118,7 @@ const zahlungsplaene = [
 
 const faqs = [
   { q: "Was ist im Website-Paket enthalten?", a: "Jedes Website-Paket enthält ein individuelles, mobil optimiertes Design, professionelle Texte auf Basis deiner Informationen sowie eine SEO-Grundoptimierung. Je nach Paket kommen weitere Features wie eine Bildergalerie, ein Kontaktformular oder die Integration bestehender Buchungslinks dazu. Die genauen Inhalte findest du auf der Preise-Seite." },
-  { q: "Wie lange dauert die Erstellung?", a: "Eine Starter Website ist meist innerhalb von 5–7 Tagen fertig, eine Premium Website nach 10–14 Tagen. Die erste Demo bekommst du oft schon nach wenigen Tagen, danach passen wir gemeinsam Feinheiten an." },
+  { q: "Wie lange dauert die Erstellung?", a: "Eine Starter Website ist meist innerhalb von 5–7 Tagen fertig, eine Premium Website nach 10–14 Tagen. Die erste Demo bekommst du oft schon nach wenigen Tagen, danach passe ich gemeinsam mit dir die Feinheiten an." },
   { q: "Kann ich meine Website später erweitern?", a: "Ja. Du kannst jederzeit weitere Unterseiten, Funktionen oder Inhalte ergänzen lassen – deine Website wächst mit deinem Studio mit." },
   { q: "Kann ich meine Website auch in Raten bezahlen?", a: "Ja. Für größere Projekte biete ich auf Wunsch eine zinsfreie Ratenzahlung in bis zu 4 Teilzahlungen an, damit der Start in die Selbstständigkeit nicht am Budget scheitert." },
   { q: "Kann ich auch einzelne Leistungen buchen?", a: "Ja. Website, Branding, Google Business, Social Media Design und Drucksorten sind einzeln buchbar – du musst nicht alles auf einmal beauftragen." },
@@ -215,12 +215,12 @@ export default function LeistungenPage() {
         </div>
       </section>
 
-      {/* Unsere Leistungen */}
+      {/* Meine Leistungen */}
       <section className="py-12 md:py-16">
         <div className="max-w-6xl mx-auto px-6">
           <div className="max-w-2xl mb-14">
             <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-4">Leistungen</div>
-            <h2 className="reveal font-serif text-4xl md:text-5xl text-ink leading-tight">Unsere Leistungen</h2>
+            <h2 className="reveal font-serif text-4xl md:text-5xl text-ink leading-tight">Meine Leistungen</h2>
             <p className="reveal reveal-delay mt-4 text-muted-foreground text-lg">Von der ersten Analyse bis zum fertigen Markenauftritt – einzeln buchbar oder als Komplettpaket.</p>
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -280,7 +280,8 @@ export default function LeistungenPage() {
         <div className="max-w-6xl mx-auto px-6">
           <div className="max-w-2xl mb-14">
             <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-4">Ablauf</div>
-            <h2 className="reveal font-serif text-4xl md:text-5xl text-ink leading-tight">So läuft die Zusammenarbeit ab</h2>
+            <h2 className="reveal font-serif text-4xl md:text-5xl text-ink leading-tight">So läuft die Zusammenarbeit bei Website-Interesse ab</h2>
+            <p className="reveal reveal-delay mt-4 text-muted-foreground text-lg">Bei anderen Leistungen wie Branding, Google Business oder Social Media Design stimme ich den Ablauf individuell mit dir ab.</p>
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {prozess.map((s, i) => (
