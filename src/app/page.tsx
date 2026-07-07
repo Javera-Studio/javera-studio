@@ -6,7 +6,9 @@ import { HeroVideo } from "@/components/HeroVideo";
 import { Testimonials } from "@/components/Testimonials";
 import { ContactForm } from "@/components/ContactForm";
 import { ScrollRevealInit } from "@/components/ScrollRevealInit";
+import { FaqHashOpen } from "@/components/FaqHashOpen";
 import { SiteFooter } from "@/components/SiteFooter";
+import { Heart, Palette, Handshake, CreditCard } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Javera Studio — Webdesign · Grafik · Branding für Beauty Studios Wien",
@@ -70,6 +72,7 @@ const faqs = [
   { q: "Wie lange dauert es, bis meine Website fertig ist?", a: "Die erste Demo bekommst du meist innerhalb weniger Tage. Die finale Umsetzung hängt vom Abstimmungstempo ab, bleibt aber bewusst schnell und unkompliziert." },
   { q: "Ich bin kein Technik-Mensch – ist das ein Problem?", a: "Nein. Ich erkläre dir jeden Schritt verständlich und übernehme die komplette Technik – Domain, Hosting und Einrichtung inklusive." },
   { q: "Kann ich auch nur ein Logo oder Social Media Design bestellen – ohne Website?", a: "Ja. Website, Logo, Flyer und Social Media Design sind einzeln buchbar – ganz gleich ob du ein Nagelstudio, Wimpernstudio oder PMU-Studio führst." },
+  { q: "Kann ich meine Website auch in Raten bezahlen?", id: "faq-ratenzahlung", a: "Ja. Gerade der Start in die Selbstständigkeit bringt viele Investitionen mit sich. Deshalb biete ich für größere Projekte auf Wunsch eine zinsfreie Ratenzahlung in bis zu 4 Teilzahlungen an. Gemeinsam finden wir eine Lösung, die zu deinem Budget passt." },
 ];
 
 function Hero() {
@@ -102,20 +105,40 @@ function Hero() {
   );
 }
 
-function Announcement() {
+const featureBadges = [
+  { icon: Heart, title: "1 Monat persönliche Nachbetreuung", href: "#ablauf" },
+  { icon: Palette, title: "Individuelle Vorschau in 48 Std.", href: "#kontakt" },
+  { icon: Handshake, title: "Webdesign, Branding & Drucksorten aus einer Hand", href: "/preise#preise" },
+  { icon: CreditCard, title: "Bis zu 4 zinsfreie Teilzahlungen", href: "#faq-ratenzahlung" },
+];
+
+function FeatureBadges() {
   return (
-    <section aria-label="Aktuelles Angebot" className="relative border-y border-mauve/20 bg-gradient-to-r from-peach-soft via-accent/40 to-peach-soft">
-      <div className="max-w-5xl mx-auto px-6 py-8 md:py-10 flex flex-col md:flex-row items-center gap-6 md:gap-10 text-center md:text-left">
-        <div className="flex-shrink-0 inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.25em] text-mauve">
-          <span className="h-px w-6 bg-mauve/60" />
-          Angebot
+    <section id="vorteile" aria-label="Deine Vorteile" className="py-14 md:py-20">
+      <div className="max-w-6xl mx-auto px-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 md:gap-6">
+          {featureBadges.map((f, i) => {
+            const Icon = f.icon;
+            const cardClassName = `reveal reveal-stagger-${(i % 6) + 1} group flex flex-col items-center text-center gap-4 rounded-2xl border border-border/60 bg-background px-6 py-9 transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-lg hover:border-mauve/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-mauve/40`;
+            const content = (
+              <>
+                <span className="flex items-center justify-center w-12 h-12 rounded-full bg-peach-soft text-mauve transition-transform duration-300 group-hover:scale-105">
+                  <Icon className="w-5 h-5" strokeWidth={1.5} aria-hidden />
+                </span>
+                <p className="font-serif text-base md:text-lg text-ink leading-snug transition-colors duration-300 group-hover:text-mauve">{f.title}</p>
+              </>
+            );
+            return f.href.startsWith("/") ? (
+              <Link key={f.title} href={f.href} className={cardClassName}>
+                {content}
+              </Link>
+            ) : (
+              <a key={f.title} href={f.href} className={cardClassName}>
+                {content}
+              </a>
+            );
+          })}
         </div>
-        <p className="flex-1 font-serif text-base md:text-lg leading-relaxed text-ink">
-          Kostenlose Website-Analyse &amp; Demo für Beauty Studios — sieh deinen Auftritt online, bevor du dich entscheidest.
-        </p>
-        <a href="#schreib-mir" className="flex-shrink-0 inline-flex items-center justify-center px-6 py-3 bg-mauve text-white text-sm tracking-wide hover:bg-primary transition-colors rounded-sm shadow-sm">
-          Kostenlose Demo
-        </a>
       </div>
     </section>
   );
@@ -721,7 +744,7 @@ function FAQ() {
         <h2 className="reveal font-serif text-4xl md:text-5xl text-ink leading-tight text-center">Häufige Fragen</h2>
         <div className="mt-12 space-y-3">
           {faqs.map((f, i) => (
-            <details key={f.q} className={`reveal reveal-stagger-${(i % 6) + 1} group rounded-2xl bg-background border border-border/60 p-6 open:shadow-sm transition`}>
+            <details key={f.q} id={f.id} className={`reveal reveal-stagger-${(i % 6) + 1} group scroll-mt-28 rounded-2xl bg-background border border-border/60 p-6 open:shadow-sm transition`}>
               <summary className="flex items-center justify-between cursor-pointer list-none gap-6">
                 <span className="font-serif text-lg md:text-xl text-ink">{f.q}</span>
                 <span aria-hidden className="shrink-0 w-7 h-7 rounded-full border border-ink/20 flex items-center justify-center text-ink transition-transform group-open:rotate-45">+</span>
@@ -783,9 +806,10 @@ export default function Home() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
       <ScrollRevealInit />
+      <FaqHashOpen />
       <Navbar />
       <Hero />
-      <Announcement />
+      <FeatureBadges />
       <About />
       <Warum />
       <Angebot />

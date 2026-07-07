@@ -60,7 +60,8 @@ export default function RootLayout({
   return (
     <html
       lang="de"
-      className={`${inter.variable} ${playfair.variable} ${cormorant.variable} ${dmSans.variable} h-full antialiased`}
+      className={`${inter.variable} ${playfair.variable} ${cormorant.variable} ${dmSans.variable} h-full antialiased scroll-smooth`}
+      data-scroll-behavior="smooth"
     >
       <body style={{ fontFamily: "var(--font-inter), system-ui, sans-serif" }}>
         <Providers>{children}</Providers>

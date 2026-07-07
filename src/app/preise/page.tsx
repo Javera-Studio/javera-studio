@@ -116,6 +116,7 @@ export default function PreisePage() {
     { q: "Wie viel kostet die laufende Wartung meiner Website?", a: "Das Wartungspaket kostet 40 € pro Monat und beinhaltet bis zu 4 kleine Änderungen (Texte, Fotos, Aktionen). Einzelne spontane Änderungen ohne Paket kosten 50 € einmalig." },
     { q: "Wie läuft die Bezahlung ab?", a: "Ich arbeite transparent und ohne versteckte Kosten. Nach dem Erstgespräch erhältst du ein individuelles Festpreis-Angebot. Nach deiner Zusage werden 50 % des Betrags als Anzahlung fällig, die restlichen 50 % nach Fertigstellung deiner Website oder deines Projekts." },
     { q: "Warum kostet eine professionelle Website mehr als ein Baukasten?", a: "Eine professionelle Website ist individuell auf dein Beauty-Studio abgestimmt und wird speziell für deine Marke gestaltet. Im Gegensatz zu einem Baukastensystem erhältst du keine Standardvorlage, sondern eine Website, die dein Studio professionell präsentiert, Vertrauen schafft und auf deine Zielgruppe zugeschnitten ist. Dazu gehören unter anderem individuelles Design, eine klare Struktur, Suchmaschinenoptimierung, mobile Optimierung sowie persönliche Betreuung während des gesamten Projekts. Viele Beauty-Studios investieren mehrere Tausend Euro in ihre Einrichtung, Geräte oder Schulungen. Die Website ist jedoch oft der erste Eindruck, den potenzielle Kundinnen von deinem Studio bekommen – sie ist dein digitales Schaufenster und spielt eine entscheidende Rolle dabei, ob jemand Vertrauen fasst und einen Termin bei dir anfragt." },
+    { q: "Kann ich meine Website auch in Raten bezahlen?", a: "Ja. Gerade der Start in die Selbstständigkeit bringt viele Investitionen mit sich. Deshalb biete ich für größere Projekte auf Wunsch eine zinsfreie Ratenzahlung in bis zu 4 Teilzahlungen an. Gemeinsam finden wir eine Lösung, die zu deinem Budget passt." },
   ];
 
   const preiseFaqSchema = {
@@ -153,7 +154,7 @@ export default function PreisePage() {
       </header>
 
       {/* Page intro */}
-      <section className="pt-32 pb-4 md:pt-40 md:pb-6 relative overflow-hidden">
+      <section id="preise" className="pt-32 pb-4 md:pt-40 md:pb-6 relative overflow-hidden scroll-mt-16">
         <div
           aria-hidden
           className="absolute -top-40 -right-40 w-[600px] h-[600px] rounded-full opacity-40 blur-3xl"
@@ -178,7 +179,7 @@ export default function PreisePage() {
         <div className="max-w-5xl mx-auto px-6">
 
           {/* WEBSITE */}
-          <p className="text-[11px] font-semibold uppercase tracking-[0.15em] text-muted-foreground mb-5">Website</p>
+          <p id="website" className="text-[11px] font-semibold uppercase tracking-[0.15em] text-muted-foreground mb-5 scroll-mt-24">Website</p>
           <div className="grid md:grid-cols-2 gap-5 items-stretch">
             {/* Starter Website */}
             <div className="bg-background border border-border rounded-2xl p-8 flex flex-col">
@@ -249,7 +250,7 @@ export default function PreisePage() {
           </div>
 
           {/* Online-Präsenz Analyse */}
-          <div className="mt-5 bg-background border border-border rounded-2xl p-6 md:p-8">
+          <div id="analyse" className="mt-5 bg-background border border-border rounded-2xl p-6 md:p-8 scroll-mt-24">
             <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 mb-5">
               <div>
                 <p className="text-lg font-semibold text-ink mb-1">Online-Präsenz Analyse</p>
@@ -316,7 +317,7 @@ export default function PreisePage() {
           </div>
 
           {/* GRAFIK & PRINT */}
-          <div className="mt-14">
+          <div id="grafik-print" className="mt-14 scroll-mt-24">
             <p className="text-[11px] font-semibold uppercase tracking-[0.15em] text-muted-foreground mb-5">Grafik &amp; Print Design</p>
             <div className="bg-background border border-border rounded-2xl overflow-hidden">
               {grafikItems.map((item, i) => (
@@ -332,7 +333,7 @@ export default function PreisePage() {
           </div>
 
           {/* SOCIAL MEDIA */}
-          <div className="mt-10">
+          <div id="social" className="mt-10 scroll-mt-24">
             <p className="text-[11px] font-semibold uppercase tracking-[0.15em] text-muted-foreground mb-5">Social Media Design</p>
             <div className="bg-background border border-border rounded-2xl overflow-hidden">
               {socialItems.map((item, i) => (
