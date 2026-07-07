@@ -281,7 +281,7 @@ export default function PreisePage() {
           </div>
 
           {/* Erweiterungen nach Wunsch */}
-          <div className="mt-5 bg-background border border-border rounded-2xl p-6 md:p-8">
+          <div id="erweiterungen" className="mt-5 bg-background border border-border rounded-2xl p-6 md:p-8 scroll-mt-24">
             <p className="text-[11px] font-semibold uppercase tracking-[0.15em] text-muted-foreground mb-4">Erweiterungen nach Wunsch</p>
             <div className="grid sm:grid-cols-2 gap-x-8 gap-y-0">
               {erweiterungen.map((item) => (
@@ -298,7 +298,7 @@ export default function PreisePage() {
 
           {/* Laufende Kosten */}
           <div className="mt-5 grid sm:grid-cols-3 gap-4 items-stretch">
-            <div className="bg-background border border-border rounded-2xl p-6 flex flex-col">
+            <div id="domain-hosting" className="bg-background border border-border rounded-2xl p-6 flex flex-col scroll-mt-24">
               <p className="font-semibold text-ink">Domain &amp; Hosting</p>
               <p className="text-xs text-muted-foreground mt-1">Eigene www-Adresse + Website online halten (bei externem Anbieter)</p>
               <p className="text-xs text-muted-foreground/80 mt-1 italic">direkt beim Anbieter — läuft auf deinen Namen</p>
@@ -349,7 +349,7 @@ export default function PreisePage() {
           </div>
 
           {/* PAKETE */}
-          <div className="mt-14">
+          <div id="pakete" className="mt-14 scroll-mt-24">
             <p className="text-[11px] font-semibold uppercase tracking-[0.15em] text-muted-foreground mb-5">Pakete</p>
             <div className="grid sm:grid-cols-3 gap-5">
               <div className="bg-background border border-border rounded-2xl p-6 flex flex-col">
@@ -417,6 +417,64 @@ export default function PreisePage() {
                 <p className="mt-4 text-muted-foreground leading-relaxed">{f.a}</p>
               </details>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Zinsfreie Ratenzahlung */}
+      <section className="py-12 md:py-16">
+        <div className="max-w-5xl mx-auto px-6">
+          <div className="rounded-3xl border-2 border-primary bg-peach-soft/60 p-8 md:p-12 grid md:grid-cols-[1.3fr_1fr] gap-10 items-center overflow-hidden">
+            <div>
+              <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-4">Finanzierung</div>
+              <h2 className="font-serif text-3xl md:text-4xl text-ink leading-tight">💳 Zinsfreie Ratenzahlung</h2>
+              <p className="mt-4 font-serif text-lg md:text-xl text-ink">Jeder verdient einen professionellen Online-Auftritt.</p>
+              <p className="mt-4 text-muted-foreground leading-relaxed">
+                Ich weiß, dass eine professionelle Website eine Investition ist und die Kosten gerade für Gründerinnen und kleinere Beauty-Unternehmen eine wichtige Rolle spielen können. Deshalb biete ich für größere Projekte eine zinsfreie Ratenzahlung an – damit du deinen professionellen Markenauftritt nicht auf später verschieben musst.
+              </p>
+
+              <div className="mt-8 grid sm:grid-cols-2 gap-4">
+                <div className="bg-background border border-border rounded-2xl p-5">
+                  <p className="flex items-center gap-2 text-sm font-semibold text-ink">
+                    <span aria-hidden style={{ color: "#0F6E56" }}>✓</span> Projekte ab 900 €
+                  </p>
+                  <p className="mt-2 text-sm text-muted-foreground">→ Zahlung in 3 zinsfreien Monatsraten</p>
+                </div>
+                <div className="bg-background border border-border rounded-2xl p-5">
+                  <p className="flex items-center gap-2 text-sm font-semibold text-ink">
+                    <span aria-hidden style={{ color: "#0F6E56" }}>✓</span> Projekte ab 1.400 €
+                  </p>
+                  <p className="mt-2 text-sm text-muted-foreground">→ Zahlung in 4 zinsfreien Monatsraten</p>
+                </div>
+              </div>
+              <p className="mt-5 text-sm text-muted-foreground leading-relaxed">
+                Die erste Rate wird jeweils bei Auftragserteilung fällig, die weiteren Raten monatlich.
+              </p>
+
+              <div className="mt-6 bg-background/70 border border-border/60 rounded-xl px-4 py-3">
+                <p className="text-xs text-muted-foreground leading-relaxed">
+                  Die Ratenzahlung ist ein freiwilliges Angebot und muss vor Projektbeginn gemeinsam vereinbart werden. Sie ist nicht automatisch Bestandteil jedes Projekts und wird individuell geprüft sowie im Vertrag festgehalten.
+                </p>
+              </div>
+
+              <div className="mt-8">
+                <Link
+                  href="/#schreib-mir"
+                  className="inline-block px-7 py-3.5 rounded-full bg-primary text-primary-foreground hover:bg-mauve transition-all hover:scale-[1.02] hover:shadow-md font-medium"
+                >
+                  Ratenzahlung anfragen
+                </Link>
+              </div>
+            </div>
+
+            <div className="relative w-full aspect-[4/5] rounded-2xl overflow-hidden">
+              <Image
+                src="/ratenzahlung.jpg"
+                alt="Zinsfreie Ratenzahlung für deinen professionellen Online-Auftritt bei JAVERA Studio"
+                fill
+                className="object-cover"
+              />
+            </div>
           </div>
         </div>
       </section>

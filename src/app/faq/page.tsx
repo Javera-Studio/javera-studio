@@ -3,24 +3,33 @@ import Link from "next/link";
 import { Monitor, Wallet, Palette, TrendingUp, Handshake, Sparkles, type LucideIcon } from "lucide-react";
 import { Navbar } from "@/components/Navbar";
 import { SiteFooter } from "@/components/SiteFooter";
-import { faqCategories, getAllFaqItems, type FaqItem } from "@/lib/data/faq";
+import { faqCategories, getAllFaqItems, type FaqItem, type FaqLink } from "@/lib/data/faq";
 
 function renderAnswer(item: FaqItem) {
-  const link = item.relatedLinks?.find((l) => item.answer.includes(l.label));
-  if (!link) return item.answer;
+  if (!item.relatedLinks || item.relatedLinks.length === 0) return item.answer;
 
-  const index = item.answer.indexOf(link.label);
-  const before = item.answer.slice(0, index);
-  const after = item.answer.slice(index + link.label.length);
-  return (
-    <>
-      {before}
-      <Link href={link.href} className="underline hover:text-ink transition-colors">
-        {link.label}
+  const matches = item.relatedLinks
+    .map((link) => {
+      const start = item.answer.indexOf(link.label);
+      return start === -1 ? null : { start, end: start + link.label.length, link };
+    })
+    .filter((m): m is { start: number; end: number; link: FaqLink } => m !== null)
+    .sort((a, b) => a.start - b.start);
+
+  const nodes: React.ReactNode[] = [];
+  let cursor = 0;
+  matches.forEach((m, i) => {
+    if (m.start < cursor) return;
+    nodes.push(item.answer.slice(cursor, m.start));
+    nodes.push(
+      <Link key={i} href={m.link.href} className="underline hover:text-ink transition-colors">
+        {m.link.label}
       </Link>
-      {after}
-    </>
-  );
+    );
+    cursor = m.end;
+  });
+  nodes.push(item.answer.slice(cursor));
+  return nodes;
 }
 
 const categoryIcons: Record<string, LucideIcon> = {
