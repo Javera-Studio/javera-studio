@@ -119,7 +119,7 @@ function FeatureBadges() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 md:gap-6">
           {featureBadges.map((f, i) => {
             const Icon = f.icon;
-            const cardClassName = `reveal reveal-stagger-${(i % 6) + 1} group flex flex-col items-center text-center gap-4 rounded-2xl border border-ink/15 bg-background px-6 py-9 shadow-sm transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-lg hover:border-mauve/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-mauve/40`;
+            const cardClassName = `reveal reveal-stagger-${(i % 6) + 1} group flex flex-col items-center text-center gap-4 rounded-2xl border border-ink/10 bg-accent px-6 py-9 shadow-sm transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-lg hover:border-mauve/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-mauve/40`;
             const content = (
               <>
                 <span className="flex items-center justify-center w-12 h-12 rounded-full bg-peach-soft text-mauve transition-transform duration-300 group-hover:scale-105">
