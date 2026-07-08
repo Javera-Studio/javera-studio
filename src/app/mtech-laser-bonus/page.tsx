@@ -230,7 +230,7 @@ export default function MtechLaserBonusPage() {
           className="absolute -bottom-32 -right-32 w-[500px] h-[500px] rounded-full opacity-30 blur-3xl"
           style={{ backgroundColor: "var(--peach-soft)" }}
         />
-        <div className="relative max-w-2xl mx-auto px-6 text-center">
+        <div className="relative max-w-3xl mx-auto px-6 text-center">
           <div className="hero-cta inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-accent text-primary text-xs font-semibold mb-6">
             <StarIcon className="w-3.5 h-3.5" />
             In Partnerschaft mit MTech Laser
