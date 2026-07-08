@@ -14,12 +14,12 @@ export const metadata: Metadata = {
 
 // Platzhalter – exakte Partnerkonditionen werden gemeinsam mit MTech Laser noch final abgestimmt.
 const partnerVorteile = [
-  { title: "Exklusive Partnerkonditionen", desc: "20 % Rabatt auf alle regulären Webdesign- & Branding-Leistungen." },
-  { title: "Individuelles Maßnahmen-PDF", desc: "Sie erhalten konkrete Handlungsempfehlungen speziell für Ihr Studio." },
+  { title: "20 % Rabatt auf alle Leistungen", desc: "Auf alle regulären Webdesign- & Branding-Leistungen bei einer Zusammenarbeit." },
   { title: "Bis zu 4 zinsfreie Raten", desc: "Flexible und zinsfreie Zahlung bei größeren Projekten." },
   { title: "Persönliche Betreuung", desc: "Direkter Ansprechpartner während des gesamten Projekts." },
-  { title: "Individuelle Lösung", desc: "Keine Standardpakete – jede Empfehlung wird auf Ihr Studio, Ihre Ziele und Ihr Budget abgestimmt." },
+  { title: "Individuelle Lösungen", desc: "Keine Standardpakete – jede Empfehlung wird auf Ihr Studio, Ihre Ziele und Ihr Budget abgestimmt." },
   { title: "Langfristige Begleitung", desc: "Auch nach Projektabschluss stehe ich Ihnen bei Fragen und Weiterentwicklungen zur Seite." },
+  { title: "Alles aus einer Hand", desc: "Website, Branding, Drucksorten, Google-Unternehmensprofil und Social Media – perfekt aufeinander abgestimmt." },
 ];
 
 const analyseItems: AnalyseItem[] = [
