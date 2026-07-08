@@ -2,11 +2,12 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { MtechLaserForm } from "@/components/MtechLaserForm";
+import { AnalyseCards, type AnalyseItem } from "@/components/AnalyseCards";
 import { ScrollRevealInit } from "@/components/ScrollRevealInit";
 
 export const metadata: Metadata = {
   title: "Kostenlose Online-Präsenz-Analyse für MTech Laser Kundinnen | JAVERA Studio",
-  description: "Exklusiv für Kundinnen von MTech Laser: kostenlose Online-Präsenz-Analyse im Wert von 150 € von JAVERA Studio – Website, Google-Profil, Instagram, Facebook & Markenauftritt.",
+  description: "Exklusiv für Kundinnen von MTech Laser: kostenlose Online-Präsenz-Analyse im Wert von 150 € von JAVERA Studio – Website, Google-Profil, Social Media & Markenauftritt.",
   robots: { index: false, follow: false },
 };
 
@@ -19,20 +20,62 @@ const partnerVorteile = [
   { title: "Persönliche Betreuung", desc: "Direkter Kontakt und persönliche Beratung während des gesamten Prozesses." },
 ];
 
-const analyseItems = [
-  { title: "Website", desc: "Falls bereits vorhanden" },
-  { title: "Google-Unternehmensprofil", desc: "Auffindbarkeit bei Google" },
-  { title: "Social-Media-Kanäle", desc: "Auftritt & Wirkung" },
-  { title: "Markenauftritt", desc: "Einheitlichkeit & Wiedererkennung" },
-  { title: "Sichtbarkeit", desc: "Wie leicht werden Sie gefunden?" },
-  { title: "Erster Eindruck", desc: "Für Neukundinnen auf einen Blick" },
+const analyseItems: AnalyseItem[] = [
+  {
+    title: "Website",
+    desc: "Falls bereits vorhanden",
+    icon: <GlobeIcon />,
+    details: ["Erster Eindruck", "Benutzerfreundlichkeit", "Mobile Darstellung", "Vertrauenswirkung"],
+  },
+  {
+    title: "Google-Unternehmensprofil",
+    desc: "Auffindbarkeit bei Google",
+    icon: <PinIcon />,
+    details: ["Vollständigkeit der Angaben", "Bilder & Aktualität", "Kategorien", "Auffindbarkeit"],
+  },
+  {
+    title: "Social-Media-Kanäle",
+    desc: "Auftritt & Wirkung",
+    icon: <ShareIcon />,
+    details: ["Aktualität der Beiträge", "Bild- & Markensprache", "Wiedererkennungswert", "Wirkung auf Neukundinnen"],
+  },
+  {
+    title: "Google Bewertungen",
+    desc: "Wahrnehmung & Vertrauen",
+    icon: <ReviewStarIcon />,
+    details: ["Anzahl der Bewertungen", "Durchschnittliche Bewertung", "Außenwirkung", "Antwortverhalten"],
+  },
+  {
+    title: "Kontakt- & Buchungsmöglichkeiten",
+    desc: "Einfachheit für Neukundinnen",
+    icon: <CalendarIcon />,
+    details: ["Auffindbarkeit der Kontaktdaten", "Klarheit des Buchungswegs", "Reaktionsfreundlichkeit", "Einfachheit für Neukundinnen"],
+  },
+  {
+    title: "Markenauftritt",
+    desc: "Einheitlichkeit & Wiedererkennung",
+    icon: <SparkleIcon />,
+    details: ["Einheitlichkeit von Farben & Logo", "Wiedererkennungswert", "Professionelle Wirkung", "Konsistenz über alle Kanäle"],
+  },
+  {
+    title: "Sichtbarkeit",
+    desc: "Wie leicht werden Sie gefunden?",
+    icon: <EyeIcon />,
+    details: ["Auffindbarkeit bei Google", "Relevante Suchbegriffe", "Regionale Sichtbarkeit", "Reichweite insgesamt"],
+  },
+  {
+    title: "Erster Eindruck",
+    desc: "Für Neukundinnen auf einen Blick",
+    icon: <HeartIcon />,
+    details: ["Optik auf den ersten Blick", "Klarheit des Angebots", "Vertrauenswirkung", "Handlungsaufforderung"],
+  },
 ];
 
 const steps = [
-  { n: "1", title: "Formular ausfüllen", desc: "Sie füllen das kurze Formular weiter unten aus." },
+  { n: "1", title: "Anfrage absenden", desc: "Sie füllen das kurze Formular weiter unten aus." },
   { n: "2", title: "Analyse", desc: "Ich analysiere Ihren gesamten Online-Auftritt in Ruhe und im Detail." },
-  { n: "3", title: "Ihr PDF", desc: "Sie erhalten ein individuelles PDF mit konkreten Handlungsempfehlungen." },
-  { n: "4", title: "Ihre Entscheidung", desc: "Sie entscheiden vollkommen unverbindlich, ob Sie selbst umsetzen oder meine Unterstützung möchten." },
+  { n: "3", title: "Ihr Maßnahmen-PDF", desc: "Sie erhalten Ihr individuelles PDF mit konkreten Handlungsempfehlungen." },
+  { n: "4", title: "Ihre Entscheidung", desc: "Sie entscheiden selbst, ob Sie die Empfehlungen eigenständig umsetzen oder meine Unterstützung in Anspruch nehmen möchten." },
 ];
 
 const testimonials = [
@@ -56,19 +99,98 @@ const testimonials = [
   },
 ];
 
-function CheckIcon() {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5" aria-hidden>
-      <path d="m5 12 5 5L20 7" />
-    </svg>
-  );
-}
-
 function StarIcon({ className = "w-5 h-5" }: { className?: string }) {
   return (
     <svg viewBox="0 0 20 20" fill="currentColor" className={className} aria-hidden>
       <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
     </svg>
+  );
+}
+
+function GlobeIcon() {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5" aria-hidden>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M3 12h18M12 3c2.5 2.7 2.5 15.3 0 18M12 3c-2.5 2.7-2.5 15.3 0 18" />
+    </svg>
+  );
+}
+
+function PinIcon() {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5" aria-hidden>
+      <path d="M12 21s7-7.4 7-12a7 7 0 10-14 0c0 4.6 7 12 7 12z" />
+      <circle cx="12" cy="9" r="2.4" />
+    </svg>
+  );
+}
+
+function ShareIcon() {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5" aria-hidden>
+      <circle cx="6" cy="12" r="2.2" />
+      <circle cx="18" cy="6" r="2.2" />
+      <circle cx="18" cy="18" r="2.2" />
+      <path d="M8 11l8-4M8 13l8 4" />
+    </svg>
+  );
+}
+
+function ReviewStarIcon() {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5" aria-hidden>
+      <path d="M12 3.5l2.4 5.1 5.6.7-4.1 3.9 1.1 5.6-4.9-2.8-4.9 2.8 1.1-5.6-4.1-3.9 5.6-.7z" />
+    </svg>
+  );
+}
+
+function CalendarIcon() {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5" aria-hidden>
+      <rect x="4" y="5" width="16" height="15" rx="2" />
+      <path d="M4 9.5h16M8 3v4M16 3v4" />
+    </svg>
+  );
+}
+
+function SparkleIcon() {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5" aria-hidden>
+      <path d="M12 2.5l1.8 6.2L20 10.5l-6.2 1.8L12 18.5l-1.8-6.2L4 10.5l6.2-1.8z" />
+    </svg>
+  );
+}
+
+function EyeIcon() {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5" aria-hidden>
+      <path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z" />
+      <circle cx="12" cy="12" r="2.6" />
+    </svg>
+  );
+}
+
+function HeartIcon() {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5" aria-hidden>
+      <path d="M12 20s-7-4.3-9.2-8.5C1.5 8.3 3.1 5 6.6 5c2 0 3.4 1.1 4 2.2.6-1.1 2-2.2 4-2.2 3.5 0 5.1 3.3 3.8 6.5C16.2 15.7 12 20 12 20z" />
+    </svg>
+  );
+}
+
+function ArrowDownIcon() {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5 text-mauve" aria-hidden>
+      <path d="M12 4v14M6 13l6 6 6-6" />
+    </svg>
+  );
+}
+
+function SectionDivider() {
+  return (
+    <div className="max-w-4xl mx-auto px-6">
+      <div aria-hidden className="h-px bg-border/50" />
+    </div>
   );
 }
 
@@ -93,7 +215,7 @@ export default function MtechLaserBonusPage() {
         />
       </header>
 
-      {/* Hero */}
+      {/* Hero – zweispaltig */}
       <section className="relative overflow-hidden pt-6 pb-16 md:pt-10 md:pb-24">
         <div
           aria-hidden
@@ -105,28 +227,77 @@ export default function MtechLaserBonusPage() {
           className="absolute -bottom-32 -right-32 w-[500px] h-[500px] rounded-full opacity-30 blur-3xl"
           style={{ backgroundColor: "var(--peach-soft)" }}
         />
-        <div className="relative max-w-2xl mx-auto px-6 text-center">
-          <div className="hero-cta inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-accent text-primary text-xs font-semibold mb-6">
-            <StarIcon className="w-3.5 h-3.5" />
-            In Partnerschaft mit MTech Laser
+        <div className="relative max-w-6xl mx-auto px-6 grid md:grid-cols-[1.2fr_1fr] gap-12 md:gap-16 items-center">
+          <div className="text-center md:text-left">
+            <div className="hero-cta inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-accent text-primary text-xs font-semibold mb-6">
+              <StarIcon className="w-3.5 h-3.5" />
+              In Partnerschaft mit MTech Laser
+            </div>
+            <h1 className="hero-headline font-serif text-4xl md:text-5xl lg:text-6xl leading-[1.1] text-ink">
+              Herzlichen Glückwunsch zu Ihrer Investition!
+            </h1>
+            <p className="hero-subtitle mt-6 text-lg text-muted-foreground leading-relaxed">
+              Sie haben gerade einen wichtigen Schritt für Ihr Beauty-Business gemacht. Als Kundin von MTech Laser erhalten Sie deshalb exklusiv eine kostenlose Online-Präsenz-Analyse im Wert von 150&nbsp;€.
+            </p>
+            <div className="hero-cta mt-8">
+              <Link
+                href="#formular"
+                className="inline-block px-8 py-4 rounded-full bg-primary text-primary-foreground hover:bg-mauve transition-all hover:scale-[1.02] hover:shadow-md font-medium"
+              >
+                Jetzt kostenlose Analyse sichern
+              </Link>
+            </div>
           </div>
-          <h1 className="hero-headline font-serif text-4xl md:text-5xl lg:text-6xl leading-[1.1] text-ink">
-            Herzlichen Glückwunsch zu Ihrer Investition!
-          </h1>
-          <p className="hero-subtitle mt-6 text-lg text-muted-foreground leading-relaxed">
-            Sie haben gerade einen wichtigen Schritt für Ihr Beauty-Business gemacht. Als Kundin von MTech Laser erhalten Sie deshalb exklusiv eine kostenlose Online-Präsenz-Analyse im Wert von 150&nbsp;€.
-          </p>
-          <div className="hero-cta mt-8">
-            <Link
-              href="#formular"
-              className="inline-block px-8 py-4 rounded-full bg-primary text-primary-foreground hover:bg-mauve transition-all hover:scale-[1.02] hover:shadow-md font-medium"
+          <div className="relative">
+            <div
+              className="reveal aspect-[3/2] rounded-2xl overflow-hidden"
+              style={{ boxShadow: "0 20px 50px -25px color-mix(in oklab, var(--ink) 18%, transparent)" }}
             >
-              Jetzt kostenlose Analyse sichern
-            </Link>
+              <Image
+                src="/analysehero.png"
+                alt="JAVERA Studio Online-Präsenz-Analyse für MTech Laser Kundinnen"
+                priority
+                width={1536}
+                height={1024}
+                className="w-full h-full object-cover"
+              />
+            </div>
           </div>
-          <p className="hero-cta mt-4 text-xs text-muted-foreground">Exklusiv für Kundinnen von MTech Laser.</p>
         </div>
       </section>
+
+      <SectionDivider />
+
+      {/* Wie sehen potenzielle Kundinnen Ihr Studio online */}
+      <section className="py-14 md:py-20">
+        <div className="max-w-5xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+          <div>
+            <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-4">Der Blick von außen</div>
+            <h2 className="reveal font-serif text-3xl md:text-4xl text-ink leading-tight">Wie sehen potenzielle Kundinnen Ihr Studio online?</h2>
+            <div className="mt-6 space-y-4 text-muted-foreground leading-relaxed">
+              <p className="reveal reveal-stagger-1">Der erste Eindruck entsteht heute meist online. Für die Analyse betrachte ich Ihren gesamten Online-Auftritt bewusst aus der Sicht einer potenziellen Neukundin.</p>
+              <p className="reveal reveal-stagger-2">Zusätzlich analysiere ich Ihren Außenauftritt aus Marketing-Sicht und zeige Ihnen konkrete Möglichkeiten auf, wie Sie professioneller auftreten, mehr Vertrauen schaffen und noch mehr potenzielle Kundinnen erreichen können.</p>
+            </div>
+          </div>
+          <div className="relative">
+            <div
+              className="reveal aspect-[3/2] rounded-2xl overflow-hidden"
+              style={{ boxShadow: "0 20px 50px -25px color-mix(in oklab, var(--ink) 18%, transparent)" }}
+            >
+              <Image
+                src="/analyse.png"
+                alt="Online-Präsenz-Analyse aus Sicht einer potenziellen Neukundin"
+                loading="lazy"
+                width={1536}
+                height={1024}
+                className="w-full h-full object-cover"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <SectionDivider />
 
       {/* Warum dieser Bonus */}
       <section className="py-14 md:py-20 bg-cream">
@@ -135,17 +306,16 @@ export default function MtechLaserBonusPage() {
           <h2 className="reveal font-serif text-3xl md:text-4xl text-ink leading-tight">Warum dieser Bonus?</h2>
           <div className="mt-8 space-y-5 text-muted-foreground leading-relaxed text-[1.05rem] text-left">
             <p className="reveal reveal-stagger-1">
-              Viele Beauty-Unternehmen investieren viel Geld in Geräte und Schulungen. Der Online-Auftritt wird jedoch häufig unterschätzt.
+              Viele Beauty-Unternehmerinnen investieren in Geräte und Schulungen – der Online-Auftritt bleibt dabei oft auf der Strecke. Dabei informieren sich potenzielle Kundinnen fast immer zuerst online, bevor sie einen Termin buchen.
             </p>
             <p className="reveal reveal-stagger-2">
-              Dabei informieren sich potenzielle Kundinnen fast immer zuerst online. Eine professionelle Website, ein gepflegtes Google-Unternehmensprofil und ein einheitlicher Markenauftritt schaffen Vertrauen und sorgen dafür, dass die Qualität Ihres Studios auch online sichtbar wird.
-            </p>
-            <p className="reveal reveal-stagger-3">
-              Deshalb ergänzt JAVERA Studio den Betreuungsansatz von MTech Laser mit einer kostenlosen Online-Präsenz-Analyse.
+              MTech Laser möchte Sie auch nach dem Gerätekauf oder Ihrer Schulung weiter unterstützen. Deshalb ergänzt JAVERA Studio diesen Betreuungsansatz mit einer kostenlosen Online-Präsenz-Analyse.
             </p>
           </div>
         </div>
       </section>
+
+      <SectionDivider />
 
       {/* Was wird analysiert */}
       <section className="py-14 md:py-20">
@@ -153,46 +323,50 @@ export default function MtechLaserBonusPage() {
           <div className="text-center mb-12">
             <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-4">Umfang der Analyse</div>
             <h2 className="reveal font-serif text-3xl md:text-4xl text-ink leading-tight">Was wird analysiert?</h2>
+            <p className="reveal reveal-delay mt-3 text-sm text-muted-foreground">Klicken Sie auf eine Karte für Details.</p>
           </div>
-          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
-            {analyseItems.map((item, i) => (
-              <div key={item.title} className={`reveal-card reveal-stagger-${(i % 6) + 1} bg-background border border-border/60 rounded-2xl p-7 text-center flex flex-col items-center gap-3`}>
-                <span className="shrink-0 w-12 h-12 rounded-full bg-peach-soft flex items-center justify-center" style={{ color: "#0F6E56" }}>
-                  <CheckIcon />
-                </span>
-                <p className="text-base font-semibold text-ink">{item.title}</p>
-                <p className="text-sm text-muted-foreground">{item.desc}</p>
-              </div>
-            ))}
-          </div>
+          <AnalyseCards items={analyseItems} />
         </div>
       </section>
 
-      {/* Was erhalten Sie */}
+      <SectionDivider />
+
+      {/* Ihr Weg zur Analyse */}
       <section className="py-14 md:py-20 bg-cream">
-        <div className="max-w-5xl mx-auto px-6">
+        <div className="max-w-2xl mx-auto px-6">
           <div className="text-center mb-12">
             <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-4">Ablauf</div>
-            <h2 className="reveal font-serif text-3xl md:text-4xl text-ink leading-tight">Was erhalten Sie?</h2>
+            <h2 className="reveal font-serif text-3xl md:text-4xl text-ink leading-tight">Ihr Weg zur Analyse</h2>
           </div>
-          <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-6">
+          <div>
             {steps.map((step, i) => (
-              <div key={step.n} className={`reveal-card reveal-stagger-${i + 1} text-center`}>
-                <div className="mx-auto w-11 h-11 rounded-full border-2 border-primary flex items-center justify-center font-serif text-lg text-primary">
-                  {step.n}
+              <div key={step.n}>
+                <div className={`reveal-card reveal-stagger-${i + 1} flex items-start gap-5 bg-background border border-border/60 rounded-2xl p-6`}>
+                  <div className="shrink-0 w-11 h-11 rounded-full border-2 border-primary flex items-center justify-center font-serif text-lg text-primary">
+                    {step.n}
+                  </div>
+                  <div>
+                    <p className="text-sm font-semibold text-ink">{step.title}</p>
+                    <p className="mt-1 text-sm text-muted-foreground leading-relaxed">{step.desc}</p>
+                  </div>
                 </div>
-                <p className="mt-4 text-sm font-semibold text-ink">{step.title}</p>
-                <p className="mt-1.5 text-xs text-muted-foreground leading-relaxed">{step.desc}</p>
+                {i < steps.length - 1 && (
+                  <div className="flex justify-center py-2">
+                    <ArrowDownIcon />
+                  </div>
+                )}
               </div>
             ))}
           </div>
-          <div className="reveal mt-12 max-w-2xl mx-auto bg-background border border-mauve/20 rounded-2xl px-6 py-5 text-center">
+          <div className="reveal mt-8 bg-background border border-mauve/20 rounded-2xl px-6 py-5 text-center">
             <p className="text-sm text-ink leading-relaxed">
               <strong>Die Analyse und das PDF sind vollständig kostenlos.</strong> Auch wenn später keine Zusammenarbeit entsteht, können Sie die Empfehlungen selbst umsetzen.
             </p>
           </div>
         </div>
       </section>
+
+      <SectionDivider />
 
       {/* Exklusive Vorteile */}
       <section className="py-14 md:py-20">
@@ -215,6 +389,8 @@ export default function MtechLaserBonusPage() {
         </div>
       </section>
 
+      <SectionDivider />
+
       {/* Über JAVERA Studio */}
       <section className="py-14 md:py-20 bg-cream">
         <div className="max-w-5xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
@@ -235,6 +411,8 @@ export default function MtechLaserBonusPage() {
           </div>
         </div>
       </section>
+
+      <SectionDivider />
 
       {/* Kundenstimmen */}
       <section className="py-14 md:py-20">
@@ -261,6 +439,8 @@ export default function MtechLaserBonusPage() {
         </div>
       </section>
 
+      <SectionDivider />
+
       {/* Anfrageformular */}
       <section id="formular" className="py-14 md:py-20 bg-cream scroll-mt-16">
         <div className="max-w-2xl mx-auto px-6">
@@ -274,6 +454,8 @@ export default function MtechLaserBonusPage() {
           </div>
         </div>
       </section>
+
+      <SectionDivider />
 
       {/* Abschluss */}
       <section className="py-14 md:py-20">
