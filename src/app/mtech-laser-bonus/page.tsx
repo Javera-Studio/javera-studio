@@ -374,7 +374,7 @@ export default function MtechLaserBonusPage() {
           <div className="text-center mb-12">
             <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-4">Ihre Vorteile</div>
             <h2 className="reveal font-serif text-3xl md:text-4xl text-ink leading-tight">Ihre Vorteile bei einer Zusammenarbeit mit JAVERA Studio</h2>
-            <p className="reveal reveal-delay mt-4 text-muted-foreground leading-relaxed max-w-2xl mx-auto">
+            <p className="reveal reveal-delay mt-4 text-muted-foreground leading-relaxed max-w-3xl mx-auto">
               Wenn Sie sich nach Ihrer kostenlosen Analyse für eine Zusammenarbeit mit JAVERA Studio entscheiden, profitieren Sie als MTech-Laser-Kundin von diesen exklusiven Vorteilen.
             </p>
           </div>
