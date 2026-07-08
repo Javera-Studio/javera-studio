@@ -242,7 +242,7 @@ export default function MtechLaserBonusPage() {
             Kostenlose Online-Präsenz-Analyse im Wert von 150&nbsp;€.
           </p>
           <p className="hero-subtitle mt-4 text-lg text-muted-foreground leading-relaxed">
-            Sie haben gerade einen wichtigen Schritt für Ihr Beauty-Business gemacht. Als Kundin von MTech Laser erhalten Sie deshalb exklusiv eine kostenlose Online-Präsenz-Analyse im Wert von 150&nbsp;€.
+            Sie haben gerade einen wichtigen Schritt für Ihr Beauty-Business gemacht. Als Kundin von MTech Laser erhalten Sie diese exklusiv geschenkt.
           </p>
           <div className="hero-cta mt-8">
             <Link
