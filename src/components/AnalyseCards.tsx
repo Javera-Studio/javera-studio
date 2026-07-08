@@ -69,7 +69,7 @@ export function AnalyseCards({ items }: { items: AnalyseItem[] }) {
               {active.icon}
             </span>
             <h3 className="font-serif text-xl md:text-2xl text-ink">{active.title}</h3>
-            <p className="mt-2 text-sm text-muted-foreground">Darauf achte ich in diesem Bereich:</p>
+            <p className="mt-2 text-sm text-muted-foreground">Bei der Analyse achte ich unter anderem auf:</p>
             <ul className="mt-4 space-y-2.5">
               {active.details.map((d) => (
                 <li key={d} className="flex gap-2.5 text-sm text-ink">

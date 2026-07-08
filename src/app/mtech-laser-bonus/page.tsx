@@ -18,6 +18,7 @@ const partnerVorteile = [
   { title: "Exklusive Partnerkonditionen", desc: "Sonderkonditionen für MTech-Laser-Kundinnen bei einer Zusammenarbeit." },
   { title: "Bis zu 4 zinsfreie Raten", desc: "Flexible, zinsfreie Ratenzahlung bei größeren Projekten möglich." },
   { title: "Persönliche Betreuung", desc: "Direkter Kontakt und persönliche Beratung während des gesamten Prozesses." },
+  { title: "Individuelle Lösung", desc: "Keine Standardpakete – jede Empfehlung wird individuell auf Ihr Studio, Ihre Ziele und Ihr Budget abgestimmt." },
 ];
 
 const analyseItems: AnalyseItem[] = [
@@ -25,49 +26,49 @@ const analyseItems: AnalyseItem[] = [
     title: "Website",
     desc: "Falls bereits vorhanden",
     icon: <GlobeIcon />,
-    details: ["Erster Eindruck", "Benutzerfreundlichkeit", "Mobile Darstellung", "Vertrauenswirkung"],
+    details: ["den ersten Eindruck Ihrer Website", "Benutzerfreundlichkeit & Customer Experience", "eine klare Besucherführung bis zur Kontaktaufnahme oder Buchung", "Vertrauen und Professionalität"],
   },
   {
     title: "Google-Unternehmensprofil",
     desc: "Auffindbarkeit bei Google",
     icon: <PinIcon />,
-    details: ["Vollständigkeit der Angaben", "Bilder & Aktualität", "Kategorien", "Auffindbarkeit"],
+    details: ["den Gesamteindruck Ihres Profils", "Vertrauen durch Vollständigkeit und Aktualität", "professionelle Präsentation Ihres Studios", "Auffindbarkeit für potenzielle Kundinnen"],
   },
   {
     title: "Social-Media-Kanäle",
     desc: "Auftritt & Wirkung",
     icon: <ShareIcon />,
-    details: ["Aktualität der Beiträge", "Bild- & Markensprache", "Wiedererkennungswert", "Wirkung auf Neukundinnen"],
+    details: ["den professionellen Gesamteindruck", "Wiedererkennungswert Ihrer Marke", "Wirkung auf potenzielle Neukundinnen", "Einheitlichkeit Ihres Auftritts"],
   },
   {
     title: "Google Bewertungen",
     desc: "Wahrnehmung & Vertrauen",
     icon: <ReviewStarIcon />,
-    details: ["Anzahl der Bewertungen", "Durchschnittliche Bewertung", "Außenwirkung", "Antwortverhalten"],
+    details: ["den Gesamteindruck Ihrer Bewertungen", "Vertrauen aus Sicht potenzieller Neukundinnen", "professionelle Außenwirkung", "Umgang mit Kundenfeedback"],
   },
   {
     title: "Kontakt- & Buchungsmöglichkeiten",
     desc: "Einfachheit für Neukundinnen",
     icon: <CalendarIcon />,
-    details: ["Auffindbarkeit der Kontaktdaten", "Klarheit des Buchungswegs", "Reaktionsfreundlichkeit", "Einfachheit für Neukundinnen"],
+    details: ["einfache Kontaktaufnahme", "unkomplizierte Buchungsmöglichkeiten", "klare Handlungsaufforderungen", "Nutzerfreundlichkeit aus Kundensicht"],
   },
   {
     title: "Markenauftritt",
     desc: "Einheitlichkeit & Wiedererkennung",
     icon: <SparkleIcon />,
-    details: ["Einheitlichkeit von Farben & Logo", "Wiedererkennungswert", "Professionelle Wirkung", "Konsistenz über alle Kanäle"],
+    details: ["Wiedererkennungswert Ihrer Marke", "ein stimmiges Erscheinungsbild", "Professionalität Ihres Außenauftritts", "einen einheitlichen Markenauftritt"],
   },
   {
     title: "Sichtbarkeit",
     desc: "Wie leicht werden Sie gefunden?",
     icon: <EyeIcon />,
-    details: ["Auffindbarkeit bei Google", "Relevante Suchbegriffe", "Regionale Sichtbarkeit", "Reichweite insgesamt"],
+    details: ["wie leicht Ihr Studio gefunden wird", "Ihre Sichtbarkeit im regionalen Umfeld", "ungenutzte Potenziale", "Möglichkeiten zur besseren Auffindbarkeit"],
   },
   {
     title: "Erster Eindruck",
     desc: "Für Neukundinnen auf einen Blick",
     icon: <HeartIcon />,
-    details: ["Optik auf den ersten Blick", "Klarheit des Angebots", "Vertrauenswirkung", "Handlungsaufforderung"],
+    details: ["die Wirkung auf potenzielle Neukundinnen", "Professionalität und Vertrauen", "Klarheit Ihres Angebots", "den Gesamteindruck Ihres Online-Auftritts"],
   },
 ];
 
@@ -83,18 +84,21 @@ const testimonials = [
     quote: "Wenn ich Sterne vergeben könnte, dann 10 von 5. Jagoda hat der Himmel geschickt! Sie hat meine Vorstellungen so was von übertroffen, alles top! Ich kann Javera nur wärmstens weiterempfehlen.",
     name: "Michaela Kornherr",
     studio: "faceandmore.at",
+    url: "https://faceandmore.at",
     initial: "M",
   },
   {
     quote: "Absolut zu empfehlen! Ich habe alles der lieben Jagoda anvertraut und bin mega glücklich mit dem Ergebnis. Professionell, schnell und zuverlässig!",
     name: "Paula Venc",
     studio: "paulavenc.at",
+    url: "https://paulavenc.at",
     initial: "P",
   },
   {
     quote: "Absolute Herzensempfehlung! Sie hat nicht einfach nur eine Webseite erstellt, sondern meine Vision sichtbar gemacht und meinem Studio einen professionellen Online-Auftritt gegeben, der zu 100 % zu mir passt.",
     name: "Danijela Boskovic",
     studio: "Divine Beauty & Nails Studio",
+    url: "https://divinenails.at",
     initial: "D",
   },
 ];
@@ -423,17 +427,23 @@ export default function MtechLaserBonusPage() {
           </div>
           <div className="grid md:grid-cols-3 gap-5">
             {testimonials.map((t, i) => (
-              <div key={t.name} className={`reveal-card reveal-stagger-${i + 1} bg-cream border border-border/60 rounded-2xl p-6 flex flex-col`}>
+              <a
+                key={t.name}
+                href={t.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`reveal-card reveal-stagger-${i + 1} bg-cream border border-border/60 rounded-2xl p-6 flex flex-col hover:shadow-md hover:border-mauve/40 transition`}
+              >
                 <div className="flex items-center gap-1 mb-3">{[0, 1, 2, 3, 4].map((s) => <StarIcon key={s} className="w-4 h-4 text-yellow-400" />)}</div>
                 <p className="text-sm text-ink leading-relaxed flex-1">„{t.quote}"</p>
                 <div className="mt-5 flex items-center gap-3">
                   <div className="w-9 h-9 rounded-full bg-background flex items-center justify-center text-ink font-serif text-sm flex-shrink-0">{t.initial}</div>
                   <div>
                     <p className="font-medium text-ink text-sm">{t.name}</p>
-                    <p className="text-xs text-muted-foreground">{t.studio}</p>
+                    <p className="text-xs text-muted-foreground underline underline-offset-2">{t.studio}</p>
                   </div>
                 </div>
-              </div>
+              </a>
             ))}
           </div>
         </div>
@@ -466,7 +476,7 @@ export default function MtechLaserBonusPage() {
           <p className="reveal reveal-stagger-1 mt-4 text-muted-foreground leading-relaxed">
             Ich freue mich darauf, auch Ihren Online-Auftritt gemeinsam mit Ihnen auf das nächste Level zu bringen.
           </p>
-          <p className="reveal reveal-stagger-2 mt-6 text-sm text-muted-foreground italic">Ihre Jagoda, JAVERA Studio</p>
+          <p className="reveal reveal-stagger-2 mt-6 text-sm text-muted-foreground italic">Jagoda, JAVERA Studio</p>
         </div>
       </section>
 
