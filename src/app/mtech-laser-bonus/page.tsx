@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { MtechLaserForm } from "@/components/MtechLaserForm";
 import { AnalyseCards, type AnalyseItem } from "@/components/AnalyseCards";
+import { AblaufTimeline } from "@/components/AblaufTimeline";
 import { ScrollRevealInit } from "@/components/ScrollRevealInit";
 
 export const metadata: Metadata = {
@@ -73,10 +74,10 @@ const analyseItems: AnalyseItem[] = [
 ];
 
 const steps = [
-  { n: "1", title: "Anfrage absenden", desc: "Sie füllen das kurze Formular weiter unten aus." },
-  { n: "2", title: "Analyse", desc: "Ich analysiere Ihren gesamten Online-Auftritt in Ruhe und im Detail." },
-  { n: "3", title: "Ihr Maßnahmen-PDF", desc: "Sie erhalten Ihr individuelles PDF mit konkreten Handlungsempfehlungen." },
-  { n: "4", title: "Ihre Entscheidung", desc: "Sie entscheiden selbst, ob Sie die Empfehlungen eigenständig umsetzen oder meine Unterstützung in Anspruch nehmen möchten." },
+  { n: "1", title: "Kostenlose Analyse anfordern", desc: "Sie füllen das kurze Formular weiter unten aus." },
+  { n: "2", title: "Ich analysiere Ihren Online-Auftritt", desc: "Ich analysiere Ihren gesamten Online-Auftritt sorgfältig aus Sicht potenzieller Neukundinnen und zusätzlich aus Marketing-Perspektive." },
+  { n: "3", title: "Sie erhalten Ihr persönliches Maßnahmen-PDF", desc: "Sie erhalten individuelle Handlungsempfehlungen mit konkreten Optimierungsmöglichkeiten für Ihr Studio." },
+  { n: "4", title: "Sie entscheiden ganz in Ruhe", desc: "Sie entscheiden anschließend selbst, ob Sie die Empfehlungen eigenständig umsetzen oder meine Unterstützung in Anspruch nehmen möchten." },
 ];
 
 const testimonials = [
@@ -182,10 +183,19 @@ function HeartIcon() {
   );
 }
 
-function ArrowDownIcon() {
+function PhoneIcon() {
   return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5 text-mauve" aria-hidden>
-      <path d="M12 4v14M6 13l6 6 6-6" />
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4" aria-hidden>
+      <path d="M5 4h3.5l1.5 4-2 1.5a12 12 0 006 6l1.5-2 4 1.5V19a2 2 0 01-2.2 2 17 17 0 01-13.3-13.3A2 2 0 015 4z" />
+    </svg>
+  );
+}
+
+function MailIcon() {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4" aria-hidden>
+      <rect x="3" y="5" width="18" height="14" rx="2" />
+      <path d="M3.5 6.5l8.5 6 8.5-6" />
     </svg>
   );
 }
@@ -219,8 +229,8 @@ export default function MtechLaserBonusPage() {
         />
       </header>
 
-      {/* Hero – zweispaltig */}
-      <section className="relative overflow-hidden pt-6 pb-16 md:pt-10 md:pb-24">
+      {/* Hero */}
+      <section className="relative overflow-hidden pt-14 pb-20 md:pt-24 md:pb-32">
         <div
           aria-hidden
           className="absolute -top-32 -left-32 w-[500px] h-[500px] rounded-full opacity-40 blur-3xl"
@@ -231,51 +241,24 @@ export default function MtechLaserBonusPage() {
           className="absolute -bottom-32 -right-32 w-[500px] h-[500px] rounded-full opacity-30 blur-3xl"
           style={{ backgroundColor: "var(--peach-soft)" }}
         />
-        <div className="relative max-w-6xl mx-auto px-6 grid md:grid-cols-[0.82fr_1fr] gap-12 md:gap-16 items-center">
-          <div className="text-center md:text-left">
-            <div className="hero-cta inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-accent text-primary text-xs font-semibold mb-6">
-              <StarIcon className="w-3.5 h-3.5" />
-              In Partnerschaft mit MTech Laser
-            </div>
-            <h1 className="hero-headline font-serif text-4xl md:text-5xl lg:text-6xl leading-[1.1] text-ink">
-              Herzlichen Glückwunsch zu Ihrer Investition!
-            </h1>
-            <p className="hero-subtitle mt-6 text-lg text-muted-foreground leading-relaxed">
-              Sie haben gerade einen wichtigen Schritt für Ihr Beauty-Business gemacht. Als Kundin von MTech Laser erhalten Sie deshalb exklusiv eine kostenlose Online-Präsenz-Analyse im Wert von 150&nbsp;€.
-            </p>
-            <div className="hero-cta mt-8">
-              <Link
-                href="#formular"
-                className="inline-block px-8 py-4 rounded-full bg-primary text-primary-foreground hover:bg-mauve transition-all hover:scale-[1.02] hover:shadow-md font-medium"
-              >
-                Jetzt kostenlose Analyse sichern
-              </Link>
-            </div>
+        <div className="relative max-w-2xl mx-auto px-6 text-center">
+          <div className="hero-cta inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-accent text-primary text-xs font-semibold mb-6">
+            <StarIcon className="w-3.5 h-3.5" />
+            In Partnerschaft mit MTech Laser
           </div>
-          <div className="relative">
-            <div
-              aria-hidden
-              className="absolute -inset-6 rounded-[2rem] blur-2xl opacity-50"
-              style={{ backgroundColor: "var(--peach-soft)" }}
-            />
-            <div
-              className="reveal relative aspect-[3/2] rounded-2xl overflow-hidden"
-              style={{ boxShadow: "0 30px 60px -30px color-mix(in oklab, var(--ink) 16%, transparent)" }}
+          <h1 className="hero-headline font-serif text-4xl md:text-5xl lg:text-6xl leading-[1.1] text-ink">
+            Herzlichen Glückwunsch zu Ihrer Investition!
+          </h1>
+          <p className="hero-subtitle mt-6 text-lg text-muted-foreground leading-relaxed">
+            Sie haben gerade einen wichtigen Schritt für Ihr Beauty-Business gemacht. Als Kundin von MTech Laser erhalten Sie deshalb exklusiv eine kostenlose Online-Präsenz-Analyse im Wert von 150&nbsp;€.
+          </p>
+          <div className="hero-cta mt-8">
+            <Link
+              href="#formular"
+              className="inline-block px-8 py-4 rounded-full bg-primary text-primary-foreground hover:bg-mauve transition-all hover:scale-[1.02] hover:shadow-md font-medium"
             >
-              <Image
-                src="/analysehero.png"
-                alt="JAVERA Studio Online-Präsenz-Analyse für MTech Laser Kundinnen"
-                priority
-                width={1536}
-                height={1024}
-                className="w-full h-full object-cover"
-              />
-              <div
-                aria-hidden
-                className="pointer-events-none absolute inset-0"
-                style={{ boxShadow: "inset 0 0 60px 6px color-mix(in oklab, var(--ink) 12%, transparent)" }}
-              />
-            </div>
+              Jetzt kostenlose Analyse sichern
+            </Link>
           </div>
         </div>
       </section>
@@ -302,7 +285,7 @@ export default function MtechLaserBonusPage() {
 
       {/* Wie sehen potenzielle Kundinnen Ihr Studio online */}
       <section className="py-14 md:py-20">
-        <div className="max-w-5xl mx-auto px-6 grid md:grid-cols-[0.82fr_1fr] gap-12 items-center">
+        <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-[0.82fr_1fr] gap-12 md:gap-16 items-center">
           <div>
             <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-4">Der Blick von außen</div>
             <h2 className="reveal font-serif text-3xl md:text-4xl text-ink leading-tight">Wie sehen potenzielle Kundinnen Ihr Studio online?</h2>
@@ -347,35 +330,45 @@ export default function MtechLaserBonusPage() {
 
       {/* Ihr Weg zur Analyse */}
       <section className="py-14 md:py-20 bg-cream">
-        <div className="max-w-2xl mx-auto px-6">
+        <div className="max-w-5xl mx-auto px-6">
           <div className="text-center mb-12">
             <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-4">Ablauf</div>
             <h2 className="reveal font-serif text-3xl md:text-4xl text-ink leading-tight">Ihr Weg zur Analyse</h2>
           </div>
-          <div>
-            {steps.map((step, i) => (
-              <div key={step.n}>
-                <div className={`reveal-card reveal-stagger-${i + 1} flex items-start gap-5 bg-background border border-border/60 rounded-2xl p-6`}>
-                  <div className="shrink-0 w-11 h-11 rounded-full border-2 border-primary flex items-center justify-center font-serif text-lg text-primary">
-                    {step.n}
-                  </div>
-                  <div>
-                    <p className="text-sm font-semibold text-ink">{step.title}</p>
-                    <p className="mt-1 text-sm text-muted-foreground leading-relaxed">{step.desc}</p>
-                  </div>
-                </div>
-                {i < steps.length - 1 && (
-                  <div className="flex justify-center py-2">
-                    <ArrowDownIcon />
-                  </div>
-                )}
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div>
+              <AblaufTimeline steps={steps} />
+              <div className="reveal mt-8 bg-background border border-mauve/20 rounded-2xl px-6 py-5 text-center">
+                <p className="text-sm text-ink leading-relaxed">
+                  <strong>Die Analyse und das PDF sind vollständig kostenlos.</strong> Auch wenn später keine Zusammenarbeit entsteht, können Sie die Empfehlungen selbst umsetzen.
+                </p>
               </div>
-            ))}
-          </div>
-          <div className="reveal mt-8 bg-background border border-mauve/20 rounded-2xl px-6 py-5 text-center">
-            <p className="text-sm text-ink leading-relaxed">
-              <strong>Die Analyse und das PDF sind vollständig kostenlos.</strong> Auch wenn später keine Zusammenarbeit entsteht, können Sie die Empfehlungen selbst umsetzen.
-            </p>
+            </div>
+            <div className="relative">
+              <div
+                aria-hidden
+                className="absolute -inset-6 rounded-[2rem] blur-2xl opacity-50"
+                style={{ backgroundColor: "var(--peach-soft)" }}
+              />
+              <div
+                className="reveal relative aspect-[3/2] rounded-2xl overflow-hidden"
+                style={{ boxShadow: "0 30px 60px -30px color-mix(in oklab, var(--ink) 16%, transparent)" }}
+              >
+                <Image
+                  src="/analysehero.png"
+                  alt="JAVERA Studio Online-Präsenz-Analyse für MTech Laser Kundinnen"
+                  loading="lazy"
+                  width={1536}
+                  height={1024}
+                  className="w-full h-full object-cover"
+                />
+                <div
+                  aria-hidden
+                  className="pointer-events-none absolute inset-0"
+                  style={{ boxShadow: "inset 0 0 60px 6px color-mix(in oklab, var(--ink) 12%, transparent)" }}
+                />
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -486,7 +479,20 @@ export default function MtechLaserBonusPage() {
           <p className="reveal reveal-stagger-1 mt-4 text-muted-foreground leading-relaxed">
             Ich freue mich darauf, auch Ihren Online-Auftritt gemeinsam mit Ihnen auf das nächste Level zu bringen.
           </p>
-          <p className="reveal reveal-stagger-2 mt-6 text-sm text-muted-foreground italic">Jagoda, JAVERA Studio</p>
+          <div className="reveal reveal-stagger-2 mt-10 pt-8 border-t border-border/50">
+            <p className="text-sm font-semibold text-ink">Fragen? Ich bin gerne persönlich für Sie da.</p>
+            <div className="mt-4 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-6 text-sm text-muted-foreground">
+              <span className="inline-flex items-center gap-2">
+                <PhoneIcon />
+                +43 XXX XXX XXX
+              </span>
+              <a href="mailto:hallo@javera-studio.at" className="inline-flex items-center gap-2 hover:text-ink transition-colors">
+                <MailIcon />
+                hallo@javera-studio.at
+              </a>
+            </div>
+          </div>
+          <p className="reveal reveal-stagger-3 mt-6 text-sm text-muted-foreground italic">Jagoda, JAVERA Studio</p>
         </div>
       </section>
 
