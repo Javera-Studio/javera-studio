@@ -330,7 +330,7 @@ export default function MtechLaserBonusPage() {
           <div className="grid md:grid-cols-2 gap-12 md:items-stretch">
             <div>
               <AblaufTimeline steps={steps} />
-              <div className="reveal mt-8 bg-background border border-mauve/20 rounded-2xl px-6 py-5 text-center">
+              <div className="reveal mt-8 bg-accent border border-mauve/20 rounded-2xl px-6 py-5 text-center">
                 <p className="text-sm text-ink leading-relaxed">
                   <strong>Die Analyse und das PDF sind vollständig kostenlos.</strong> Auch wenn später keine Zusammenarbeit entsteht, können Sie die Empfehlungen selbst umsetzen.
                 </p>
