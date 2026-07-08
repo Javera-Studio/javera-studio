@@ -239,7 +239,10 @@ export default function MtechLaserBonusPage() {
             Herzlichen Glückwunsch zu Ihrer Investition!
           </h1>
           <p className="hero-subtitle mt-6 text-lg text-muted-foreground leading-relaxed">
-            Sie haben gerade einen wichtigen Schritt für Ihr Beauty-Business gemacht. Als Kundin von MTech Laser erhalten Sie deshalb exklusiv eine
+            Sie haben gerade einen wichtigen Schritt für Ihr Beauty-Business gemacht.
+          </p>
+          <p className="hero-subtitle mt-4 text-lg text-muted-foreground leading-relaxed">
+            Als Kundin von MTech Laser erhalten Sie deshalb exklusiv eine
           </p>
           <p className="hero-subtitle mt-2 text-lg font-semibold text-primary">
             Kostenlose Online-Präsenz-Analyse im Wert von 150&nbsp;€.
