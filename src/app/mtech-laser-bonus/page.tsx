@@ -77,7 +77,7 @@ const steps = [
   { n: "1", title: "Kostenlose Analyse anfordern", desc: "Sie füllen das kurze Formular weiter unten aus." },
   { n: "2", title: "Ich analysiere Ihren Online-Auftritt", desc: "Ich analysiere Ihren gesamten Online-Auftritt sorgfältig aus Sicht potenzieller Neukundinnen und zusätzlich aus Marketing-Perspektive." },
   { n: "3", title: "Sie erhalten Ihr persönliches Maßnahmen-PDF", desc: "Sie erhalten individuelle Handlungsempfehlungen mit konkreten Optimierungsmöglichkeiten für Ihr Studio." },
-  { n: "4", title: "Sie entscheiden ganz in Ruhe", desc: "Sie entscheiden anschließend selbst, ob Sie die Empfehlungen eigenständig umsetzen oder meine Unterstützung in Anspruch nehmen möchten." },
+  { n: "4", title: "Ihre Entscheidung", desc: "Sie entscheiden anschließend selbst, ob Sie die Empfehlungen eigenständig umsetzen oder meine Unterstützung in Anspruch nehmen möchten." },
 ];
 
 const testimonials = [
