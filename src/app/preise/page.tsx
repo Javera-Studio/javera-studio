@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
+import { ContactForm } from "@/components/ContactForm";
 import { SiteFooter } from "@/components/SiteFooter";
 
 export const metadata: Metadata = {
@@ -113,7 +114,7 @@ export default function PreisePage() {
     { q: "Sind Hosting und Domain im Preis enthalten?", a: "Nein. Domain und Hosting laufen direkt über einen externen Anbieter auf deinen Namen und kosten ca. 15 € pro Jahr. So behältst du die volle Kontrolle über deine Website." },
     { q: "Gibt es versteckte Kosten?", a: "Nein. Alle Preise sind transparent aufgelistet. Laufende Kosten wie Domain, Hosting und Wartung sind klar gekennzeichnet und werden vorab besprochen." },
     { q: "Kann ich Website, Logo und Flyer zusammen buchen?", a: "Ja. Im Paket 'Beauty Studio Komplett' erhältst du Premium Website, Logo, 10 Social Media Posts und Flyer für 1.390 € statt 1.640 € einzeln." },
-    { q: "Wie viel kostet die laufende Wartung meiner Website?", a: "Das Wartungspaket kostet 40 € pro Monat und beinhaltet bis zu 4 kleine Änderungen (Texte, Fotos, Aktionen). Einzelne spontane Änderungen ohne Paket kosten 50 € einmalig." },
+    { q: "Wie viel kostet die laufende Wartung meiner Website?", a: "Das Wartungspaket kostet 60 € pro Monat und beinhaltet bis zu 4 kleine Änderungen (Texte, Fotos, Aktionen). Einzelne spontane Änderungen ohne Paket kosten 50 € einmalig." },
     { q: "Wie läuft die Bezahlung ab?", a: "Ich arbeite transparent und ohne versteckte Kosten. Nach dem Erstgespräch erhältst du ein individuelles Festpreis-Angebot. Nach deiner Zusage werden 50 % des Betrags als Anzahlung fällig, die restlichen 50 % nach Fertigstellung deiner Website oder deines Projekts." },
     { q: "Warum kostet eine professionelle Website mehr als ein Baukasten?", a: "Eine professionelle Website ist individuell auf dein Beauty-Studio abgestimmt und wird speziell für deine Marke gestaltet. Im Gegensatz zu einem Baukastensystem erhältst du keine Standardvorlage, sondern eine Website, die dein Studio professionell präsentiert, Vertrauen schafft und auf deine Zielgruppe zugeschnitten ist. Dazu gehören unter anderem individuelles Design, eine klare Struktur, Suchmaschinenoptimierung, mobile Optimierung sowie persönliche Betreuung während des gesamten Projekts. Viele Beauty-Studios investieren mehrere Tausend Euro in ihre Einrichtung, Geräte oder Schulungen. Die Website ist jedoch oft der erste Eindruck, den potenzielle Kundinnen von deinem Studio bekommen – sie ist dein digitales Schaufenster und spielt eine entscheidende Rolle dabei, ob jemand Vertrauen fasst und einen Termin bei dir anfragt." },
     { q: "Kann ich meine Website auch in Raten bezahlen?", a: "Ja. Gerade der Start in die Selbstständigkeit bringt viele Investitionen mit sich. Deshalb biete ich für größere Projekte auf Wunsch eine zinsfreie Ratenzahlung in bis zu 4 Teilzahlungen an. Gemeinsam finden wir eine Lösung, die zu deinem Budget passt." },
@@ -182,7 +183,7 @@ export default function PreisePage() {
           <p id="website" className="text-[11px] font-semibold uppercase tracking-[0.15em] text-muted-foreground mb-5 scroll-mt-24">Website</p>
           <div className="grid md:grid-cols-2 gap-5 items-stretch">
             {/* Starter Website */}
-            <div className="bg-background border border-border rounded-2xl p-8 flex flex-col">
+            <div className="bg-background border border-ink/15 rounded-2xl p-8 flex flex-col shadow-sm">
               <p className="text-lg font-semibold text-ink mb-1">Starter Website</p>
               <p className="text-sm text-muted-foreground">One-Pager · alle Infos auf einer Seite</p>
               <div className="py-5">
@@ -202,7 +203,7 @@ export default function PreisePage() {
                 {starterSupport.map((f) => <FeatureRow key={f.title} {...f} />)}
                 <div className="pt-6">
                   <Link
-                    href="/#schreib-mir"
+                    href="#schreib-mir"
                     className="block text-center py-3 border border-border text-ink font-semibold text-sm rounded-xl hover:bg-secondary transition"
                   >
                     Kostenlose Demo anfragen
@@ -212,7 +213,7 @@ export default function PreisePage() {
             </div>
 
             {/* Premium Website */}
-            <div className="relative bg-background border-2 border-primary rounded-2xl p-8 flex flex-col">
+            <div className="relative bg-background border-2 border-primary rounded-2xl p-8 flex flex-col shadow-sm">
               <div className="absolute -top-3 left-8 bg-accent text-primary text-[11px] font-semibold px-3 py-1 rounded-full">
                 Empfohlen
               </div>
@@ -239,7 +240,7 @@ export default function PreisePage() {
                 {premiumSupport.map((f) => <FeatureRow key={f.title} {...f} />)}
                 <div className="pt-6">
                   <Link
-                    href="/#schreib-mir"
+                    href="#schreib-mir"
                     className="block text-center py-3 bg-primary text-primary-foreground font-semibold text-sm rounded-xl hover:bg-primary/90 transition"
                   >
                     Kostenlose Demo anfragen
@@ -281,7 +282,7 @@ export default function PreisePage() {
           </div>
 
           {/* Erweiterungen nach Wunsch */}
-          <div className="mt-5 bg-background border border-border rounded-2xl p-6 md:p-8">
+          <div id="erweiterungen" className="mt-5 bg-background border border-border rounded-2xl p-6 md:p-8 scroll-mt-24">
             <p className="text-[11px] font-semibold uppercase tracking-[0.15em] text-muted-foreground mb-4">Erweiterungen nach Wunsch</p>
             <div className="grid sm:grid-cols-2 gap-x-8 gap-y-0">
               {erweiterungen.map((item) => (
@@ -298,16 +299,16 @@ export default function PreisePage() {
 
           {/* Laufende Kosten */}
           <div className="mt-5 grid sm:grid-cols-3 gap-4 items-stretch">
-            <div className="bg-background border border-border rounded-2xl p-6 flex flex-col">
+            <div id="domain-hosting" className="bg-background border border-border rounded-2xl p-6 flex flex-col scroll-mt-24">
               <p className="font-semibold text-ink">Domain &amp; Hosting</p>
               <p className="text-xs text-muted-foreground mt-1">Eigene www-Adresse + Website online halten (bei externem Anbieter)</p>
               <p className="text-xs text-muted-foreground/80 mt-1 italic">direkt beim Anbieter — läuft auf deinen Namen</p>
               <p className="text-2xl font-bold text-ink mt-auto pt-4">15 € <span className="text-sm font-normal text-muted-foreground">/ Jahr</span></p>
             </div>
-            <div className="bg-background border border-border rounded-2xl p-6 flex flex-col">
+            <div id="wartung" className="bg-background border border-border rounded-2xl p-6 flex flex-col scroll-mt-24">
               <p className="font-semibold text-ink">Wartungspaket</p>
               <p className="text-xs text-muted-foreground mt-1">Kleine laufende Anpassungen, neue Fotos, Texte & Aktionen · bis zu 4 Änderungen pro Monat</p>
-              <p className="text-2xl font-bold text-ink mt-auto pt-4">40 € <span className="text-sm font-normal text-muted-foreground">/ Monat</span></p>
+              <p className="text-2xl font-bold text-ink mt-auto pt-4">60 € <span className="text-sm font-normal text-muted-foreground">/ Monat</span></p>
             </div>
             <div className="bg-background border border-border rounded-2xl p-6 flex flex-col">
               <p className="font-semibold text-ink">Einzeländerung</p>
@@ -349,7 +350,7 @@ export default function PreisePage() {
           </div>
 
           {/* PAKETE */}
-          <div className="mt-14">
+          <div id="pakete" className="mt-14 scroll-mt-24">
             <p className="text-[11px] font-semibold uppercase tracking-[0.15em] text-muted-foreground mb-5">Pakete</p>
             <div className="grid sm:grid-cols-3 gap-5">
               <div className="bg-background border border-border rounded-2xl p-6 flex flex-col">
@@ -391,7 +392,7 @@ export default function PreisePage() {
             Alle Preise exkl. MwSt. (Kleinunternehmer) · Individuelle Angebote auf Anfrage
           </p>
           <div className="mt-6 text-center">
-            <Link href="/#schreib-mir" className="inline-block px-7 py-3.5 rounded-full bg-primary text-primary-foreground hover:bg-mauve transition font-medium">
+            <Link href="#schreib-mir" className="inline-block px-7 py-3.5 rounded-full bg-primary text-primary-foreground hover:bg-mauve transition font-medium">
               Anfrage senden
             </Link>
             <p className="mt-3 text-xs text-muted-foreground">
@@ -399,6 +400,64 @@ export default function PreisePage() {
             </p>
           </div>
 
+        </div>
+      </section>
+
+      {/* Zinsfreie Ratenzahlung */}
+      <section id="finanzierung" className="py-12 md:py-16 scroll-mt-24">
+        <div className="max-w-5xl mx-auto px-6">
+          <div className="rounded-3xl border-2 border-primary bg-peach-soft/60 p-8 md:p-12 grid md:grid-cols-[1.3fr_1fr] gap-10 items-center overflow-hidden">
+            <div>
+              <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-4">Finanzierung</div>
+              <h2 className="font-serif text-3xl md:text-4xl text-ink leading-tight">💳 Zinsfreie Ratenzahlung</h2>
+              <p className="mt-4 font-serif text-lg md:text-xl text-ink">Jeder verdient einen professionellen Online-Auftritt.</p>
+              <p className="mt-4 text-muted-foreground leading-relaxed">
+                Ich weiß, dass eine professionelle Website eine Investition ist und die Kosten gerade für Gründerinnen und kleinere Beauty-Unternehmen eine wichtige Rolle spielen können. Deshalb biete ich für größere Projekte eine zinsfreie Ratenzahlung an – damit du deinen professionellen Markenauftritt nicht auf später verschieben musst.
+              </p>
+
+              <div className="mt-8 grid sm:grid-cols-2 gap-4">
+                <div className="bg-background border border-border rounded-2xl p-5">
+                  <p className="flex items-center gap-2 text-sm font-semibold text-ink">
+                    <span aria-hidden style={{ color: "#0F6E56" }}>✓</span> Projekte ab 900 €
+                  </p>
+                  <p className="mt-2 text-sm text-muted-foreground">→ Zahlung in 3 zinsfreien Monatsraten</p>
+                </div>
+                <div className="bg-background border border-border rounded-2xl p-5">
+                  <p className="flex items-center gap-2 text-sm font-semibold text-ink">
+                    <span aria-hidden style={{ color: "#0F6E56" }}>✓</span> Projekte ab 1.400 €
+                  </p>
+                  <p className="mt-2 text-sm text-muted-foreground">→ Zahlung in 4 zinsfreien Monatsraten</p>
+                </div>
+              </div>
+              <p className="mt-5 text-sm text-muted-foreground leading-relaxed">
+                Die erste Rate wird jeweils bei Auftragserteilung fällig, die weiteren Raten monatlich.
+              </p>
+
+              <div className="mt-6 bg-background/70 border border-border/60 rounded-xl px-4 py-3">
+                <p className="text-xs text-muted-foreground leading-relaxed">
+                  Die Ratenzahlung ist ein freiwilliges Angebot und muss vor Projektbeginn gemeinsam vereinbart werden. Sie ist nicht automatisch Bestandteil jedes Projekts und wird individuell geprüft sowie im Vertrag festgehalten.
+                </p>
+              </div>
+
+              <div className="mt-8">
+                <Link
+                  href="#schreib-mir"
+                  className="inline-block px-7 py-3.5 rounded-full bg-primary text-primary-foreground hover:bg-mauve transition-all hover:scale-[1.02] hover:shadow-md font-medium"
+                >
+                  Ratenzahlung anfragen
+                </Link>
+              </div>
+            </div>
+
+            <div className="relative w-full aspect-[4/5] rounded-2xl overflow-hidden">
+              <Image
+                src="/ratenzahlung.jpg"
+                alt="Zinsfreie Ratenzahlung für deinen professionellen Online-Auftritt bei JAVERA Studio"
+                fill
+                className="object-cover"
+              />
+            </div>
+          </div>
         </div>
       </section>
 
@@ -421,6 +480,7 @@ export default function PreisePage() {
         </div>
       </section>
 
+      <ContactForm />
       <SiteFooter />
     </main>
   );

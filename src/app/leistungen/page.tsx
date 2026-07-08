@@ -348,7 +348,7 @@ export default function LeistungenPage() {
       <section id="faq" className="py-12 md:py-16 bg-cream">
         <div className="max-w-3xl mx-auto px-6">
           <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-4 text-center">FAQ</div>
-          <h2 className="reveal font-serif text-4xl md:text-5xl text-ink leading-tight text-center">Häufige Fragen zu unseren Leistungen</h2>
+          <h2 className="reveal font-serif text-4xl md:text-5xl text-ink leading-tight text-center">Häufige Fragen zu meinen Leistungen</h2>
           <div className="mt-12 space-y-3">
             {faqs.map((f, i) => (
               <details key={f.q} className={`reveal reveal-stagger-${(i % 6) + 1} group scroll-mt-28 rounded-2xl bg-background border border-border/60 p-6 open:shadow-sm transition`}>
@@ -367,14 +367,6 @@ export default function LeistungenPage() {
       <section className="py-12 md:py-16">
         <div className="max-w-2xl mx-auto px-6 text-center">
           <h2 className="reveal font-serif text-3xl md:text-4xl text-ink leading-tight">Lass uns gemeinsam deinen professionellen Markenauftritt gestalten.</h2>
-          <div className="reveal reveal-delay mt-8 flex flex-wrap gap-3 justify-center">
-            <a href="#schreib-mir" className="px-7 py-3.5 rounded-full bg-primary text-primary-foreground hover:bg-mauve transition-all hover:scale-[1.02] hover:shadow-md font-medium">
-              Kostenlose Vorschau
-            </a>
-            <a href="#schreib-mir" className="px-7 py-3.5 rounded-full border border-border text-ink hover:bg-cream transition-all hover:scale-[1.02] font-medium">
-              Kontakt aufnehmen
-            </a>
-          </div>
         </div>
       </section>
 
