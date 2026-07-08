@@ -231,7 +231,7 @@ export default function MtechLaserBonusPage() {
           className="absolute -bottom-32 -right-32 w-[500px] h-[500px] rounded-full opacity-30 blur-3xl"
           style={{ backgroundColor: "var(--peach-soft)" }}
         />
-        <div className="relative max-w-6xl mx-auto px-6 grid md:grid-cols-[1.2fr_1fr] gap-12 md:gap-16 items-center">
+        <div className="relative max-w-6xl mx-auto px-6 grid md:grid-cols-[0.82fr_1fr] gap-12 md:gap-16 items-center">
           <div className="text-center md:text-left">
             <div className="hero-cta inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-accent text-primary text-xs font-semibold mb-6">
               <StarIcon className="w-3.5 h-3.5" />
@@ -254,8 +254,13 @@ export default function MtechLaserBonusPage() {
           </div>
           <div className="relative">
             <div
-              className="reveal aspect-[3/2] rounded-2xl overflow-hidden"
-              style={{ boxShadow: "0 20px 50px -25px color-mix(in oklab, var(--ink) 18%, transparent)" }}
+              aria-hidden
+              className="absolute -inset-6 rounded-[2rem] blur-2xl opacity-50"
+              style={{ backgroundColor: "var(--peach-soft)" }}
+            />
+            <div
+              className="reveal relative aspect-[3/2] rounded-2xl overflow-hidden"
+              style={{ boxShadow: "0 30px 60px -30px color-mix(in oklab, var(--ink) 16%, transparent)" }}
             >
               <Image
                 src="/analysehero.png"
@@ -265,7 +270,30 @@ export default function MtechLaserBonusPage() {
                 height={1024}
                 className="w-full h-full object-cover"
               />
+              <div
+                aria-hidden
+                className="pointer-events-none absolute inset-0"
+                style={{ boxShadow: "inset 0 0 60px 6px color-mix(in oklab, var(--ink) 12%, transparent)" }}
+              />
             </div>
+          </div>
+        </div>
+      </section>
+
+      <SectionDivider />
+
+      {/* Warum dieser Bonus */}
+      <section className="py-14 md:py-20 bg-cream">
+        <div className="max-w-2xl mx-auto px-6 text-center">
+          <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-4">Hintergrund</div>
+          <h2 className="reveal font-serif text-3xl md:text-4xl text-ink leading-tight">Warum dieser Bonus?</h2>
+          <div className="mt-8 space-y-5 text-muted-foreground leading-relaxed text-[1.05rem] text-left">
+            <p className="reveal reveal-stagger-1">
+              Viele Beauty-Unternehmerinnen investieren in Geräte und Schulungen – der Online-Auftritt bleibt dabei oft auf der Strecke. Dabei informieren sich potenzielle Kundinnen fast immer zuerst online, bevor sie einen Termin buchen.
+            </p>
+            <p className="reveal reveal-stagger-2">
+              MTech Laser möchte Sie auch nach dem Gerätekauf oder Ihrer Schulung weiter unterstützen. Deshalb ergänzt JAVERA Studio diesen Betreuungsansatz mit einer kostenlosen Online-Präsenz-Analyse.
+            </p>
           </div>
         </div>
       </section>
@@ -274,7 +302,7 @@ export default function MtechLaserBonusPage() {
 
       {/* Wie sehen potenzielle Kundinnen Ihr Studio online */}
       <section className="py-14 md:py-20">
-        <div className="max-w-5xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+        <div className="max-w-5xl mx-auto px-6 grid md:grid-cols-[0.82fr_1fr] gap-12 items-center">
           <div>
             <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-4">Der Blick von außen</div>
             <h2 className="reveal font-serif text-3xl md:text-4xl text-ink leading-tight">Wie sehen potenzielle Kundinnen Ihr Studio online?</h2>
@@ -297,24 +325,6 @@ export default function MtechLaserBonusPage() {
                 className="w-full h-full object-cover"
               />
             </div>
-          </div>
-        </div>
-      </section>
-
-      <SectionDivider />
-
-      {/* Warum dieser Bonus */}
-      <section className="py-14 md:py-20 bg-cream">
-        <div className="max-w-2xl mx-auto px-6 text-center">
-          <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-4">Hintergrund</div>
-          <h2 className="reveal font-serif text-3xl md:text-4xl text-ink leading-tight">Warum dieser Bonus?</h2>
-          <div className="mt-8 space-y-5 text-muted-foreground leading-relaxed text-[1.05rem] text-left">
-            <p className="reveal reveal-stagger-1">
-              Viele Beauty-Unternehmerinnen investieren in Geräte und Schulungen – der Online-Auftritt bleibt dabei oft auf der Strecke. Dabei informieren sich potenzielle Kundinnen fast immer zuerst online, bevor sie einen Termin buchen.
-            </p>
-            <p className="reveal reveal-stagger-2">
-              MTech Laser möchte Sie auch nach dem Gerätekauf oder Ihrer Schulung weiter unterstützen. Deshalb ergänzt JAVERA Studio diesen Betreuungsansatz mit einer kostenlosen Online-Präsenz-Analyse.
-            </p>
           </div>
         </div>
       </section>
