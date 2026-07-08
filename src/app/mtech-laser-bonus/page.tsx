@@ -402,8 +402,8 @@ export default function MtechLaserBonusPage() {
             <h2 className="reveal font-serif text-3xl md:text-4xl text-ink leading-tight">Ihre Ansprechpartnerin für Ihren professionellen Markenauftritt.</h2>
             <div className="mt-6 space-y-4 text-muted-foreground leading-relaxed">
               <p className="reveal reveal-stagger-1">Ich bin Jagoda, Gründerin von JAVERA Studio – Webdesign &amp; Branding ausschließlich für Beauty-Unternehmen.</p>
-              <p className="reveal reveal-stagger-2">Jedes Studio ist anders – deshalb entwickle ich jede Lösung individuell. Nicht jedes Studio benötigt automatisch eine große Website: Manchmal reichen bereits kleinere Optimierungen an Google-Profil, Instagram oder Markenauftritt, um spürbar mehr Anfragen zu bekommen.</p>
-              <p className="reveal reveal-stagger-3">Genau das zeigt Ihnen die kostenlose Online-Präsenz-Analyse: wo Sie heute stehen und welcher nächste Schritt für Ihr Studio wirklich sinnvoll ist.</p>
+              <p className="reveal reveal-stagger-2">Jedes Studio ist einzigartig. Deshalb entwickle ich individuelle Lösungen statt Standardpakete. Nicht jedes Studio benötigt automatisch eine große Website – manchmal reichen bereits gezielte Optimierungen am Google-Unternehmensprofil, der Website oder auf Instagram, um spürbar mehr Vertrauen und neue Kundinnen zu gewinnen.</p>
+              <p className="reveal reveal-stagger-3">Genau dabei unterstützt Sie die kostenlose Online-Präsenz-Analyse: Sie zeigt Ihnen objektiv, wo Ihr Studio heute steht und welche nächsten Schritte wirklich sinnvoll sind.</p>
             </div>
           </div>
           <div className="order-1 md:order-2 relative">
