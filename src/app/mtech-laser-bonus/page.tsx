@@ -256,7 +256,7 @@ export default function MtechLaserBonusPage() {
 
       {/* Warum dieser Bonus */}
       <section className="py-14 md:py-20 bg-cream">
-        <div className="max-w-[54.6rem] mx-auto px-6 text-center">
+        <div className="max-w-[65.52rem] mx-auto px-6 text-center">
           <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-4">Hintergrund</div>
           <h2 className="reveal font-serif text-3xl md:text-4xl text-ink leading-tight">Warum dieser Bonus?</h2>
           <div className="mt-8 space-y-5 text-muted-foreground leading-relaxed text-[1.05rem] text-center">
