@@ -468,10 +468,10 @@ export default function MtechLaserBonusPage() {
       <section className="py-14 md:py-20">
         <div className="max-w-xl mx-auto px-6 text-center">
           <h2 className="reveal font-serif text-2xl md:text-3xl text-ink leading-tight">
-            Herzlichen Glückwunsch nochmals zu Ihrer Investition.
+            Vielen Dank für Ihr Vertrauen.
           </h2>
           <p className="reveal reveal-stagger-1 mt-4 text-muted-foreground leading-relaxed">
-            Ich freue mich darauf, auch Ihren Online-Auftritt gemeinsam mit Ihnen auf das nächste Level zu bringen.
+            Ich freue mich darauf, Sie persönlich kennenzulernen und Sie als Kooperationspartnerin von MTech Laser auf Ihrem weiteren Weg zu begleiten – mit einem professionellen Online-Auftritt, der Ihr Studio optimal präsentiert.
           </p>
           <div className="reveal reveal-stagger-2 mt-10 pt-8 border-t border-border/50">
             <p className="text-sm font-semibold text-ink">Fragen? Ich bin gerne persönlich für Sie da.</p>
