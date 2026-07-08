@@ -419,7 +419,7 @@ export default function MtechLaserBonusPage() {
           </div>
           <div className="order-1 md:order-2 relative">
             <div className="reveal aspect-[4/5] rounded-3xl overflow-hidden">
-              <Image src="/portrait.png" alt="Jagoda – Gründerin von JAVERA Studio" loading="lazy" width={1024} height={1280} className="w-full h-full object-cover" />
+              <Image src="/jagoda.PNG" alt="Jagoda – Gründerin von JAVERA Studio" loading="lazy" width={965} height={1226} className="w-full h-full object-cover" />
             </div>
             <div aria-hidden className="absolute -z-10 -top-6 -right-6 w-full h-full rounded-3xl" style={{ backgroundColor: "var(--peach-soft)" }} />
           </div>
