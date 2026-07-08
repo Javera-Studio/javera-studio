@@ -261,10 +261,13 @@ export default function MtechLaserBonusPage() {
           <h2 className="reveal font-serif text-3xl md:text-4xl text-ink leading-tight">Warum dieser Bonus?</h2>
           <div className="mt-8 space-y-5 text-muted-foreground leading-relaxed text-[1.05rem] text-center">
             <p className="reveal reveal-stagger-1">
-              Viele Beauty-Unternehmerinnen investieren in Geräte und Schulungen – der Online-Auftritt bleibt dabei oft auf der Strecke. Dabei informieren sich potenzielle Kundinnen fast immer zuerst online, bevor sie einen Termin buchen.
+              Viele Beauty-Unternehmerinnen investieren in hochwertige Geräte und Schulungen – der professionelle Online-Auftritt bleibt dabei jedoch häufig auf der Strecke. Dabei informieren sich potenzielle Kundinnen heute fast immer zuerst online, bevor sie einen Termin buchen.
             </p>
             <p className="reveal reveal-stagger-2">
-              MTech Laser möchte Sie auch nach dem Gerätekauf oder Ihrer Schulung weiter unterstützen. Deshalb ergänzt JAVERA Studio diesen Betreuungsansatz mit einer kostenlosen Online-Präsenz-Analyse.
+              Die Philosophie von MTech Laser geht weit über den Verkauf von Lasersystemen und Schulungen hinaus. Unser Ziel ist es, unsere Kundinnen langfristig auf ihrem Weg zu einem erfolgreichen Beauty-Business zu begleiten. Deshalb haben wir gemeinsam mit unserem Kooperationspartner JAVERA Studio diese kostenlose Online-Präsenz-Analyse entwickelt.
+            </p>
+            <p className="reveal reveal-stagger-3">
+              Denn nachhaltiger Erfolg entsteht nicht nur durch hochwertige Behandlungen, sondern auch durch einen professionellen Außenauftritt. Mit dieser Analyse erhalten Sie einen objektiven Blick auf Ihre Online-Präsenz sowie konkrete Handlungsempfehlungen, um Ihr Studio noch erfolgreicher zu präsentieren.
             </p>
           </div>
         </div>
