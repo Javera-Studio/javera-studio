@@ -218,17 +218,6 @@ export default function MtechLaserBonusPage() {
         </p>
       </div>
 
-      {/* Minimal header – keine Navigation */}
-      <header className="py-6 px-6 flex justify-center">
-        <Image
-          src="/javera-logo.png"
-          alt="JAVERA Studio"
-          width={160}
-          height={48}
-          className="h-9 md:h-10 w-auto"
-        />
-      </header>
-
       {/* Hero */}
       <section className="relative overflow-hidden pt-14 pb-20 md:pt-24 md:pb-32">
         <div
