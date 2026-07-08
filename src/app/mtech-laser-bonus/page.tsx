@@ -375,7 +375,7 @@ export default function MtechLaserBonusPage() {
           </div>
           <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-5">
             {partnerVorteile.map((item, i) => (
-              <div key={item.title} className={`reveal-card reveal-stagger-${(i % 4) + 1} bg-cream border border-border/60 rounded-2xl p-6`}>
+              <div key={item.title} className={`reveal-card reveal-stagger-${(i % 4) + 1} bg-cream border border-border/60 rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1 hover:border-mauve/40 hover:shadow-lg`}>
                 <span className="inline-flex w-9 h-9 rounded-full bg-accent items-center justify-center text-primary mb-4">
                   <StarIcon className="w-4 h-4" />
                 </span>
