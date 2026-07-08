@@ -282,8 +282,8 @@ export default function MtechLaserBonusPage() {
             <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-4">Der Blick von außen</div>
             <h2 className="reveal font-serif text-3xl md:text-4xl text-ink leading-tight">Wie sehen potenzielle Kundinnen Ihr Studio online?</h2>
             <div className="mt-6 space-y-4 text-muted-foreground leading-relaxed">
-              <p className="reveal reveal-stagger-1">Der erste Eindruck entsteht heute meist online. Für die Analyse betrachte ich Ihren gesamten Online-Auftritt bewusst aus der Sicht einer potenziellen Neukundin.</p>
-              <p className="reveal reveal-stagger-2">Zusätzlich analysiere ich Ihren Außenauftritt aus Marketing-Sicht und zeige Ihnen konkrete Möglichkeiten auf, wie Sie professioneller auftreten, mehr Vertrauen schaffen und noch mehr potenzielle Kundinnen erreichen können.</p>
+              <p className="reveal reveal-stagger-1">Der erste Eindruck entsteht heute meist online. Deshalb betrachte ich Ihren gesamten Online-Auftritt bewusst aus der Sicht einer potenziellen Neukundin – objektiv, unabhängig und mit einem geschulten Blick.</p>
+              <p className="reveal reveal-stagger-2">Ich analysiere, wie Ihr Studio auf den ersten Blick wirkt, ob wichtige Informationen leicht zu finden sind und ob Ihr Außenauftritt Vertrauen schafft. Dabei erhalten Sie ehrliches Feedback sowie konkrete Empfehlungen, mit denen Sie Ihren Online-Auftritt gezielt verbessern können.</p>
             </div>
           </div>
           <div className="relative">
