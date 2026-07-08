@@ -98,7 +98,7 @@ const testimonials = [
   {
     quote: "Absolute Herzensempfehlung! Sie hat nicht einfach nur eine Webseite erstellt, sondern meine Vision sichtbar gemacht und meinem Studio einen professionellen Online-Auftritt gegeben, der zu 100 % zu mir passt.",
     name: "Danijela Boskovic",
-    studio: "Divine Beauty & Nails Studio",
+    studio: "divinenails.at",
     url: "https://divinenails.at",
     initial: "D",
   },
