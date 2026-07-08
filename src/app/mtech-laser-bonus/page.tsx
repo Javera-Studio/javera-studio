@@ -273,7 +273,7 @@ export default function MtechLaserBonusPage() {
               Die Philosophie von MTech Laser geht weit über den Verkauf von Lasersystemen und Schulungen hinaus. Unser Ziel ist es, unsere Kundinnen langfristig auf ihrem Weg zu einem erfolgreichen Beauty-Business zu begleiten. Deshalb haben wir gemeinsam mit unserem Kooperationspartner JAVERA Studio diese kostenlose Online-Präsenz-Analyse entwickelt.
             </p>
             <p className="reveal reveal-stagger-3">
-              Im Rahmen dieser Zusammenarbeit erhalten Sie von JAVERA Studio einen objektiven Blick auf Ihre Online-Präsenz sowie konkrete Handlungsempfehlungen, um Ihr Studio professioneller zu präsentieren und noch mehr potenzielle Kundinnen zu erreichen.
+              Im Rahmen dieser Analyse erhalten Sie von JAVERA Studio einen objektiven Blick auf Ihre Online-Präsenz und konkrete Handlungsempfehlungen, mit denen Sie Ihr Studio professioneller präsentieren und noch mehr potenzielle Kundinnen erreichen können.
             </p>
           </div>
         </div>
