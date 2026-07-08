@@ -288,7 +288,7 @@ export default function MtechLaserBonusPage() {
             <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-4">Der Blick von außen</div>
             <h2 className="reveal font-serif text-3xl md:text-4xl text-ink leading-tight">Wie sehen potenzielle Kundinnen Ihr Studio online?</h2>
             <div className="mt-6 space-y-4 text-muted-foreground leading-relaxed">
-              <p className="reveal reveal-stagger-1">Der erste Eindruck entsteht heute meist online. Deshalb betrachte ich bei JAVERA Studio Ihren gesamten Online-Auftritt bewusst aus der Sicht einer potenziellen Neukundin – objektiv, unabhängig und mit einem geschulten Blick.</p>
+              <p className="reveal reveal-stagger-1">Der erste Eindruck entsteht heute meist online. Im Rahmen der Analyse betrachte ich bei JAVERA Studio Ihren gesamten Online-Auftritt bewusst aus der Sicht einer potenziellen Neukundin – objektiv, unabhängig und mit einem geschulten Blick.</p>
               <p className="reveal reveal-stagger-2">Ich analysiere, wie Ihr Studio auf den ersten Blick wirkt, ob wichtige Informationen leicht zu finden sind und ob Ihr Außenauftritt Vertrauen schafft. Anschließend erhalten Sie ehrliches Feedback sowie konkrete Empfehlungen, mit denen Sie Ihre Online-Präsenz gezielt verbessern können.</p>
             </div>
           </div>
