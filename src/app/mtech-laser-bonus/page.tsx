@@ -22,8 +22,7 @@ const partnerVorteile = [
 const analyseItems = [
   { title: "Website", desc: "Falls bereits vorhanden" },
   { title: "Google-Unternehmensprofil", desc: "Auffindbarkeit bei Google" },
-  { title: "Instagram", desc: "Auftritt & Wirkung" },
-  { title: "Facebook", desc: "Auftritt & Wirkung" },
+  { title: "Social-Media-Kanäle", desc: "Auftritt & Wirkung" },
   { title: "Markenauftritt", desc: "Einheitlichkeit & Wiedererkennung" },
   { title: "Sichtbarkeit", desc: "Wie leicht werden Sie gefunden?" },
   { title: "Erster Eindruck", desc: "Für Neukundinnen auf einen Blick" },
@@ -155,14 +154,14 @@ export default function MtechLaserBonusPage() {
             <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-4">Umfang der Analyse</div>
             <h2 className="reveal font-serif text-3xl md:text-4xl text-ink leading-tight">Was wird analysiert?</h2>
           </div>
-          <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-4">
+          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
             {analyseItems.map((item, i) => (
-              <div key={item.title} className={`reveal-card reveal-stagger-${(i % 4) + 1} bg-background border border-border/60 rounded-2xl p-5 text-center flex flex-col items-center gap-2`}>
-                <span className="shrink-0 w-9 h-9 rounded-full bg-peach-soft flex items-center justify-center" style={{ color: "#0F6E56" }}>
+              <div key={item.title} className={`reveal-card reveal-stagger-${(i % 6) + 1} bg-background border border-border/60 rounded-2xl p-7 text-center flex flex-col items-center gap-3`}>
+                <span className="shrink-0 w-12 h-12 rounded-full bg-peach-soft flex items-center justify-center" style={{ color: "#0F6E56" }}>
                   <CheckIcon />
                 </span>
-                <p className="text-sm font-semibold text-ink">{item.title}</p>
-                <p className="text-xs text-muted-foreground">{item.desc}</p>
+                <p className="text-base font-semibold text-ink">{item.title}</p>
+                <p className="text-sm text-muted-foreground">{item.desc}</p>
               </div>
             ))}
           </div>
