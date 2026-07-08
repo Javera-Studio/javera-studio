@@ -13,7 +13,7 @@ export async function POST(req: NextRequest) {
     instagram,
     googleProfile,
     message,
-    isMtechCustomer,
+    mtechProduct,
   } = (await req.json()) as {
     name: string;
     studio: string;
@@ -23,7 +23,7 @@ export async function POST(req: NextRequest) {
     instagram?: string;
     googleProfile?: string;
     message: string;
-    isMtechCustomer: boolean;
+    mtechProduct?: string;
   };
 
   if (!name || !studio || !email || !phone || !message) {
@@ -38,7 +38,7 @@ export async function POST(req: NextRequest) {
     `Website: ${website || "–"}`,
     `Instagram: ${instagram || "–"}`,
     `Google-Unternehmensprofil: ${googleProfile || "–"}`,
-    `Kundin von MTech Laser: ${isMtechCustomer ? "Ja" : "Nein"}`,
+    `Bei MTech Laser erworben: ${mtechProduct || "–"}`,
     "",
     "Nachricht:",
     message,

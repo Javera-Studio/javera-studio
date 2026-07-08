@@ -22,7 +22,7 @@ export function MtechLaserForm() {
     const instagram = String(data.get("instagram") || "").trim();
     const googleProfile = String(data.get("googleProfile") || "").trim();
     const message = String(data.get("message") || "").trim();
-    const isMtechCustomer = data.get("isMtechCustomer") === "on";
+    const mtechProduct = String(data.get("mtechProduct") || "").trim();
     const privacy = data.get("privacy") === "on";
 
     if (!name || !studio || !email || !phone || !message) {
@@ -33,7 +33,7 @@ export function MtechLaserForm() {
       toast.error("Bitte stimme der Datenschutzerklärung zu.");
       return;
     }
-    if (name.length > 120 || studio.length > 120 || email.length > 255 || phone.length > 60 || message.length > 5000) {
+    if (name.length > 120 || studio.length > 120 || email.length > 255 || phone.length > 60 || message.length > 5000 || mtechProduct.length > 255) {
       toast.error("Eingaben sind zu lang.");
       return;
     }
@@ -43,7 +43,7 @@ export function MtechLaserForm() {
       const response = await fetch("/api/mtech-laser-analyse", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, studio, email, phone, website, instagram, googleProfile, message, isMtechCustomer }),
+        body: JSON.stringify({ name, studio, email, phone, website, instagram, googleProfile, message, mtechProduct }),
       });
       const result = (await response.json()) as { success?: boolean; error?: string };
       if (!response.ok) {
@@ -114,9 +114,11 @@ export function MtechLaserForm() {
         <label htmlFor="mt-message" className="block text-sm text-ink mb-2">Nachricht *</label>
         <textarea id="mt-message" name="message" required rows={5} maxLength={5000} placeholder="Erzählen Sie mir kurz von Ihrem Studio und Ihrem aktuellen Online-Auftritt." className="w-full px-4 py-3 rounded-xl border border-border bg-background text-ink focus:outline-none focus:ring-2 focus:ring-ring" />
       </div>
-      <div className="flex items-start gap-3 bg-peach-soft/60 border border-mauve/20 rounded-xl px-4 py-3">
-        <input id="mt-mtech" name="isMtechCustomer" type="checkbox" className="mt-1 h-4 w-4 shrink-0 rounded border border-border accent-mauve cursor-pointer" />
-        <label htmlFor="mt-mtech" className="text-sm text-ink leading-relaxed cursor-pointer">Ich bin Kundin von MTech Laser.</label>
+      <div className="bg-peach-soft/60 border border-mauve/20 rounded-xl px-4 py-3">
+        <label htmlFor="mt-mtech-product" className="block text-sm text-ink mb-2">
+          Ich habe bei MTech Laser folgendes Produkt/Leistung erworben <span className="text-muted-foreground/70">(optional)</span>
+        </label>
+        <input id="mt-mtech-product" name="mtechProduct" type="text" maxLength={255} placeholder="z. B. Diodenlaser, Schulung, …" className="w-full px-4 py-3 rounded-xl border border-border bg-background text-ink focus:outline-none focus:ring-2 focus:ring-ring" />
       </div>
       <div className="flex items-start gap-3">
         <input id="mt-privacy" name="privacy" type="checkbox" required className="mt-1 h-4 w-4 shrink-0 rounded border border-border accent-mauve cursor-pointer" />
