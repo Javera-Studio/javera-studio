@@ -468,7 +468,7 @@ export default function MtechLaserBonusPage() {
 
       {/* Abschluss */}
       <section className="py-14 md:py-20">
-        <div className="max-w-xl mx-auto px-6 text-center">
+        <div className="max-w-[46.8rem] mx-auto px-6 text-center">
           <h2 className="reveal font-serif text-2xl md:text-3xl text-ink leading-tight">
             Vielen Dank für Ihr Vertrauen.
           </h2>
