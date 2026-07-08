@@ -14,12 +14,12 @@ export const metadata: Metadata = {
 
 // Platzhalter – exakte Partnerkonditionen werden gemeinsam mit MTech Laser noch final abgestimmt.
 const partnerVorteile = [
-  { title: "Kostenlose Online-Präsenz-Analyse", desc: "Im Wert von 150 € – für Sie als MTech-Laser-Kundin geschenkt." },
-  { title: "Individuelles Maßnahmen-PDF", desc: "Konkrete Handlungsempfehlungen speziell für Ihr Studio." },
-  { title: "Exklusive Partnerkonditionen", desc: "Sonderkonditionen für MTech-Laser-Kundinnen bei einer Zusammenarbeit." },
-  { title: "Bis zu 4 zinsfreie Raten", desc: "Flexible, zinsfreie Ratenzahlung bei größeren Projekten möglich." },
-  { title: "Persönliche Betreuung", desc: "Direkter Kontakt und persönliche Beratung während des gesamten Prozesses." },
-  { title: "Individuelle Lösung", desc: "Keine Standardpakete – jede Empfehlung wird individuell auf Ihr Studio, Ihre Ziele und Ihr Budget abgestimmt." },
+  { title: "Exklusive Partnerkonditionen", desc: "20 % Rabatt auf alle regulären Webdesign- & Branding-Leistungen." },
+  { title: "Individuelles Maßnahmen-PDF", desc: "Sie erhalten konkrete Handlungsempfehlungen speziell für Ihr Studio." },
+  { title: "Bis zu 4 zinsfreie Raten", desc: "Flexible und zinsfreie Zahlung bei größeren Projekten." },
+  { title: "Persönliche Betreuung", desc: "Direkter Ansprechpartner während des gesamten Projekts." },
+  { title: "Individuelle Lösung", desc: "Keine Standardpakete – jede Empfehlung wird auf Ihr Studio, Ihre Ziele und Ihr Budget abgestimmt." },
+  { title: "Langfristige Begleitung", desc: "Auch nach Projektabschluss stehe ich Ihnen bei Fragen und Weiterentwicklungen zur Seite." },
 ];
 
 const analyseItems: AnalyseItem[] = [
