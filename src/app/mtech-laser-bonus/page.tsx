@@ -337,7 +337,7 @@ export default function MtechLaserBonusPage() {
                 <p className="text-sm text-ink leading-relaxed">
                   <strong>Die Analyse und das PDF sind vollständig kostenlos.</strong>
                   <br />
-                  Auch wenn später keine Zusammenarbeit entsteht, können Sie die Empfehlungen selbst umsetzen.
+                  Auch wenn später keine Zusammenarbeit entsteht, können Sie viele der Empfehlungen eigenständig umsetzen.
                 </p>
               </div>
             </div>
