@@ -482,10 +482,10 @@ export default function MtechLaserBonusPage() {
           <div className="reveal reveal-stagger-2 mt-10 pt-8 border-t border-border/50">
             <p className="text-sm font-semibold text-ink">Fragen? Ich bin gerne persönlich für Sie da.</p>
             <div className="mt-4 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-6 text-sm text-muted-foreground">
-              <span className="inline-flex items-center gap-2">
+              <a href="tel:+436601888120" className="inline-flex items-center gap-2 hover:text-ink transition-colors">
                 <PhoneIcon />
-                +43 XXX XXX XXX
-              </span>
+                +43 660 1888 120
+              </a>
               <a href="mailto:hallo@javera-studio.at" className="inline-flex items-center gap-2 hover:text-ink transition-colors">
                 <MailIcon />
                 hallo@javera-studio.at
