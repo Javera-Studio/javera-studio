@@ -267,7 +267,7 @@ export default function MtechLaserBonusPage() {
 
       {/* Warum dieser Bonus */}
       <section className="py-14 md:py-20 bg-cream">
-        <div className="max-w-2xl mx-auto px-6 text-center">
+        <div className="max-w-[54.6rem] mx-auto px-6 text-center">
           <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-4">Hintergrund</div>
           <h2 className="reveal font-serif text-3xl md:text-4xl text-ink leading-tight">Warum dieser Bonus?</h2>
           <div className="mt-8 space-y-5 text-muted-foreground leading-relaxed text-[1.05rem] text-left">
@@ -335,7 +335,7 @@ export default function MtechLaserBonusPage() {
             <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-4">Ablauf</div>
             <h2 className="reveal font-serif text-3xl md:text-4xl text-ink leading-tight">Ihr Weg zur Analyse</h2>
           </div>
-          <div className="grid md:grid-cols-2 gap-12 items-center">
+          <div className="grid md:grid-cols-2 gap-12 md:items-stretch">
             <div>
               <AblaufTimeline steps={steps} />
               <div className="reveal mt-8 bg-background border border-mauve/20 rounded-2xl px-6 py-5 text-center">
@@ -344,23 +344,22 @@ export default function MtechLaserBonusPage() {
                 </p>
               </div>
             </div>
-            <div className="relative">
+            <div className="relative h-full">
               <div
                 aria-hidden
                 className="absolute -inset-6 rounded-[2rem] blur-2xl opacity-50"
                 style={{ backgroundColor: "var(--peach-soft)" }}
               />
               <div
-                className="reveal relative aspect-[3/2] rounded-2xl overflow-hidden"
+                className="reveal relative h-full min-h-[320px] rounded-2xl overflow-hidden"
                 style={{ boxShadow: "0 30px 60px -30px color-mix(in oklab, var(--ink) 16%, transparent)" }}
               >
                 <Image
-                  src="/analysehero.png"
+                  src="/analysehoch.png"
                   alt="JAVERA Studio Online-Präsenz-Analyse für MTech Laser Kundinnen"
                   loading="lazy"
-                  width={1536}
-                  height={1024}
-                  className="w-full h-full object-cover"
+                  fill
+                  className="object-cover"
                 />
                 <div
                   aria-hidden
