@@ -403,7 +403,7 @@ export default function MtechLaserBonusPage() {
       {/* Über JAVERA Studio */}
       <section className="py-14 md:py-20 bg-cream">
         <div className="max-w-5xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
-          <div className="order-2 md:order-1">
+          <div className="order-1">
             <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-4">Über JAVERA Studio</div>
             <h2 className="reveal font-serif text-3xl md:text-4xl text-ink leading-tight">Ihre Ansprechpartnerin für Ihren professionellen Markenauftritt.</h2>
             <div className="mt-6 space-y-4 text-muted-foreground leading-relaxed">
@@ -412,7 +412,7 @@ export default function MtechLaserBonusPage() {
               <p className="reveal reveal-stagger-3">Genau dabei unterstützt Sie die kostenlose Online-Präsenz-Analyse: Sie zeigt Ihnen objektiv, wo Ihr Studio heute steht und welche nächsten Schritte wirklich sinnvoll sind.</p>
             </div>
           </div>
-          <div className="order-1 md:order-2 relative">
+          <div className="order-2 relative">
             <div className="reveal aspect-[4/5] rounded-3xl overflow-hidden">
               <Image src="/jagoda.PNG" alt="Jagoda – Gründerin von JAVERA Studio" loading="lazy" width={965} height={1226} className="w-full h-full object-cover" />
             </div>
