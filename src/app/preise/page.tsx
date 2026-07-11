@@ -172,6 +172,7 @@ export default function PreisePage() {
           <p className="mt-6 text-lg text-muted-foreground leading-relaxed">
             Alle Leistungen sind einzeln buchbar – auch wenn du schon eine Website hast. Ich stimme alles auf dein bestehendes Branding ab.
           </p>
+          <p className="mt-4 text-xs text-muted-foreground/60">Preise zuletzt aktualisiert am 12.07.2026</p>
         </div>
       </section>
 
