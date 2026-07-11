@@ -19,6 +19,7 @@ export function ContactForm() {
     const subject = String(data.get("subject") || "").trim();
     const message = String(data.get("message") || "").trim();
     const privacy = data.get("privacy") === "on";
+    const hp_company = String(data.get("hp_company") || "");
 
     if (!name || !email || !subject || !message) { toast.error("Bitte fülle alle Felder aus."); return; }
     if (!privacy) { toast.error("Bitte stimme der Datenschutzerklärung zu."); return; }
@@ -29,7 +30,7 @@ export function ContactForm() {
       const response = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, email, subject, message }),
+        body: JSON.stringify({ name, email, subject, message, hp_company }),
       });
       const result = (await response.json()) as { success?: boolean; error?: string };
       if (!response.ok) { toast.error(result.error ?? "Fehler beim Senden. Bitte versuche es erneut."); return; }
@@ -67,6 +68,14 @@ export function ContactForm() {
           </div>
         ) : (
           <form onSubmit={handleSubmit} className="reveal mt-12 space-y-5 p-8 md:p-10 rounded-3xl bg-background border border-border/60">
+            <input
+              type="text"
+              name="hp_company"
+              tabIndex={-1}
+              autoComplete="off"
+              aria-hidden="true"
+              className="absolute left-[-9999px] top-auto h-0 w-0 overflow-hidden"
+            />
             <div className="grid sm:grid-cols-2 gap-5">
               <div>
                 <label htmlFor="sm-name" className="block text-sm text-ink mb-2">Name</label>

@@ -1,9 +1,14 @@
 import { NextRequest, NextResponse } from "next/server";
 import { Resend } from "resend";
+import { getClientIp, isRateLimited, isValidEmail } from "@/lib/rate-limit";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(req: NextRequest) {
+  if (isRateLimited(getClientIp(req))) {
+    return NextResponse.json({ error: "Zu viele Anfragen. Bitte versuche es später erneut." }, { status: 429 });
+  }
+
   const {
     name,
     studio,
@@ -14,6 +19,7 @@ export async function POST(req: NextRequest) {
     googleProfile,
     message,
     mtechProduct,
+    hp_company,
   } = (await req.json()) as {
     name: string;
     studio: string;
@@ -24,10 +30,30 @@ export async function POST(req: NextRequest) {
     googleProfile?: string;
     message: string;
     mtechProduct?: string;
+    hp_company?: string;
   };
+
+  // Honeypot: unsichtbares Feld, das nur Bots ausfüllen. Stiller Erfolg, keine Fehlermeldung.
+  if (hp_company) {
+    return NextResponse.json({ success: true });
+  }
 
   if (!name || !studio || !email || !phone || !message) {
     return NextResponse.json({ error: "Fehlende Felder" }, { status: 400 });
+  }
+
+  if (!isValidEmail(email)) {
+    return NextResponse.json({ error: "Ungültige E-Mail-Adresse" }, { status: 400 });
+  }
+
+  if (
+    name.length > 120 ||
+    studio.length > 120 ||
+    phone.length > 60 ||
+    message.length > 5000 ||
+    (mtechProduct?.length ?? 0) > 255
+  ) {
+    return NextResponse.json({ error: "Eingaben sind zu lang" }, { status: 400 });
   }
 
   const lines = [

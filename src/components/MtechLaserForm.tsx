@@ -24,6 +24,7 @@ export function MtechLaserForm() {
     const message = String(data.get("message") || "").trim();
     const mtechProduct = String(data.get("mtechProduct") || "").trim();
     const privacy = data.get("privacy") === "on";
+    const hp_company = String(data.get("hp_company") || "");
 
     if (!name || !studio || !email || !phone || !message) {
       toast.error("Bitte fülle alle Pflichtfelder aus.");
@@ -43,7 +44,7 @@ export function MtechLaserForm() {
       const response = await fetch("/api/mtech-laser-analyse", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, studio, email, phone, website, instagram, googleProfile, message, mtechProduct }),
+        body: JSON.stringify({ name, studio, email, phone, website, instagram, googleProfile, message, mtechProduct, hp_company }),
       });
       const result = (await response.json()) as { success?: boolean; error?: string };
       if (!response.ok) {
@@ -76,6 +77,14 @@ export function MtechLaserForm() {
 
   return (
     <form onSubmit={handleSubmit} className="reveal space-y-5 p-8 md:p-10 rounded-3xl bg-background border border-border/60">
+      <input
+        type="text"
+        name="hp_company"
+        tabIndex={-1}
+        autoComplete="off"
+        aria-hidden="true"
+        className="absolute left-[-9999px] top-auto h-0 w-0 overflow-hidden"
+      />
       <div className="grid sm:grid-cols-2 gap-5">
         <div>
           <label htmlFor="mt-name" className="block text-sm text-ink mb-2">Name *</label>
