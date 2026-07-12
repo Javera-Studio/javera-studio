@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
+import { QuoteSection } from "@/components/QuoteSection";
+import { brandQuotes } from "@/lib/brand-quotes";
 import { Navbar } from "@/components/Navbar";
 import { ContactForm } from "@/components/ContactForm";
 import { ScrollRevealInit } from "@/components/ScrollRevealInit";
@@ -326,6 +328,8 @@ export default function LeistungenPage() {
           </Link>
         </div>
       </section>
+
+      <QuoteSection quote={brandQuotes.ersterEindruckOnline} />
 
       {/* Flexible Zahlungsmodelle */}
       <section className="py-12 md:py-16">

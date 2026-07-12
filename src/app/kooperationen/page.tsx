@@ -3,6 +3,8 @@ import { Navbar } from "@/components/Navbar";
 import { ContactForm } from "@/components/ContactForm";
 import { ScrollRevealInit } from "@/components/ScrollRevealInit";
 import { SiteFooter } from "@/components/SiteFooter";
+import { QuoteSection } from "@/components/QuoteSection";
+import { brandQuotes } from "@/lib/brand-quotes";
 import {
   GraduationCap,
   Sparkles,
@@ -209,6 +211,8 @@ export default function KooperationenPage() {
           </div>
         </div>
       </section>
+
+      <QuoteSection quote={brandQuotes.vorDemBetreten} />
 
       {/* Beauty Academies */}
       <section className="py-12 md:py-16">

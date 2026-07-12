@@ -8,6 +8,8 @@ import { ContactForm } from "@/components/ContactForm";
 import { ScrollRevealInit } from "@/components/ScrollRevealInit";
 import { FaqHashOpen } from "@/components/FaqHashOpen";
 import { SiteFooter } from "@/components/SiteFooter";
+import { QuoteSection } from "@/components/QuoteSection";
+import { brandQuotes } from "@/lib/brand-quotes";
 import { Heart, Palette, Handshake, CreditCard } from "lucide-react";
 
 export const metadata: Metadata = {
@@ -830,16 +832,19 @@ export default function Home() {
       <FeatureBadges />
       <About />
       <Warum />
+      <QuoteSection quote={brandQuotes.vertrauenVorTermin} />
       <Angebot />
       <FaceAndMore />
       <FaceAndMoreSocial />
       <PaulaVenc />
       <DivineBeautyNails />
+      <QuoteSection quote={brandQuotes.qualitaetErsterEindruck} />
       <Testimonials />
       <Demos />
       <FeaturedLuxe />
       <Javera />
       <Ablauf />
+      <QuoteSection quote={brandQuotes.klickWirdVertrauen} />
       <Zweifel />
       <FAQ />
       <CTA />

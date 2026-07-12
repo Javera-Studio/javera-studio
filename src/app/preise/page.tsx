@@ -3,6 +3,8 @@ import Link from "next/link";
 import Image from "next/image";
 import { ContactForm } from "@/components/ContactForm";
 import { SiteFooter } from "@/components/SiteFooter";
+import { QuoteSection } from "@/components/QuoteSection";
+import { brandQuotes } from "@/lib/brand-quotes";
 
 export const metadata: Metadata = {
   title: "Preise Webdesign & Branding für Beauty-Studios | JAVERA Studio",
@@ -403,6 +405,8 @@ export default function PreisePage() {
 
         </div>
       </section>
+
+      <QuoteSection quote={brandQuotes.websiteSpiegeltWerte} />
 
       {/* Zinsfreie Ratenzahlung */}
       <section id="finanzierung" className="py-12 md:py-16 scroll-mt-24">
