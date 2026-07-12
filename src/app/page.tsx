@@ -107,7 +107,7 @@ function Hero() {
 
 function BrandManifesto() {
   return (
-    <section aria-label="Markenphilosophie" className="py-24 md:py-36 bg-background">
+    <section aria-label="Markenphilosophie" className="py-12 md:py-16 bg-background">
       <div className="reveal max-w-xl mx-auto px-6 text-center">
         <div className="mirror-frame relative w-28 h-28 md:w-36 md:h-36 mx-auto mb-10 rounded-2xl overflow-hidden shadow-sm">
           <Image src="/spiegel.png" alt="" fill sizes="144px" className="object-cover" aria-hidden />
