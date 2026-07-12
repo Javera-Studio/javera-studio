@@ -236,7 +236,7 @@ export default async function BlogPostPage({
               href="/#schreib-mir"
               className="inline-block px-7 py-3.5 rounded-full bg-primary text-primary-foreground hover:bg-mauve transition-all hover:scale-[1.02] hover:shadow-md font-medium"
             >
-              Kostenlose Demo anfragen
+              Kostenlose Vorschau anfragen
             </Link>
           </div>
 
