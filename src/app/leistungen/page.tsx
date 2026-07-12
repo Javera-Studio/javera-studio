@@ -3,6 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { QuoteSection } from "@/components/QuoteSection";
 import { brandQuotes } from "@/lib/brand-quotes";
+import { FlourishDivider } from "@/components/FlourishDivider";
 import { Navbar } from "@/components/Navbar";
 import { ContactForm } from "@/components/ContactForm";
 import { ScrollRevealInit } from "@/components/ScrollRevealInit";
@@ -203,11 +204,11 @@ export default function LeistungenPage() {
           <div className="mirror-frame relative w-24 h-24 mx-auto rounded-2xl overflow-hidden shadow-sm">
             <Image src="/spiegel.png" alt="" fill sizes="96px" className="object-cover" aria-hidden />
           </div>
-          <p className="mt-10 font-serif text-2xl md:text-3xl text-ink leading-[1.7]">
+          <p className="mt-10 font-serif italic text-2xl md:text-3xl text-ink leading-[1.7]">
             Deine Website ist das Fenster zu deinem Studio.
             <br className="hidden md:block" /> Hier findest du alles, was sie braucht, um deine Qualität widerzuspiegeln.
           </p>
-          <span className="editorial-rule mt-10" aria-hidden />
+          <FlourishDivider />
         </div>
       </section>
 

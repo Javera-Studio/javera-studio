@@ -10,6 +10,7 @@ import { FaqHashOpen } from "@/components/FaqHashOpen";
 import { SiteFooter } from "@/components/SiteFooter";
 import { QuoteSection } from "@/components/QuoteSection";
 import { brandQuotes } from "@/lib/brand-quotes";
+import { FlourishDivider } from "@/components/FlourishDivider";
 import { Heart, Palette, Handshake, CreditCard } from "lucide-react";
 
 export const metadata: Metadata = {
@@ -114,11 +115,11 @@ function BrandManifesto() {
         <div className="mirror-frame relative w-28 h-28 md:w-36 md:h-36 mx-auto mb-10 rounded-2xl overflow-hidden shadow-sm">
           <Image src="/spiegel.png" alt="" fill sizes="144px" className="object-cover" aria-hidden />
         </div>
-        <p className="font-serif text-2xl md:text-3xl text-ink leading-[1.7]">
+        <p className="font-serif italic text-2xl md:text-3xl text-ink leading-[1.7]">
           Deine Website ist das Fenster zu deinem Studio
           <br className="hidden md:block" /> und der Spiegel deiner Qualität.
         </p>
-        <span className="editorial-rule mt-10" aria-hidden />
+        <FlourishDivider />
       </div>
     </section>
   );
