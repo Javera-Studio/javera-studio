@@ -105,6 +105,23 @@ function Hero() {
   );
 }
 
+function BrandManifesto() {
+  return (
+    <section aria-label="Markenphilosophie" className="py-24 md:py-36 bg-background">
+      <div className="reveal max-w-xl mx-auto px-6 text-center">
+        <div className="mirror-frame relative w-28 h-28 md:w-36 md:h-36 mx-auto mb-10 rounded-2xl overflow-hidden shadow-sm">
+          <Image src="/spiegel.png" alt="" fill sizes="144px" className="object-cover" aria-hidden />
+        </div>
+        <p className="font-serif text-2xl md:text-3xl text-ink leading-[1.7]">
+          Deine Website ist das Fenster zu deinem Studio
+          <br className="hidden md:block" /> und der Spiegel deiner Qualität.
+        </p>
+        <span className="editorial-rule mt-10" aria-hidden />
+      </div>
+    </section>
+  );
+}
+
 const featureBadges = [
   { icon: Heart, title: "1 Monat persönliche Nachbetreuung nach Webseitenlaunch", href: "#ablauf" },
   { icon: Palette, title: "Individuelle Vorschau in 48 Std.", href: "#kontakt" },
@@ -809,6 +826,7 @@ export default function Home() {
       <FaqHashOpen />
       <Navbar />
       <Hero />
+      <BrandManifesto />
       <FeatureBadges />
       <About />
       <Warum />
