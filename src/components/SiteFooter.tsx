@@ -59,7 +59,7 @@ export function SiteFooter() {
 
           <div className="flex flex-col gap-6">
             <div>
-              <p className="text-xs uppercase tracking-widest text-white/40 mb-3">Kontakt</p>
+              <a href="#schreib-mir" className="block text-xs uppercase tracking-widest text-white/40 hover:text-white/70 transition-colors mb-3">Kontakt</a>
               <a href="mailto:hallo@javera-studio.at" className="text-sm text-white/80 hover:text-white transition-colors">
                 hallo@javera-studio.at
               </a>
