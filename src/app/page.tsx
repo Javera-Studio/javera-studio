@@ -214,7 +214,11 @@ function Warum() {
           </ul>
         </div>
 
-        <div className="mt-20 grid md:grid-cols-2 gap-6 md:gap-8">
+        <p className="reveal mt-20 mb-10 text-center font-script text-mauve-dark text-3xl md:text-4xl">
+          {brandQuotes.vertrauenVorTermin}
+        </p>
+
+        <div className="grid md:grid-cols-2 gap-6 md:gap-8">
           <figure className="reveal relative rounded-3xl overflow-hidden aspect-[4/5]">
             <Image src="/problem.jpg" alt="Stiller Schreibtisch mit Smartphone – das Warten auf Anfragen" loading="lazy" width={1024} height={1280} className="w-full h-full object-cover" />
             <figcaption className="absolute bottom-4 left-4 right-4 text-xs uppercase tracking-[0.2em] text-background bg-ink/60 backdrop-blur px-3 py-2 rounded-full text-center">Vorher · Wenig Sichtbarkeit</figcaption>
@@ -830,15 +834,14 @@ export default function Home() {
       <FeatureBadges />
       <About />
       <Warum />
-      <QuoteSection quote={brandQuotes.vertrauenVorTermin} />
       <Angebot />
       <FaceAndMore />
       <FaceAndMoreSocial />
       <PaulaVenc />
       <DivineBeautyNails />
-      <QuoteSection quote={brandQuotes.qualitaetErsterEindruck} />
       <Testimonials />
       <Demos />
+      <QuoteSection quote={brandQuotes.qualitaetErsterEindruck} />
       <FeaturedLuxe />
       <Javera />
       <Ablauf />
