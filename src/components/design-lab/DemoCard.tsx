@@ -1,13 +1,12 @@
 import type { DemoMeta } from "@/lib/design-lab/types";
 import { StarRatingPlaceholder } from "./StarRatingPlaceholder";
+import { DemoPreviewLauncher } from "./DemoPreviewLauncher";
 
 export function DemoCard({ meta, children }: { meta: DemoMeta; children: React.ReactNode }) {
   return (
     <article className="rounded-2xl border border-border/60 bg-background p-6 md:p-8">
       <div className="grid md:grid-cols-2 gap-8 items-start">
-        <div className="rounded-xl bg-cream border border-border/60 min-h-[220px] flex items-center justify-center overflow-hidden p-6">
-          {children}
-        </div>
+        <DemoPreviewLauncher name={meta.name}>{children}</DemoPreviewLauncher>
 
         <div>
           <h3 className="font-serif text-2xl text-ink">{meta.name}</h3>
