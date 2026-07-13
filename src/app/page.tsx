@@ -418,8 +418,8 @@ function FaceAndMoreSocial() {
                 />
               </div>
             </div>
-            <p className="reveal mt-8 font-serif text-base text-ink/70 italic leading-relaxed">
-              „Ein professioneller Auftritt endet nicht bei der Website – er setzt sich auf Social Media fort."
+            <p className="reveal mt-8 font-script text-mauve-dark text-2xl md:text-3xl">
+              Ein professioneller Auftritt endet nicht bei der Website – er setzt sich auf Social Media fort.
             </p>
           </div>
 
@@ -472,7 +472,7 @@ function PaulaVenc() {
             <div className="w-full drop-shadow-2xl">
               <Image src="/paulavencmockup.png" alt="Website paulavenc.at am Smartphone" loading="lazy" width={1200} height={800} className="w-full" />
             </div>
-            <p className="font-serif italic text-lg text-mauve leading-relaxed">„Die richtige Lösung ist nicht immer die größte Website, sondern die passende Website."</p>
+            <p className="font-script text-mauve-dark text-2xl md:text-3xl">Die richtige Lösung ist nicht immer die größte Website, sondern die passende Website.</p>
             <a href="https://paulavenc.at" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-primary text-primary-foreground hover:bg-mauve transition-all hover:scale-[1.02] hover:shadow-md font-medium w-fit">
               Website ansehen <span aria-hidden>→</span>
             </a>
