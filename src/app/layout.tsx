@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Playfair_Display, Cormorant_Garamond, DM_Sans } from "next/font/google";
+import { Inter, Playfair_Display, Cormorant_Garamond, DM_Sans, Great_Vibes } from "next/font/google";
 import "./globals.css";
 import { Providers } from "./providers";
 
@@ -33,6 +33,13 @@ const dmSans = DM_Sans({
   display: "swap",
 });
 
+const greatVibes = Great_Vibes({
+  subsets: ["latin"],
+  weight: ["400"],
+  variable: "--font-great-vibes",
+  display: "swap",
+});
+
 export const metadata: Metadata = {
   title: {
     default: "Javera Studio — Webdesign · Grafik · Branding für Beauty Studios Wien",
@@ -60,7 +67,7 @@ export default function RootLayout({
   return (
     <html
       lang="de"
-      className={`${inter.variable} ${playfair.variable} ${cormorant.variable} ${dmSans.variable} h-full antialiased scroll-smooth`}
+      className={`${inter.variable} ${playfair.variable} ${cormorant.variable} ${dmSans.variable} ${greatVibes.variable} h-full antialiased scroll-smooth`}
       data-scroll-behavior="smooth"
     >
       <body style={{ fontFamily: "var(--font-inter), system-ui, sans-serif" }}>

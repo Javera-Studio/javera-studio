@@ -198,14 +198,13 @@ export default function LeistungenPage() {
       </section>
 
       {/* Markenphilosophie */}
-      <section aria-label="Markenphilosophie" className="py-12 md:py-16 pb-8 md:pb-10">
-        <div className="reveal max-w-xl mx-auto px-6 text-center">
+      <section aria-label="Markenphilosophie" className="py-14 md:py-20">
+        <div className="reveal max-w-3xl mx-auto px-6 text-center">
           <div className="mirror-frame relative w-[115px] h-[115px] mx-auto rounded-2xl overflow-hidden shadow-sm">
             <Image src="/spiegel.png" alt="" fill sizes="115px" className="object-cover" aria-hidden />
           </div>
-          <p className="mt-10 font-serif italic text-2xl md:text-3xl text-ink leading-[1.7]">
-            Deine Website ist das Fenster zu deinem Studio.
-            <br className="hidden md:block" /> Hier findest du alles, was sie braucht, um deine Qualität widerzuspiegeln.
+          <p className="mt-10 font-script text-mauve-dark text-3xl md:text-4xl">
+            Deine Website ist das Fenster zu deinem Studio. Hier findest du alles, was sie braucht, um deine Qualität widerzuspiegeln.
           </p>
         </div>
       </section>

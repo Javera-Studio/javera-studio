@@ -86,6 +86,7 @@
   --cream: oklch(0.97 0 0);
   --ink: oklch(0.22 0 0);
   --mauve: oklch(0.62 0.055 22);
+  --mauve-dark: oklch(0.38 0.07 22);
   --rose-light: oklch(0.76 0.045 22);
   --rose-gold: oklch(0.74 0.06 40);
   --rose-gold-soft: oklch(0.92 0.03 40);
@@ -169,6 +170,16 @@
 }
 .font-editorial-sans {
   font-family: var(--font-dm-sans), ui-sans-serif, system-ui, sans-serif;
+}
+/* Handschrift-Akzent für Zitate/Slogans (Markenphilosophie-Sections) */
+.font-script {
+  font-family: var(--font-great-vibes), cursive;
+  font-weight: 400;
+  line-height: 1.35;
+  letter-spacing: 0.01em;
+}
+.text-mauve-dark {
+  color: var(--mauve-dark);
 }
 
 /* ─── Rose gold tokens ─── */
