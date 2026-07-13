@@ -4,6 +4,7 @@ import Image from "next/image";
 import { ContactForm } from "@/components/ContactForm";
 import { SiteFooter } from "@/components/SiteFooter";
 import { QuoteSection } from "@/components/QuoteSection";
+import { ScrollRevealInit } from "@/components/ScrollRevealInit";
 import { brandQuotes } from "@/lib/brand-quotes";
 
 export const metadata: Metadata = {
@@ -487,6 +488,7 @@ export default function PreisePage() {
 
       <ContactForm />
       <SiteFooter />
+      <ScrollRevealInit />
     </main>
   );
 }
