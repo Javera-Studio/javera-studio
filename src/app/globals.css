@@ -257,6 +257,24 @@
   100% { transform: translateX(140%); opacity: 0; }
 }
 
+/* ─── Brand manifesto: mirror hover light sweep ─── */
+.mirror-frame::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(75deg, transparent 40%, rgba(255, 255, 255, 0.6) 50%, transparent 60%);
+  transform: translateX(-140%);
+  pointer-events: none;
+}
+.mirror-frame:hover::before {
+  animation: mirror-hover-sweep 0.9s ease-out;
+}
+@keyframes mirror-hover-sweep {
+  0% { transform: translateX(-140%); }
+  100% { transform: translateX(140%); }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .hero-headline, .hero-subtitle, .hero-cta, .reveal, .reveal-card {
     animation: none !important;
@@ -264,7 +282,8 @@
     transform: none !important;
     transition: none !important;
   }
-  .mirror-frame::after {
+  .mirror-frame::after,
+  .mirror-frame::before {
     animation: none !important;
     opacity: 0 !important;
   }
