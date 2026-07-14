@@ -163,7 +163,7 @@ function FeatureBadges() {
 
 function About() {
   return (
-    <section id="about" className="py-12 md:py-16">
+    <section id="about" className="py-14 md:py-24">
       <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
         <div className="order-2 md:order-1">
           <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-4">Wer bin ich</div>
@@ -175,11 +175,18 @@ function About() {
             <p className="reveal reveal-stagger-4">Als Mama von drei Kindern weiß ich, wie wertvoll Zeit ist – deshalb ist mir eine einfache, klare Zusammenarbeit besonders wichtig.</p>
           </div>
         </div>
-        <div className="order-1 md:order-2 relative">
-          <div className="reveal aspect-[4/5] rounded-3xl overflow-hidden">
+        <div className="order-1 md:order-2 relative pb-24 md:pb-0">
+          <div className="reveal relative aspect-[4/5] rounded-[2.25rem] overflow-hidden">
             <Image src="/portrait.png" alt="Jagoda – Webdesignerin aus Wien" loading="lazy" width={1024} height={1280} className="w-full h-full object-cover" />
           </div>
-          <div aria-hidden className="absolute -z-10 -top-6 -right-6 w-full h-full rounded-3xl" style={{ backgroundColor: "var(--peach-soft)" }} />
+          <div className="absolute left-6 right-6 -bottom-14 md:left-0 md:right-auto md:-bottom-14 md:w-[70%] md:-translate-x-[15%] bg-rose-gold-soft rounded-[32px] p-8 md:p-11">
+            <p className="font-serif text-lg md:text-xl text-ink leading-relaxed">
+              Ich möchte, dass du deine Website ansiehst und genau dasselbe fühlst wie deine Kundin nach dem Blick in den Spiegel.
+            </p>
+            <p className="mt-4 font-serif text-2xl md:text-3xl text-ink leading-snug">
+              „Das bin ich.“
+            </p>
+          </div>
         </div>
       </div>
     </section>
