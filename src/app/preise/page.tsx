@@ -165,7 +165,7 @@ export default function PreisePage() {
       </section>
 
       {/* ANALYSE & STRATEGIE */}
-      <section className="py-14 md:py-20 bg-peach">
+      <section className="py-14 md:py-20 bg-peach-muted">
         <div className="max-w-5xl mx-auto px-6">
           <p id="analyse" className="text-[11px] font-semibold uppercase tracking-[0.15em] text-muted-foreground mb-5 scroll-mt-24">Analyse &amp; Strategie</p>
 
@@ -309,7 +309,7 @@ export default function PreisePage() {
       </section>
 
       {/* DIGITALE ERWEITERUNGEN */}
-      <section className="py-14 md:py-20 bg-peach">
+      <section className="py-14 md:py-20 bg-peach-muted">
         <div className="max-w-5xl mx-auto px-6">
           <p id="erweiterungen" className="text-[11px] font-semibold uppercase tracking-[0.15em] text-muted-foreground mb-5 scroll-mt-24">Digitale Erweiterungen</p>
           <div className="bg-background rounded-[2rem] p-8 md:p-10">
@@ -354,7 +354,7 @@ export default function PreisePage() {
       </section>
 
       {/* BRANDING & PRINT */}
-      <section id="grafik-print" className="py-14 md:py-20 bg-peach scroll-mt-24">
+      <section id="grafik-print" className="py-14 md:py-20 bg-peach-muted scroll-mt-24">
         <div className="max-w-5xl mx-auto px-6">
           <p className="text-[11px] font-semibold uppercase tracking-[0.15em] text-muted-foreground mb-5">Branding &amp; Print</p>
           <div className="bg-background rounded-[2rem] overflow-hidden">
@@ -390,7 +390,7 @@ export default function PreisePage() {
       </section>
 
       {/* PAKETE */}
-      <section id="pakete" className="py-14 md:py-20 bg-peach scroll-mt-24">
+      <section id="pakete" className="py-14 md:py-20 bg-peach-muted scroll-mt-24">
         <div className="max-w-5xl mx-auto px-6">
           <p className="text-[11px] font-semibold uppercase tracking-[0.15em] text-muted-foreground mb-5">Pakete</p>
           <div className="grid sm:grid-cols-3 gap-5">
@@ -500,7 +500,7 @@ export default function PreisePage() {
                   className="object-cover"
                 />
               </div>
-              <div className="w-[78%] ml-auto mr-6 -mt-8 md:ml-0 md:mr-0 md:mt-0 md:absolute md:left-0 md:right-auto md:-bottom-12 md:w-[68%] md:-translate-x-[14%] bg-rose-gold-soft rounded-[32px] p-8 md:p-11">
+              <div className="w-[78%] ml-auto mr-6 -mt-12 md:ml-0 md:mr-0 md:mt-0 md:absolute md:left-0 md:right-auto md:-bottom-12 md:w-[68%] md:-translate-x-[14%] bg-rose-gold-soft rounded-[32px] p-8 md:p-11">
                 <p className="font-serif text-lg md:text-xl text-ink leading-relaxed">
                   Jedes Studio verdient einen Auftritt, der die Qualität seiner Arbeit widerspiegelt.
                 </p>

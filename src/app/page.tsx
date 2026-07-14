@@ -179,7 +179,7 @@ function About() {
           <div className="reveal relative aspect-[4/5] rounded-[2.25rem] overflow-hidden">
             <Image src="/portrait.png" alt="Jagoda – Webdesignerin aus Wien" loading="lazy" width={1024} height={1280} className="w-full h-full object-cover" />
           </div>
-          <div className="w-[78%] ml-auto mr-6 -mt-[34px] md:ml-0 md:mr-0 md:mt-0 md:absolute md:left-0 md:right-auto md:-bottom-14 md:w-[70%] md:-translate-x-[15%] md:translate-y-[10%] bg-rose-gold-soft rounded-[32px] p-8 md:p-11">
+          <div className="w-[78%] ml-auto mr-6 -mt-12 md:ml-0 md:mr-0 md:mt-0 md:absolute md:left-0 md:right-auto md:-bottom-14 md:w-[70%] md:-translate-x-[15%] md:translate-y-[10%] bg-rose-gold-soft rounded-[32px] p-8 md:p-11">
             <p className="font-serif text-lg md:text-xl text-ink leading-relaxed">
               Ich möchte, dass du deine Website ansiehst und genau dasselbe fühlst wie deine Kundin nach dem Blick in den Spiegel.
             </p>
@@ -225,14 +225,31 @@ function Warum() {
           {brandQuotes.vertrauenVorTermin}
         </p>
 
-        <div className="grid md:grid-cols-2 gap-6 md:gap-8">
-          <figure className="reveal relative rounded-3xl overflow-hidden aspect-[4/5]">
-            <Image src="/problem.jpg" alt="Stiller Schreibtisch mit Smartphone – das Warten auf Anfragen" loading="lazy" width={1024} height={1280} className="w-full h-full object-cover" />
-            <figcaption className="absolute bottom-4 left-4 right-4 text-xs uppercase tracking-[0.2em] text-background bg-ink/60 backdrop-blur px-3 py-2 rounded-full text-center">Vorher · Wenig Sichtbarkeit</figcaption>
+        <div className="relative grid md:grid-cols-2 gap-6 md:gap-8">
+          <figure className="reveal">
+            <div className="relative rounded-[2rem] overflow-hidden aspect-[4/5]">
+              <Image src="/bild1.png" alt="Website auf dem Smartphone – der erste Eindruck online" loading="lazy" width={1024} height={1280} className="w-full h-full object-cover" />
+            </div>
+            <figcaption className="mt-5 text-center">
+              <span className="block text-[11px] uppercase tracking-[0.2em] text-muted-foreground">01 — Online</span>
+              <span className="block mt-1.5 font-serif text-lg text-ink">Der erste Eindruck online.</span>
+            </figcaption>
           </figure>
-          <figure className="reveal reveal-delay relative rounded-3xl overflow-hidden aspect-[4/5]">
-            <Image src="/success.jpg" alt="Modernes, gebuchtes Beauty Studio mit zufriedener Kundin" loading="lazy" width={1024} height={1280} className="w-full h-full object-cover" />
-            <figcaption className="absolute bottom-4 left-4 right-4 text-xs uppercase tracking-[0.2em] text-background bg-ink/60 backdrop-blur px-3 py-2 rounded-full text-center">Nachher · Konstant gebucht</figcaption>
+
+          <div aria-hidden className="hidden md:flex absolute left-1/2 top-[38%] -translate-x-1/2 z-10 items-center gap-2 text-mauve">
+            <span className="editorial-rule" />
+            <span className="text-sm">→</span>
+            <span className="editorial-rule" />
+          </div>
+
+          <figure className="reveal reveal-delay">
+            <div className="relative rounded-[2rem] overflow-hidden aspect-[4/5]">
+              <Image src="/success.jpg" alt="Modernes, gebuchtes Beauty Studio mit zufriedener Kundin" loading="lazy" width={1024} height={1280} className="w-full h-full object-cover" />
+            </div>
+            <figcaption className="mt-5 text-center">
+              <span className="block text-[11px] uppercase tracking-[0.2em] text-muted-foreground">02 — Im Studio</span>
+              <span className="block mt-1.5 font-serif text-lg text-ink">Das Erlebnis im Studio.</span>
+            </figcaption>
           </figure>
         </div>
       </div>
