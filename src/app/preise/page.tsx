@@ -164,11 +164,9 @@ export default function PreisePage() {
         </div>
       </section>
 
-      {/* Price content */}
-      <section className="py-12 md:py-16 bg-cream">
+      {/* ANALYSE & STRATEGIE */}
+      <section className="py-14 md:py-20 bg-peach">
         <div className="max-w-5xl mx-auto px-6">
-
-          {/* ANALYSE & STRATEGIE */}
           <p id="analyse" className="text-[11px] font-semibold uppercase tracking-[0.15em] text-muted-foreground mb-5 scroll-mt-24">Analyse &amp; Strategie</p>
 
           {/* Online-Präsenz Analyse */}
@@ -203,7 +201,7 @@ export default function PreisePage() {
           </div>
 
           {/* Google Business Profil */}
-          <div id="google-business" className="mt-5 bg-ink/[0.05] rounded-[2rem] p-8 md:p-10 scroll-mt-24">
+          <div id="google-business" className="mt-5 bg-background rounded-[2rem] p-8 md:p-10 scroll-mt-24">
             <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 mb-5">
               <div>
                 <p className="text-lg font-semibold text-ink mb-1">Google Business Profil</p>
@@ -232,9 +230,13 @@ export default function PreisePage() {
               ))}
             </div>
           </div>
+        </div>
+      </section>
 
-          {/* WEBSEITEN */}
-          <p id="website" className="text-[11px] font-semibold uppercase tracking-[0.15em] text-muted-foreground mt-14 mb-5 scroll-mt-24">Webseiten</p>
+      {/* WEBSEITEN */}
+      <section className="py-14 md:py-20 bg-cream">
+        <div className="max-w-5xl mx-auto px-6">
+          <p id="website" className="text-[11px] font-semibold uppercase tracking-[0.15em] text-muted-foreground mb-5 scroll-mt-24">Webseiten</p>
           <div className="grid md:grid-cols-2 gap-5 items-stretch">
             {/* Starter Website */}
             <div className="bg-background rounded-[2rem] p-8 flex flex-col">
@@ -303,10 +305,14 @@ export default function PreisePage() {
               </div>
             </div>
           </div>
+        </div>
+      </section>
 
-          {/* DIGITALE ERWEITERUNGEN */}
-          <p id="erweiterungen" className="text-[11px] font-semibold uppercase tracking-[0.15em] text-muted-foreground mt-14 mb-5 scroll-mt-24">Digitale Erweiterungen</p>
-          <div className="bg-ink/[0.05] rounded-[2rem] p-8 md:p-10">
+      {/* DIGITALE ERWEITERUNGEN */}
+      <section className="py-14 md:py-20 bg-peach">
+        <div className="max-w-5xl mx-auto px-6">
+          <p id="erweiterungen" className="text-[11px] font-semibold uppercase tracking-[0.15em] text-muted-foreground mb-5 scroll-mt-24">Digitale Erweiterungen</p>
+          <div className="bg-background rounded-[2rem] p-8 md:p-10">
             <div className="grid sm:grid-cols-2 gap-x-8 gap-y-0">
               {erweiterungen.map((item) => (
                 <div key={item.title} className="flex gap-2.5 mb-2.5">
@@ -319,9 +325,13 @@ export default function PreisePage() {
               ))}
             </div>
           </div>
+        </div>
+      </section>
 
-          {/* TECHNIK & BETREUUNG */}
-          <p className="text-[11px] font-semibold uppercase tracking-[0.15em] text-muted-foreground mt-14 mb-5">Technik &amp; Betreuung</p>
+      {/* TECHNIK & BETREUUNG */}
+      <section className="py-14 md:py-20 bg-cream">
+        <div className="max-w-5xl mx-auto px-6">
+          <p className="text-[11px] font-semibold uppercase tracking-[0.15em] text-muted-foreground mb-5">Technik &amp; Betreuung</p>
           <div className="grid sm:grid-cols-3 gap-5 items-stretch">
             <div id="domain-hosting" className="bg-background rounded-[2rem] p-6 flex flex-col scroll-mt-24">
               <p className="font-semibold text-ink">Domain &amp; Hosting</p>
@@ -329,7 +339,7 @@ export default function PreisePage() {
               <p className="text-xs text-muted-foreground/80 mt-1 italic">direkt beim Anbieter — läuft auf deinen Namen</p>
               <p className="text-2xl font-bold text-ink mt-auto pt-4">15 € <span className="text-sm font-normal text-muted-foreground">/ Jahr</span></p>
             </div>
-            <div id="wartung" className="bg-ink/[0.05] rounded-[2rem] p-6 flex flex-col scroll-mt-24">
+            <div id="wartung" className="bg-background rounded-[2rem] p-6 flex flex-col scroll-mt-24">
               <p className="font-semibold text-ink">Wartungspaket</p>
               <p className="text-xs text-muted-foreground mt-1">Kleine laufende Anpassungen, neue Fotos, Texte & Aktionen · bis zu 4 Änderungen pro Monat</p>
               <p className="text-2xl font-bold text-ink mt-auto pt-4">60 € <span className="text-sm font-normal text-muted-foreground">/ Monat</span></p>
@@ -340,62 +350,68 @@ export default function PreisePage() {
               <p className="text-2xl font-bold text-ink mt-auto pt-4">50 € <span className="text-sm font-normal text-muted-foreground">einmalig</span></p>
             </div>
           </div>
+        </div>
+      </section>
 
-          {/* BRANDING & PRINT */}
-          <div id="grafik-print" className="mt-14 scroll-mt-24">
-            <p className="text-[11px] font-semibold uppercase tracking-[0.15em] text-muted-foreground mb-5">Branding &amp; Print</p>
-            <div className="bg-background rounded-[2rem] overflow-hidden">
-              {grafikItems.map((item, i) => (
-                <div key={item.title} className={`flex items-center justify-between px-7 py-5 border-b border-ink/5 last:border-0 ${i % 2 !== 0 ? "bg-cream/40" : ""}`}>
-                  <div>
-                    <p className="text-sm font-medium text-ink">{item.title}</p>
-                    <p className="text-xs text-muted-foreground">{item.desc}</p>
-                  </div>
-                  <p className="text-sm font-bold text-ink shrink-0 ml-6">{item.price}</p>
+      {/* BRANDING & PRINT */}
+      <section id="grafik-print" className="py-14 md:py-20 bg-peach scroll-mt-24">
+        <div className="max-w-5xl mx-auto px-6">
+          <p className="text-[11px] font-semibold uppercase tracking-[0.15em] text-muted-foreground mb-5">Branding &amp; Print</p>
+          <div className="bg-background rounded-[2rem] overflow-hidden">
+            {grafikItems.map((item, i) => (
+              <div key={item.title} className={`flex items-center justify-between px-7 py-5 border-b border-ink/5 last:border-0 ${i % 2 !== 0 ? "bg-cream/40" : ""}`}>
+                <div>
+                  <p className="text-sm font-medium text-ink">{item.title}</p>
+                  <p className="text-xs text-muted-foreground">{item.desc}</p>
                 </div>
-              ))}
-            </div>
+                <p className="text-sm font-bold text-ink shrink-0 ml-6">{item.price}</p>
+              </div>
+            ))}
           </div>
+        </div>
+      </section>
 
-          {/* SOCIAL MEDIA */}
-          <div id="social" className="mt-10 scroll-mt-24">
-            <p className="text-[11px] font-semibold uppercase tracking-[0.15em] text-muted-foreground mb-5">Social Media</p>
-            <div className="bg-background rounded-[2rem] overflow-hidden">
-              {socialItems.map((item, i) => (
-                <div key={item.title} className={`flex items-center justify-between px-7 py-5 border-b border-ink/5 last:border-0 ${i % 2 !== 0 ? "bg-cream/40" : ""}`}>
-                  <div>
-                    <p className="text-sm font-medium text-ink">{item.title}</p>
-                    <p className="text-xs text-muted-foreground">{item.desc}</p>
-                  </div>
-                  <p className="text-sm font-bold text-ink shrink-0 ml-6">{item.price}</p>
+      {/* SOCIAL MEDIA */}
+      <section id="social" className="py-14 md:py-20 bg-cream scroll-mt-24">
+        <div className="max-w-5xl mx-auto px-6">
+          <p className="text-[11px] font-semibold uppercase tracking-[0.15em] text-muted-foreground mb-5">Social Media</p>
+          <div className="bg-background rounded-[2rem] overflow-hidden">
+            {socialItems.map((item, i) => (
+              <div key={item.title} className={`flex items-center justify-between px-7 py-5 border-b border-ink/5 last:border-0 ${i % 2 !== 0 ? "bg-cream/40" : ""}`}>
+                <div>
+                  <p className="text-sm font-medium text-ink">{item.title}</p>
+                  <p className="text-xs text-muted-foreground">{item.desc}</p>
                 </div>
-              ))}
-            </div>
+                <p className="text-sm font-bold text-ink shrink-0 ml-6">{item.price}</p>
+              </div>
+            ))}
           </div>
+        </div>
+      </section>
 
-          {/* PAKETE */}
-          <div id="pakete" className="mt-14 scroll-mt-24">
-            <p className="text-[11px] font-semibold uppercase tracking-[0.15em] text-muted-foreground mb-5">Pakete</p>
-            <div className="grid sm:grid-cols-3 gap-5">
-              <div className="bg-ink/[0.05] rounded-[2rem] p-6 flex flex-col">
-                <p className="font-semibold text-ink mb-1">Starter Branding</p>
-                <p className="text-xs text-muted-foreground">Logo + Visitenkarte + 5 Social Media Posts</p>
-                <p className="text-2xl font-bold text-ink mt-auto pt-4">550 €</p>
-                <p className="text-xs text-muted-foreground mt-1">statt 570 € einzeln</p>
-              </div>
-              <div className="relative bg-peach-soft/50 rounded-[2rem] p-6">
-                <div className="absolute -top-3 left-6 bg-accent text-primary text-[11px] font-semibold px-3 py-1 rounded-full">Komplett</div>
-                <p className="font-semibold text-ink mb-1 mt-1">Beauty Studio Komplett</p>
-                <p className="text-xs text-muted-foreground mb-4">Premium Website + Logo + 10 Social Media Posts + Flyer + Google Business Profil</p>
-                <p className="text-2xl font-bold text-ink">1.490 €</p>
-                <p className="text-xs text-muted-foreground mt-1">statt 1.790 € einzeln</p>
-              </div>
-              <div className="bg-background rounded-[2rem] p-6">
-                <p className="font-semibold text-ink mb-1">Social Media Visibility Paket</p>
-                <p className="text-xs text-muted-foreground mb-4">5 Social Media Posts + 5 Story Templates + 6 Highlight Covers</p>
-                <p className="text-2xl font-bold text-ink">420 €</p>
-                <p className="text-xs text-muted-foreground mt-1">statt 460 € einzeln</p>
-              </div>
+      {/* PAKETE */}
+      <section id="pakete" className="py-14 md:py-20 bg-peach scroll-mt-24">
+        <div className="max-w-5xl mx-auto px-6">
+          <p className="text-[11px] font-semibold uppercase tracking-[0.15em] text-muted-foreground mb-5">Pakete</p>
+          <div className="grid sm:grid-cols-3 gap-5">
+            <div className="bg-background rounded-[2rem] p-6 flex flex-col">
+              <p className="font-semibold text-ink mb-1">Starter Branding</p>
+              <p className="text-xs text-muted-foreground">Logo + Visitenkarte + 5 Social Media Posts</p>
+              <p className="text-2xl font-bold text-ink mt-auto pt-4">550 €</p>
+              <p className="text-xs text-muted-foreground mt-1">statt 570 € einzeln</p>
+            </div>
+            <div className="relative bg-peach-soft/50 rounded-[2rem] p-6">
+              <div className="absolute -top-3 left-6 bg-accent text-primary text-[11px] font-semibold px-3 py-1 rounded-full">Komplett</div>
+              <p className="font-semibold text-ink mb-1 mt-1">Beauty Studio Komplett</p>
+              <p className="text-xs text-muted-foreground mb-4">Premium Website + Logo + 10 Social Media Posts + Flyer + Google Business Profil</p>
+              <p className="text-2xl font-bold text-ink">1.490 €</p>
+              <p className="text-xs text-muted-foreground mt-1">statt 1.790 € einzeln</p>
+            </div>
+            <div className="bg-background rounded-[2rem] p-6">
+              <p className="font-semibold text-ink mb-1">Social Media Visibility Paket</p>
+              <p className="text-xs text-muted-foreground mb-4">5 Social Media Posts + 5 Story Templates + 6 Highlight Covers</p>
+              <p className="text-2xl font-bold text-ink">420 €</p>
+              <p className="text-xs text-muted-foreground mt-1">statt 460 € einzeln</p>
             </div>
           </div>
 
@@ -423,7 +439,6 @@ export default function PreisePage() {
               Nicht sicher welches Paket passt? Ich berate dich kurz und kostenlos.
             </p>
           </div>
-
         </div>
       </section>
 
