@@ -203,12 +203,12 @@ export default function PreisePage() {
           </div>
 
           {/* Google Business Profil */}
-          <div id="google-business" className="mt-5 bg-background rounded-[2rem] p-8 md:p-10 scroll-mt-24">
+          <div id="google-business" className="mt-5 bg-ink/[0.05] rounded-[2rem] p-8 md:p-10 scroll-mt-24">
             <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 mb-5">
               <div>
                 <p className="text-lg font-semibold text-ink mb-1">Google Business Profil</p>
                 <p className="text-sm text-muted-foreground max-w-lg leading-relaxed">
-                  Ich richte dein Google-Unternehmensprofil vollständig ein oder optimiere ein bestehendes Profil, damit dein Studio lokal besser gefunden wird und professionell auf potenzielle Kundinnen wirkt.
+                  Ich richte dein Google-Unternehmensprofil professionell ein oder optimiere dein bestehendes Profil – damit dein Studio bei Google einen hochwertigen ersten Eindruck hinterlässt und lokal besser gefunden wird.
                 </p>
               </div>
               <div className="shrink-0 flex gap-6 sm:flex-col sm:gap-2 sm:text-right">
@@ -224,7 +224,7 @@ export default function PreisePage() {
             </div>
             <div className="h-px bg-ink/10 mb-5" />
             <div className="grid sm:grid-cols-2 gap-x-8 gap-y-0">
-              {["Einrichtung oder Optimierung", "Google Maps", "Lokale Sichtbarkeit", "SEO-optimierte Beschreibung", "Kategorien & Leistungen", "Kontaktdaten & Öffnungszeiten", "Website & Social Media verknüpfen"].map((item) => (
+              {["Unternehmenseintrag einrichten oder optimieren", "Kategorien & Leistungen eintragen", "SEO-optimierte Beschreibung", "Kontaktdaten & Öffnungszeiten", "Logo & Bilder einpflegen"].map((item) => (
                 <div key={item} className="flex gap-2.5 mb-2.5">
                   <span className="shrink-0 text-sm leading-[1.4] mt-px" style={{ color: "#0F6E56" }}>✓</span>
                   <p className="text-sm font-medium text-ink leading-[1.4]">{item}</p>
@@ -306,7 +306,7 @@ export default function PreisePage() {
 
           {/* DIGITALE ERWEITERUNGEN */}
           <p id="erweiterungen" className="text-[11px] font-semibold uppercase tracking-[0.15em] text-muted-foreground mt-14 mb-5 scroll-mt-24">Digitale Erweiterungen</p>
-          <div className="bg-background rounded-[2rem] p-8 md:p-10">
+          <div className="bg-ink/[0.05] rounded-[2rem] p-8 md:p-10">
             <div className="grid sm:grid-cols-2 gap-x-8 gap-y-0">
               {erweiterungen.map((item) => (
                 <div key={item.title} className="flex gap-2.5 mb-2.5">
@@ -329,7 +329,7 @@ export default function PreisePage() {
               <p className="text-xs text-muted-foreground/80 mt-1 italic">direkt beim Anbieter — läuft auf deinen Namen</p>
               <p className="text-2xl font-bold text-ink mt-auto pt-4">15 € <span className="text-sm font-normal text-muted-foreground">/ Jahr</span></p>
             </div>
-            <div id="wartung" className="bg-background rounded-[2rem] p-6 flex flex-col scroll-mt-24">
+            <div id="wartung" className="bg-ink/[0.05] rounded-[2rem] p-6 flex flex-col scroll-mt-24">
               <p className="font-semibold text-ink">Wartungspaket</p>
               <p className="text-xs text-muted-foreground mt-1">Kleine laufende Anpassungen, neue Fotos, Texte & Aktionen · bis zu 4 Änderungen pro Monat</p>
               <p className="text-2xl font-bold text-ink mt-auto pt-4">60 € <span className="text-sm font-normal text-muted-foreground">/ Monat</span></p>
@@ -377,7 +377,7 @@ export default function PreisePage() {
           <div id="pakete" className="mt-14 scroll-mt-24">
             <p className="text-[11px] font-semibold uppercase tracking-[0.15em] text-muted-foreground mb-5">Pakete</p>
             <div className="grid sm:grid-cols-3 gap-5">
-              <div className="bg-background rounded-[2rem] p-6 flex flex-col">
+              <div className="bg-ink/[0.05] rounded-[2rem] p-6 flex flex-col">
                 <p className="font-semibold text-ink mb-1">Starter Branding</p>
                 <p className="text-xs text-muted-foreground">Logo + Visitenkarte + 5 Social Media Posts</p>
                 <p className="text-2xl font-bold text-ink mt-auto pt-4">550 €</p>
@@ -430,40 +430,38 @@ export default function PreisePage() {
       <QuoteSection quote={brandQuotes.websiteSpiegeltWerte} />
 
       {/* Zinsfreie Ratenzahlung */}
-      <section id="finanzierung" className="py-12 md:py-16 scroll-mt-24">
+      <section id="finanzierung" className="py-14 md:py-24 scroll-mt-24">
         <div className="max-w-5xl mx-auto px-6">
-          <div className="rounded-[2.5rem] bg-peach-soft/50 p-8 md:p-12 grid md:grid-cols-[1.3fr_1fr] gap-10 items-center overflow-hidden">
+          <div className="grid md:grid-cols-[0.85fr_1.5fr] gap-10 md:gap-14 items-center">
+            {/* Fließtext */}
             <div>
-              <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-4">Finanzierung</div>
-              <h2 className="font-serif text-3xl md:text-4xl text-ink leading-tight">💳 Zinsfreie Ratenzahlung</h2>
-              <p className="mt-4 font-serif text-lg md:text-xl text-ink">Jeder verdient einen professionellen Online-Auftritt.</p>
-              <p className="mt-4 text-muted-foreground leading-relaxed">
+              <p className="text-muted-foreground leading-relaxed">
                 Ich weiß, dass eine professionelle Website eine Investition ist und die Kosten gerade für Gründerinnen und kleinere Beauty-Unternehmen eine wichtige Rolle spielen können. Deshalb biete ich für größere Projekte eine zinsfreie Ratenzahlung an – damit du deinen professionellen Markenauftritt nicht auf später verschieben musst.
               </p>
 
-              <div className="mt-8 grid sm:grid-cols-2 gap-4">
-                <div className="bg-background/70 rounded-2xl p-5">
-                  <p className="flex items-center gap-2 text-sm font-semibold text-ink">
-                    <span aria-hidden style={{ color: "#0F6E56" }}>✓</span> Projekte ab 900 €
-                  </p>
-                  <p className="mt-2 text-sm text-muted-foreground">→ Zahlung in 3 zinsfreien Monatsraten</p>
+              <div className="mt-8 space-y-5">
+                <div className="flex items-start gap-3">
+                  <span aria-hidden className="mt-0.5 text-sm" style={{ color: "#0F6E56" }}>✓</span>
+                  <div>
+                    <p className="text-sm font-semibold text-ink">Projekte ab 900 €</p>
+                    <p className="text-sm text-muted-foreground mt-0.5">Zahlung in 3 zinsfreien Monatsraten</p>
+                  </div>
                 </div>
-                <div className="bg-background/70 rounded-2xl p-5">
-                  <p className="flex items-center gap-2 text-sm font-semibold text-ink">
-                    <span aria-hidden style={{ color: "#0F6E56" }}>✓</span> Projekte ab 1.400 €
-                  </p>
-                  <p className="mt-2 text-sm text-muted-foreground">→ Zahlung in 4 zinsfreien Monatsraten</p>
+                <div className="flex items-start gap-3">
+                  <span aria-hidden className="mt-0.5 text-sm" style={{ color: "#0F6E56" }}>✓</span>
+                  <div>
+                    <p className="text-sm font-semibold text-ink">Projekte ab 1.400 €</p>
+                    <p className="text-sm text-muted-foreground mt-0.5">Zahlung in 4 zinsfreien Monatsraten</p>
+                  </div>
                 </div>
               </div>
-              <p className="mt-5 text-sm text-muted-foreground leading-relaxed">
+
+              <p className="mt-6 text-sm text-muted-foreground leading-relaxed">
                 Die erste Rate wird jeweils bei Auftragserteilung fällig, die weiteren Raten monatlich.
               </p>
-
-              <div className="mt-6 bg-background/50 rounded-xl px-4 py-3">
-                <p className="text-xs text-muted-foreground leading-relaxed">
-                  Die Ratenzahlung ist ein freiwilliges Angebot und muss vor Projektbeginn gemeinsam vereinbart werden. Sie ist nicht automatisch Bestandteil jedes Projekts und wird individuell geprüft sowie im Vertrag festgehalten.
-                </p>
-              </div>
+              <p className="mt-4 text-xs text-muted-foreground/70 leading-relaxed italic">
+                Die Ratenzahlung ist ein freiwilliges Angebot und muss vor Projektbeginn gemeinsam vereinbart werden. Sie ist nicht automatisch Bestandteil jedes Projekts und wird individuell geprüft sowie im Vertrag festgehalten.
+              </p>
 
               <div className="mt-8">
                 <Link
@@ -475,13 +473,21 @@ export default function PreisePage() {
               </div>
             </div>
 
-            <div className="relative w-full aspect-[4/5] rounded-2xl overflow-hidden">
-              <Image
-                src="/ratenzahlung.jpg"
-                alt="Zinsfreie Ratenzahlung für deinen professionellen Online-Auftritt bei JAVERA Studio"
-                fill
-                className="object-cover"
-              />
+            {/* Bild + schwebendes Editorial Panel */}
+            <div className="relative pb-16 md:pb-0">
+              <div className="relative aspect-[4/5] md:aspect-[3/4] rounded-[2.25rem] overflow-hidden">
+                <Image
+                  src="/ratenzahlung.jpg"
+                  alt="Zinsfreie Ratenzahlung für deinen professionellen Online-Auftritt bei JAVERA Studio"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+              <div className="absolute left-6 right-6 -bottom-10 md:left-0 md:right-auto md:-bottom-10 md:w-[62%] md:-translate-x-[14%] bg-rose-gold-soft rounded-[32px] p-7 md:p-9">
+                <div className="text-[11px] uppercase tracking-[0.2em] text-ink/55 mb-3">Finanzierung</div>
+                <h2 className="font-serif text-2xl md:text-3xl text-ink leading-tight">Zinsfreie Ratenzahlung</h2>
+                <p className="mt-3 text-sm md:text-base text-ink/80 leading-relaxed">Jeder verdient einen professionellen Online-Auftritt.</p>
+              </div>
             </div>
           </div>
         </div>
