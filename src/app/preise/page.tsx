@@ -476,7 +476,7 @@ export default function PreisePage() {
               <p className="mt-6 text-sm text-muted-foreground leading-relaxed">
                 Die erste Rate wird jeweils bei Auftragserteilung fällig, die weiteren Raten monatlich.
               </p>
-              <p className="mt-4 text-xs text-muted-foreground/70 leading-relaxed italic">
+              <p className="mt-4 max-w-[92%] text-xs text-muted-foreground/70 leading-relaxed italic">
                 Die Ratenzahlung ist ein freiwilliges Angebot und muss vor Projektbeginn gemeinsam vereinbart werden. Sie ist nicht automatisch Bestandteil jedes Projekts und wird individuell geprüft sowie im Vertrag festgehalten.
               </p>
 
