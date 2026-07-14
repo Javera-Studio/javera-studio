@@ -450,7 +450,9 @@ export default function PreisePage() {
           <div className="grid md:grid-cols-[0.85fr_1.5fr] gap-10 md:gap-14 items-center">
             {/* Fließtext */}
             <div>
-              <p className="text-muted-foreground leading-relaxed">
+              <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-4">Finanzierung</div>
+              <h2 className="font-serif text-3xl md:text-4xl text-ink leading-tight">Zinsfreie Ratenzahlung</h2>
+              <p className="mt-4 text-muted-foreground leading-relaxed">
                 Ich weiß, dass eine professionelle Website eine Investition ist und die Kosten gerade für Gründerinnen und kleinere Beauty-Unternehmen eine wichtige Rolle spielen können. Deshalb biete ich für größere Projekte eine zinsfreie Ratenzahlung an – damit du deinen professionellen Markenauftritt nicht auf später verschieben musst.
               </p>
 
@@ -489,7 +491,7 @@ export default function PreisePage() {
             </div>
 
             {/* Bild + schwebendes Editorial Panel */}
-            <div className="relative pb-16 md:pb-0">
+            <div className="relative pb-24 md:pb-0">
               <div className="relative aspect-[4/5] md:aspect-[3/4] rounded-[2.25rem] overflow-hidden">
                 <Image
                   src="/ratenzahlung.jpg"
@@ -498,10 +500,13 @@ export default function PreisePage() {
                   className="object-cover"
                 />
               </div>
-              <div className="absolute left-6 right-6 -bottom-10 md:left-0 md:right-auto md:-bottom-10 md:w-[62%] md:-translate-x-[14%] bg-rose-gold-soft rounded-[32px] p-7 md:p-9">
-                <div className="text-[11px] uppercase tracking-[0.2em] text-ink/55 mb-3">Finanzierung</div>
-                <h2 className="font-serif text-2xl md:text-3xl text-ink leading-tight">Zinsfreie Ratenzahlung</h2>
-                <p className="mt-3 text-sm md:text-base text-ink/80 leading-relaxed">Jeder verdient einen professionellen Online-Auftritt.</p>
+              <div className="absolute left-6 right-6 -bottom-12 md:left-0 md:right-auto md:-bottom-12 md:w-[68%] md:-translate-x-[14%] bg-rose-gold-soft rounded-[32px] p-8 md:p-11">
+                <p className="font-serif text-lg md:text-xl text-ink leading-relaxed">
+                  Jedes Studio verdient einen Auftritt, der die Qualität seiner Arbeit widerspiegelt.
+                </p>
+                <p className="mt-4 font-serif text-lg md:text-xl text-ink/70 leading-relaxed">
+                  Deshalb dürfen große Ideen auch Schritt für Schritt entstehen.
+                </p>
               </div>
             </div>
           </div>
