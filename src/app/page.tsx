@@ -175,11 +175,11 @@ function About() {
             <p className="reveal reveal-stagger-4">Als Mama von drei Kindern weiß ich, wie wertvoll Zeit ist – deshalb ist mir eine einfache, klare Zusammenarbeit besonders wichtig.</p>
           </div>
         </div>
-        <div className="order-1 md:order-2 relative pb-24 md:pb-0">
+        <div className="order-1 md:order-2 md:relative">
           <div className="reveal relative aspect-[4/5] rounded-[2.25rem] overflow-hidden">
             <Image src="/portrait.png" alt="Jagoda – Webdesignerin aus Wien" loading="lazy" width={1024} height={1280} className="w-full h-full object-cover" />
           </div>
-          <div className="absolute left-6 right-6 -bottom-14 md:left-0 md:right-auto md:-bottom-14 md:w-[70%] md:-translate-x-[15%] bg-rose-gold-soft rounded-[32px] p-8 md:p-11">
+          <div className="w-[78%] ml-auto mr-6 -mt-[34px] md:ml-0 md:mr-0 md:mt-0 md:absolute md:left-0 md:right-auto md:-bottom-14 md:w-[70%] md:-translate-x-[15%] md:translate-y-[10%] bg-rose-gold-soft rounded-[32px] p-8 md:p-11">
             <p className="font-serif text-lg md:text-xl text-ink leading-relaxed">
               Ich möchte, dass du deine Website ansiehst und genau dasselbe fühlst wie deine Kundin nach dem Blick in den Spiegel.
             </p>

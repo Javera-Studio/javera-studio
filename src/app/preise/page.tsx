@@ -491,7 +491,7 @@ export default function PreisePage() {
             </div>
 
             {/* Bild + schwebendes Editorial Panel */}
-            <div className="relative pb-24 md:pb-0">
+            <div className="md:relative">
               <div className="relative aspect-[4/5] md:aspect-[3/4] rounded-[2.25rem] overflow-hidden">
                 <Image
                   src="/ratenzahlung.jpg"
@@ -500,7 +500,7 @@ export default function PreisePage() {
                   className="object-cover"
                 />
               </div>
-              <div className="absolute left-6 right-6 -bottom-12 md:left-0 md:right-auto md:-bottom-12 md:w-[68%] md:-translate-x-[14%] bg-rose-gold-soft rounded-[32px] p-8 md:p-11">
+              <div className="w-[78%] ml-auto mr-6 -mt-8 md:ml-0 md:mr-0 md:mt-0 md:absolute md:left-0 md:right-auto md:-bottom-12 md:w-[68%] md:-translate-x-[14%] bg-rose-gold-soft rounded-[32px] p-8 md:p-11">
                 <p className="font-serif text-lg md:text-xl text-ink leading-relaxed">
                   Jedes Studio verdient einen Auftritt, der die Qualität seiner Arbeit widerspiegelt.
                 </p>
