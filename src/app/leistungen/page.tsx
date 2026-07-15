@@ -232,29 +232,20 @@ export default function LeistungenPage() {
 
       {/* Editorial: So entsteht dein Markenauftritt */}
       <section className="py-14 md:py-24">
-        <div className="max-w-6xl mx-auto px-6">
-          <div className="grid md:grid-cols-[0.9fr_1.4fr] gap-10 md:gap-14 items-center">
-            <div>
-              <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-4">Prozess</div>
-              <h2 className="reveal font-serif text-3xl md:text-4xl text-ink leading-tight">So entsteht dein Markenauftritt.</h2>
-              <p className="reveal reveal-delay mt-4 text-muted-foreground leading-relaxed">
-                Jeder professionelle Markenauftritt beginnt lange bevor die erste Website entsteht. Er beginnt damit, dein Studio, deine Persönlichkeit und deine Ziele wirklich zu verstehen. Aus dieser Grundlage entstehen Design, Texte und eine Website, die die Qualität deiner Arbeit widerspiegeln.
-              </p>
-            </div>
+        <div className="max-w-3xl mx-auto px-6 text-center">
+          <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-4">Prozess</div>
+          <h2 className="reveal font-serif text-3xl md:text-4xl text-ink leading-tight">So entsteht dein Markenauftritt.</h2>
+          <p className="reveal mt-8 font-script text-mauve-dark text-3xl md:text-4xl whitespace-pre-line">
+            {"Jede Website erzählt eine Geschichte.\nMeine beginnt damit, deine zu verstehen."}
+          </p>
+          <p className="reveal reveal-delay mt-8 text-muted-foreground leading-relaxed">
+            Jeder professionelle Markenauftritt beginnt lange bevor die erste Website entsteht. Er beginnt damit, dein Studio, deine Persönlichkeit und deine Ziele wirklich zu verstehen. Aus dieser Grundlage entstehen Design, Texte und eine Website, die die Qualität deiner Arbeit widerspiegeln.
+          </p>
+        </div>
 
-            <div className="md:relative">
-              <div className="reveal relative aspect-[4/5] md:aspect-[3/4] rounded-[2.25rem] overflow-hidden">
-                <Image src="/leistungen.png" alt="Persönliches Gespräch als Ausgangspunkt für den Markenauftritt" loading="lazy" width={1024} height={1280} className="w-full h-full object-cover" />
-              </div>
-              <div className="w-[78%] ml-auto mr-6 -mt-12 md:ml-0 md:mr-0 md:mt-0 md:absolute md:left-0 md:right-auto md:-bottom-12 md:w-[68%] md:-translate-x-[14%] bg-rose-gold-soft rounded-[32px] p-8 md:p-11">
-                <p className="font-serif text-lg md:text-xl text-ink leading-relaxed">
-                  Jede Website erzählt eine Geschichte.
-                </p>
-                <p className="mt-4 font-serif text-2xl md:text-3xl text-ink leading-snug">
-                  Meine beginnt damit, deine zu verstehen.
-                </p>
-              </div>
-            </div>
+        <div className="reveal mt-12 max-w-4xl mx-auto px-6">
+          <div className="relative aspect-[3/2] rounded-[2.25rem] overflow-hidden">
+            <Image src="/leistungen.png" alt="Persönliches Gespräch als Ausgangspunkt für den Markenauftritt" loading="lazy" width={1536} height={1024} className="w-full h-full object-cover" />
           </div>
         </div>
       </section>
