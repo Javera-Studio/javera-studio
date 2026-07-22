@@ -16,6 +16,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${base}/preise`, lastModified: new Date(), changeFrequency: "weekly", priority: 0.8 },
     { url: `${base}/leistungen`, lastModified: new Date(), changeFrequency: "weekly", priority: 0.8 },
     { url: `${base}/faq`, lastModified: new Date(), changeFrequency: "weekly", priority: 0.7 },
+    { url: `${base}/studio-check`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.7 },
     { url: `${base}/blog`, lastModified: new Date(), changeFrequency: "weekly", priority: 0.7 },
     ...blogEntries,
     { url: `${base}/demo-anfrage`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.7 },
