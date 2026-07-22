@@ -5,9 +5,13 @@ import type { NextConfig } from "next";
 // - Keine Fonts von extern (next/font hostet Google Fonts selbst, keine Runtime-Requests)
 // - Keine iframes, keine Maps-/Booking-/Payment-Embeds
 // - Alle Bilder lokal aus /public
+const isDev = process.env.NODE_ENV !== "production";
+
+// 'unsafe-eval' nur im Dev-Server: Next.js braucht eval() für Fast Refresh/HMR.
+// In Production (next build/start, Vercel) bleibt es deaktiviert.
 const csp = [
   "default-src 'self'",
-  "script-src 'self' 'unsafe-inline' https://www.googletagmanager.com",
+  `script-src 'self' 'unsafe-inline' https://www.googletagmanager.com${isDev ? " 'unsafe-eval'" : ""}`,
   "style-src 'self' 'unsafe-inline'",
   "img-src 'self' data:",
   "font-src 'self' data:",
