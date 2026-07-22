@@ -251,7 +251,7 @@ export default function LeistungenPage() {
       </section>
 
       {/* Meine Leistungen */}
-      <section className="py-12 md:py-16">
+      <section id="leistungen" className="py-12 md:py-16 scroll-mt-24">
         <div className="max-w-6xl mx-auto px-6">
           <div className="max-w-2xl mb-14">
             <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-4">Leistungen</div>
@@ -302,7 +302,7 @@ export default function LeistungenPage() {
       <QuoteSection quote={brandQuotes.ersterEindruckOnline} />
 
       {/* Alles aus einer Hand */}
-      <section className="py-12 md:py-16 bg-peach-soft">
+      <section id="einer-hand" className="py-12 md:py-16 bg-peach-soft scroll-mt-24">
         <div className="max-w-3xl mx-auto px-6 text-center">
           <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-4">Aus einer Hand</div>
           <h2 className="reveal font-serif text-3xl md:text-4xl text-ink leading-tight">Alles aus einer Hand</h2>
@@ -313,7 +313,7 @@ export default function LeistungenPage() {
       </section>
 
       {/* So läuft die Zusammenarbeit ab */}
-      <section className="py-12 md:py-16">
+      <section id="ablauf" className="py-12 md:py-16 scroll-mt-24">
         <div className="max-w-6xl mx-auto px-6">
           <div className="max-w-2xl mb-14">
             <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-4">Ablauf</div>
