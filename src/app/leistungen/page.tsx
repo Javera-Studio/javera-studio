@@ -77,7 +77,7 @@ const services: ServiceCard[] = [
     desc: "Ich richte dein Google Business Profil ein oder optimiere ein bestehendes Profil, damit dein Studio auf Google Maps gefunden wird. Mehr lokale Sichtbarkeit sorgt für mehr Vertrauen und mehr Anfragen aus deiner Umgebung.",
     points: ["Google Maps", "Lokale Sichtbarkeit", "Optimierung", "Kundenvertrauen"],
     buttonLabel: "Mehr erfahren",
-    href: "#schreib-mir",
+    href: "/preise#google-business",
   },
   {
     icon: Share2,
