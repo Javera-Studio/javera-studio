@@ -11,7 +11,7 @@ export function Navbar() {
   return (
     <header className="fixed top-0 inset-x-0 z-50 backdrop-blur-md bg-background/70 border-b border-border/60">
       <div className="max-w-6xl mx-auto px-6 h-24 md:h-28 flex items-center justify-between">
-        <a href="/#top" className="flex items-center group" aria-label="Javera Studio – zur Startseite" onClick={close}>
+        <Link href="/#top" className="flex items-center group" aria-label="Javera Studio – zur Startseite" onClick={close}>
           <Image
             src="/Javera.logo.rund.png"
             alt="Javera Studio"
@@ -20,24 +20,24 @@ export function Navbar() {
             className="h-16 w-16 md:h-20 md:w-20 transition-all duration-500 ease-out group-hover:scale-[1.04] group-hover:opacity-80 group-hover:drop-shadow-[0_4px_12px_rgba(0,0,0,0.08)]"
             priority
           />
-        </a>
+        </Link>
         <nav className="hidden md:flex items-center gap-6 text-xs text-muted-foreground">
-          <a href="/#kundenprojekte" className="hover:text-ink transition">Meine Arbeit</a>
-          <a href="/#warum" className="hover:text-ink transition">Warum</a>
-          <a href="/#ablauf" className="hover:text-ink transition">Ablauf</a>
+          <Link href="/#kundenprojekte" className="hover:text-ink transition">Meine Arbeit</Link>
+          <Link href="/#warum" className="hover:text-ink transition">Warum</Link>
+          <Link href="/#ablauf" className="hover:text-ink transition">Ablauf</Link>
           <Link href="/leistungen" className="hover:text-ink transition">Leistungen</Link>
           <Link href="/preise" className="hover:text-ink transition">Preise</Link>
-          <a href="/#about" className="hover:text-ink transition">Über mich</a>
+          <Link href="/#about" className="hover:text-ink transition">Über mich</Link>
           <Link href="/faq" className="hover:text-ink transition">FAQ</Link>
           <Link href="/blog" className="hover:text-ink transition">Blog</Link>
         </nav>
         <div className="flex items-center gap-3">
-          <a
+          <Link
             href="/#schreib-mir"
             className="hidden sm:inline-flex text-sm px-4 py-2 rounded-full bg-primary text-primary-foreground hover:bg-mauve transition"
           >
             Kostenlose Analyse & Vorschau
-          </a>
+          </Link>
           <button
             type="button"
             onClick={() => setOpen((v) => !v)}
@@ -56,21 +56,21 @@ export function Navbar() {
       {open && (
         <div className="md:hidden border-t border-border/60 bg-background/95 backdrop-blur-md">
           <nav className="flex flex-col px-6 py-4 gap-1 text-sm text-muted-foreground">
-            <a href="/#kundenprojekte" onClick={close} className="py-2.5 hover:text-ink transition">Meine Arbeit</a>
-            <a href="/#warum" onClick={close} className="py-2.5 hover:text-ink transition">Warum</a>
-            <a href="/#ablauf" onClick={close} className="py-2.5 hover:text-ink transition">Ablauf</a>
+            <Link href="/#kundenprojekte" onClick={close} className="py-2.5 hover:text-ink transition">Meine Arbeit</Link>
+            <Link href="/#warum" onClick={close} className="py-2.5 hover:text-ink transition">Warum</Link>
+            <Link href="/#ablauf" onClick={close} className="py-2.5 hover:text-ink transition">Ablauf</Link>
             <Link href="/leistungen" onClick={close} className="py-2.5 hover:text-ink transition">Leistungen</Link>
             <Link href="/preise" onClick={close} className="py-2.5 hover:text-ink transition">Preise</Link>
-            <a href="/#about" onClick={close} className="py-2.5 hover:text-ink transition">Über mich</a>
+            <Link href="/#about" onClick={close} className="py-2.5 hover:text-ink transition">Über mich</Link>
             <Link href="/faq" onClick={close} className="py-2.5 hover:text-ink transition">FAQ</Link>
             <Link href="/blog" onClick={close} className="py-2.5 hover:text-ink transition">Blog</Link>
-            <a
+            <Link
               href="/#schreib-mir"
               onClick={close}
               className="mt-3 inline-flex justify-center text-sm px-4 py-3 rounded-full bg-primary text-primary-foreground hover:bg-mauve transition"
             >
               Kostenlose Analyse & Vorschau
-            </a>
+            </Link>
           </nav>
         </div>
       )}

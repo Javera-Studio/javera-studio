@@ -9,6 +9,9 @@ export function CookieBanner() {
 
   useEffect(() => {
     const consent = localStorage.getItem("cookie_consent");
+    // localStorage ist erst nach dem Mount verfügbar (SSR kennt den Wert nicht) –
+    // das Setzen hier verhindert einen Hydration-Mismatch, ist also beabsichtigt.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     if (!consent) setVisible(true);
     if (consent === "accepted") {
       window.dispatchEvent(new Event("cookie-consent-accepted"));

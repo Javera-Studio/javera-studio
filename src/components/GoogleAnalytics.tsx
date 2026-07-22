@@ -10,6 +10,9 @@ export function GoogleAnalytics() {
 
   useEffect(() => {
     if (localStorage.getItem("cookie_consent") === "accepted") {
+      // localStorage ist erst nach dem Mount verfügbar (SSR kennt den Wert nicht) –
+      // das Setzen hier verhindert einen Hydration-Mismatch, ist also beabsichtigt.
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setHasConsent(true);
     }
     function onConsent() { setHasConsent(true); }

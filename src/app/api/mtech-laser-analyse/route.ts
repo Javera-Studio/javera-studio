@@ -2,7 +2,14 @@ import { NextRequest, NextResponse } from "next/server";
 import { Resend } from "resend";
 import { getClientIp, isRateLimited, isValidEmail } from "@/lib/rate-limit";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+let resend: Resend | undefined;
+
+function getResendClient() {
+  if (!resend) {
+    resend = new Resend(process.env.RESEND_API_KEY);
+  }
+  return resend;
+}
 
 export async function POST(req: NextRequest) {
   if (isRateLimited(getClientIp(req))) {
@@ -70,7 +77,7 @@ export async function POST(req: NextRequest) {
     message,
   ];
 
-  const { error } = await resend.emails.send({
+  const { error } = await getResendClient().emails.send({
     from: "JAVERA Studio Website <website@javera-studio.at>",
     to: "hallo@javera-studio.at",
     replyTo: email,

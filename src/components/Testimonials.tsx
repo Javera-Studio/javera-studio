@@ -66,7 +66,7 @@ export function Testimonials() {
             <div className="rounded-3xl bg-background border border-border/60 p-8 md:p-12 shadow-sm" style={{ transition: "opacity 300ms ease", opacity: visible ? 1 : 0 }}>
               <div className="flex items-center gap-1 mb-1">{[0,1,2,3,4].map((i) => <StarIcon key={i} />)}</div>
               <p className="text-xs text-muted-foreground mb-6">5 von 5 Sternen · Google Bewertung</p>
-              <blockquote className="font-serif text-xl md:text-2xl text-ink leading-relaxed">„{t.quote}"</blockquote>
+              <blockquote className="font-serif text-xl md:text-2xl text-ink leading-relaxed">„{t.quote}“</blockquote>
               <div className="mt-8 flex items-center gap-3">
                 <div className="w-10 h-10 rounded-full bg-peach-soft flex items-center justify-center text-ink font-serif text-base flex-shrink-0">{t.initial}</div>
                 <div>

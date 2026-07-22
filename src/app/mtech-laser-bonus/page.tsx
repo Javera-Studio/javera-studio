@@ -440,7 +440,7 @@ export default function MtechLaserBonusPage() {
                 className={`reveal-card reveal-stagger-${i + 1} bg-cream border border-border/60 rounded-2xl p-6 flex flex-col hover:shadow-md hover:border-mauve/40 transition`}
               >
                 <div className="flex items-center gap-1 mb-3">{[0, 1, 2, 3, 4].map((s) => <StarIcon key={s} className="w-4 h-4 text-yellow-400" />)}</div>
-                <p className="text-sm text-ink leading-relaxed flex-1">„{t.quote}"</p>
+                <p className="text-sm text-ink leading-relaxed flex-1">„{t.quote}“</p>
                 <div className="mt-5 flex items-center gap-3">
                   <div className="w-9 h-9 rounded-full bg-background flex items-center justify-center text-ink font-serif text-sm flex-shrink-0">{t.initial}</div>
                   <div>
