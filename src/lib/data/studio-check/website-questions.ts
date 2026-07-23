@@ -86,11 +86,11 @@ export const websiteQuestions: ScoredQuestion[] = [
     category: "vertrauen",
     question: "Wirkt deine Website auf den ersten Blick professionell und aktuell (Design, Fotos, Texte)?",
     answers: [
-      { id: "a", label: "Ja, durchgehend hochwertig und aktuell.", points: 3 },
-      { id: "b", label: "Größtenteils, einzelne Stellen wirken veraltet.", points: 2 },
+      { id: "a", label: "✅ Ja, sie wirkt durchgehend modern und hochwertig.", points: 3 },
+      { id: "b", label: "🟡 Größtenteils, kleinere Bereiche könnten moderner wirken.", points: 2 },
       {
         id: "c",
-        label: "Eher gemischt – manche Bereiche wirken unfertig.",
+        label: "🟠 Teilweise, sie wirkt insgesamt etwas in die Jahre gekommen.",
         points: 1,
         explanation: "Ein gemischter Eindruck kann bei Beauty-Kundinnen schneller zu Unsicherheit führen als in anderen Branchen.",
         recommendation: "Aktualisiere zuerst die Bereiche mit den meisten Aufrufen – Startseite, Leistungen, Fotos.",
@@ -98,7 +98,7 @@ export const websiteQuestions: ScoredQuestion[] = [
       },
       {
         id: "d",
-        label: "Die Website ist schon länger nicht aktualisiert worden.",
+        label: "🔴 Nein, sie sollte grundlegend überarbeitet werden.",
         points: 0,
         explanation: "Eine veraltet wirkende Website kann den Eindruck erwecken, dass auch das Studio nicht mehr aktiv ist.",
         recommendation: "Plane eine Auffrischung mit aktuellen Fotos, Texten und einem zeitgemäßen Design.",
@@ -136,11 +136,11 @@ export const websiteQuestions: ScoredQuestion[] = [
     category: "buchung",
     question: "Findet eine Besucherin deine Kontaktmöglichkeit (Telefon, Formular, Buchungslink) ohne langes Suchen?",
     answers: [
-      { id: "a", label: "Ja, gut sichtbar auf jeder Seite (z. B. Button oder Menü).", points: 3 },
-      { id: "b", label: "Ja, aber nur an einer Stelle, z. B. im Footer.", points: 2 },
+      { id: "a", label: "✅ Ja, die Kontaktmöglichkeit ist sofort sichtbar.", points: 3 },
+      { id: "b", label: "🟡 Ja, aber man muss etwas nach unten scrollen oder suchen.", points: 2 },
       {
         id: "c",
-        label: "Man muss etwas suchen, bis man sie findet.",
+        label: "🟠 Erst nach längerem Suchen wird sie sichtbar.",
         points: 1,
         explanation: "Jede zusätzliche Sekunde Suche kann dich Anfragen kosten, die sonst woanders landen.",
         recommendation: "Platziere einen Kontakt-Button gut sichtbar im Menü oder als durchgängig sichtbaren Button.",
@@ -148,7 +148,7 @@ export const websiteQuestions: ScoredQuestion[] = [
       },
       {
         id: "d",
-        label: "Eher nicht, die Kontaktmöglichkeit ist versteckt.",
+        label: "🔴 Nein, sie ist nur schwer oder gar nicht zu finden.",
         points: 0,
         explanation: "Eine versteckte Kontaktmöglichkeit kann dazu führen, dass Interessentinnen die Seite ohne Anfrage wieder verlassen.",
         recommendation: "Füge auf jeder Unterseite einen klar sichtbaren Kontakt- oder Buchungsbutton hinzu.",
