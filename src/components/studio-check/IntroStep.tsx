@@ -41,7 +41,7 @@ export function IntroStep({ onStart }: { onStart: () => void }) {
         <ul className="md:col-start-1 md:row-start-3 flex flex-wrap justify-center md:justify-start gap-x-6 gap-y-2 text-sm text-muted-foreground">
           <li>✓ Kostenlos</li>
           <li>✓ Keine E-Mail erforderlich</li>
-          <li>✓ Nur ca. 3 Minuten</li>
+          <li>✓ Persönliche Auswertung</li>
         </ul>
 
         <div className="md:col-start-1 md:row-start-4">
@@ -52,7 +52,7 @@ export function IntroStep({ onStart }: { onStart: () => void }) {
           >
             Jetzt Studio-Check starten
           </button>
-          <p className="mt-3 text-xs text-muted-foreground">Dein Ergebnis wird sofort angezeigt.</p>
+          <p className="mt-3 text-center text-xs text-muted-foreground">Dein Ergebnis wird sofort angezeigt.</p>
         </div>
       </div>
     </div>
