@@ -85,7 +85,13 @@ export function ResultView({ result, onRestart, onOpenLeadForm }: ResultViewProp
       </div>
 
       <div className="mt-10 rounded-3xl bg-peach-soft px-6 py-8 text-center">
-        <p className="text-base sm:text-lg text-ink leading-relaxed">{cta.question}</p>
+        <h3 className="font-serif text-xl sm:text-2xl text-ink">
+          Möchtest du eine persönliche Einschätzung zu deinem Online-Auftritt?
+        </h3>
+        <p className="mt-3 text-base sm:text-lg text-ink leading-relaxed">
+          Ich schaue mir deine Website bzw. deinen Online-Auftritt persönlich an und zeige dir, welche
+          Verbesserungen für dein Studio den größten Unterschied machen können.
+        </p>
         <button
           type="button"
           onClick={onOpenLeadForm}

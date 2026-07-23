@@ -81,7 +81,8 @@ export function LeadFormStep({ segment, goal, answers, onBack }: LeadFormStepPro
 
   return (
     <div className="max-w-xl mx-auto w-full">
-      <h2 className="font-serif text-2xl sm:text-3xl text-ink text-center">{cta.question}</h2>
+      <h2 className="font-serif text-2xl sm:text-3xl text-ink text-center">{cta.formTitle}</h2>
+      <p className="mt-3 text-center text-muted-foreground leading-relaxed">{cta.formSubtitle}</p>
 
       <form onSubmit={handleSubmit} className="mt-8 space-y-5 p-8 rounded-3xl bg-background border border-border/70">
         <input

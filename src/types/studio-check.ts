@@ -60,7 +60,8 @@ export type ScoreBand = {
 };
 
 export type CtaConfig = {
-  question: string;
+  formTitle: string;
+  formSubtitle: string;
   buttonLabel: string;
   href: string;
 };

@@ -64,17 +64,23 @@ export const goalFocusPhrases: Record<Goal, string | null> = {
 
 export const ctaConfig: Record<Segment, CtaConfig> = {
   website: {
-    question: "Möchtest du wissen, welche konkreten Bereiche deiner Website du zuerst verbessern solltest?",
+    formTitle: "Erhalte jetzt deinen persönlichen Website-Kurzcheck",
+    formSubtitle:
+      "Fülle das kurze Formular aus. Ich schaue mir deine Website persönlich an und sende dir konkrete Empfehlungen.",
     buttonLabel: "Kostenlosen Website-Kurzcheck anfragen",
     href: "/#schreib-mir",
   },
   social: {
-    question: "Möchtest du sehen, wie eine zentrale Website deinen bestehenden Auftritt ergänzen könnte?",
+    formTitle: "Erhalte jetzt deine persönliche Webseiten-Vorschau",
+    formSubtitle:
+      "Fülle das kurze Formular aus. Ich zeige dir, wie eine professionelle Website deinen bestehenden Online-Auftritt optimal ergänzen kann.",
     buttonLabel: "Kostenlose Webseiten-Vorschau anfragen",
     href: "/#schreib-mir",
   },
   founding: {
-    question: "Möchtest du deinen Markenauftritt von Anfang an klar und professionell aufbauen?",
+    formTitle: "Erhalte jetzt deinen persönlichen Markenauftritt-Check",
+    formSubtitle:
+      "Fülle das kurze Formular aus. Ich unterstütze dich dabei, deinen Markenauftritt von Anfang an professionell und überzeugend aufzubauen.",
     buttonLabel: "Kostenlosen Markenauftritt-Check anfragen",
     href: "/#schreib-mir",
   },
