@@ -218,6 +218,15 @@
   animation: hero-fade-up 1s ease-out 1s forwards;
 }
 
+@keyframes mockup-fade-in {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+.mockup-fade-in {
+  opacity: 0;
+  animation: mockup-fade-in 1.2s ease-out 0.2s forwards;
+}
+
 /* ─── Scroll-triggered reveal ─── */
 .reveal {
   opacity: 0;
@@ -289,7 +298,7 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .hero-headline, .hero-subtitle, .hero-cta, .reveal, .reveal-card {
+  .hero-headline, .hero-subtitle, .hero-cta, .reveal, .reveal-card, .mockup-fade-in {
     animation: none !important;
     opacity: 1 !important;
     transform: none !important;
