@@ -3,7 +3,6 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { SiteFooter } from "@/components/SiteFooter";
 import { IntroStep } from "@/components/studio-check/IntroStep";
 import { SegmentStep } from "@/components/studio-check/SegmentStep";
 import { QuestionStep } from "@/components/studio-check/QuestionStep";
@@ -73,19 +72,17 @@ export function StudioCheck() {
     setState(initialState);
   }
 
-  const showFullFooter = step === "intro" || step === "result" || step === "lead";
-
   return (
     <div className="min-h-screen flex flex-col bg-background">
       <header className="border-b border-border/60">
-        <div className="max-w-3xl mx-auto px-6 h-20 flex items-center justify-center">
+        <div className="max-w-3xl mx-auto px-6 h-28 flex items-center justify-center">
           <Link href="/" aria-label="Javera Studio – zur Startseite">
             <Image
               src="/Javera.logo.rund.png"
               alt="Javera Studio"
-              width={56}
-              height={56}
-              className="h-12 w-12"
+              width={96}
+              height={96}
+              className="h-20 w-20"
               priority
             />
           </Link>
@@ -143,9 +140,7 @@ export function StudioCheck() {
         </div>
       </main>
 
-      {showFullFooter ? (
-        <SiteFooter />
-      ) : (
+      {step === "lead" && (
         <footer className="py-6 text-center text-xs text-muted-foreground">
           <Link href="/impressum" className="hover:text-ink transition-colors">
             Impressum
