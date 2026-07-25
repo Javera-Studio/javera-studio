@@ -10,6 +10,7 @@ import { ResultView } from "@/components/studio-check/ResultView";
 import { LeadFormStep } from "@/components/studio-check/LeadFormStep";
 import { getQuestionsForSegment, goalOptions } from "@/lib/data/studio-check";
 import { calculateResult } from "@/lib/studio-check-scoring";
+import { trackStudioCheckEvent } from "@/lib/studio-check-tracking";
 import type { Goal, Segment } from "@/types/studio-check";
 
 type Step = "intro" | "segment" | "goal" | "question" | "result" | "lead";
@@ -27,6 +28,15 @@ export function StudioCheck() {
   const { step, segment, goal, answers, questionIndex } = state;
   const focusTargetRef = useRef<HTMLDivElement>(null);
 
+  // Anonymes Funnel-Tracking: jedes Event darf pro Durchlauf nur einmal
+  // gesendet werden. "viewed" wird nie zurückgesetzt (ein echter Seitenaufruf
+  // pro Mount), die übrigen Refs setzt restart() für einen neuen Durchlauf zurück.
+  const hasTrackedViewedRef = useRef(false);
+  const hasTrackedStartedRef = useRef(false);
+  const hasTrackedFirstAnswerRef = useRef(false);
+  const hasTrackedCompletedRef = useRef(false);
+  const hasTrackedCtaClickedRef = useRef(false);
+
   const questions = useMemo(() => (segment ? getQuestionsForSegment(segment) : []), [segment]);
   const totalSteps = 2 + (questions.length || 9);
   const currentQuestion = questions[questionIndex];
@@ -35,16 +45,45 @@ export function StudioCheck() {
     focusTargetRef.current?.focus();
   }, [step, questionIndex]);
 
+  useEffect(() => {
+    if (hasTrackedViewedRef.current) return;
+    hasTrackedViewedRef.current = true;
+    trackStudioCheckEvent("studio_check_viewed");
+  }, []);
+
+  useEffect(() => {
+    if (step !== "result" || hasTrackedCompletedRef.current) return;
+    hasTrackedCompletedRef.current = true;
+    trackStudioCheckEvent("studio_check_completed");
+  }, [step]);
+
+  function trackFirstAnswerOnce() {
+    if (hasTrackedFirstAnswerRef.current) return;
+    hasTrackedFirstAnswerRef.current = true;
+    trackStudioCheckEvent("studio_check_first_answer");
+  }
+
+  function startCheck() {
+    if (!hasTrackedStartedRef.current) {
+      hasTrackedStartedRef.current = true;
+      trackStudioCheckEvent("studio_check_started");
+    }
+    setState((s) => ({ ...s, step: "segment" }));
+  }
+
   function selectSegment(nextSegment: Segment) {
+    trackFirstAnswerOnce();
     setState((s) => ({ ...s, segment: nextSegment, step: "goal" }));
   }
 
   function selectGoal(nextGoal: Goal) {
+    trackFirstAnswerOnce();
     setState((s) => ({ ...s, goal: nextGoal, step: "question", questionIndex: 0 }));
   }
 
   function selectAnswer(answerId: string) {
     if (!currentQuestion) return;
+    trackFirstAnswerOnce();
     setState((s) => {
       const nextAnswers = { ...s.answers, [currentQuestion.id]: answerId };
       const isLast = s.questionIndex >= questions.length - 1;
@@ -68,7 +107,19 @@ export function StudioCheck() {
     });
   }
 
+  function openLeadForm() {
+    if (!hasTrackedCtaClickedRef.current) {
+      hasTrackedCtaClickedRef.current = true;
+      trackStudioCheckEvent("studio_check_cta_clicked");
+    }
+    setState((s) => ({ ...s, step: "lead" }));
+  }
+
   function restart() {
+    hasTrackedStartedRef.current = false;
+    hasTrackedFirstAnswerRef.current = false;
+    hasTrackedCompletedRef.current = false;
+    hasTrackedCtaClickedRef.current = false;
     setState(initialState);
   }
 
@@ -91,7 +142,7 @@ export function StudioCheck() {
 
       <main className="flex-1 flex items-center justify-center px-6 py-12 sm:py-16">
         <div ref={focusTargetRef} tabIndex={-1} className="w-full outline-none">
-          {step === "intro" && <IntroStep onStart={() => setState((s) => ({ ...s, step: "segment" }))} />}
+          {step === "intro" && <IntroStep onStart={startCheck} />}
 
           {step === "segment" && (
             <SegmentStep selected={segment} onSelect={selectSegment} progressCurrent={1} progressTotal={totalSteps} />
@@ -125,7 +176,7 @@ export function StudioCheck() {
             <ResultView
               result={calculateResult(segment, goal, answers, questions)}
               onRestart={restart}
-              onOpenLeadForm={() => setState((s) => ({ ...s, step: "lead" }))}
+              onOpenLeadForm={openLeadForm}
             />
           )}
 
