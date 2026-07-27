@@ -88,7 +88,7 @@ function ContentBlock({ block }: { block: BlogBlock }) {
       );
     case "quote":
       return (
-        <blockquote className="my-8 border-l-2 border-mauve pl-5 md:pl-6 font-serif italic text-xl text-ink/85 leading-snug">
+        <blockquote className="my-8 border-l-2 border-mauve pl-5 md:pl-6 font-script text-mauve-dark text-2xl leading-snug">
           {block.text}
         </blockquote>
       );
