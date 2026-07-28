@@ -1,27 +1,33 @@
-const WINDOW_MS = 60_000;
-const MAX_REQUESTS = 5;
-
-const hits = new Map<string, number[]>();
-
 /**
  * Best-effort in-memory rate limit (per warm serverless instance).
  * Not a substitute for an edge-level limiter (e.g. Upstash Ratelimit)
  * but stops naive scripted bursts against a single warm function.
  */
-export function isRateLimited(key: string): boolean {
-  const now = Date.now();
-  const timestamps = (hits.get(key) ?? []).filter((t) => now - t < WINDOW_MS);
-  timestamps.push(now);
-  hits.set(key, timestamps);
+function createRateLimiter(windowMs: number, maxRequests: number) {
+  const hits = new Map<string, number[]>();
 
-  if (hits.size > 5000) {
-    for (const [k, v] of hits) {
-      if (v.every((t) => now - t >= WINDOW_MS)) hits.delete(k);
+  return function isLimited(key: string): boolean {
+    const now = Date.now();
+    const timestamps = (hits.get(key) ?? []).filter((t) => now - t < windowMs);
+    timestamps.push(now);
+    hits.set(key, timestamps);
+
+    if (hits.size > 5000) {
+      for (const [k, v] of hits) {
+        if (v.every((t) => now - t >= windowMs)) hits.delete(k);
+      }
     }
-  }
 
-  return timestamps.length > MAX_REQUESTS;
+    return timestamps.length > maxRequests;
+  };
 }
+
+// Formulare (Kontakt, Studio-Check-Lead, ...): eng begrenzt.
+export const isRateLimited = createRateLimiter(60_000, 5);
+
+// Anonyme Funnel-Tracking-Events: ein vollständiger Studio-Check-Durchlauf
+// feuert bereits 5 Events, daher großzügigerer, separater Bucket.
+export const isEventRateLimited = createRateLimiter(60_000, 30);
 
 export function getClientIp(req: Request): string {
   const forwardedFor = req.headers.get("x-forwarded-for");

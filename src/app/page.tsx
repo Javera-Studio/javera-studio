@@ -163,7 +163,7 @@ function FeatureBadges() {
 
 function About() {
   return (
-    <section id="about" className="py-12 md:py-16">
+    <section id="about" className="py-14 md:py-24">
       <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
         <div className="order-2 md:order-1">
           <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-4">Wer bin ich</div>
@@ -175,11 +175,18 @@ function About() {
             <p className="reveal reveal-stagger-4">Als Mama von drei Kindern weiß ich, wie wertvoll Zeit ist – deshalb ist mir eine einfache, klare Zusammenarbeit besonders wichtig.</p>
           </div>
         </div>
-        <div className="order-1 md:order-2 relative">
-          <div className="reveal aspect-[4/5] rounded-3xl overflow-hidden">
+        <div className="order-1 md:order-2 md:relative">
+          <div className="reveal relative aspect-[4/5] rounded-[2.25rem] overflow-hidden">
             <Image src="/portrait.png" alt="Jagoda – Webdesignerin aus Wien" loading="lazy" width={1024} height={1280} className="w-full h-full object-cover" />
           </div>
-          <div aria-hidden className="absolute -z-10 -top-6 -right-6 w-full h-full rounded-3xl" style={{ backgroundColor: "var(--peach-soft)" }} />
+          <div className="relative z-10 w-[78%] ml-auto mr-6 -mt-12 md:ml-0 md:mr-0 md:mt-0 md:absolute md:left-0 md:right-auto md:-bottom-14 md:w-[70%] md:-translate-x-[15%] md:translate-y-[10%] bg-rose-gold-soft rounded-[32px] p-8 md:p-11">
+            <p className="font-serif text-lg md:text-xl text-ink leading-relaxed">
+              Ich möchte, dass du deine Website ansiehst und genau dasselbe fühlst wie deine Kundin nach dem Blick in den Spiegel.
+            </p>
+            <p className="mt-4 font-serif text-2xl md:text-3xl text-ink leading-snug">
+              „Das bin ich.“
+            </p>
+          </div>
         </div>
       </div>
     </section>
@@ -214,14 +221,35 @@ function Warum() {
           </ul>
         </div>
 
-        <div className="mt-20 grid md:grid-cols-2 gap-6 md:gap-8">
-          <figure className="reveal relative rounded-3xl overflow-hidden aspect-[4/5]">
-            <Image src="/problem.jpg" alt="Stiller Schreibtisch mit Smartphone – das Warten auf Anfragen" loading="lazy" width={1024} height={1280} className="w-full h-full object-cover" />
-            <figcaption className="absolute bottom-4 left-4 right-4 text-xs uppercase tracking-[0.2em] text-background bg-ink/60 backdrop-blur px-3 py-2 rounded-full text-center">Vorher · Wenig Sichtbarkeit</figcaption>
+        <p className="reveal mt-20 mb-10 text-center font-script text-mauve-dark text-3xl md:text-4xl">
+          {brandQuotes.vertrauenVorTermin}
+        </p>
+
+        <div className="relative grid md:grid-cols-2 gap-6 md:gap-8">
+          <figure className="reveal">
+            <div className="relative rounded-[2rem] overflow-hidden aspect-[4/5]">
+              <Image src="/bild1.png" alt="Website auf dem Smartphone – der erste Eindruck online" loading="lazy" width={1024} height={1280} className="w-full h-full object-cover" />
+            </div>
+            <figcaption className="mt-5 text-center">
+              <span className="block text-[11px] uppercase tracking-[0.2em] text-muted-foreground">01 — Online</span>
+              <span className="block mt-1.5 font-serif text-lg text-ink">Der erste Eindruck online.</span>
+            </figcaption>
           </figure>
-          <figure className="reveal reveal-delay relative rounded-3xl overflow-hidden aspect-[4/5]">
-            <Image src="/success.jpg" alt="Modernes, gebuchtes Beauty Studio mit zufriedener Kundin" loading="lazy" width={1024} height={1280} className="w-full h-full object-cover" />
-            <figcaption className="absolute bottom-4 left-4 right-4 text-xs uppercase tracking-[0.2em] text-background bg-ink/60 backdrop-blur px-3 py-2 rounded-full text-center">Nachher · Konstant gebucht</figcaption>
+
+          <div aria-hidden className="hidden md:flex absolute left-1/2 top-[38%] -translate-x-1/2 z-10 items-center gap-2 text-mauve">
+            <span className="editorial-rule" />
+            <span className="text-sm">→</span>
+            <span className="editorial-rule" />
+          </div>
+
+          <figure className="reveal reveal-delay">
+            <div className="relative rounded-[2rem] overflow-hidden aspect-[4/5]">
+              <Image src="/success.jpg" alt="Modernes, gebuchtes Beauty Studio mit zufriedener Kundin" loading="lazy" width={1024} height={1280} className="w-full h-full object-cover" />
+            </div>
+            <figcaption className="mt-5 text-center">
+              <span className="block text-[11px] uppercase tracking-[0.2em] text-muted-foreground">02 — Im Studio</span>
+              <span className="block mt-1.5 font-serif text-lg text-ink">Das Erlebnis im Studio.</span>
+            </figcaption>
           </figure>
         </div>
       </div>
@@ -418,8 +446,8 @@ function FaceAndMoreSocial() {
                 />
               </div>
             </div>
-            <p className="reveal mt-8 font-script text-mauve-dark text-2xl md:text-3xl leading-relaxed">
-              „Ein professioneller Auftritt endet nicht bei der Website – er setzt sich auf Social Media fort."
+            <p className="reveal mt-8 font-script text-mauve-dark text-2xl md:text-3xl">
+              Ein professioneller Auftritt endet nicht bei der Website – er setzt sich auf Social Media fort.
             </p>
           </div>
 
@@ -472,7 +500,7 @@ function PaulaVenc() {
             <div className="w-full drop-shadow-2xl">
               <Image src="/paulavencmockup.png" alt="Website paulavenc.at am Smartphone" loading="lazy" width={1200} height={800} className="w-full" />
             </div>
-            <p className="font-script text-mauve-dark text-2xl md:text-3xl leading-relaxed">„Die richtige Lösung ist nicht immer die größte Website, sondern die passende Website."</p>
+            <p className="font-script text-mauve-dark text-2xl md:text-3xl">Die richtige Lösung ist nicht immer die größte Website, sondern die passende Website.</p>
             <a href="https://paulavenc.at" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-primary text-primary-foreground hover:bg-mauve transition-all hover:scale-[1.02] hover:shadow-md font-medium w-fit">
               Website ansehen <span aria-hidden>→</span>
             </a>
@@ -830,15 +858,14 @@ export default function Home() {
       <FeatureBadges />
       <About />
       <Warum />
-      <QuoteSection quote={brandQuotes.vertrauenVorTermin} />
       <Angebot />
       <FaceAndMore />
       <FaceAndMoreSocial />
       <PaulaVenc />
       <DivineBeautyNails />
-      <QuoteSection quote={brandQuotes.qualitaetErsterEindruck} />
       <Testimonials />
       <Demos />
+      <QuoteSection quote={brandQuotes.qualitaetErsterEindruck} />
       <FeaturedLuxe />
       <Javera />
       <Ablauf />

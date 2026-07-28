@@ -139,12 +139,12 @@ export default function FaqPage() {
           })}
 
           <div className="mt-14 text-center">
-            <a
+            <Link
               href="/#schreib-mir"
               className="inline-block px-7 py-3.5 rounded-full bg-primary text-primary-foreground hover:bg-mauve transition-all hover:scale-[1.02] hover:shadow-md font-medium"
             >
               Deine Frage war nicht dabei? Jetzt Kontakt aufnehmen
-            </a>
+            </Link>
           </div>
         </div>
       </section>

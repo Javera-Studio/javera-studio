@@ -38,6 +38,10 @@ export function AblaufTimeline({ steps }: { steps: AblaufStep[] }) {
 
   useEffect(() => {
     if (typeof IntersectionObserver === "undefined") {
+      // Fallback für Browser ohne IntersectionObserver: alle Schritte sofort sichtbar.
+      // Server rendert immer "unsichtbar" (SSR kennt IntersectionObserver nicht) –
+      // das Setzen hier im Effect verhindert daher einen Hydration-Mismatch.
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setVisibleSteps(steps.map(() => true));
       return;
     }
@@ -75,7 +79,6 @@ export function AblaufTimeline({ steps }: { steps: AblaufStep[] }) {
     );
     stepRefs.current.forEach((el) => el && observer.observe(el));
     return () => observer.disconnect();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [steps.length]);
 
   return (

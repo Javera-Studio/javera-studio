@@ -77,7 +77,7 @@ const services: ServiceCard[] = [
     desc: "Ich richte dein Google Business Profil ein oder optimiere ein bestehendes Profil, damit dein Studio auf Google Maps gefunden wird. Mehr lokale Sichtbarkeit sorgt für mehr Vertrauen und mehr Anfragen aus deiner Umgebung.",
     points: ["Google Maps", "Lokale Sichtbarkeit", "Optimierung", "Kundenvertrauen"],
     buttonLabel: "Mehr erfahren",
-    href: "#schreib-mir",
+    href: "/preise#google-business",
   },
   {
     icon: Share2,
@@ -200,8 +200,8 @@ export default function LeistungenPage() {
       {/* Markenphilosophie */}
       <section aria-label="Markenphilosophie" className="py-14 md:py-20">
         <div className="reveal max-w-3xl mx-auto px-6 text-center">
-          <div className="mirror-frame relative w-[115px] h-[115px] mx-auto rounded-2xl overflow-hidden shadow-sm">
-            <Image src="/spiegel.png" alt="" fill sizes="115px" className="object-cover" aria-hidden />
+          <div className="mirror-frame relative w-[138px] h-[138px] mx-auto rounded-2xl overflow-hidden shadow-sm">
+            <Image src="/spiegel.png" alt="" fill sizes="138px" className="object-cover" aria-hidden />
           </div>
           <p className="mt-10 font-script text-mauve-dark text-3xl md:text-4xl">
             Deine Website ist das Fenster zu deinem Studio. Hier findest du alles, was sie braucht, um deine Qualität widerzuspiegeln.
@@ -230,8 +230,28 @@ export default function LeistungenPage() {
         </div>
       </section>
 
+      {/* Editorial: So entsteht dein Markenauftritt */}
+      <section className="py-14 md:py-24">
+        <div className="max-w-3xl mx-auto px-6 text-center">
+          <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-4">Prozess</div>
+          <h2 className="reveal font-serif text-3xl md:text-4xl text-ink leading-tight">So entsteht dein Markenauftritt.</h2>
+          <p className="reveal mt-8 font-script text-mauve-dark text-3xl md:text-4xl whitespace-pre-line">
+            {"Jede Website erzählt eine Geschichte.\nMeine beginnt damit, deine zu verstehen."}
+          </p>
+          <p className="reveal reveal-delay mt-8 text-muted-foreground leading-relaxed">
+            Jeder professionelle Markenauftritt beginnt lange bevor die erste Website entsteht. Er beginnt damit, dein Studio, deine Persönlichkeit und deine Ziele wirklich zu verstehen. Aus dieser Grundlage entstehen Design, Texte und eine Website, die die Qualität deiner Arbeit widerspiegeln.
+          </p>
+        </div>
+
+        <div className="reveal mt-12 max-w-4xl mx-auto px-6">
+          <div className="relative aspect-[3/2] rounded-[2.25rem] overflow-hidden">
+            <Image src="/leistungen.png" alt="Persönliches Gespräch als Ausgangspunkt für den Markenauftritt" loading="lazy" width={1536} height={1024} className="w-full h-full object-cover" />
+          </div>
+        </div>
+      </section>
+
       {/* Meine Leistungen */}
-      <section className="py-12 md:py-16">
+      <section id="leistungen" className="py-12 md:py-16 scroll-mt-24">
         <div className="max-w-6xl mx-auto px-6">
           <div className="max-w-2xl mb-14">
             <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-4">Leistungen</div>
@@ -279,8 +299,10 @@ export default function LeistungenPage() {
         </div>
       </section>
 
+      <QuoteSection quote={brandQuotes.ersterEindruckOnline} />
+
       {/* Alles aus einer Hand */}
-      <section className="py-12 md:py-16 bg-peach-soft">
+      <section id="einer-hand" className="py-12 md:py-16 bg-peach-soft scroll-mt-24">
         <div className="max-w-3xl mx-auto px-6 text-center">
           <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-4">Aus einer Hand</div>
           <h2 className="reveal font-serif text-3xl md:text-4xl text-ink leading-tight">Alles aus einer Hand</h2>
@@ -291,7 +313,7 @@ export default function LeistungenPage() {
       </section>
 
       {/* So läuft die Zusammenarbeit ab */}
-      <section className="py-12 md:py-16">
+      <section id="ablauf" className="py-12 md:py-16 scroll-mt-24">
         <div className="max-w-6xl mx-auto px-6">
           <div className="max-w-2xl mb-14">
             <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-4">Ablauf</div>
@@ -326,8 +348,6 @@ export default function LeistungenPage() {
           </Link>
         </div>
       </section>
-
-      <QuoteSection quote={brandQuotes.ersterEindruckOnline} />
 
       {/* Flexible Zahlungsmodelle */}
       <section className="py-12 md:py-16">

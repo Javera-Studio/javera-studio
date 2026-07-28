@@ -9,7 +9,7 @@
 export const brandQuotes = {
   vertrauenVorTermin: "Vertrauen beginnt lange vor dem ersten Termin.",
   qualitaetErsterEindruck: "Qualität erkennt man oft schon am ersten Eindruck.",
-  klickWirdVertrauen: "Aus einem Klick wird Vertrauen. Aus Vertrauen wird eine Kundin.",
+  klickWirdVertrauen: "Aus einem Klick wird Vertrauen.\nAus Vertrauen wird eine Kundin.",
   ersterEindruckOnline: "Der erste Eindruck entsteht online.",
   websiteSpiegeltWerte: "Eine professionelle Website zeigt nicht nur dein Studio – sie spiegelt deine Werte wider.",
   vorDemBetreten: "Noch bevor eine Kundin dein Studio betritt, begegnet sie deiner Website.",

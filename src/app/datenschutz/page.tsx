@@ -69,19 +69,21 @@ export default function DatenschutzPage() {
               gemäß Art. 6 Abs. 1 lit. a DSGVO.
             </p>
             <p>
-              Für die technische Übermittlung von Kontaktformular-Anfragen verwenden wir den Dienst
-              Web3Forms. Die von Ihnen eingegebenen Daten werden an Web3Forms übermittelt und
-              anschließend an unsere hinterlegte E-Mail-Adresse weitergeleitet.
+              Für die technische Übermittlung von Anfragen über unsere Kontaktformulare (u. a.
+              Kontaktformular und Studio-Check) verwenden wir den Dienst Resend. Die von Ihnen
+              eingegebenen Daten werden dabei an Resend übermittelt und anschließend an unsere
+              hinterlegte E-Mail-Adresse weitergeleitet. Resend ist ein US-amerikanischer Anbieter;
+              die Datenverarbeitung kann daher auch außerhalb der EU/des EWR erfolgen.
             </p>
             <p>
               Weitere Informationen finden Sie unter:{" "}
               <a
-                href="https://web3forms.com/privacy"
+                href="https://resend.com/legal/privacy-policy"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="underline hover:text-ink"
               >
-                https://web3forms.com/privacy
+                https://resend.com/legal/privacy-policy
               </a>
             </p>
             <p>
