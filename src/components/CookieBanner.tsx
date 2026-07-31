@@ -39,12 +39,6 @@ export function CookieBanner() {
     >
       <div className="max-w-6xl mx-auto px-5 py-4 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between sm:gap-6">
         <div className="flex flex-col gap-2">
-          <p className="text-sm text-muted-foreground leading-relaxed">
-            Diese Website nutzt Google Analytics für anonyme Besucherstatistiken.{" "}
-            <Link href="/datenschutz" className="underline underline-offset-2 hover:text-ink transition-colors">
-              Mehr erfahren
-            </Link>
-          </p>
           <label className="flex items-center gap-2 cursor-pointer select-none">
             <input
               type="checkbox"
@@ -52,8 +46,14 @@ export function CookieBanner() {
               onChange={(e) => setChecked(e.target.checked)}
               className="h-4 w-4 rounded border border-border accent-mauve cursor-pointer"
             />
-            <span className="text-sm text-ink">Ich stimme der Verwendung von Analytics-Cookies zu</span>
+            <span className="text-sm text-ink">✅ Ich stimme der Verwendung von Cookies zu.</span>
           </label>
+          <p className="text-sm text-muted-foreground leading-relaxed">
+            Diese Website verwendet Cookies, um grundlegende Funktionen bereitzustellen und – mit deiner Einwilligung – anonyme Besucherstatistiken über Google Analytics zu erfassen.{" "}
+            <Link href="/datenschutz" className="underline underline-offset-2 hover:text-ink transition-colors">
+              Mehr erfahren
+            </Link>
+          </p>
         </div>
 
         <div className="flex items-center gap-3 shrink-0">
