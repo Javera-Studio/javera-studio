@@ -7,7 +7,7 @@ import { Navbar } from "@/components/Navbar";
 import { ContactForm } from "@/components/ContactForm";
 import { ScrollRevealInit } from "@/components/ScrollRevealInit";
 import { SiteFooter } from "@/components/SiteFooter";
-import { Search, Monitor, Palette, MapPin, Share2, Printer, CreditCard, type LucideIcon } from "lucide-react";
+import { Search, Monitor, Palette, MapPin, Printer, CreditCard, ClipboardCheck, Gauge, type LucideIcon } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Webdesign für Beauty-Studios | Websites, Branding & Google Business | JAVERA Studio",
@@ -44,16 +44,37 @@ type ServiceCard = {
   href: string;
 };
 
-const services: ServiceCard[] = [
+const analysenChecks: ServiceCard[] = [
+  {
+    icon: ClipboardCheck,
+    badge: "Kostenlos • 3 Minuten",
+    title: "Kostenloser Studio-Check",
+    desc: "Finde heraus, wie dein Studio online auf potenzielle Kundinnen wirkt.",
+    points: ["Markenauftritt", "Vertrauen", "Sichtbarkeit", "Buchbarkeit", "Sofortiges Ergebnis"],
+    buttonLabel: "Kostenlos starten",
+    href: "/studio-check",
+  },
+  {
+    icon: Gauge,
+    badge: "100 €",
+    title: "Website-Gesundheitscheck",
+    desc: "Für bestehende Websites, die technisch überprüft werden sollen.",
+    points: ["Ladezeit & Performance", "Mobile Optimierung", "SEO-Grundlagen", "Sicherheit & Technik", "Konkrete Optimierungsvorschläge"],
+    buttonLabel: "Gesundheitscheck buchen",
+    href: "/preise#analyse",
+  },
   {
     icon: Search,
-    badge: "⭐ Perfekt für bestehende Studios",
+    badge: "150 €",
     title: "Online-Präsenz Analyse",
-    desc: "Ich analysiere deine aktuelle Online-Präsenz und zeige dir verständlich, wo Potenzial liegt – von deiner Website über Google Business bis hin zu Branding und Sichtbarkeit. Du erhältst konkrete Handlungsempfehlungen, die dir helfen, professioneller aufzutreten und mehr Vertrauen bei potenziellen Kundinnen aufzubauen.",
-    points: ["Website", "Branding", "Google Business", "Sichtbarkeit", "Individuelle Empfehlungen"],
+    desc: "Die umfassende Analyse deiner gesamten Online-Präsenz.",
+    points: ["Website & Benutzerführung", "Branding & Außenwirkung", "Google Business Profil", "Sichtbarkeit", "Buchungs- & Kontaktmöglichkeiten", "Persönliche Handlungsempfehlungen"],
     buttonLabel: "Analyse anfragen",
     href: "#schreib-mir",
   },
+];
+
+const services: ServiceCard[] = [
   {
     icon: Monitor,
     badge: "🚀 Ideal für Gründerinnen & Redesigns",
@@ -64,14 +85,6 @@ const services: ServiceCard[] = [
     href: "/preise#website",
   },
   {
-    icon: Palette,
-    title: "Branding",
-    desc: "Ein starkes Branding für dein Beauty-Unternehmen schafft Wiedererkennung und Vertrauen. Ich entwickle Logo, Farbwelt, Typografie und ein stimmiges Corporate Design, das zu deinem Studio passt.",
-    points: ["Logo", "Farben", "Typografie", "Corporate Design"],
-    buttonLabel: "Mehr erfahren",
-    href: "/preise#grafik-print",
-  },
-  {
     icon: MapPin,
     title: "Google Business",
     desc: "Ich richte dein Google Business Profil ein oder optimiere ein bestehendes Profil, damit dein Studio auf Google Maps gefunden wird. Mehr lokale Sichtbarkeit sorgt für mehr Vertrauen und mehr Anfragen aus deiner Umgebung.",
@@ -80,12 +93,12 @@ const services: ServiceCard[] = [
     href: "/preise#google-business",
   },
   {
-    icon: Share2,
-    title: "Social Media Design",
-    desc: "Damit dein Auftritt auf Instagram & Co. genauso professionell wirkt wie deine Website, gestalte ich Story-Vorlagen, Highlight-Cover und Feed-Templates – abgestimmt auf dein Branding.",
-    points: ["Story-Vorlagen", "Highlight-Cover", "Feed-Templates", "Einheitliches Branding"],
+    icon: Palette,
+    title: "Branding & Social Media Design",
+    desc: "Ein starkes Branding schafft Wiedererkennung und Vertrauen – von Logo, Farbwelt und Typografie bis zum passenden Auftritt auf Instagram & Co. Ich gestalte Story-Vorlagen, Highlight-Cover und Feed-Templates, die zu deinem Corporate Design passen.",
+    points: ["Logo & Corporate Design", "Farben & Typografie", "Story-Vorlagen & Feed-Templates", "Highlight-Cover"],
     buttonLabel: "Mehr erfahren",
-    href: "/preise#social",
+    href: "/preise#grafik-print",
   },
   {
     icon: Printer,
@@ -230,6 +243,57 @@ export default function LeistungenPage() {
         </div>
       </section>
 
+      {/* Analysen & Checks */}
+      <section id="analysen-checks" className="py-12 md:py-16 scroll-mt-24">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="max-w-2xl mb-14">
+            <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-4">Einstieg</div>
+            <h2 className="reveal font-serif text-4xl md:text-5xl text-ink leading-tight">Analysen &amp; Checks</h2>
+            <p className="reveal reveal-delay mt-4 text-muted-foreground text-lg">
+              Nicht jede Website braucht sofort ein Redesign. Manchmal reichen gezielte Optimierungen, manchmal lohnt sich eine komplette Neuausrichtung. Wähle den Einstieg, der zu deiner aktuellen Situation passt.
+            </p>
+          </div>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {analysenChecks.map((s, i) => {
+              const Icon = s.icon;
+              return (
+                <div
+                  key={s.title}
+                  className={`reveal reveal-stagger-${(i % 6) + 1} relative flex flex-col rounded-2xl border border-border/60 bg-background p-8 transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-lg hover:border-mauve/30`}
+                >
+                  {s.badge && (
+                    <div className="absolute -top-3 left-8 bg-accent text-primary text-[11px] font-semibold px-3 py-1 rounded-full">
+                      {s.badge}
+                    </div>
+                  )}
+                  <span className="flex items-center justify-center w-12 h-12 rounded-full bg-peach-soft text-mauve">
+                    <Icon className="w-5 h-5" strokeWidth={1.5} aria-hidden />
+                  </span>
+                  <h3 className="font-serif text-xl md:text-2xl text-ink mt-6">{s.title}</h3>
+                  <p className="mt-3 text-sm text-muted-foreground leading-relaxed">{s.desc}</p>
+                  <ul className="mt-5 space-y-2">
+                    {s.points.map((p) => (
+                      <li key={p} className="flex items-center gap-2 text-sm text-ink">
+                        <span aria-hidden className="text-sm" style={{ color: "#0F6E56" }}>✓</span>
+                        {p}
+                      </li>
+                    ))}
+                  </ul>
+                  <div className="mt-auto pt-7">
+                    <Link
+                      href={s.href}
+                      className="block text-center py-3 border border-border text-ink font-semibold text-sm rounded-xl hover:bg-secondary transition"
+                    >
+                      {s.buttonLabel}
+                    </Link>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
       {/* Editorial: So entsteht dein Markenauftritt */}
       <section className="py-14 md:py-24">
         <div className="max-w-3xl mx-auto px-6 text-center">
@@ -256,9 +320,9 @@ export default function LeistungenPage() {
           <div className="max-w-2xl mb-14">
             <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-4">Leistungen</div>
             <h2 className="reveal font-serif text-4xl md:text-5xl text-ink leading-tight">Meine Leistungen</h2>
-            <p className="reveal reveal-delay mt-4 text-muted-foreground text-lg">Von der ersten Analyse bis zum fertigen Markenauftritt – einzeln buchbar oder als Komplettpaket.</p>
+            <p className="reveal reveal-delay mt-4 text-muted-foreground text-lg">Von der professionellen Website bis zum fertigen Markenauftritt – einzeln buchbar oder als Komplettpaket.</p>
           </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid sm:grid-cols-2 gap-6">
             {services.map((s, i) => {
               const Icon = s.icon;
               return (
