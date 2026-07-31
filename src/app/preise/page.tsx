@@ -200,6 +200,36 @@ export default function PreisePage() {
             </div>
           </div>
 
+          {/* Website-Gesundheitscheck */}
+          <div className="mt-5 bg-background rounded-[2rem] p-8 md:p-10">
+            <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 mb-5">
+              <div>
+                <p className="text-lg font-semibold text-ink mb-1">Website-Gesundheitscheck</p>
+                <p className="text-sm text-muted-foreground max-w-lg leading-relaxed">
+                  Deine Website ist bereits online, aber du möchtest wissen, ob sie technisch gesund ist und zuverlässig funktioniert?
+                  <br /><br />
+                  Beim Website-Gesundheitscheck prüfe ich die technischen Grundlagen deiner Website und zeige dir verständlich, wo Optimierungspotenzial besteht – damit deine Website schneller lädt, besser gefunden wird und auch mobil zuverlässig funktioniert.
+                </p>
+              </div>
+              <div className="shrink-0">
+                <div className="text-2xl font-bold text-ink leading-none">100 €</div>
+                <p className="text-xs text-muted-foreground mt-1">einmalig</p>
+              </div>
+            </div>
+            <div className="h-px bg-ink/10 mb-5" />
+            <div className="grid sm:grid-cols-2 gap-x-8 gap-y-0 mb-5">
+              {["Ladegeschwindigkeit auf Mobilgeräten und Desktop", "Technische SEO-Grundlagen", "Mobile Darstellung und Benutzerfreundlichkeit", "Fehlerhafte oder nicht funktionierende Links", "Meta-Titel und Meta-Beschreibungen", "Bilder, Dateigrößen und Ladeverhalten", "Core Web Vitals und Website-Performance", "Verständliche Handlungsempfehlungen"].map((item) => (
+                <div key={item} className="flex gap-2.5 mb-2.5">
+                  <span className="shrink-0 text-sm leading-[1.4] mt-px" style={{ color: "#0F6E56" }}>✓</span>
+                  <p className="text-sm font-medium text-ink leading-[1.4]">{item}</p>
+                </div>
+              ))}
+            </div>
+            <div className="bg-peach-soft/60 rounded-2xl px-4 py-3">
+              <p className="text-sm text-ink"><strong>Hinweis:</strong> Der Website-Gesundheitscheck beinhaltet die Analyse und konkrete Empfehlungen. Die technische Umsetzung der Optimierungen ist nicht im Preis enthalten und kann bei Bedarf separat angeboten werden.</p>
+            </div>
+          </div>
+
           {/* Google Business Profil */}
           <div id="google-business" className="mt-5 bg-background rounded-[2rem] p-8 md:p-10 scroll-mt-24">
             <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 mb-5">

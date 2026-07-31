@@ -1,0 +1,152 @@
+"use client";
+
+import { useEffect, useRef, useState } from "react";
+import { MessageCircle, X, Send } from "lucide-react";
+
+type ChatMessage = {
+  role: "user" | "assistant";
+  content: string;
+};
+
+const GREETING: ChatMessage = {
+  role: "assistant",
+  content:
+    "Hallo! Schön, dass du da bist. Ich bin die digitale Assistentin von Javera Studio und beantworte dir gerne Fragen zu unseren Leistungen und Preisen. Wie kann ich dir helfen?",
+};
+
+export function JaveraChatWidget() {
+  const [isOpen, setIsOpen] = useState(false);
+  const [messages, setMessages] = useState<ChatMessage[]>([GREETING]);
+  const [input, setInput] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const messagesEndRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+  }, [messages, isLoading]);
+
+  async function sendMessage() {
+    const trimmed = input.trim();
+    if (!trimmed || isLoading) return;
+
+    const nextMessages: ChatMessage[] = [...messages, { role: "user", content: trimmed }];
+    setMessages(nextMessages);
+    setInput("");
+    setError(null);
+    setIsLoading(true);
+
+    try {
+      const response = await fetch("/api/chat", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ messages: nextMessages }),
+      });
+
+      if (!response.ok) {
+        throw new Error("Request fehlgeschlagen");
+      }
+
+      const data = await response.json();
+      setMessages([...nextMessages, { role: "assistant", content: data.reply }]);
+    } catch {
+      setError("Entschuldigung, gerade gibt es ein Problem mit dem Chat. Magst du es kurz später nochmal versuchen?");
+    } finally {
+      setIsLoading(false);
+    }
+  }
+
+  function handleKeyDown(event: React.KeyboardEvent<HTMLInputElement>) {
+    if (event.key === "Enter" && !event.shiftKey) {
+      event.preventDefault();
+      sendMessage();
+    }
+  }
+
+  return (
+    <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-4">
+      {isOpen && (
+        <div className="flex h-[520px] w-[90vw] max-w-sm flex-col overflow-hidden rounded-2xl border border-border bg-cream shadow-2xl">
+          <div className="flex items-center justify-between border-b border-border bg-ink px-5 py-4">
+            <span className="font-serif text-lg text-cream">Javera Studio</span>
+            <button
+              type="button"
+              onClick={() => setIsOpen(false)}
+              aria-label="Chat schließen"
+              className="text-cream/70 transition-colors hover:text-cream"
+            >
+              <X size={20} />
+            </button>
+          </div>
+
+          <div className="flex-1 space-y-3 overflow-y-auto px-4 py-4">
+            {messages.map((message, index) => (
+              <div
+                key={index}
+                className={`flex ${message.role === "user" ? "justify-end" : "justify-start"}`}
+              >
+                <div
+                  className={`max-w-[85%] rounded-2xl px-4 py-2.5 text-sm leading-relaxed ${
+                    message.role === "user"
+                      ? "bg-mauve text-white"
+                      : "bg-white text-ink shadow-sm"
+                  }`}
+                >
+                  {message.content}
+                </div>
+              </div>
+            ))}
+
+            {isLoading && (
+              <div className="flex justify-start">
+                <div className="rounded-2xl bg-white px-4 py-2.5 text-sm text-muted-foreground shadow-sm">
+                  schreibt …
+                </div>
+              </div>
+            )}
+
+            {error && (
+              <div className="flex justify-start">
+                <div className="max-w-[85%] rounded-2xl bg-white px-4 py-2.5 text-sm text-muted-foreground shadow-sm">
+                  {error}
+                </div>
+              </div>
+            )}
+
+            <div ref={messagesEndRef} />
+          </div>
+
+          <div className="flex items-center gap-2 border-t border-border bg-white px-3 py-3">
+            <input
+              type="text"
+              value={input}
+              onChange={(e) => setInput(e.target.value)}
+              onKeyDown={handleKeyDown}
+              placeholder="Deine Frage …"
+              disabled={isLoading}
+              className="flex-1 rounded-full border border-border bg-cream px-4 py-2 text-sm text-ink outline-none focus:border-mauve"
+            />
+            <button
+              type="button"
+              onClick={sendMessage}
+              disabled={isLoading || !input.trim()}
+              aria-label="Nachricht senden"
+              className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full bg-mauve text-white transition-opacity hover:opacity-90 disabled:opacity-40"
+            >
+              <Send size={16} />
+            </button>
+          </div>
+        </div>
+      )}
+
+      <button
+        type="button"
+        onClick={() => setIsOpen((prev) => !prev)}
+        aria-label={isOpen ? "Chat schließen" : "Chat öffnen"}
+        className="flex h-14 w-14 items-center justify-center rounded-full bg-ink text-cream shadow-xl transition-transform hover:scale-105"
+      >
+        {isOpen ? <X size={24} /> : <MessageCircle size={24} />}
+      </button>
+    </div>
+  );
+}

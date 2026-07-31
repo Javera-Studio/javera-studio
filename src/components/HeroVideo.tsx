@@ -9,7 +9,7 @@ export function HeroVideo() {
       muted
       loop
       playsInline
-      preload="auto"
+      preload="metadata"
       poster="/hero-poster.jpg"
       aria-hidden
       ref={(el) => { if (el) el.playbackRate = 0.5; }}

@@ -809,6 +809,39 @@ function FAQ() {
   );
 }
 
+function StudioCheckCTA() {
+  return (
+    <section className="py-12 md:py-16">
+      <div className="max-w-3xl mx-auto px-6">
+        <div className="reveal relative rounded-3xl border border-mauve/30 bg-gradient-to-br from-peach-soft via-background to-accent/40 p-8 md:p-12 shadow-sm text-center">
+          <h2 className="font-serif text-2xl md:text-3xl text-ink leading-tight">
+            Noch unsicher, wie dein Studio online auf neue Kundinnen wirkt?
+          </h2>
+          <p className="mt-3 text-muted-foreground leading-relaxed">
+            Finde es in nur 3 Minuten heraus.
+          </p>
+          <p className="mt-6 text-sm font-medium text-ink">Der kostenlose Studio-Check bewertet unter anderem:</p>
+          <ul className="mt-4 grid sm:grid-cols-2 gap-x-8 gap-y-3 max-w-md mx-auto text-left">
+            {["Vertrauen", "Markenauftritt", "Sichtbarkeit", "Buchungsmöglichkeiten"].map((item) => (
+              <li key={item} className="flex items-center gap-3 text-ink">
+                <span className="shrink-0 text-sm" style={{ color: "#0F6E56" }}>✓</span>
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+          <Link
+            href="/studio-check"
+            className="inline-block mt-8 px-7 py-3.5 rounded-full bg-primary text-primary-foreground hover:bg-mauve transition-all hover:scale-[1.02] hover:shadow-md font-medium"
+          >
+            Kostenlosen Studio-Check starten
+          </Link>
+          <p className="mt-3 text-xs text-muted-foreground">Keine E-Mail · Sofortiges Ergebnis · Kostenlos</p>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function CTA() {
   return (
     <section id="kontakt" className="relative py-12 md:py-16 overflow-hidden">
@@ -872,6 +905,7 @@ export default function Home() {
       <QuoteSection quote={brandQuotes.klickWirdVertrauen} />
       <Zweifel />
       <FAQ />
+      <StudioCheckCTA />
       <CTA />
       <ContactForm />
       <SiteFooter />
