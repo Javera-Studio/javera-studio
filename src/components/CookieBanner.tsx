@@ -1,11 +1,12 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 
 export function CookieBanner() {
   const [visible, setVisible] = useState(false);
   const [checked, setChecked] = useState(false);
+  const bannerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const consent = localStorage.getItem("cookie_consent");
@@ -17,6 +18,25 @@ export function CookieBanner() {
       window.dispatchEvent(new Event("cookie-consent-accepted"));
     }
   }, []);
+
+  // Höhe des Banners als CSS-Variable bereitstellen, damit fixed positionierte
+  // Elemente (Chat-Widget, WhatsApp-Button) nicht dahinter verschwinden, solange
+  // der Banner sichtbar ist – v.a. auf Mobile, wo der Banner mehrzeilig ist.
+  useEffect(() => {
+    if (!visible) {
+      document.documentElement.style.setProperty("--cookie-banner-h", "0px");
+      return;
+    }
+
+    const updateHeight = () => {
+      const height = bannerRef.current?.offsetHeight ?? 0;
+      document.documentElement.style.setProperty("--cookie-banner-h", `${height}px`);
+    };
+
+    updateHeight();
+    window.addEventListener("resize", updateHeight);
+    return () => window.removeEventListener("resize", updateHeight);
+  }, [visible]);
 
   function accept() {
     localStorage.setItem("cookie_consent", "accepted");
@@ -33,6 +53,7 @@ export function CookieBanner() {
 
   return (
     <div
+      ref={bannerRef}
       role="dialog"
       aria-label="Cookie-Einstellungen"
       className="fixed bottom-0 left-0 right-0 z-50 border-t border-border bg-background/95 backdrop-blur-sm"

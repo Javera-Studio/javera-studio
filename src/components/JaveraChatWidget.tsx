@@ -98,9 +98,12 @@ export function JaveraChatWidget() {
   }
 
   return (
-    <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-4">
+    <>
       {isOpen && (
-        <div className="flex h-[520px] w-[90vw] max-w-sm flex-col overflow-hidden rounded-2xl border border-border bg-cream shadow-2xl">
+        <div
+          style={{ bottom: "calc(5.5rem + var(--cookie-banner-h, 0px))" }}
+          className="fixed inset-x-0 z-50 mx-auto flex h-[520px] w-full flex-col overflow-hidden border border-border bg-cream shadow-2xl sm:inset-x-auto sm:right-6 sm:w-[90vw] sm:max-w-sm sm:rounded-2xl"
+        >
           <div className="flex items-center justify-between border-b border-border bg-ink px-5 py-4">
             <span className="font-serif text-lg text-cream">Javera Studio</span>
             <button
@@ -177,10 +180,11 @@ export function JaveraChatWidget() {
         type="button"
         onClick={() => setIsOpen((prev) => !prev)}
         aria-label={isOpen ? "Chat schließen" : "Chat öffnen"}
-        className="flex h-14 w-14 items-center justify-center rounded-full bg-ink text-cream shadow-xl transition-transform hover:scale-105"
+        style={{ bottom: "calc(1.5rem + var(--cookie-banner-h, 0px))" }}
+        className="fixed right-6 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-ink text-cream shadow-xl transition-transform hover:scale-105"
       >
         {isOpen ? <X size={24} /> : <MessageCircle size={24} />}
       </button>
-    </div>
+    </>
   );
 }
