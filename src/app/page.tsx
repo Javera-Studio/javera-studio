@@ -82,7 +82,7 @@ function Hero() {
     <section id="top" className="relative min-h-screen flex items-center justify-center overflow-hidden text-primary-foreground" style={{ backgroundColor: "#F8F5F2" }}>
       <HeroVideo />
       <div className="absolute inset-0" style={{ backgroundColor: "rgba(28, 13, 7, 0.52)" }} aria-hidden />
-      <AiLabel className="bottom-24 left-6" />
+      <AiLabel className="bottom-6 left-6" />
       <div className="relative z-10 max-w-6xl mx-auto px-6 pt-40 pb-28 md:pt-48 md:pb-36 text-center">
         <h1 className="hero-headline font-serif text-[2.7rem] md:text-[3.375rem] lg:text-[4.05rem] leading-[1.05] text-white">
           Eine hochwertige Behandlung
