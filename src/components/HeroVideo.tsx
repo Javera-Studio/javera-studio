@@ -10,12 +10,12 @@ export function HeroVideo() {
       loop
       playsInline
       preload="metadata"
-      poster="/hero-poster.jpg"
+      poster="/headernew2-poster.jpg"
       aria-hidden
       ref={(el) => { if (el) el.playbackRate = 0.5; }}
     >
-      <source src="/hero.mp4" type="video/mp4" />
-      <source src="/hero.webm" type="video/webm" />
+      <source src="/headernew2.mp4" type="video/mp4" />
+      <source src="/headernew2.webm" type="video/webm" />
     </video>
   );
 }

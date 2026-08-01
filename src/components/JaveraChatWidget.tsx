@@ -14,6 +14,40 @@ const GREETING: ChatMessage = {
     "Hallo! Schön, dass du da bist. Ich bin die digitale Assistentin von Javera Studio und beantworte dir gerne Fragen zu unseren Leistungen und Preisen. Wie kann ich dir helfen?",
 };
 
+const LINK_PATTERN = /(https?:\/\/[^\s]+|[\w.+-]+@[\w-]+\.[a-z]{2,})/gi;
+
+function renderMessageContent(content: string) {
+  const parts = content.split(LINK_PATTERN);
+
+  return parts.map((part, index) => {
+    if (!part) return null;
+
+    if (/^https?:\/\//i.test(part)) {
+      return (
+        <a
+          key={index}
+          href={part}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="underline underline-offset-2 hover:text-mauve"
+        >
+          {part}
+        </a>
+      );
+    }
+
+    if (/^[\w.+-]+@[\w-]+\.[a-z]{2,}$/i.test(part)) {
+      return (
+        <a key={index} href={`mailto:${part}`} className="underline underline-offset-2 hover:text-mauve">
+          {part}
+        </a>
+      );
+    }
+
+    return <span key={index}>{part}</span>;
+  });
+}
+
 export function JaveraChatWidget() {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<ChatMessage[]>([GREETING]);
@@ -92,7 +126,7 @@ export function JaveraChatWidget() {
                       : "bg-white text-ink shadow-sm"
                   }`}
                 >
-                  {message.content}
+                  {renderMessageContent(message.content)}
                 </div>
               </div>
             ))}
