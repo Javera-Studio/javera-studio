@@ -5,6 +5,7 @@ import { MtechLaserForm } from "@/components/MtechLaserForm";
 import { AnalyseCards, type AnalyseItem } from "@/components/AnalyseCards";
 import { AblaufTimeline } from "@/components/AblaufTimeline";
 import { ScrollRevealInit } from "@/components/ScrollRevealInit";
+import { AiLabel } from "@/components/AiLabel";
 
 export const metadata: Metadata = {
   title: "Kostenlose Online-Präsenz-Analyse für MTech Laser Kundinnen | JAVERA Studio",
@@ -294,7 +295,7 @@ export default function MtechLaserBonusPage() {
           </div>
           <div className="relative">
             <div
-              className="reveal aspect-[3/2] rounded-2xl overflow-hidden"
+              className="reveal relative aspect-[3/2] rounded-2xl overflow-hidden"
               style={{ boxShadow: "0 20px 50px -25px color-mix(in oklab, var(--ink) 18%, transparent)" }}
             >
               <Image
@@ -305,6 +306,7 @@ export default function MtechLaserBonusPage() {
                 height={1024}
                 className="w-full h-full object-cover"
               />
+              <AiLabel />
             </div>
           </div>
         </div>
@@ -361,6 +363,7 @@ export default function MtechLaserBonusPage() {
                   fill
                   className="object-cover"
                 />
+                <AiLabel />
                 <div
                   aria-hidden
                   className="pointer-events-none absolute inset-0"

@@ -9,8 +9,8 @@ import { ScrollRevealInit } from "@/components/ScrollRevealInit";
 import { FaqHashOpen } from "@/components/FaqHashOpen";
 import { SiteFooter } from "@/components/SiteFooter";
 import { QuoteSection } from "@/components/QuoteSection";
+import { AiLabel } from "@/components/AiLabel";
 import { brandQuotes } from "@/lib/brand-quotes";
-import { Heart, Palette, Handshake, CreditCard } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Javera Studio — Webdesign · Grafik · Branding für Beauty Studios Wien",
@@ -82,9 +82,14 @@ function Hero() {
     <section id="top" className="relative min-h-screen flex items-center justify-center overflow-hidden text-primary-foreground" style={{ backgroundColor: "#F8F5F2" }}>
       <HeroVideo />
       <div className="absolute inset-0" style={{ backgroundColor: "rgba(28, 13, 7, 0.52)" }} aria-hidden />
+      <AiLabel className="top-28 left-4 md:top-32" />
       <div className="relative z-10 max-w-4xl mx-auto px-6 pt-40 pb-28 md:pt-48 md:pb-36 text-center">
         <h1 className="hero-headline font-serif text-5xl md:text-6xl lg:text-7xl leading-[1.05] text-white">
-          Eine hochwertige Behandlung verdient einen hochwertigen Online-Auftritt.
+          Eine hochwertige Behandlung
+          <br />
+          verdient einen hochwertigen
+          <br />
+          <span className="font-semibold">Online-Auftritt.</span>
         </h1>
         <p className="hero-subtitle mt-8 text-lg text-white/85 max-w-2xl mx-auto leading-relaxed">
           Individuelles Webdesign und Branding für Beauty-Studios, die ihre Qualität auch online sichtbar machen möchten.
@@ -118,38 +123,28 @@ function BrandManifesto() {
 }
 
 const featureBadges = [
-  { icon: Heart, title: "1 Monat persönliche Nachbetreuung nach Webseitenlaunch", href: "#ablauf" },
-  { icon: Palette, title: "Individuelle Vorschau in 48 Std.", href: "#kontakt" },
-  { icon: Handshake, title: "Webdesign, Branding & Drucksorten aus einer Hand", href: "/preise#preise" },
-  { icon: CreditCard, title: "Bis zu 4 zinsfreie Teilzahlungen", href: "/preise#finanzierung" },
+  { title: "48h Vorschau", desc: "Kostenlose und unverbindliche Webseiten-Vorschau." },
+  { title: "1 Monat Betreuung", desc: "Persönliche Begleitung nach dem Launch." },
+  { title: "Alles aus einer Hand", desc: "Webdesign, Branding und Printdesign." },
+  { title: "Flexible Ratenzahlung", desc: "Bis zu 4 zinsfreie Teilzahlungen möglich." },
 ];
 
 function FeatureBadges() {
   return (
     <section id="vorteile" aria-label="Deine Vorteile" className="py-14 md:py-20">
       <div className="max-w-6xl mx-auto px-6">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 md:gap-6">
-          {featureBadges.map((f, i) => {
-            const Icon = f.icon;
-            const cardClassName = `reveal reveal-stagger-${(i % 6) + 1} group flex flex-col items-center text-center gap-4 rounded-2xl border border-ink/10 bg-accent px-6 py-9 shadow-sm transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-lg hover:border-mauve/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-mauve/40`;
-            const content = (
-              <>
-                <span className="flex items-center justify-center w-12 h-12 rounded-full bg-peach-soft text-mauve transition-transform duration-300 group-hover:scale-105">
-                  <Icon className="w-5 h-5" strokeWidth={1.5} aria-hidden />
-                </span>
-                <p className="font-serif text-base md:text-lg text-ink leading-snug transition-colors duration-300 group-hover:text-mauve">{f.title}</p>
-              </>
-            );
-            return f.href.startsWith("/") ? (
-              <Link key={f.title} href={f.href} className={cardClassName}>
-                {content}
-              </Link>
-            ) : (
-              <a key={f.title} href={f.href} className={cardClassName}>
-                {content}
-              </a>
-            );
-          })}
+        <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-4 text-center">Darauf kannst du dich verlassen</div>
+        <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5">
+          {featureBadges.map((f, i) => (
+            <div
+              key={f.title}
+              className={`reveal reveal-stagger-${(i % 6) + 1} rounded-2xl border bg-white px-6 py-6 text-center shadow-sm`}
+              style={{ borderColor: "#E8DDD9" }}
+            >
+              <p className="font-serif text-lg text-ink">{f.title}</p>
+              <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{f.desc}</p>
+            </div>
+          ))}
         </div>
       </div>
     </section>
@@ -224,6 +219,7 @@ function Warum() {
           <figure className="reveal">
             <div className="relative rounded-[2rem] overflow-hidden aspect-[4/5]">
               <Image src="/bild1.png" alt="Website auf dem Smartphone – der erste Eindruck online" loading="lazy" width={1024} height={1280} className="w-full h-full object-cover" />
+              <AiLabel />
             </div>
             <figcaption className="mt-5 text-center">
               <span className="block text-[11px] uppercase tracking-[0.2em] text-muted-foreground">01 — Online</span>
@@ -240,6 +236,7 @@ function Warum() {
           <figure className="reveal reveal-delay">
             <div className="relative rounded-[2rem] overflow-hidden aspect-[4/5]">
               <Image src="/success.jpg" alt="Modernes, gebuchtes Beauty Studio mit zufriedener Kundin" loading="lazy" width={1024} height={1280} className="w-full h-full object-cover" />
+              <AiLabel />
             </div>
             <figcaption className="mt-5 text-center">
               <span className="block text-[11px] uppercase tracking-[0.2em] text-muted-foreground">02 — Im Studio</span>
@@ -811,8 +808,9 @@ function CTA() {
     <section id="kontakt" className="relative py-12 md:py-16 overflow-hidden">
       <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-12 md:gap-16 items-stretch">
         <div className="relative order-2 md:order-1 flex flex-col">
-          <div className="reveal flex-1 rounded-3xl overflow-hidden shadow-xl shadow-ink/10">
+          <div className="reveal relative flex-1 rounded-3xl overflow-hidden shadow-xl shadow-ink/10">
             <Image src="/anfrage.png" alt="Beauty Studio Besitzerin arbeitet entspannt am Laptop" loading="lazy" width={1536} height={1024} className="w-full h-full object-cover" />
+            <AiLabel />
           </div>
           <div aria-hidden className="absolute -z-10 -bottom-6 -left-6 w-full h-full rounded-3xl" style={{ backgroundColor: "var(--mint-soft)" }} />
         </div>
@@ -852,7 +850,6 @@ export default function Home() {
       <Navbar />
       <Hero />
       <BrandManifesto />
-      <FeatureBadges />
       <About />
       <Warum />
       <Angebot />
@@ -865,6 +862,7 @@ export default function Home() {
       <QuoteSection quote={brandQuotes.qualitaetErsterEindruck} />
       <FeaturedLuxe />
       <Javera />
+      <FeatureBadges />
       <Ablauf />
       <QuoteSection quote={brandQuotes.klickWirdVertrauen} />
       <Zweifel />

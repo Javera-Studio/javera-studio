@@ -75,6 +75,9 @@ export function SiteFooter() {
         <div className="mt-8 pt-5 border-t border-white/10 text-xs text-white/30 text-center">
           © {new Date().getFullYear()} Javera Studio
         </div>
+        <p className="mt-2 text-[11px] text-white/25 text-center">
+          Hinweis: Diese Website enthält teilweise KI-generierte Bilder und Videos zu Illustrations- und Präsentationszwecken.
+        </p>
       </div>
     </footer>
   );
