@@ -81,27 +81,22 @@ function Hero() {
   return (
     <section id="top" className="relative min-h-screen flex items-center justify-center overflow-hidden text-primary-foreground" style={{ backgroundColor: "#F8F5F2" }}>
       <HeroVideo />
-      <div className="absolute inset-0" style={{ backgroundColor: "rgba(28, 13, 7, 0.45)" }} aria-hidden />
-      <div className="relative z-10 max-w-4xl mx-auto px-6 pt-36 pb-24 md:pt-44 md:pb-32 text-center">
-        <div className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-white/80 mb-6 hero-subtitle">
-          <span className="w-8 h-px bg-white/50" />
-          Aktuell: Kostenlose Analyse & Vorschau für dein Studio
-        </div>
+      <div className="absolute inset-0" style={{ backgroundColor: "rgba(28, 13, 7, 0.52)" }} aria-hidden />
+      <div className="relative z-10 max-w-4xl mx-auto px-6 pt-40 pb-28 md:pt-48 md:pb-36 text-center">
         <h1 className="hero-headline font-serif text-5xl md:text-6xl lg:text-7xl leading-[1.05] text-white">
-          Mehr Kundinnen &amp; Buchungen für dein <em className="text-white/75">Beauty Studio</em> – mit einer Website, die verkauft.
+          Eine hochwertige Behandlung verdient einen hochwertigen Online-Auftritt.
         </h1>
-        <p className="hero-subtitle mt-6 text-lg text-white/85 max-w-2xl mx-auto leading-relaxed">
-          Ich helfe Beautystudios mit modernem Webdesign, Branding und visueller Gestaltung professionell sichtbar zu werden – für einen hochwertigen Auftritt und mehr Terminbuchungen.
+        <p className="hero-subtitle mt-8 text-lg text-white/85 max-w-2xl mx-auto leading-relaxed">
+          Individuelles Webdesign und Branding für Beauty-Studios, die ihre Qualität auch online sichtbar machen möchten.
         </p>
-        <div className="hero-cta mt-8 flex flex-wrap gap-3 justify-center">
+        <div className="hero-cta mt-10 flex flex-wrap gap-3 justify-center">
           <a href="#schreib-mir" className="px-7 py-3.5 rounded-full bg-primary text-primary-foreground hover:bg-mauve transition-all hover:scale-[1.02] hover:shadow-md font-medium">
-            Kostenlose Vorschau anfragen
+            Kostenlose Webseiten-Vorschau
           </a>
           <Link href="/studio-check" className="px-7 py-3.5 rounded-full border border-white/40 text-white hover:bg-white hover:text-ink transition font-medium">
             Kostenlosen Studio-Check starten
           </Link>
         </div>
-        <p className="hero-cta mt-6 text-sm text-white/80">Unverbindlich · Antwort in 24h · kostenlos starten</p>
       </div>
     </section>
   );
