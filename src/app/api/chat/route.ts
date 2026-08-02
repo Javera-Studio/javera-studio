@@ -17,7 +17,7 @@ type KnowledgeEntry = {
 
 const ANTHROPIC_API_URL = "https://api.anthropic.com/v1/messages";
 const MODEL = "claude-haiku-4-5-20251001";
-const MAX_TOKENS = 500;
+const MAX_TOKENS = 250;
 
 // Ab dieser Zeichenzahl wird die Wissensbasis nicht mehr komplett mitgeschickt,
 // sondern per Keyword-Match auf die relevantesten Einträge gefiltert.
@@ -79,8 +79,10 @@ Media Visibility Paket 420€ (statt 460€).
 Zahlung: 50% Anzahlung, 50% nach Fertigstellung. Ratenzahlung ab 900€ (3 Raten) bzw. ab 1.400€
 (4 Raten), zinsfrei. Website-Kundinnen erhalten 10% Rabatt auf weitere Design-Leistungen.
 
-Antworte auf Deutsch (österreichisches Deutsch), kurz und klar, ohne Marketing-Floskeln, immer in der
-Du-Form.`;
+Antworte auf Deutsch (österreichisches Deutsch), immer in der Du-Form, ohne Marketing-Floskeln.
+Halte Antworten grundsätzlich kurz: 2-4 Sätze, nur bei Aufzählungen (z.B. mehrere Preise) etwas
+länger. Keine langen Erklärungen oder Wiederholungen – lieber knapp antworten und bei Bedarf
+nachfragen lassen, statt alles auf einmal zu erklären.`;
 
 let cachedKnowledgeBase: KnowledgeEntry[] | null = null;
 let knowledgeBaseLoaded = false;
