@@ -118,6 +118,7 @@ export default async function BlogPostPage({
   if (!post) notFound();
 
   const url = `https://www.javera-studio.at/blog/${post.slug}`;
+  const contentMaxWidth = `${post.contentWidthRem ?? 42}rem`;
 
   const articleSchema = {
     "@context": "https://schema.org",
@@ -164,7 +165,7 @@ export default async function BlogPostPage({
       <Navbar />
 
       <article className="pt-32 pb-4 md:pt-40 md:pb-6">
-        <div className="max-w-2xl mx-auto px-6">
+        <div className="mx-auto px-6" style={{ maxWidth: contentMaxWidth }}>
           <nav aria-label="Breadcrumb" className="text-xs text-muted-foreground mb-8">
             <Link href="/" className="hover:text-ink transition">Startseite</Link>
             <span className="mx-2">/</span>
@@ -196,7 +197,7 @@ export default async function BlogPostPage({
       </article>
 
       <section className="pb-12 md:pb-16 bg-cream">
-        <div className="max-w-2xl mx-auto px-6 pt-10">
+        <div className="mx-auto px-6 pt-10" style={{ maxWidth: contentMaxWidth }}>
           <div className="text-[17px]">
             {post.content.map((block, i) => (
               <ContentBlock key={i} block={block} />

@@ -45,6 +45,8 @@ export type BlogPost = {
   faq?: BlogFaqItem[];
   /** Optionale eigene Überschrift für den FAQ-Block, Fallback: "Häufige Fragen" */
   faqTitle?: string;
+  /** Optionale abweichende Textspaltenbreite in rem, Fallback: 42 (entspricht max-w-2xl) */
+  contentWidthRem?: number;
   /** Optionale interne Verlinkungen (Leistungen, Preise, Kundenprojekte, andere Artikel) */
   relatedLinks?: BlogLink[];
 };
@@ -446,6 +448,7 @@ export const blogPosts: BlogPost[] = [
     date: "2026-08-09",
     readTime: "8 min Lesezeit",
     category: "KI & Digitalisierung",
+    contentWidthRem: 48.3,
     content: [
       { type: "paragraph", text: "KI ist längst nicht mehr nur ein Thema für große Unternehmen. Auch als selbstständige Beauty-Unternehmerin kannst du mit ChatGPT und ähnlichen Tools Arbeit abnehmen lassen – bei Website-Texten, Social-Media-Ideen, Positionierung oder der Frage, wie dein Online-Auftritt auf potenzielle Kundinnen wirkt." },
       { type: "paragraph", text: "Wichtig dabei: KI soll deine Persönlichkeit und dein Fachwissen nicht ersetzen, sondern dich dabei unterstützen, beides klarer sichtbar zu machen. In diesem Artikel bekommst du drei praktische Prompts, die du direkt für dein Studio einsetzen kannst." },
