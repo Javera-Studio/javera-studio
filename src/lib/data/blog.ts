@@ -15,13 +15,16 @@ export type BlogBlock =
   | { type: "list"; items: string[] }
   | { type: "table"; headers: string[]; rows: string[][] }
   | { type: "quote"; text: string }
-  | { type: "callout"; text: string };
+  | { type: "callout"; text: string }
+  | { type: "promptbox"; text: string };
 
 export type BlogPost = {
   /** URL-Segment, z.B. "website-kosten-beauty-studio" → /blog/website-kosten-beauty-studio */
   slug: string;
   /** H1 auf der Artikelseite und og:title / twitter:title */
   title: string;
+  /** Optionaler abweichender SEO-Titel für <title> / og:title / twitter:title, Fallback: title */
+  seoTitle?: string;
   /** Meta-Description, Basis für Article-Schema und Fallback-Excerpt */
   description: string;
   /** Kurztext für die Übersichts-Card. Fällt auf description zurück, wenn nicht gesetzt. */
@@ -40,6 +43,8 @@ export type BlogPost = {
   content: BlogBlock[];
   /** Optionale FAQ-Blöcke → werden als Accordion gerendert + FAQPage-Schema */
   faq?: BlogFaqItem[];
+  /** Optionale eigene Überschrift für den FAQ-Block, Fallback: "Häufige Fragen" */
+  faqTitle?: string;
   /** Optionale interne Verlinkungen (Leistungen, Preise, Kundenprojekte, andere Artikel) */
   relatedLinks?: BlogLink[];
 };
@@ -420,6 +425,78 @@ export const blogPosts: BlogPost[] = [
       { label: "Instagram oder Website – was braucht dein Studio wirklich?", href: "/blog/instagram-oder-website" },
       { label: "Alle Preise im Überblick", href: "/preise" },
       { label: "Kundenprojekte ansehen", href: "/#kundenprojekte" },
+    ],
+  },
+  {
+    slug: "ki-fuer-kosmetikstudios",
+    title: "KI für Kosmetikstudios: So kannst du ChatGPT für deinen Online-Auftritt nutzen",
+    seoTitle: "KI für Kosmetikstudios: 3 ChatGPT-Prompts für deinen Online-Auftritt",
+    description:
+      "Erfahre, wie du KI und ChatGPT für dein Kosmetikstudio sinnvoll nutzt. Mit 3 praktischen Prompts für Website, Social Media und Kundengewinnung.",
+    keywords: [
+      "KI für Kosmetikstudios",
+      "ChatGPT für Kosmetikstudio",
+      "KI Beauty Studio",
+      "KI für Beauty Studios",
+      "ChatGPT Beauty",
+      "Marketing Kosmetikstudio",
+      "Social Media Kosmetikstudio",
+      "Website Kosmetikstudio",
+    ],
+    date: "2026-08-09",
+    readTime: "8 min Lesezeit",
+    category: "KI & Digitalisierung",
+    content: [
+      { type: "paragraph", text: "KI ist längst nicht mehr nur ein Thema für große Unternehmen. Auch als selbstständige Beauty-Unternehmerin kannst du mit ChatGPT und ähnlichen Tools Arbeit abnehmen lassen – bei Website-Texten, Social-Media-Ideen, Positionierung oder der Frage, wie dein Online-Auftritt auf potenzielle Kundinnen wirkt." },
+      { type: "paragraph", text: "Wichtig dabei: KI soll deine Persönlichkeit und dein Fachwissen nicht ersetzen, sondern dich dabei unterstützen, beides klarer sichtbar zu machen. In diesem Artikel bekommst du drei praktische Prompts, die du direkt für dein Studio einsetzen kannst." },
+      { type: "heading", text: "Was kann KI einem Beauty-Studio überhaupt bringen?" },
+      { type: "paragraph", text: "Für viele Beauty-Unternehmerinnen ist KI vor allem eines: ein Werkzeug, das Zeit spart. Konkret kann ChatGPT dir zum Beispiel helfen bei:" },
+      { type: "list", items: ["Ideen für Social-Media-Beiträge sammeln", "bestehende Texte verständlicher formulieren", "Leistungen so erklären, dass sie auch Laien sofort verstehen", "häufige Kundenfragen für eine FAQ-Sektion sammeln", "die eigene Positionierung schärfen", "den Online-Auftritt aus Sicht einer Neukundin prüfen"] },
+      { type: "paragraph", text: "Wie gut die Ergebnisse ausfallen, hängt dabei stark davon ab, wie konkret der Prompt formuliert ist. Ein allgemeines „Schreib mir einen Instagram-Post“ liefert meist austauschbare Standardantworten. Je mehr Kontext du zu deinem Studio, deiner Zielgruppe und deiner Positionierung mitgibst, desto brauchbarer wird das Ergebnis." },
+      { type: "heading", text: "Prompt 1: Lass deinen Online-Auftritt aus Kundensicht analysieren" },
+      { type: "paragraph", text: "Als Studioinhaberin kennst du dein Angebot in- und auswendig – genau das macht es schwer, den eigenen Auftritt noch mit den Augen einer Neukundin zu sehen. Mit diesem Prompt lässt du deinen Website- oder Profiltext gezielt aus dieser Außenperspektive prüfen." },
+      {
+        type: "promptbox",
+        text: "Ich betreibe ein Beauty-Studio mit folgendem Schwerpunkt:\n[DEINE LEISTUNGEN]\n\nMeine Wunschkundinnen sind:\n[DEINE ZIELGRUPPE]\n\nMeine Positionierung / das Besondere an meinem Studio ist:\n[DEINE POSITIONIERUNG]\n\nAnalysiere meinen folgenden Website- oder Profiltext aus Sicht einer potenziellen Neukundin:\n\n[TEXT EINFÜGEN]\n\nPrüfe insbesondere:\n1. Verstehe ich innerhalb weniger Sekunden, was angeboten wird?\n2. Wird deutlich, für wen das Angebot gedacht ist?\n3. Entsteht Vertrauen?\n4. Welche wichtigen Informationen fehlen?\n5. Ist der nächste Schritt – z. B. Termin buchen oder Kontakt aufnehmen – eindeutig?\n\nNenne zuerst die drei größten Schwachstellen. Schreibe anschließend eine verbesserte Version. Behalte dabei einen natürlichen, professionellen Ton bei und vermeide typische KI-Floskeln.",
+      },
+      { type: "paragraph", text: "Dieser Prompt ist deshalb so wertvoll, weil er dich zwingt, deinen Auftritt einmal nicht aus der Perspektive der Studioinhaberin, sondern aus der Perspektive einer unsicheren Erstkundin zu betrachten. Genau diese Lücke zwischen „was ich meine, gesagt zu haben“ und „was tatsächlich ankommt“ ist bei vielen Websites und Profilen der Grund, warum Anfragen ausbleiben." },
+      { type: "heading", text: "Prompt 2: Content-Ideen, die wirklich zu deinem Studio passen" },
+      { type: "paragraph", text: "Content-Ideen sind schnell gefunden – die Herausforderung ist, dass sie zu deiner Zielgruppe und deiner Positionierung passen, statt generisch zu wirken. Dieser Prompt liefert dir Ideen, die konkret an den Fragen und Unsicherheiten deiner potenziellen Kundinnen ansetzen." },
+      {
+        type: "promptbox",
+        text: "Ich führe ein Beauty-Studio und biete folgende Leistungen an:\n[LEISTUNGEN]\n\nMeine Zielgruppe:\n[ZIELGRUPPE]\n\nBesonders wichtig sind mir:\n[Z. B. NATÜRLICHE ERGEBNISSE / PREMIUM-SERVICE / HAUTGESUNDHEIT]\n\nErstelle mir 15 Instagram-Content-Ideen.\n\nTeile sie in drei Kategorien:\n- Expertise & Aufklärung\n- Vertrauen & Persönlichkeit\n- Angebot & Buchung\n\nVermeide allgemeine Ideen wie „Vorher-Nachher posten“ oder „Stelle dich vor“. Die Themen sollen konkrete Fragen, Unsicherheiten und Wünsche meiner potenziellen Kundinnen aufgreifen.\n\nGib zu jeder Idee eine kurze Hook für Reel oder Post und erkläre in einem Satz, warum dieses Thema für meine Zielgruppe interessant ist.",
+      },
+      { type: "paragraph", text: "Ein ausgewogener Mix aus diesen drei Kategorien sorgt dafür, dass dein Auftritt nicht nur verkauft, sondern auch Vertrauen aufbaut und deine Expertise zeigt. Genau diese Mischung ist es, die aus Followern langfristig Kundinnen macht – reine Angebotsposts allein überzeugen selten." },
+      { type: "heading", text: "Prompt 3: Finde heraus, was deine Website noch besser machen könnte" },
+      { type: "paragraph", text: "Auch wenn deine Website bereits online ist, lohnt sich ein regelmäßiger Blick darauf, ob sie noch alle wichtigen Fragen einer Neukundin beantwortet. Dieser Prompt hilft dir, deine bestehenden Inhalte mit den tatsächlichen Erwartungen deiner Wunschkundinnen abzugleichen." },
+      {
+        type: "promptbox",
+        text: "Ich betreibe folgendes Beauty-Studio:\n[ART DES STUDIOS]\n\nMeine wichtigsten Leistungen sind:\n[LEISTUNGEN]\n\nMeine Wunschkundinnen sind:\n[ZIELGRUPPE]\n\nAuf meiner Website befinden sich aktuell folgende Bereiche:\n\n[SEITEN / INHALTE AUFLISTEN]\n\nVersetze dich in eine potenzielle Neukundin, die mein Studio noch nicht kennt.\n\nWelche Informationen müsste sie auf meiner Website finden, damit sie:\n- mein Angebot sofort versteht,\n- Vertrauen zu mir aufbaut,\n- meine Qualität erkennt,\n- typische Unsicherheiten vor der Behandlung beantwortet bekommt und\n- möglichst einfach einen Termin buchen kann?\n\nVergleiche diese Anforderungen anschließend mit meinen vorhandenen Inhalten und erstelle eine priorisierte Liste der fünf wichtigsten Verbesserungen.",
+      },
+      { type: "paragraph", text: "KI dient hier als Sparringspartnerin: Sie hilft dir, blinde Flecken auf deiner Website zu erkennen und Prioritäten zu setzen. Deine individuelle Positionierung, die technische Umsetzung und die strategische Struktur deiner Website kann sie dir damit aber nicht abnehmen – dafür braucht es weiterhin eine bewusste Entscheidung, wie du dich von anderen Studios abheben möchtest." },
+      { type: "heading", text: "KI ist hilfreich – aber sie ersetzt keine klare Positionierung" },
+      { type: "paragraph", text: "KI kann sehr gute Vorschläge liefern, Texte strukturieren und Formulierungen verbessern. Ohne eine eigene, klare Positionierung entstehen dabei aber schnell austauschbare Texte, die genauso auf jedes andere Studio passen würden. Deine persönliche Erfahrung, dein Fachwissen und das, was dein Studio wirklich besonders macht, müssen weiterhin von dir selbst kommen – KI kann dich beim Strukturieren und Formulieren unterstützen, aber nicht ersetzen, wofür dein Studio steht." },
+      { type: "heading", text: "Und wie wirkt dein eigener Online-Auftritt?" },
+      { type: "paragraph", text: "Du kannst KI nach ihrer Meinung zu deinem Auftritt fragen – oder deinen Online-Auftritt einmal strukturiert überprüfen lassen. Mit dem kostenlosen Javera Studio Check beantwortest du 10 kurze Fragen und erhältst in etwa 3 Minuten eine erste Einschätzung, wie dein Studio online wirkt." },
+      { type: "callout", text: "Jetzt kostenlosen Studio-Check machen: In rund 3 Minuten beantwortest du 10 kurze Fragen zu deinem Online-Auftritt und bekommst eine erste, unverbindliche Einschätzung." },
+      { type: "paragraph", text: "Wenn sich dabei zeigt, dass vor allem deine Website noch Potenzial hat, findest du auf meiner Leistungsseite einen Überblick, wie ich Beauty-Studios beim Aufbau eines professionellen Online-Auftritts unterstütze – von der Struktur über die Texte bis zur technischen Umsetzung. Vorab kannst du dir außerdem kostenlos und unverbindlich eine individuelle Website-Vorschau erstellen lassen." },
+    ],
+    faq: [
+      { question: "Kann ich ChatGPT für mein Kosmetikstudio kostenlos nutzen?", answer: "Ja, es gibt sowohl kostenlose als auch kostenpflichtige Varianten von ChatGPT. Für viele einfache Aufgaben wie Ideensammlung, Texte prüfen oder FAQs formulieren reicht die kostenlose Nutzung meist völlig aus." },
+      { question: "Kann KI meine Instagram-Texte komplett schreiben?", answer: "KI kann dich gut unterstützen und erste Entwürfe liefern. Damit die Texte wirklich zu dir passen, solltest du sie anschließend immer an deine eigene Sprache, dein Fachwissen und deine Zielgruppe anpassen." },
+      { question: "Kann ich mit ChatGPT meine Website verbessern?", answer: "Ja, zum Beispiel indem du Texte, Struktur, FAQs und Nutzerführung analysieren lässt. Die technische und strategische Qualität deiner Website sollte trotzdem professionell geprüft werden." },
+      { question: "Ist es sinnvoll, mit KI Antworten auf Kundenfragen zu erstellen?", answer: "Ja, als Entwurf eignet sich das gut. Fachliche Aussagen – vor allem gesundheitsbezogene Angaben zu Behandlungen – solltest du dabei immer selbst prüfen, bevor du sie veröffentlichst." },
+      { question: "Kann ich KI-Bilder für mein Beauty-Studio verwenden?", answer: "Grundsätzlich ist das möglich, sollte aber transparent und markenkonform eingesetzt werden. Wichtig ist, keine unrealistischen Behandlungsergebnisse vorzutäuschen – bei Vorher-Nachher- und Ergebnisdarstellungen solltest du möglichst echte Arbeiten aus deinem Studio zeigen." },
+      { question: "Ersetzt KI eine Webdesignerin oder Marketingberatung?", answer: "Nein. KI ist ein Werkzeug, das unterstützt – Strategie, Positionierung, Markenwirkung, Nutzerführung und die individuelle Umsetzung deines Online-Auftritts brauchen weiterhin menschliche Entscheidungen." },
+    ],
+    faqTitle: "Häufige Fragen zu KI und ChatGPT im Kosmetikstudio",
+    relatedLinks: [
+      { label: "Jetzt kostenlosen Studio-Check machen", href: "/studio-check" },
+      { label: "Meine Webdesign-Leistungen im Überblick", href: "/leistungen" },
+      { label: "Kostenlose Website-Vorschau anfragen", href: "/#schreib-mir" },
+      { label: "Instagram oder Website? Warum beides zusammen wirkt", href: "/blog/instagram-oder-website" },
+      { label: "Die größten Beauty-Trends 2026", href: "/blog/beauty-trends-2026" },
+      { label: "Was kostet eine Website für ein Beauty-Studio?", href: "/blog/website-kosten-beauty-studio" },
     ],
   },
 ];

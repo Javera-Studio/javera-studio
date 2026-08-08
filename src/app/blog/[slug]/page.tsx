@@ -6,6 +6,7 @@ import { Navbar } from "@/components/Navbar";
 import { SiteFooter } from "@/components/SiteFooter";
 import { getAllBlogPosts, getBlogPostBySlug } from "@/lib/data/blog";
 import type { BlogBlock } from "@/lib/data/blog";
+import { PromptBox } from "@/components/blog/PromptBox";
 
 export async function generateStaticParams() {
   return getAllBlogPosts().map((post) => ({ slug: post.slug }));
@@ -21,13 +22,14 @@ export async function generateMetadata({
   if (!post) return {};
 
   const url = `https://www.javera-studio.at/blog/${post.slug}`;
+  const metaTitle = post.seoTitle ?? post.title;
   return {
-    title: post.title,
+    title: metaTitle,
     description: post.description,
     keywords: post.keywords,
     alternates: { canonical: url },
     openGraph: {
-      title: post.title,
+      title: metaTitle,
       description: post.description,
       url,
       type: "article",
@@ -35,7 +37,7 @@ export async function generateMetadata({
       images: [{ url: post.image ?? "/og-image.jpg", width: 1200, height: 630 }],
     },
     twitter: {
-      title: post.title,
+      title: metaTitle,
       description: post.description,
       images: [post.image ?? "/og-image.jpg"],
     },
@@ -98,6 +100,8 @@ function ContentBlock({ block }: { block: BlogBlock }) {
           {block.text}
         </div>
       );
+    case "promptbox":
+      return <PromptBox text={block.text} />;
     case "paragraph":
     default:
       return <p className="text-muted-foreground leading-relaxed my-4">{block.text}</p>;
@@ -201,7 +205,7 @@ export default async function BlogPostPage({
 
           {post.faq && post.faq.length > 0 && (
             <div className="mt-12">
-              <h2 className="font-serif text-2xl md:text-3xl text-ink mb-6">Häufige Fragen</h2>
+              <h2 className="font-serif text-2xl md:text-3xl text-ink mb-6">{post.faqTitle ?? "Häufige Fragen"}</h2>
               <div className="space-y-3">
                 {post.faq.map((f) => (
                   <details key={f.question} className="group rounded-2xl bg-background border border-border/60 p-6 open:shadow-sm transition">
