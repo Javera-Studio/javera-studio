@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import type { ReactNode } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { notFound } from "next/navigation";
@@ -42,6 +43,28 @@ export async function generateMetadata({
       images: [post.image ?? "/og-image.jpg"],
     },
   };
+}
+
+const INLINE_LINK_PATTERN = /\[([^\]]+)\]\(([^)]+)\)/g;
+
+function renderTextWithLinks(text: string) {
+  const parts: ReactNode[] = [];
+  let lastIndex = 0;
+  let match: RegExpExecArray | null;
+
+  INLINE_LINK_PATTERN.lastIndex = 0;
+  while ((match = INLINE_LINK_PATTERN.exec(text)) !== null) {
+    if (match.index > lastIndex) parts.push(text.slice(lastIndex, match.index));
+    parts.push(
+      <Link key={match.index} href={match[2]} className="text-ink underline underline-offset-4 hover:text-mauve transition">
+        {match[1]}
+      </Link>
+    );
+    lastIndex = match.index + match[0].length;
+  }
+  if (lastIndex < text.length) parts.push(text.slice(lastIndex));
+
+  return parts;
 }
 
 function ContentBlock({ block }: { block: BlogBlock }) {
@@ -102,9 +125,21 @@ function ContentBlock({ block }: { block: BlogBlock }) {
       );
     case "promptbox":
       return <PromptBox text={block.text} />;
+    case "ctaCallout":
+      return (
+        <Link
+          href={block.href}
+          className="group my-8 flex flex-col items-center gap-4 text-center bg-peach-soft border border-mauve/20 rounded-2xl px-6 py-7 text-ink leading-relaxed hover:shadow-sm hover:border-mauve/40 transition"
+        >
+          <p>{block.text}</p>
+          <span className="inline-block px-6 py-3 rounded-full bg-primary text-primary-foreground group-hover:bg-mauve transition-all group-hover:scale-[1.02] font-medium text-sm">
+            {block.label}
+          </span>
+        </Link>
+      );
     case "paragraph":
     default:
-      return <p className="text-muted-foreground leading-relaxed my-4">{block.text}</p>;
+      return <p className="text-muted-foreground leading-relaxed my-4">{renderTextWithLinks(block.text)}</p>;
   }
 }
 

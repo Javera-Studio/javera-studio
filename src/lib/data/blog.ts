@@ -16,7 +16,8 @@ export type BlogBlock =
   | { type: "table"; headers: string[]; rows: string[][] }
   | { type: "quote"; text: string }
   | { type: "callout"; text: string }
-  | { type: "promptbox"; text: string };
+  | { type: "promptbox"; text: string }
+  | { type: "ctaCallout"; text: string; href: string; label: string };
 
 export type BlogPost = {
   /** URL-Segment, z.B. "website-kosten-beauty-studio" → /blog/website-kosten-beauty-studio */
@@ -481,8 +482,13 @@ export const blogPosts: BlogPost[] = [
       { type: "paragraph", text: "KI kann sehr gute Vorschläge liefern, Texte strukturieren und Formulierungen verbessern. Ohne eine eigene, klare Positionierung entstehen dabei aber schnell austauschbare Texte, die genauso auf jedes andere Studio passen würden. Deine persönliche Erfahrung, dein Fachwissen und das, was dein Studio wirklich besonders macht, müssen weiterhin von dir selbst kommen – KI kann dich beim Strukturieren und Formulieren unterstützen, aber nicht ersetzen, wofür dein Studio steht." },
       { type: "heading", text: "Und wie wirkt dein eigener Online-Auftritt?" },
       { type: "paragraph", text: "Du kannst KI nach ihrer Meinung zu deinem Auftritt fragen – oder deinen Online-Auftritt einmal strukturiert überprüfen lassen. Mit dem kostenlosen Javera Studio Check beantwortest du 10 kurze Fragen und erhältst in etwa 3 Minuten eine erste Einschätzung, wie dein Studio online wirkt." },
-      { type: "callout", text: "Jetzt kostenlosen Studio-Check machen: In rund 3 Minuten beantwortest du 10 kurze Fragen zu deinem Online-Auftritt und bekommst eine erste, unverbindliche Einschätzung." },
-      { type: "paragraph", text: "Wenn sich dabei zeigt, dass vor allem deine Website noch Potenzial hat, findest du auf meiner Leistungsseite einen Überblick, wie ich Beauty-Studios beim Aufbau eines professionellen Online-Auftritts unterstütze – von der Struktur über die Texte bis zur technischen Umsetzung. Vorab kannst du dir außerdem kostenlos und unverbindlich eine individuelle Website-Vorschau erstellen lassen." },
+      {
+        type: "ctaCallout",
+        text: "In rund 3 Minuten beantwortest du 10 kurze Fragen zu deinem Online-Auftritt und bekommst eine erste, unverbindliche Einschätzung.",
+        href: "/studio-check",
+        label: "Jetzt kostenlosen Studio-Check machen",
+      },
+      { type: "paragraph", text: "Wenn sich dabei zeigt, dass vor allem deine Website noch Potenzial hat, findest du auf meiner [Leistungsseite](/leistungen) einen Überblick, wie ich Beauty-Studios beim Aufbau eines professionellen Online-Auftritts unterstütze – von der Struktur über die Texte bis zur technischen Umsetzung. Vorab kannst du dir außerdem kostenlos und unverbindlich eine individuelle Website-Vorschau erstellen lassen." },
     ],
     faq: [
       { question: "Kann ich ChatGPT für mein Kosmetikstudio kostenlos nutzen?", answer: "Ja, es gibt sowohl kostenlose als auch kostenpflichtige Varianten von ChatGPT. Für viele einfache Aufgaben wie Ideensammlung, Texte prüfen oder FAQs formulieren reicht die kostenlose Nutzung meist völlig aus." },
