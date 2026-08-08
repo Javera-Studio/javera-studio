@@ -148,7 +148,7 @@ export default function PreisePage() {
         <div
           aria-hidden
           className="absolute -top-40 -right-40 w-[600px] h-[600px] rounded-full opacity-40 blur-3xl"
-          style={{ backgroundColor: "var(--peach-soft)" }}
+          style={{ backgroundColor: "#E5DCD5" }}
         />
         <div className="relative max-w-2xl mx-auto px-6 text-center">
           <div className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-muted-foreground mb-6">
@@ -195,7 +195,7 @@ export default function PreisePage() {
                 </div>
               ))}
             </div>
-            <div className="bg-peach-soft/60 rounded-2xl px-4 py-3 flex items-start gap-2">
+            <div className="bg-[#E5DCD5]/60 rounded-2xl px-4 py-3 flex items-start gap-2">
               <span className="shrink-0 text-base leading-[1.4] mt-px">💎</span>
               <p className="text-sm text-ink"><strong>Bei Buchung einer Premium Website kostenlos enthalten.</strong></p>
             </div>
@@ -226,7 +226,7 @@ export default function PreisePage() {
                 </div>
               ))}
             </div>
-            <div className="bg-peach-soft/60 rounded-2xl px-4 py-3">
+            <div className="bg-[#E5DCD5]/60 rounded-2xl px-4 py-3">
               <p className="text-sm text-ink"><strong>Hinweis:</strong> Der Website-Gesundheitscheck beinhaltet die Analyse und konkrete Empfehlungen. Die technische Umsetzung der Optimierungen ist nicht im Preis enthalten und kann bei Bedarf separat angeboten werden.</p>
             </div>
           </div>
@@ -300,7 +300,7 @@ export default function PreisePage() {
             </div>
 
             {/* Premium Website */}
-            <div className="relative bg-peach-soft/50 rounded-[2rem] p-8 flex flex-col">
+            <div className="relative bg-[#E5DCD5]/50 rounded-[2rem] p-8 flex flex-col">
               <div className="absolute -top-3 left-8 bg-accent text-primary text-[11px] font-semibold px-3 py-1 rounded-full">
                 Empfohlen
               </div>
@@ -431,7 +431,7 @@ export default function PreisePage() {
               <p className="text-2xl font-bold text-ink mt-auto pt-4">550 €</p>
               <p className="text-xs text-muted-foreground mt-1">statt 570 € einzeln</p>
             </div>
-            <div className="relative bg-peach-soft/50 rounded-[2rem] p-6">
+            <div className="relative bg-[#E5DCD5]/50 rounded-[2rem] p-6">
               <div className="absolute -top-3 left-6 bg-accent text-primary text-[11px] font-semibold px-3 py-1 rounded-full">Komplett</div>
               <p className="font-semibold text-ink mb-1 mt-1">Beauty Studio Komplett</p>
               <p className="text-xs text-muted-foreground mb-4">Premium Website + Logo + 10 Social Media Posts + Flyer + Google Business Profil</p>
@@ -452,7 +452,7 @@ export default function PreisePage() {
           </p>
 
           {/* 10% Rabatt */}
-          <div className="mt-4 bg-peach-soft/60 rounded-[1.75rem] px-6 py-4 text-center">
+          <div className="mt-4 bg-[#E5DCD5]/60 rounded-[1.75rem] px-6 py-4 text-center">
             <p className="text-sm text-ink">
               <span className="text-mauve mr-1">★</span>
               <strong>Website-Kunden erhalten 10 % Rabatt</strong>{" "}auf alle Design-Leistungen (Grafik, Print &amp; Social Media).
