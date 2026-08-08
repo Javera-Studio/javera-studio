@@ -82,7 +82,7 @@
   --mint: oklch(0.78 0.04 22);
   --mint-soft: oklch(0.96 0.012 22);
   --peach: oklch(0.89 0.025 22);
-  --peach-muted: oklch(0.9 0.02 22);
+  --peach-muted: #F7F2EC;
   --peach-soft: oklch(0.97 0.008 22);
   --cream: oklch(0.97 0 0);
   --ink: oklch(0.22 0 0);
