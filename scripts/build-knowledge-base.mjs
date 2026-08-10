@@ -1,11 +1,16 @@
 /**
  * Wissensbasis für den Chat-Assistenten generieren.
  *
- * Ausführen: npm run build-knowledge
- * Danach committen & deployen: git add content/knowledge-base.json && git commit ...
+ * Läuft automatisch: package.json hat "predev" und "prebuild" Hooks, die dieses
+ * Skript vor jedem `npm run dev` und vor jedem `npm run build` (also auch vor
+ * jedem Vercel-Deploy) ausführen. Ein vergessenes manuelles Update kann die
+ * Wissensbasis dadurch nicht mehr dauerhaft veralten lassen – spätestens beim
+ * nächsten Deploy wird sie neu aus faq.ts/blog.ts gebaut.
  *
- * Wann erneut ausführen: nach jedem neuen Blogartikel und nach jeder FAQ-Änderung,
- * damit der Chatbot aktuelle Inhalte kennt.
+ * Manuell ausführen: npm run build-knowledge (z.B. um content/knowledge-base.json
+ * lokal zu inspizieren, ohne gleich einen Dev-Server/Build zu starten).
+ *
+ * Danach committen & deployen: git add content/knowledge-base.json && git commit ...
  *
  * Hinweis zur Architektur: Es wird NICHT die live gehostete Website gecrawlt
  * (fetch + cheerio auf https://www.javera-studio.at). Dieses Repo IST die

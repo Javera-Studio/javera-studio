@@ -8,6 +8,7 @@ import { QuoteSection } from "@/components/QuoteSection";
 import { ScrollRevealInit } from "@/components/ScrollRevealInit";
 import { AiLabel } from "@/components/AiLabel";
 import { brandQuotes } from "@/lib/brand-quotes";
+import { pricing, formatEuro } from "@/lib/data/pricing";
 
 export const metadata: Metadata = {
   title: "Preise Webdesign & Branding für Beauty-Studios | JAVERA Studio",
@@ -65,8 +66,8 @@ export default function PreisePage() {
   ];
 
   const starterSupport: FeatureItem[] = [
-    { included: true, title: "2 Korrekturrunden", desc: "Anpassungen nach deinen Wünschen vor der Veröffentlichung." },
-    { included: true, title: "14 Tage Support", desc: "Kleine Änderungen und Unterstützung nach dem Launch." },
+    { included: true, title: `${pricing.websites.starter.korrekturrunden} Korrekturrunden`, desc: "Anpassungen nach deinen Wünschen vor der Veröffentlichung." },
+    { included: true, title: `${pricing.websites.starter.supportTage} Tage Support`, desc: "Kleine Änderungen und Unterstützung nach dem Launch." },
   ];
 
   const premiumDesignContent: FeatureItem[] = [
@@ -84,8 +85,8 @@ export default function PreisePage() {
   ];
 
   const premiumSupport: FeatureItem[] = [
-    { included: true, title: "4 Korrekturrunden", desc: "Mehr Flexibilität für Anpassungen und Feinschliff." },
-    { included: true, title: "30 Tage Premium Support", desc: "Unterstützung und kleinere Änderungen nach dem Launch." },
+    { included: true, title: `${pricing.websites.premium.korrekturrunden} Korrekturrunden`, desc: "Mehr Flexibilität für Anpassungen und Feinschliff." },
+    { included: true, title: `${pricing.websites.premium.supportTage} Tage Premium Support`, desc: "Unterstützung und kleinere Änderungen nach dem Launch." },
   ];
 
   const erweiterungen = [
@@ -98,31 +99,32 @@ export default function PreisePage() {
     { title: "Individuelle Sonderfunktionen", desc: "Spezielle Wünsche und Funktionen nach Absprache." },
   ];
 
-  const grafikItems = [
-    { title: "Flyer einseitig", desc: "A5 oder A6 · inkl. 2 Korrekturschleifen", price: "100 €" },
-    { title: "Flyer zweiseitig", desc: "A5 oder A6 · inkl. 2 Korrekturschleifen", price: "150 €" },
-    { title: "Roll-Up / Banner", desc: "Druckfertige Datei · Druckkoordination optional", price: "200 €" },
-    { title: "Visitenkarte", desc: "Beidseitig · PNG & druckfertige PDF", price: "100 €" },
-    { title: "Geschenkskarten / Gutscheine", desc: "Druckfertiges Gutschein-Design", price: "100 €" },
-    { title: "Logo Design", desc: "3 Entwürfe · Farbvarianten · PNG & PDF", price: "250 €" },
-  ];
+  const grafikItems = pricing.branding.map((item) => ({
+    title: item.titel,
+    desc: item.beschreibung,
+    price: formatEuro(item.betrag),
+  }));
 
-  const socialItems = [
-    { title: "Social Media Paket (5 Posts)", desc: "Individuelle Content-Layouts im Brand-Design", price: "220 €" },
-    { title: "Story Templates (5 Stück)", desc: "Canva-bearbeitbar · individuell angepasst", price: "150 €" },
-    { title: "Instagram Highlight Cover Set (6 Stück)", desc: "Minimalistische Cover Icons für Instagram Highlights", price: "90 €" },
-  ];
+  const socialItems = pricing.social.map((item) => ({
+    title: item.titel,
+    desc: item.beschreibung,
+    price: formatEuro(item.betrag),
+  }));
+
+  const logoPricing = pricing.branding.find((item) => item.titel === "Logo Design")!;
+  const beautyStudioKomplett = pricing.pakete.find((item) => item.titel === "Beauty Studio Komplett")!;
+  const maxRaten = Math.max(...pricing.zahlung.ratenzahlung.map((r) => r.raten));
 
   const preiseFaqs = [
-    { q: "Was kostet eine Website für ein Beauty-Studio?", a: "Eine Starter Website (One-Pager) startet bei 500 €, eine Premium Website mit mehreren Seiten ab 900 €. Der genaue Preis hängt vom Umfang deines Studios ab." },
-    { q: "Was kostet ein Logo für ein Beauty-Studio?", a: "Ein Logo-Design kostet 250 € und beinhaltet 3 Entwürfe, Farbvarianten sowie PNG- und PDF-Dateien." },
-    { q: "Sind Hosting und Domain im Preis enthalten?", a: "Nein. Domain und Hosting laufen direkt über einen externen Anbieter auf deinen Namen und kosten ca. 15 € pro Jahr. So behältst du die volle Kontrolle über deine Website." },
+    { q: "Was kostet eine Website für ein Beauty-Studio?", a: `Eine Starter Website (One-Pager) startet bei ${formatEuro(pricing.websites.starter.betrag)}, eine Premium Website mit mehreren Seiten ab ${formatEuro(pricing.websites.premium.betrag)}. Der genaue Preis hängt vom Umfang deines Studios ab.` },
+    { q: "Was kostet ein Logo für ein Beauty-Studio?", a: `Ein Logo-Design kostet ${formatEuro(logoPricing.betrag)} und beinhaltet 3 Entwürfe, Farbvarianten sowie PNG- und PDF-Dateien.` },
+    { q: "Sind Hosting und Domain im Preis enthalten?", a: `Nein. Domain und Hosting laufen direkt über einen externen Anbieter auf deinen Namen und kosten ca. ${formatEuro(pricing.technik.domainHosting.betrag)} pro Jahr. So behältst du die volle Kontrolle über deine Website.` },
     { q: "Gibt es versteckte Kosten?", a: "Nein. Alle Preise sind transparent aufgelistet. Laufende Kosten wie Domain, Hosting und Wartung sind klar gekennzeichnet und werden vorab besprochen." },
-    { q: "Kann ich Website, Logo und Flyer zusammen buchen?", a: "Ja. Im Paket 'Beauty Studio Komplett' erhältst du Premium Website, Logo, 10 Social Media Posts, Flyer und ein Google Business Profil für 1.490 € statt 1.790 € einzeln." },
-    { q: "Wie viel kostet die laufende Wartung meiner Website?", a: "Das Wartungspaket kostet 60 € pro Monat und beinhaltet bis zu 4 kleine Änderungen (Texte, Fotos, Aktionen). Einzelne spontane Änderungen ohne Paket kosten 50 € einmalig." },
-    { q: "Wie läuft die Bezahlung ab?", a: "Ich arbeite transparent und ohne versteckte Kosten. Nach dem Erstgespräch erhältst du ein individuelles Festpreis-Angebot. Nach deiner Zusage werden 50 % des Betrags als Anzahlung fällig, die restlichen 50 % nach Fertigstellung deiner Website oder deines Projekts." },
+    { q: "Kann ich Website, Logo und Flyer zusammen buchen?", a: `Ja. Im Paket 'Beauty Studio Komplett' erhältst du Premium Website, Logo, 10 Social Media Posts, Flyer und ein Google Business Profil für ${formatEuro(beautyStudioKomplett.betrag)} statt ${formatEuro(beautyStudioKomplett.statt)} einzeln.` },
+    { q: "Wie viel kostet die laufende Wartung meiner Website?", a: `Das Wartungspaket kostet ${formatEuro(pricing.technik.wartung.betrag)} pro Monat und beinhaltet bis zu 4 kleine Änderungen (Texte, Fotos, Aktionen). Einzelne spontane Änderungen ohne Paket kosten ${formatEuro(pricing.technik.einzelaenderung.betrag)} einmalig.` },
+    { q: "Wie läuft die Bezahlung ab?", a: `Ich arbeite transparent und ohne versteckte Kosten. Nach dem Erstgespräch erhältst du ein individuelles Festpreis-Angebot. Nach deiner Zusage werden ${pricing.zahlung.anzahlungProzent} % des Betrags als Anzahlung fällig, die restlichen ${pricing.zahlung.anzahlungProzent} % nach Fertigstellung deiner Website oder deines Projekts.` },
     { q: "Warum kostet eine professionelle Website mehr als ein Baukasten?", a: "Eine professionelle Website ist individuell auf dein Beauty-Studio abgestimmt und wird speziell für deine Marke gestaltet. Im Gegensatz zu einem Baukastensystem erhältst du keine Standardvorlage, sondern eine Website, die dein Studio professionell präsentiert, Vertrauen schafft und auf deine Zielgruppe zugeschnitten ist. Dazu gehören unter anderem individuelles Design, eine klare Struktur, Suchmaschinenoptimierung, mobile Optimierung sowie persönliche Betreuung während des gesamten Projekts. Viele Beauty-Studios investieren mehrere Tausend Euro in ihre Einrichtung, Geräte oder Schulungen. Die Website ist jedoch oft der erste Eindruck, den potenzielle Kundinnen von deinem Studio bekommen – sie ist dein digitales Schaufenster und spielt eine entscheidende Rolle dabei, ob jemand Vertrauen fasst und einen Termin bei dir anfragt." },
-    { q: "Kann ich meine Website auch in Raten bezahlen?", a: "Ja. Gerade der Start in die Selbstständigkeit bringt viele Investitionen mit sich. Deshalb biete ich für größere Projekte auf Wunsch eine zinsfreie Ratenzahlung in bis zu 4 Teilzahlungen an. Gemeinsam finden wir eine Lösung, die zu deinem Budget passt." },
+    { q: "Kann ich meine Website auch in Raten bezahlen?", a: `Ja. Gerade der Start in die Selbstständigkeit bringt viele Investitionen mit sich. Deshalb biete ich für größere Projekte auf Wunsch eine zinsfreie Ratenzahlung in bis zu ${maxRaten} Teilzahlungen an. Gemeinsam finden wir eine Lösung, die zu deinem Budget passt.` },
   ];
 
   const preiseFaqSchema = {
@@ -161,7 +163,7 @@ export default function PreisePage() {
           <p className="mt-6 text-lg text-muted-foreground leading-relaxed">
             Alle Leistungen sind einzeln buchbar – auch wenn du schon eine Website hast. Ich stimme alles auf dein bestehendes Branding ab.
           </p>
-          <p className="mt-4 text-xs text-muted-foreground/60">Preise zuletzt aktualisiert am 12.07.2026</p>
+          <p className="mt-4 text-xs text-muted-foreground/60">Preise zuletzt aktualisiert am {pricing.standDatum}</p>
         </div>
       </section>
 
@@ -182,8 +184,8 @@ export default function PreisePage() {
                 </p>
               </div>
               <div className="shrink-0">
-                <div className="text-2xl font-bold text-ink leading-none">150 €</div>
-                <p className="text-xs text-muted-foreground mt-1">einmalig</p>
+                <div className="text-2xl font-bold text-ink leading-none">{formatEuro(pricing.analyse.onlinePraesenzAnalyse.betrag)}</div>
+                <p className="text-xs text-muted-foreground mt-1">{pricing.analyse.onlinePraesenzAnalyse.einheit}</p>
               </div>
             </div>
             <div className="h-px bg-ink/10 mb-5" />
@@ -197,7 +199,7 @@ export default function PreisePage() {
             </div>
             <div className="bg-[#E5DCD5]/60 rounded-2xl px-4 py-3 flex items-start gap-2">
               <span className="shrink-0 text-base leading-[1.4] mt-px">💎</span>
-              <p className="text-sm text-ink"><strong>Bei Buchung einer Premium Website kostenlos enthalten.</strong></p>
+              <p className="text-sm text-ink"><strong>{pricing.analyse.onlinePraesenzAnalyse.hinweis}</strong></p>
             </div>
           </div>
 
@@ -213,8 +215,8 @@ export default function PreisePage() {
                 </p>
               </div>
               <div className="shrink-0">
-                <div className="text-2xl font-bold text-ink leading-none">100 €</div>
-                <p className="text-xs text-muted-foreground mt-1">einmalig</p>
+                <div className="text-2xl font-bold text-ink leading-none">{formatEuro(pricing.analyse.websiteGesundheitscheck.betrag)}</div>
+                <p className="text-xs text-muted-foreground mt-1">{pricing.analyse.websiteGesundheitscheck.einheit}</p>
               </div>
             </div>
             <div className="h-px bg-ink/10 mb-5" />
@@ -242,11 +244,11 @@ export default function PreisePage() {
               </div>
               <div className="shrink-0 flex gap-6 sm:flex-col sm:gap-2 sm:text-right">
                 <div>
-                  <p className="text-xl font-bold text-ink leading-none">150 €</p>
+                  <p className="text-xl font-bold text-ink leading-none">{formatEuro(pricing.analyse.googleBusinessEinrichtung.betrag)}</p>
                   <p className="text-xs text-muted-foreground mt-1">Einrichtung</p>
                 </div>
                 <div>
-                  <p className="text-xl font-bold text-ink leading-none">100 €</p>
+                  <p className="text-xl font-bold text-ink leading-none">{formatEuro(pricing.analyse.googleBusinessOptimierung.betrag)}</p>
                   <p className="text-xs text-muted-foreground mt-1">Optimierung</p>
                 </div>
               </div>
@@ -271,14 +273,14 @@ export default function PreisePage() {
           <div className="grid md:grid-cols-2 gap-5 items-stretch">
             {/* Starter Website */}
             <div className="bg-background rounded-[2rem] p-8 flex flex-col">
-              <p className="text-lg font-semibold text-ink mb-1">Starter Website</p>
-              <p className="text-sm text-muted-foreground">One-Pager · alle Infos auf einer Seite</p>
+              <p className="text-lg font-semibold text-ink mb-1">{pricing.websites.starter.titel}</p>
+              <p className="text-sm text-muted-foreground">{pricing.websites.starter.beschreibung}</p>
               <div className="py-5">
                 <div className="text-3xl font-bold text-ink leading-none">
-                  500 €{" "}
-                  <span className="text-sm font-normal text-muted-foreground">einmalig</span>
+                  {formatEuro(pricing.websites.starter.betrag)}{" "}
+                  <span className="text-sm font-normal text-muted-foreground">{pricing.websites.starter.einheit}</span>
                 </div>
-                <p className="text-sm text-muted-foreground mt-2">1 Seite · 5–7 Tage</p>
+                <p className="text-sm text-muted-foreground mt-2">{pricing.websites.starter.seiten} · {pricing.websites.starter.dauer}</p>
               </div>
               <div className="h-px bg-ink/10 mb-5" />
               <SectionLabel>Design &amp; Inhalt</SectionLabel>
@@ -304,14 +306,14 @@ export default function PreisePage() {
               <div className="absolute -top-3 left-8 bg-accent text-primary text-[11px] font-semibold px-3 py-1 rounded-full">
                 Empfohlen
               </div>
-              <p className="text-lg font-semibold text-ink mb-1">Premium Website</p>
+              <p className="text-lg font-semibold text-ink mb-1">{pricing.websites.premium.titel}</p>
               <p className="text-sm text-muted-foreground">Mehrseiter · je nach Wunsch &amp; Umfang</p>
               <div className="py-5">
                 <div className="text-3xl font-bold text-ink leading-none">
-                  ab 900 €{" "}
-                  <span className="text-sm font-normal text-muted-foreground">einmalig</span>
+                  {pricing.websites.premium.betragPraefix} {formatEuro(pricing.websites.premium.betrag)}{" "}
+                  <span className="text-sm font-normal text-muted-foreground">{pricing.websites.premium.einheit}</span>
                 </div>
-                <p className="text-sm text-muted-foreground mt-2">Mehrere Seiten · 10–14 Tage</p>
+                <p className="text-sm text-muted-foreground mt-2">{pricing.websites.premium.seiten} · {pricing.websites.premium.dauer}</p>
               </div>
               <div className="h-px bg-ink/10 mb-5" />
               <SectionLabel>Design &amp; Inhalt</SectionLabel>
@@ -368,17 +370,17 @@ export default function PreisePage() {
               <p className="font-semibold text-ink">Domain &amp; Hosting</p>
               <p className="text-xs text-muted-foreground mt-1">Eigene www-Adresse + Website online halten (bei externem Anbieter)</p>
               <p className="text-xs text-muted-foreground/80 mt-1 italic">direkt beim Anbieter — läuft auf deinen Namen</p>
-              <p className="text-2xl font-bold text-ink mt-auto pt-4">15 € <span className="text-sm font-normal text-muted-foreground">/ Jahr</span></p>
+              <p className="text-2xl font-bold text-ink mt-auto pt-4">{formatEuro(pricing.technik.domainHosting.betrag)} <span className="text-sm font-normal text-muted-foreground">{pricing.technik.domainHosting.einheit}</span></p>
             </div>
             <div id="wartung" className="bg-background rounded-[2rem] p-6 flex flex-col scroll-mt-24">
               <p className="font-semibold text-ink">Wartungspaket</p>
-              <p className="text-xs text-muted-foreground mt-1">Kleine laufende Anpassungen, neue Fotos, Texte & Aktionen · bis zu 4 Änderungen pro Monat</p>
-              <p className="text-2xl font-bold text-ink mt-auto pt-4">60 € <span className="text-sm font-normal text-muted-foreground">/ Monat</span></p>
+              <p className="text-xs text-muted-foreground mt-1">Kleine laufende Anpassungen, neue Fotos, Texte & Aktionen · {pricing.technik.wartung.inklusive}</p>
+              <p className="text-2xl font-bold text-ink mt-auto pt-4">{formatEuro(pricing.technik.wartung.betrag)} <span className="text-sm font-normal text-muted-foreground">{pricing.technik.wartung.einheit}</span></p>
             </div>
             <div className="bg-background rounded-[2rem] p-6 flex flex-col">
               <p className="font-semibold text-ink">Einzeländerung</p>
               <p className="text-xs text-muted-foreground mt-1">Einzelne spontane Änderungen ohne Wartungspaket</p>
-              <p className="text-2xl font-bold text-ink mt-auto pt-4">50 € <span className="text-sm font-normal text-muted-foreground">einmalig</span></p>
+              <p className="text-2xl font-bold text-ink mt-auto pt-4">{formatEuro(pricing.technik.einzelaenderung.betrag)} <span className="text-sm font-normal text-muted-foreground">{pricing.technik.einzelaenderung.einheit}</span></p>
             </div>
           </div>
         </div>
@@ -426,23 +428,23 @@ export default function PreisePage() {
           <p className="text-[11px] font-semibold uppercase tracking-[0.15em] text-muted-foreground mb-5">Pakete</p>
           <div className="grid sm:grid-cols-3 gap-5">
             <div className="bg-background rounded-[2rem] p-6 flex flex-col">
-              <p className="font-semibold text-ink mb-1">Starter Branding</p>
-              <p className="text-xs text-muted-foreground">Logo + Visitenkarte + 5 Social Media Posts</p>
-              <p className="text-2xl font-bold text-ink mt-auto pt-4">550 €</p>
-              <p className="text-xs text-muted-foreground mt-1">statt 570 € einzeln</p>
+              <p className="font-semibold text-ink mb-1">{pricing.pakete[0].titel}</p>
+              <p className="text-xs text-muted-foreground">{pricing.pakete[0].beschreibung}</p>
+              <p className="text-2xl font-bold text-ink mt-auto pt-4">{formatEuro(pricing.pakete[0].betrag)}</p>
+              <p className="text-xs text-muted-foreground mt-1">statt {formatEuro(pricing.pakete[0].statt)} einzeln</p>
             </div>
             <div className="relative bg-[#E5DCD5]/50 rounded-[2rem] p-6">
               <div className="absolute -top-3 left-6 bg-accent text-primary text-[11px] font-semibold px-3 py-1 rounded-full">Komplett</div>
-              <p className="font-semibold text-ink mb-1 mt-1">Beauty Studio Komplett</p>
-              <p className="text-xs text-muted-foreground mb-4">Premium Website + Logo + 10 Social Media Posts + Flyer + Google Business Profil</p>
-              <p className="text-2xl font-bold text-ink">1.490 €</p>
-              <p className="text-xs text-muted-foreground mt-1">statt 1.790 € einzeln</p>
+              <p className="font-semibold text-ink mb-1 mt-1">{pricing.pakete[1].titel}</p>
+              <p className="text-xs text-muted-foreground mb-4">{pricing.pakete[1].beschreibung}</p>
+              <p className="text-2xl font-bold text-ink">{formatEuro(pricing.pakete[1].betrag)}</p>
+              <p className="text-xs text-muted-foreground mt-1">statt {formatEuro(pricing.pakete[1].statt)} einzeln</p>
             </div>
             <div className="bg-background rounded-[2rem] p-6">
-              <p className="font-semibold text-ink mb-1">Social Media Visibility Paket</p>
-              <p className="text-xs text-muted-foreground mb-4">5 Social Media Posts + 5 Story Templates + 6 Highlight Covers</p>
-              <p className="text-2xl font-bold text-ink">420 €</p>
-              <p className="text-xs text-muted-foreground mt-1">statt 460 € einzeln</p>
+              <p className="font-semibold text-ink mb-1">{pricing.pakete[2].titel}</p>
+              <p className="text-xs text-muted-foreground mb-4">{pricing.pakete[2].beschreibung}</p>
+              <p className="text-2xl font-bold text-ink">{formatEuro(pricing.pakete[2].betrag)}</p>
+              <p className="text-xs text-muted-foreground mt-1">statt {formatEuro(pricing.pakete[2].statt)} einzeln</p>
             </div>
           </div>
 
@@ -455,7 +457,7 @@ export default function PreisePage() {
           <div className="mt-4 bg-[#E5DCD5]/60 rounded-[1.75rem] px-6 py-4 text-center">
             <p className="text-sm text-ink">
               <span className="text-mauve mr-1">★</span>
-              <strong>Website-Kunden erhalten 10 % Rabatt</strong>{" "}auf alle Design-Leistungen (Grafik, Print &amp; Social Media).
+              <strong>Website-Kunden erhalten {pricing.zahlung.websiteRabattProzent} % Rabatt</strong>{" "}auf alle Design-Leistungen (Grafik, Print &amp; Social Media).
             </p>
           </div>
 
@@ -488,20 +490,15 @@ export default function PreisePage() {
               </p>
 
               <div className="mt-8 space-y-5">
-                <div className="flex items-start gap-3">
-                  <span aria-hidden className="mt-0.5 text-sm" style={{ color: "#0F6E56" }}>✓</span>
-                  <div>
-                    <p className="text-sm font-semibold text-ink">Projekte ab 900 €</p>
-                    <p className="text-sm text-muted-foreground mt-0.5">Zahlung in 3 zinsfreien Monatsraten</p>
+                {pricing.zahlung.ratenzahlung.map((rate) => (
+                  <div key={rate.abBetrag} className="flex items-start gap-3">
+                    <span aria-hidden className="mt-0.5 text-sm" style={{ color: "#0F6E56" }}>✓</span>
+                    <div>
+                      <p className="text-sm font-semibold text-ink">Projekte ab {formatEuro(rate.abBetrag)}</p>
+                      <p className="text-sm text-muted-foreground mt-0.5">Zahlung in {rate.raten} zinsfreien Monatsraten</p>
+                    </div>
                   </div>
-                </div>
-                <div className="flex items-start gap-3">
-                  <span aria-hidden className="mt-0.5 text-sm" style={{ color: "#0F6E56" }}>✓</span>
-                  <div>
-                    <p className="text-sm font-semibold text-ink">Projekte ab 1.400 €</p>
-                    <p className="text-sm text-muted-foreground mt-0.5">Zahlung in 4 zinsfreien Monatsraten</p>
-                  </div>
-                </div>
+                ))}
               </div>
 
               <p className="mt-6 text-sm text-muted-foreground leading-relaxed">

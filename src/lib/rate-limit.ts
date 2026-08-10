@@ -29,6 +29,11 @@ export const isRateLimited = createRateLimiter(60_000, 5);
 // feuert bereits 5 Events, daher großzügigerer, separater Bucket.
 export const isEventRateLimited = createRateLimiter(60_000, 30);
 
+// Chat-Widget: großzügiger als Formulare (echter Dialog mit mehreren
+// Nachrichten pro Minute ist normal), aber eng genug, um Spam/Skript-Bursts
+// und unnötige Anthropic-API-Kosten einzudämmen.
+export const isChatRateLimited = createRateLimiter(60_000, 15);
+
 export function getClientIp(req: Request): string {
   const forwardedFor = req.headers.get("x-forwarded-for");
   if (forwardedFor) return forwardedFor.split(",")[0].trim();

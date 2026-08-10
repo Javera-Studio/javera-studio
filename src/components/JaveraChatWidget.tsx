@@ -77,14 +77,19 @@ export function JaveraChatWidget() {
         body: JSON.stringify({ messages: nextMessages }),
       });
 
+      const data = await response.json();
+
       if (!response.ok) {
-        throw new Error("Request fehlgeschlagen");
+        throw new Error(typeof data?.error === "string" ? data.error : "Request fehlgeschlagen");
       }
 
-      const data = await response.json();
       setMessages([...nextMessages, { role: "assistant", content: data.reply }]);
-    } catch {
-      setError("Entschuldigung, gerade gibt es ein Problem mit dem Chat. Magst du es kurz später nochmal versuchen?");
+    } catch (err) {
+      setError(
+        err instanceof Error && err.message !== "Request fehlgeschlagen"
+          ? err.message
+          : "Entschuldigung, gerade gibt es ein Problem mit dem Chat. Magst du es kurz später nochmal versuchen?"
+      );
     } finally {
       setIsLoading(false);
     }

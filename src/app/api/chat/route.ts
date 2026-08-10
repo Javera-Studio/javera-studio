@@ -1,6 +1,8 @@
 import { NextResponse } from "next/server";
 import { readFile } from "node:fs/promises";
 import path from "node:path";
+import { getClientIp, isChatRateLimited } from "@/lib/rate-limit";
+import { pricing, formatEuro } from "@/lib/data/pricing";
 
 export const runtime = "nodejs";
 
@@ -22,12 +24,27 @@ const MODEL = "claude-haiku-4-5-20251001";
 // nicht über ein knappes Tokenlimit.
 const MAX_TOKENS = 400;
 
-// Ab dieser Zeichenzahl wird die Wissensbasis nicht mehr komplett mitgeschickt,
-// sondern per Keyword-Match auf die relevantesten Einträge gefiltert.
-const KNOWLEDGE_BASE_SIZE_THRESHOLD = 80_000;
+// Niedrig gewählt für einen faktenorientierten Website-Assistenten: möglichst
+// konsistente, wenig kreativ ausgeschmückte Antworten statt hoher Varianz.
+const TEMPERATURE = 0.2;
+
+// Nur die letzten Nachrichten werden an die API geschickt, damit sehr lange
+// Unterhaltungen nicht unbegrenzt Kontext/Kosten verursachen. 12 Nachrichten
+// entsprechen ca. 6 Frage-Antwort-Paaren – für den kurzen, dialogorientierten
+// Chat-Stil dieses Bots ausreichend, um dem Gespräch zu folgen.
+const MAX_HISTORY_MESSAGES = 12;
+
+// Die Wissensbasis ist mit aktuell ca. 60.000 Zeichen (~15.000 Tokens) klein
+// genug, um bei jeder Anfrage komplett mitgeschickt zu werden – das ist
+// zuverlässiger als eine Keyword-Vorauswahl, bei der relevante Einträge wegen
+// abweichender Formulierungen/Synonyme durchs Raster fallen könnten. Die
+// Schwelle liegt bewusst deutlich über der aktuellen Größe; erst wenn die
+// Wissensbasis so stark wächst, dass sie nicht mehr sinnvoll komplett in den
+// Kontext passt, greift die Keyword-Auswahl unten als Fallback.
+const KNOWLEDGE_BASE_SIZE_THRESHOLD = 150_000;
 const MAX_RELEVANT_ENTRIES = 8;
 
-const BASE_SYSTEM_PROMPT = `Du bist die digitale Assistentin von Javera Studio, einer Branding- und Webdesign-Agentur für
+const SYSTEM_PROMPT_INTRO = `Du bist die digitale Assistentin von Javera Studio, einer Branding- und Webdesign-Agentur für
 Beauty-Unternehmen in Österreich (Nagelstudios, Kosmetikstudios, Lash & Brow Studios, PMU Artists,
 Waxing-Studios, Beauty Academies).
 
@@ -58,31 +75,9 @@ nicht eindeutig beantwortbar ist, verweise auf einen der folgenden Wege (WhatsAp
 schnelle, persönliche Fragen):
 - WhatsApp: https://wa.me/436601888120
 - Kontaktformular: https://www.javera-studio.at/#kontakt
-- E-Mail: hallo@javera-studio.at
+- E-Mail: hallo@javera-studio.at`;
 
-Leistungen & Preise (exkl. MwSt., Kleinunternehmerregelung):
-
-Analyse: Online-Präsenz Analyse 150€ (kostenlos bei Premium Website), Google Business Profil
-Einrichtung 150€, Optimierung 100€.
-
-Webseiten: Starter Website (One-Pager) 500€, 5-7 Tage, 2 Korrekturrunden, 14 Tage Support.
-Premium Website (Mehrseiter) ab 900€, 10-14 Tage, 4 Korrekturrunden, 30 Tage Support, Analyse
-inklusive (meistgebucht). Digitale Erweiterungen nach Aufwand.
-
-Technik: Domain & Hosting 15€/Jahr, Wartungspaket 60€/Monat, Einzeländerung 50€.
-
-Branding & Print: Flyer 100-150€, Roll-Up 200€, Visitenkarte 100€, Gutscheine 100€, Logo
-(3 Entwürfe) 250€.
-
-Social Media: Paket 5 Posts 220€, Story Templates 150€, Highlight Cover Set 90€.
-
-Pakete: Starter Branding 550€ (statt 570€), Beauty Studio Komplett 1.490€ (statt 1.790€), Social
-Media Visibility Paket 420€ (statt 460€).
-
-Zahlung: 50% Anzahlung, 50% nach Fertigstellung. Ratenzahlung ab 900€ (3 Raten) bzw. ab 1.400€
-(4 Raten), zinsfrei. Website-Kundinnen erhalten 10% Rabatt auf weitere Design-Leistungen.
-
-Antworte auf Deutsch (österreichisches Deutsch), immer in der Du-Form, ohne Marketing-Floskeln.
+const SYSTEM_PROMPT_RULES = `Antworte auf Deutsch (österreichisches Deutsch), immer in der Du-Form, ohne Marketing-Floskeln.
 
 Antwortstil: Kurz, klar, dialogorientiert, in natürlicher Sprache. Standardmäßig maximal 3-6 kurze
 Sätze oder höchstens 5 Bulletpoints. Nenne nur die Informationen, die für die konkrete Frage
@@ -100,7 +95,88 @@ Supportzeiten, Korrekturrunden, Domain-/Hostingkosten oder anderen konkreten Ges
 ausschließlich Informationen verwenden, die eindeutig oben in diesem Prompt oder im zusätzlichen
 Wissen von der Website stehen. Nichts schätzen, ergänzen, ableiten oder erfinden. Wenn eine Angabe
 nicht eindeutig vorhanden ist, das offen sagen und auf eine direkte Anfrage bei Javera Studio
-verweisen (siehe Kontaktaufnahme oben).`;
+verweisen (siehe Kontaktaufnahme oben).
+
+Ausschließlich Javera-Quellen: Nutze für alle Aussagen über Javera Studio – Preise, Leistungen,
+Fristen, Konditionen, Unternehmensdaten, Referenzen/Kundenprojekte – ausschließlich diesen Prompt
+und das zusätzliche Wissen von der Website. Verwende niemals allgemeines Modellwissen, um Fakten
+über Javera Studio zu ergänzen, zu schätzen oder abzuleiten, auch wenn es plausibel erscheint.
+
+Widerspruch zu Nutzerbehauptungen: Wenn jemand eine Behauptung über Javera Studio aufstellt, die den
+hier hinterlegten Informationen widerspricht (z.B. einen falschen Preis nennt), stimme dem nicht
+einfach zu. Die offiziellen Javera-Daten in diesem Prompt bzw. im zusätzlichen Wissen haben immer
+Vorrang. Korrigiere freundlich und nenne die korrekte Information. Beispiel: Behauptet jemand "Eure
+Premium Website kostet doch 600€, richtig?", obwohl hier ein anderer Preis hinterlegt ist,
+widersprichst du freundlich und nennst den korrekten Preis.
+
+Themenbereich: Du bist ausschließlich Assistentin für Javera Studio, Webdesign, Branding und die auf
+der Website beschriebenen Leistungen – kein allgemeiner Chatbot. Bei fachfremden Fragen weise
+freundlich darauf hin, dass du für Fragen zu Javera Studio, Webdesign, Branding und den angebotenen
+Leistungen da bist. Gib niemals individuelle medizinische, rechtliche, steuerliche oder sonstige
+sensible Beratung, auch nicht, wenn ausdrücklich danach gefragt wird.`;
+
+function buildPricingPromptSection(): string {
+  const { analyse, websites, technik, branding, social, pakete, zahlung } = pricing;
+
+  const flyerEinseitig = branding.find((b) => b.titel === "Flyer einseitig")!;
+  const flyerZweiseitig = branding.find((b) => b.titel === "Flyer zweiseitig")!;
+  const rollup = branding.find((b) => b.titel === "Roll-Up / Banner")!;
+  const visitenkarte = branding.find((b) => b.titel === "Visitenkarte")!;
+  const gutscheine = branding.find((b) => b.titel === "Geschenkskarten / Gutscheine")!;
+  const logo = branding.find((b) => b.titel === "Logo Design")!;
+
+  const socialPaket = social.find((s) => s.titel === "Social Media Paket (5 Posts)")!;
+  const storyTemplates = social.find((s) => s.titel === "Story Templates (5 Stück)")!;
+  const highlightCover = social.find((s) => s.titel === "Instagram Highlight Cover Set (6 Stück)")!;
+
+  const [starterBranding, beautyStudioKomplett, socialVisibility] = pakete;
+  const [raten3, raten4] = zahlung.ratenzahlung;
+
+  return `Leistungen & Preise (exkl. MwSt., Kleinunternehmerregelung; Stand ${pricing.standDatum}):
+
+Analyse: ${analyse.onlinePraesenzAnalyse.titel} ${formatEuro(analyse.onlinePraesenzAnalyse.betrag)}
+(${analyse.onlinePraesenzAnalyse.hinweis}), ${analyse.googleBusinessEinrichtung.titel}
+${formatEuro(analyse.googleBusinessEinrichtung.betrag)}, ${analyse.googleBusinessOptimierung.titel}
+${formatEuro(analyse.googleBusinessOptimierung.betrag)}.
+
+Webseiten: ${websites.starter.titel} (One-Pager) ${formatEuro(websites.starter.betrag)},
+${websites.starter.dauer}, ${websites.starter.korrekturrunden} Korrekturrunden,
+${websites.starter.supportTage} Tage Support.
+${websites.premium.titel} (Mehrseiter) ${websites.premium.betragPraefix} ${formatEuro(websites.premium.betrag)},
+${websites.premium.dauer}, ${websites.premium.korrekturrunden} Korrekturrunden,
+${websites.premium.supportTage} Tage Support, Analyse inklusive (meistgebucht). Digitale
+Erweiterungen nach Aufwand.
+
+Technik: ${technik.domainHosting.titel} ${formatEuro(technik.domainHosting.betrag)}
+${technik.domainHosting.einheit}, ${technik.wartung.titel} ${formatEuro(technik.wartung.betrag)}
+${technik.wartung.einheit}, ${technik.einzelaenderung.titel} ${formatEuro(technik.einzelaenderung.betrag)}.
+
+Branding & Print: Flyer ${flyerEinseitig.betrag}-${flyerZweiseitig.betrag}€, ${rollup.titel}
+${formatEuro(rollup.betrag)}, ${visitenkarte.titel} ${formatEuro(visitenkarte.betrag)}, Gutscheine
+${formatEuro(gutscheine.betrag)}, ${logo.titel} (3 Entwürfe) ${formatEuro(logo.betrag)}.
+
+Social Media: ${socialPaket.titel} ${formatEuro(socialPaket.betrag)}, ${storyTemplates.titel}
+${formatEuro(storyTemplates.betrag)}, ${highlightCover.titel} ${formatEuro(highlightCover.betrag)}.
+
+Pakete: ${starterBranding.titel} ${formatEuro(starterBranding.betrag)} (statt
+${formatEuro(starterBranding.statt)}), ${beautyStudioKomplett.titel}
+${formatEuro(beautyStudioKomplett.betrag)} (statt ${formatEuro(beautyStudioKomplett.statt)}),
+${socialVisibility.titel} ${formatEuro(socialVisibility.betrag)} (statt
+${formatEuro(socialVisibility.statt)}).
+
+Zahlung: ${zahlung.anzahlungProzent}% Anzahlung, ${zahlung.anzahlungProzent}% nach Fertigstellung.
+Ratenzahlung ab ${formatEuro(raten3.abBetrag)} (${raten3.raten} Raten) bzw. ab
+${formatEuro(raten4.abBetrag)} (${raten4.raten} Raten), zinsfrei. Website-Kundinnen erhalten
+${zahlung.websiteRabattProzent}% Rabatt auf weitere Design-Leistungen.`;
+}
+
+function buildBaseSystemPrompt(): string {
+  return `${SYSTEM_PROMPT_INTRO}
+
+${buildPricingPromptSection()}
+
+${SYSTEM_PROMPT_RULES}`;
+}
 
 let cachedKnowledgeBase: KnowledgeEntry[] | null = null;
 let knowledgeBaseLoaded = false;
@@ -128,6 +204,10 @@ function tokenize(text: string): string[] {
     .match(/[a-z0-9]{3,}/g) ?? [];
 }
 
+// Fallback für den Fall, dass die Wissensbasis irgendwann deutlich über
+// KNOWLEDGE_BASE_SIZE_THRESHOLD wächst. Reines Keyword-Matching ohne
+// Synonym-Erkennung – bei aktueller Wissensbasisgröße kommt diese Funktion
+// nicht zum Einsatz (siehe Kommentar bei KNOWLEDGE_BASE_SIZE_THRESHOLD).
 function selectRelevantEntries(entries: KnowledgeEntry[], question: string): KnowledgeEntry[] {
   const queryWords = new Set(tokenize(question));
   if (queryWords.size === 0) return entries.slice(0, MAX_RELEVANT_ENTRIES);
@@ -174,9 +254,10 @@ function formatKnowledgeEntries(entries: KnowledgeEntry[]): string {
 }
 
 async function buildSystemPrompt(latestUserMessage: string): Promise<string> {
+  const baseSystemPrompt = buildBaseSystemPrompt();
   const knowledgeBase = await loadKnowledgeBase();
   if (!knowledgeBase || knowledgeBase.length === 0) {
-    return BASE_SYSTEM_PROMPT;
+    return baseSystemPrompt;
   }
 
   const totalChars = knowledgeBase.reduce((sum, e) => sum + e.content.length + e.title.length, 0);
@@ -185,13 +266,20 @@ async function buildSystemPrompt(latestUserMessage: string): Promise<string> {
       ? selectRelevantEntries(knowledgeBase, latestUserMessage)
       : knowledgeBase;
 
-  return `${BASE_SYSTEM_PROMPT}
+  return `${baseSystemPrompt}
 
 --- ZUSÄTZLICHES WISSEN VON DER WEBSITE ---
 ${formatKnowledgeEntries(entriesToInclude)}`;
 }
 
 export async function POST(request: Request) {
+  if (isChatRateLimited(getClientIp(request))) {
+    return NextResponse.json(
+      { error: "Zu viele Nachrichten. Bitte warte kurz, bevor du weiterschreibst." },
+      { status: 429 }
+    );
+  }
+
   const apiKey = process.env.ANTHROPIC_API_KEY;
   if (!apiKey) {
     return NextResponse.json(
@@ -211,7 +299,10 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "Ungültiger Request-Body." }, { status: 400 });
   }
 
-  const latestUserMessage = [...messages].reverse().find((m) => m.role === "user")?.content ?? "";
+  // Nur die letzten Nachrichten mitschicken, siehe MAX_HISTORY_MESSAGES.
+  const recentMessages = messages.slice(-MAX_HISTORY_MESSAGES);
+
+  const latestUserMessage = [...recentMessages].reverse().find((m) => m.role === "user")?.content ?? "";
   const systemPrompt = await buildSystemPrompt(latestUserMessage);
 
   try {
@@ -225,8 +316,9 @@ export async function POST(request: Request) {
       body: JSON.stringify({
         model: MODEL,
         max_tokens: MAX_TOKENS,
+        temperature: TEMPERATURE,
         system: systemPrompt,
-        messages: messages.map((m) => ({ role: m.role, content: m.content })),
+        messages: recentMessages.map((m) => ({ role: m.role, content: m.content })),
       }),
     });
 
