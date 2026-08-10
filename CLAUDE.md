@@ -280,3 +280,14 @@ Umsetzung in diesem Repo: `src/app/robots.ts`, `src/app/sitemap.ts`, `public/.we
 | **SPF / DKIM / DMARC** | Beim E-Mail-/DNS-Provider | Schützt die Domain vor E-Mail-Spoofing/Phishing |
 | **Malware-/Blacklist-Scan** | Google Safe Browsing, VirusTotal, Sucuri SiteCheck | Bei jedem Webseitencheck durchführen |
 | **Registrar-Zugang/2FA** | Beim Registrar | Kompromittierte Registrar-Logins sind ein häufiger Grund für gehackte Kundenseiten |
+
+---
+
+# Antwortregeln für den Website-Chatbot
+
+Gilt verbindlich für jede künftige Änderung an Prompt, Wissensbasis oder Antwortlogik des Chatbots (`src/app/api/chat/route.ts`).
+
+- **Stil:** kurz, klar, dialogorientiert, natürliche Sprache. Standardmäßig maximal 3–6 kurze Sätze oder höchstens 5 Bulletpoints.
+- **Relevanz:** nur Informationen nennen, die für die konkrete Frage notwendig sind – nicht ungefragt alle verfügbaren Details ausgeben. Wenn es mehr zum Thema gibt, am Ende kurz anbieten, mehr zu erklären oder nachzufragen.
+- **Kein Abschneiden:** Antworten dürfen niemals mitten im Satz oder Wort enden. Umgesetzt über die Prompt-Anweisung selbst sowie ein technisches Sicherheitsnetz (`trimIfCutOff()` in der Route), das eine am Tokenlimit abgebrochene Antwort auf den letzten vollständigen Satz kürzt.
+- **Faktentreue bei Geschäftsdaten:** Bei Preisen, Leistungen, Fristen, Konditionen, Supportzeiten, Korrekturrunden, Domain-/Hostingkosten oder anderen konkreten Geschäftsangaben ausschließlich Informationen aus dem System-Prompt bzw. `content/knowledge-base.json` verwenden. Nichts schätzen, ergänzen, ableiten oder erfinden. Ist eine Angabe nicht eindeutig vorhanden: offen sagen und auf eine direkte Anfrage bei Javera Studio verweisen (WhatsApp/Kontaktformular/E-Mail).

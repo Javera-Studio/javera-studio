@@ -17,7 +17,10 @@ type KnowledgeEntry = {
 
 const ANTHROPIC_API_URL = "https://api.anthropic.com/v1/messages";
 const MODEL = "claude-haiku-4-5-20251001";
-const MAX_TOKENS = 250;
+// Grosszügig bemessen, damit 3-6 Sätze bzw. bis zu 5 Bulletpoints nie mitten im
+// Satz/Wort abgeschnitten werden. Die Kürze wird über den System-Prompt gesteuert,
+// nicht über ein knappes Tokenlimit.
+const MAX_TOKENS = 400;
 
 // Ab dieser Zeichenzahl wird die Wissensbasis nicht mehr komplett mitgeschickt,
 // sondern per Keyword-Match auf die relevantesten Einträge gefiltert.
@@ -80,9 +83,24 @@ Zahlung: 50% Anzahlung, 50% nach Fertigstellung. Ratenzahlung ab 900€ (3 Raten
 (4 Raten), zinsfrei. Website-Kundinnen erhalten 10% Rabatt auf weitere Design-Leistungen.
 
 Antworte auf Deutsch (österreichisches Deutsch), immer in der Du-Form, ohne Marketing-Floskeln.
-Halte Antworten grundsätzlich kurz: 2-4 Sätze, nur bei Aufzählungen (z.B. mehrere Preise) etwas
-länger. Keine langen Erklärungen oder Wiederholungen – lieber knapp antworten und bei Bedarf
-nachfragen lassen, statt alles auf einmal zu erklären.`;
+
+Antwortstil: Kurz, klar, dialogorientiert, in natürlicher Sprache. Standardmäßig maximal 3-6 kurze
+Sätze oder höchstens 5 Bulletpoints. Nenne nur die Informationen, die für die konkrete Frage
+wirklich notwendig sind – nicht ungefragt alle verfügbaren Details auf einmal aufzählen. Wenn es zum
+Thema noch mehr zu sagen gibt, biete am Ende kurz an, mehr davon zu erklären oder nachzufragen,
+statt es ungefragt auszubreiten. Keine langen Erklärungen oder Wiederholungen.
+
+Wichtig: Eine Antwort darf niemals mitten im Satz oder mitten im Wort abbrechen. Formuliere so, dass
+die Antwort innerhalb des Rahmens von 3-6 Sätzen bzw. 5 Bulletpoints sauber abgeschlossen ist, bevor
+ein Limit erreicht wird. Lieber eine Information am Ende weglassen und einen sauberen, vollständigen
+Satz schreiben, als eine längere Antwort zu riskieren, die abgeschnitten werden könnte.
+
+Faktentreue bei Geschäftsinformationen: Bei Preisen, Leistungen, Fristen, Konditionen,
+Supportzeiten, Korrekturrunden, Domain-/Hostingkosten oder anderen konkreten Geschäftsangaben
+ausschließlich Informationen verwenden, die eindeutig oben in diesem Prompt oder im zusätzlichen
+Wissen von der Website stehen. Nichts schätzen, ergänzen, ableiten oder erfinden. Wenn eine Angabe
+nicht eindeutig vorhanden ist, das offen sagen und auf eine direkte Anfrage bei Javera Studio
+verweisen (siehe Kontaktaufnahme oben).`;
 
 let cachedKnowledgeBase: KnowledgeEntry[] | null = null;
 let knowledgeBaseLoaded = false;
@@ -130,6 +148,23 @@ function selectRelevantEntries(entries: KnowledgeEntry[], question: string): Kno
     .map((s) => s.entry);
 
   return relevant.length > 0 ? relevant : entries.slice(0, MAX_RELEVANT_ENTRIES);
+}
+
+// Sicherheitsnetz zusätzlich zur Prompt-Anweisung: Falls die Antwort trotzdem am
+// Tokenlimit endet, wird sie auf den letzten vollständig abgeschlossenen Satz
+// gekürzt, statt mitten im Satz/Wort abgeschnitten an die Nutzerin auszugeben.
+function trimIfCutOff(text: string, stopReason: string | undefined): string {
+  if (stopReason !== "max_tokens") return text;
+
+  const sentenceEndings = [".", "!", "?"];
+  let lastCompleteEnd = -1;
+  for (const ending of sentenceEndings) {
+    const idx = text.lastIndexOf(ending);
+    if (idx > lastCompleteEnd) lastCompleteEnd = idx;
+  }
+
+  if (lastCompleteEnd === -1) return text;
+  return text.slice(0, lastCompleteEnd + 1).trim();
 }
 
 function formatKnowledgeEntries(entries: KnowledgeEntry[]): string {
@@ -205,7 +240,8 @@ export async function POST(request: Request) {
     }
 
     const data = await response.json();
-    const reply = data?.content?.[0]?.text ?? "";
+    const rawReply = data?.content?.[0]?.text ?? "";
+    const reply = trimIfCutOff(rawReply, data?.stop_reason);
 
     return NextResponse.json({ reply });
   } catch (error) {
