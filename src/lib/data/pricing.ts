@@ -116,6 +116,19 @@ export const pricing = {
     zinsfrei: true,
     websiteRabattProzent: 10,
   },
+
+  // Digitale Erweiterungen: bewusst ohne festen Preis hinterlegt, da individuell
+  // nach Aufwand kalkuliert. Weder hier noch im Prompt Preise/Details erfinden.
+  erweiterungenPreishinweis: "Digitale Erweiterungen werden individuell nach Aufwand kalkuliert, es gibt keinen festen Standardpreis.",
+  erweiterungen: [
+    { titel: "Zusätzliche Leistungsseiten", beschreibung: "Für Studios mit vielen Behandlungen oder Angeboten." },
+    { titel: "Mehrsprachige Website", beschreibung: "In mehreren Sprachen für internationale Kundinnen." },
+    { titel: "Blog & CMS", beschreibung: "Inhalte und Beiträge später selbst verwalten." },
+    { titel: "Einrichtung eines neuen Buchungssystems", beschreibung: "Komplette Einrichtung und Konfiguration nach Aufwand." },
+    { titel: "Academy- oder Schulungsbereich", beschreibung: "Ideal für Ausbildungen, Kurse und Workshops." },
+    { titel: "Online-Shop", beschreibung: "Produkte direkt über die Website verkaufen." },
+    { titel: "Individuelle Sonderfunktionen", beschreibung: "Spezielle Wünsche und Funktionen nach Absprache." },
+  ],
 } as const;
 
 export function formatEuro(betrag: number): string {

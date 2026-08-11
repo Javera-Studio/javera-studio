@@ -89,15 +89,10 @@ export default function PreisePage() {
     { included: true, title: `${pricing.websites.premium.supportTage} Tage Premium Support`, desc: "Unterstützung und kleinere Änderungen nach dem Launch." },
   ];
 
-  const erweiterungen = [
-    { title: "Zusätzliche Leistungsseiten", desc: "Für Studios mit vielen Behandlungen oder Angeboten." },
-    { title: "Mehrsprachige Website", desc: "In mehreren Sprachen für internationale Kundinnen." },
-    { title: "Blog & CMS", desc: "Inhalte und Beiträge später selbst verwalten." },
-    { title: "Einrichtung eines neuen Buchungssystems", desc: "Komplette Einrichtung und Konfiguration nach Aufwand." },
-    { title: "Academy- oder Schulungsbereich", desc: "Ideal für Ausbildungen, Kurse und Workshops." },
-    { title: "Online-Shop", desc: "Produkte direkt über die Website verkaufen." },
-    { title: "Individuelle Sonderfunktionen", desc: "Spezielle Wünsche und Funktionen nach Absprache." },
-  ];
+  const erweiterungen = pricing.erweiterungen.map((item) => ({
+    title: item.titel,
+    desc: item.beschreibung,
+  }));
 
   const grafikItems = pricing.branding.map((item) => ({
     title: item.titel,
@@ -462,7 +457,7 @@ export default function PreisePage() {
           </div>
 
           <p className="text-center text-[12px] text-muted-foreground mt-6">
-            Alle Preise exkl. MwSt. (Kleinunternehmer) · Individuelle Angebote auf Anfrage
+            Aufgrund der Kleinunternehmerregelung wird keine Umsatzsteuer zusätzlich verrechnet · Individuelle Angebote auf Anfrage
           </p>
           <div className="mt-6 text-center">
             <Link href="#schreib-mir" className="inline-block px-7 py-3.5 rounded-full bg-primary text-primary-foreground hover:bg-mauve transition font-medium">

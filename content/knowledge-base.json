@@ -50,9 +50,14 @@
     "content": "Für den Start reichen ein paar grundlegende Informationen: dein Logo, falls schon vorhanden, ein paar aktuelle Fotos deines Studios oder deiner Arbeiten, deine Leistungen mit Preisen sowie kurze Infos zu dir und deinem Studio. Deine Texte müssen nicht perfekt formuliert sein – daraus erstelle ich professionelle Website-Texte. Falls dir noch ein Logo fehlt, entwickle ich das gerne im Rahmen des Brandings für dich."
   },
   {
+    "url": "https://www.javera-studio.at/faq#faq-website-template",
+    "title": "FAQ: Wird meine Website mit einem Template erstellt?",
+    "content": "Nein. Deine Website wird individuell für dein Unternehmen gestaltet und nicht aus einem fertigen Template übernommen. Design, Aufbau, Inhalte und Nutzerführung werden passend zu deiner Marke, deinen Leistungen und deiner Zielgruppe entwickelt. So entsteht eine Website, die zu deinem Unternehmen passt und nicht wie eine von vielen Vorlagen aussieht."
+  },
+  {
     "url": "https://www.javera-studio.at/faq#faq-website-technologie",
-    "title": "FAQ: Baut ihr die Websites mit WordPress oder einem Baukasten?",
-    "content": "Nein. Ich entwickle jede Website individuell mit React und Next.js – ohne WordPress, Website-Baukästen oder vorgefertigte Templates. Dadurch ist jede Website technisch schlank, schnell und exakt auf dein Studio zugeschnitten statt aus einer Standardvorlage zu stammen."
+    "title": "FAQ: Wie wird meine Website technisch umgesetzt?",
+    "content": "Die Websites werden individuell mit modernen Webtechnologien wie React und Next.js umgesetzt. Dabei arbeite ich nicht mit klassischen Website-Baukästen oder WordPress-Templates. Das ermöglicht eine moderne, schnelle und individuell aufgebaute Website, die nicht an ein vorgegebenes Baukastensystem gebunden ist."
   },
   {
     "url": "https://www.javera-studio.at/faq#faq-preise-website",

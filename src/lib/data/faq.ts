@@ -93,9 +93,14 @@ export const faqCategories: FaqCategory[] = [
         relatedLinks: [{ label: "Brandings", href: "/leistungen#leistungen" }],
       },
       {
+        id: "faq-website-template",
+        question: "Wird meine Website mit einem Template erstellt?",
+        answer: "Nein. Deine Website wird individuell für dein Unternehmen gestaltet und nicht aus einem fertigen Template übernommen. Design, Aufbau, Inhalte und Nutzerführung werden passend zu deiner Marke, deinen Leistungen und deiner Zielgruppe entwickelt. So entsteht eine Website, die zu deinem Unternehmen passt und nicht wie eine von vielen Vorlagen aussieht.",
+      },
+      {
         id: "faq-website-technologie",
-        question: "Baut ihr die Websites mit WordPress oder einem Baukasten?",
-        answer: "Nein. Ich entwickle jede Website individuell mit React und Next.js – ohne WordPress, Website-Baukästen oder vorgefertigte Templates. Dadurch ist jede Website technisch schlank, schnell und exakt auf dein Studio zugeschnitten statt aus einer Standardvorlage zu stammen.",
+        question: "Wie wird meine Website technisch umgesetzt?",
+        answer: "Die Websites werden individuell mit modernen Webtechnologien wie React und Next.js umgesetzt. Dabei arbeite ich nicht mit klassischen Website-Baukästen oder WordPress-Templates. Das ermöglicht eine moderne, schnelle und individuell aufgebaute Website, die nicht an ein vorgegebenes Baukastensystem gebunden ist.",
       },
     ],
   },

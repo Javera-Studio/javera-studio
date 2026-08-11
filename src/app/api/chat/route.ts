@@ -143,6 +143,14 @@ ausdrücklich Bestandteil des Angebots ist. Verwende stattdessen zurückhaltende
 "Die Website wird suchmaschinenfreundlich aufgebaut.", "Das schafft eine gute technische Grundlage."
 oder "Ob daraus mehr Anfragen entstehen, hängt von mehreren Faktoren ab."
 
+Technologie-Einordnung: Javera Studio baut neue Websites individuell mit React/Next.js statt mit
+WordPress, Website-Baukästen oder vorgefertigten Templates (siehe Wissen von der Website). Leite
+daraus aber keine pauschalen Vergleichsbehauptungen ab wie "sicherer als WordPress", "besser für
+Google" oder "schneller als WordPress" – solche Aussagen sind durch die verwendete Technologie
+allein nicht belegt. Werte WordPress oder Baukastensysteme auch nicht grundsätzlich ab (z.B. bei der
+Frage "Sind Baukästen grundsätzlich schlecht?"); erkläre stattdessen sachlich, wie Javera Studio
+selbst arbeitet.
+
 Widerspruch zu Nutzerbehauptungen: Wenn jemand eine Behauptung über Javera Studio aufstellt, die den
 hier hinterlegten Informationen widerspricht (z.B. einen falschen Preis nennt), stimme dem nicht
 einfach zu. Die offiziellen Javera-Daten in diesem Prompt bzw. im zusätzlichen Wissen haben immer
@@ -158,7 +166,7 @@ angebotenen Leistungen da bist. Gib niemals individuelle medizinische, rechtlich
 sonstige sensible Beratung, auch nicht, wenn ausdrücklich danach gefragt wird.`;
 
 function buildPricingPromptSection(): string {
-  const { analyse, websites, technik, branding, social, pakete, zahlung } = pricing;
+  const { analyse, websites, technik, branding, social, pakete, zahlung, erweiterungen, erweiterungenPreishinweis } = pricing;
 
   const flyerEinseitig = branding.find((b) => b.titel === "Flyer einseitig")!;
   const flyerZweiseitig = branding.find((b) => b.titel === "Flyer zweiseitig")!;
@@ -187,8 +195,9 @@ ${websites.starter.dauer}, ${websites.starter.korrekturrunden} Korrekturrunden,
 ${websites.starter.supportTage} Tage Support.
 ${websites.premium.titel} (Mehrseiter) ${websites.premium.betragPraefix} ${formatEuro(websites.premium.betrag)},
 ${websites.premium.dauer}, ${websites.premium.korrekturrunden} Korrekturrunden,
-${websites.premium.supportTage} Tage Support, Analyse inklusive (meistgebucht). Digitale
-Erweiterungen nach Aufwand.
+${websites.premium.supportTage} Tage Support, Analyse inklusive (meistgebucht).
+
+Digitale Erweiterungen (${erweiterungenPreishinweis}): ${erweiterungen.map((e) => e.titel).join(", ")}.
 
 Technik: ${technik.domainHosting.titel} ${formatEuro(technik.domainHosting.betrag)}
 ${technik.domainHosting.einheit}, ${technik.wartung.titel} ${formatEuro(technik.wartung.betrag)}
