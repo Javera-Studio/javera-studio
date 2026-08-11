@@ -92,6 +92,11 @@ export const faqCategories: FaqCategory[] = [
         answer: "Für den Start reichen ein paar grundlegende Informationen: dein Logo, falls schon vorhanden, ein paar aktuelle Fotos deines Studios oder deiner Arbeiten, deine Leistungen mit Preisen sowie kurze Infos zu dir und deinem Studio. Deine Texte müssen nicht perfekt formuliert sein – daraus erstelle ich professionelle Website-Texte. Falls dir noch ein Logo fehlt, entwickle ich das gerne im Rahmen des Brandings für dich.",
         relatedLinks: [{ label: "Brandings", href: "/leistungen#leistungen" }],
       },
+      {
+        id: "faq-website-technologie",
+        question: "Baut ihr die Websites mit WordPress oder einem Baukasten?",
+        answer: "Nein. Ich entwickle jede Website individuell mit React und Next.js – ohne WordPress, Website-Baukästen oder vorgefertigte Templates. Dadurch ist jede Website technisch schlank, schnell und exakt auf dein Studio zugeschnitten statt aus einer Standardvorlage zu stammen.",
+      },
     ],
   },
   {

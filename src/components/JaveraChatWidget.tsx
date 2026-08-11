@@ -14,13 +14,17 @@ const GREETING: ChatMessage = {
     "Hallo! Schön, dass du da bist. Ich bin die digitale Assistentin von Javera Studio und beantworte dir gerne Fragen zu unseren Leistungen und Preisen. Wie kann ich dir helfen?",
 };
 
-const LINK_PATTERN = /(https?:\/\/[^\s]+|[\w.+-]+@[\w-]+\.[a-z]{2,})/gi;
+const TOKEN_PATTERN = /(\*\*[^*\n]+\*\*|https?:\/\/[^\s]+|[\w.+-]+@[\w-]+\.[a-z]{2,})/gi;
 
 function renderMessageContent(content: string) {
-  const parts = content.split(LINK_PATTERN);
+  const parts = content.split(TOKEN_PATTERN);
 
   return parts.map((part, index) => {
     if (!part) return null;
+
+    if (/^\*\*[^*\n]+\*\*$/.test(part)) {
+      return <strong key={index}>{part.slice(2, -2)}</strong>;
+    }
 
     if (/^https?:\/\//i.test(part)) {
       return (
