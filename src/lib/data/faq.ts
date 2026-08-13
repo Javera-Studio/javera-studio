@@ -358,7 +358,7 @@ export const faqCategories: FaqCategory[] = [
       {
         id: "faq-branche-friseur",
         question: "Erstellst du Websites für Friseure?",
-        answer: "Mein Fokus liegt auf Beauty-Unternehmen im engeren Sinne – etwa Nagel-, Kosmetik-, Lash- und PMU-Studios. Klassische Friseursalons betreue ich in der Regel nicht, Hairstylist:innen mit Fokus auf Beauty-Styling wie Brautstyling sind jedoch herzlich willkommen.",
+        answer: "Ja, grundsätzlich schon. Mein Schwerpunkt liegt auf Beauty-Unternehmen wie Nagel-, Kosmetik-, Lash- und PMU-Studios, aber auch Websites für Friseursalons oder Unternehmen aus anderen Branchen sind möglich. Ob ein Projekt außerhalb der Beauty-Branche passt, entscheide ich individuell.",
       },
       {
         id: "faq-branche-makeup-artist",

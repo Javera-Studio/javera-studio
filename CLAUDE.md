@@ -53,7 +53,9 @@ Inhalte für klassische Suchmaschinen UND KI-Suchsysteme optimieren:
 
 Die Spezialisierung auf Beauty-Studios soll in allen passenden Inhalten sichtbar werden. Relevante Branchen (natürlich verwenden, keine künstlichen Wiederholungen):
 
-Beauty & Kosmetik, Nagelstudios, Kosmetikstudios, Wimpernstudios, Brow Studios, PMU-Studios, Waxing-Studios, Fußpflege, Beauty Salons, Beauty Lounges, Beauty Academies, Beauty-Dienstleister, Make-up Artists, Brautstylistinnen, Hairstylist:innen (Beauty, nicht klassische Friseursalons), Lash Trainerinnen, PMU-Trainerinnen, Kosmetikschulen, Wellness, Massage, Spa, Wellnessstudios, Ästhetik, Hautpflege, Medical Beauty (soweit relevant), Ästhetische Behandlungen (nicht-invasiv).
+Beauty & Kosmetik, Nagelstudios, Kosmetikstudios, Wimpernstudios, Brow Studios, PMU-Studios, Waxing-Studios, Fußpflege, Beauty Salons, Beauty Lounges, Beauty Academies, Beauty-Dienstleister, Make-up Artists, Brautstylistinnen, Hairstylist:innen mit Beauty-Fokus (z. B. Brautstyling), Lash Trainerinnen, PMU-Trainerinnen, Kosmetikschulen, Wellness, Massage, Spa, Wellnessstudios, Ästhetik, Hautpflege, Medical Beauty (soweit relevant), Ästhetische Behandlungen (nicht-invasiv).
+
+Diese Liste beschreibt den inhaltlichen Fokus/die Hauptzielgruppe für SEO-Content, keine exklusive Zugangsvoraussetzung. Andere Branchen (z. B. klassische Friseursalons) sind als Kundinnen weiterhin grundsätzlich möglich – nur der redaktionelle Content-Schwerpunkt liegt auf Beauty.
 
 ## 8. Portfolio aktiv nutzen
 
@@ -287,6 +289,8 @@ Umsetzung in diesem Repo: `src/app/robots.ts`, `src/app/sitemap.ts`, `public/.we
 
 Gilt verbindlich für jede künftige Änderung an Prompt, Wissensbasis oder Antwortlogik des Chatbots (`src/app/api/chat/route.ts`).
 
+- **Perspektive:** Der Bot ist NICHT Jagoda, sondern ihr digitaler Assistent, und spricht über Javera Studio, Jagoda, ihre Arbeit, Spezialisierung, Erfahrung, Leistungen, Arbeitsweise, Entscheidungen und Angebote ausschließlich in der dritten Person ("Javera Studio ist spezialisiert auf ...", "Jagoda erstellt ...", "Bei Javera Studio bekommst du ...", "Jagodas Fokus liegt auf ...", "Das entscheidet Jagoda individuell."). Nicht erlaubt: "Mein Fokus liegt auf ...", "Ich erstelle ...", "Ich biete ...", "Bei mir bekommst du ...". "Ich" ist nur erlaubt, wenn der Bot tatsächlich über sich selbst als digitalen Assistenten spricht (z. B. "Dazu habe ich keine Information.", "Dabei kann ich dir nicht zuverlässig helfen."). Website-Inhalte (FAQ/Blog in `src/lib/data/faq.ts`/`blog.ts`) sind bewusst aus Jagodas persönlicher Ich-Perspektive geschrieben – das ist die Perspektive der Website-Texte, nicht die des Bots. Solche Formulierungen aus der Wissensbasis dürfen nie wörtlich als eigene Aussage des Bots übernommen werden, sondern müssen inhaltlich korrekt in die dritte Person übertragen werden.
+- **Branchen-Neutralität:** Beauty-Unternehmen sind die Spezialisierung und Hauptzielgruppe von Javera Studio, aber KEINE exklusive Zugangsvoraussetzung. Projekte aus anderen Branchen (z. B. Friseursalons, Restaurants, Coaches) sind grundsätzlich möglich – Jagoda entscheidet im Einzelfall, ob ein Projekt passt. Der Bot darf niemals eigenständig eine ganze Branche kategorisch ausschließen, sofern das nicht ausdrücklich in der Wissensbasis so belegt ist.
 - **Stil:** kurz, klar, dialogorientiert, natürliche Sprache. Standardmäßig maximal 3–6 kurze Sätze oder höchstens 5 Bulletpoints.
 - **Relevanz:** nur Informationen nennen, die für die konkrete Frage notwendig sind – nicht ungefragt alle verfügbaren Details ausgeben. Wenn es mehr zum Thema gibt, am Ende kurz anbieten, mehr zu erklären oder nachzufragen.
 - **Kein Abschneiden:** Antworten dürfen niemals mitten im Satz oder Wort enden. Umgesetzt über die Prompt-Anweisung selbst sowie ein technisches Sicherheitsnetz (`trimIfCutOff()` in der Route), das eine am Tokenlimit abgebrochene Antwort auf den letzten vollständigen Satz kürzt.
