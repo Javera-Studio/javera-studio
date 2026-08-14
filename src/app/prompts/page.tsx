@@ -163,20 +163,61 @@ export default function PromptsPage() {
         </div>
       </section>
 
+      {/* Studio-Check */}
+      <section className="py-12 md:py-16">
+        <div className="max-w-3xl mx-auto px-6">
+          <div className="relative rounded-3xl border border-mauve/30 bg-gradient-to-br from-peach-soft via-background to-accent/40 p-8 md:p-12 shadow-sm text-center">
+            <div className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-muted-foreground mb-6">
+              <span className="w-8 h-px bg-muted-foreground/50" />
+              Kostenloser Studio-Check
+              <span className="w-8 h-px bg-muted-foreground/50" />
+            </div>
+            <h2 className="font-serif text-2xl md:text-3xl text-ink leading-tight">
+              Du möchtest wissen, wie professionell dein Studio online bereits wirkt?
+            </h2>
+            <p className="mt-4 text-muted-foreground leading-relaxed">
+              Mit dem <strong className="font-semibold text-ink">Javera Studio-Check</strong> findest du
+              in wenigen Minuten heraus, wo dein Online-Auftritt schon stark ist – und wo noch Potenzial
+              liegt.
+            </p>
+
+            <ul className="mt-8 grid sm:grid-cols-2 gap-x-8 gap-y-3 max-w-md mx-auto text-left">
+              {["Kostenlos", "Dauert nur ca. 3 Minuten", "Sofortiges Ergebnis", "Keine E-Mail nötig"].map(
+                (item) => (
+                  <li key={item} className="flex items-center gap-3 text-ink">
+                    <span className="shrink-0 text-sm" style={{ color: "#0F6E56" }}>✓</span>
+                    <span>{item}</span>
+                  </li>
+                )
+              )}
+            </ul>
+
+            <div className="mt-8">
+              <Link
+                href="/studio-check"
+                className="inline-block px-7 py-3.5 rounded-full bg-primary text-primary-foreground hover:bg-mauve transition-all hover:scale-[1.02] hover:shadow-md font-medium"
+              >
+                Jetzt kostenlosen Studio-Check starten →
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Javera-Übergang */}
-      <section className="py-16 md:py-20 bg-cream">
+      <section className="py-14 md:py-16 bg-cream">
         <div className="max-w-2xl mx-auto px-6 text-center">
-          <h2 className="font-serif text-2xl md:text-3xl text-ink leading-tight">
+          <h2 className="font-serif text-xl md:text-2xl text-ink leading-tight">
             KI kann dir Arbeit abnehmen. Dein Online-Auftritt sollte trotzdem nach dir aussehen.
           </h2>
-          <p className="mt-4 text-muted-foreground leading-relaxed">
+          <p className="mt-3 text-sm text-muted-foreground leading-relaxed">
             Javera Studio unterstützt Beauty-Unternehmerinnen dabei, ihre Qualität auch online sichtbar
             zu machen – mit individuellen Websites, Branding und einem professionellen Online-Auftritt.
           </p>
-          <div className="mt-8">
+          <div className="mt-6">
             <Link
               href="/leistungen"
-              className="inline-block px-7 py-3.5 rounded-full bg-primary text-primary-foreground hover:bg-mauve transition-all hover:scale-[1.02] hover:shadow-md font-medium"
+              className="inline-block px-6 py-3 rounded-full border border-border text-ink hover:bg-background transition-all hover:scale-[1.02] font-medium text-sm"
             >
               Javera Studio kennenlernen
             </Link>
