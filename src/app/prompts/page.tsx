@@ -63,8 +63,40 @@ export default function PromptsPage() {
           className="absolute -top-40 -right-40 w-[600px] h-[600px] rounded-full opacity-40 blur-3xl"
           style={{ backgroundColor: "var(--peach-soft)" }}
         />
-        <div className="relative max-w-2xl mx-auto px-6 text-center">
-          <div className="mb-8 rounded-3xl overflow-hidden mx-auto max-w-md">
+        <div className="relative max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-12 md:gap-16 items-center">
+          <div className="text-center md:text-left order-2 md:order-1">
+            <div className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-muted-foreground mb-6">
+              <span className="w-8 h-px bg-muted-foreground/50" />
+              Javera KI-Bibliothek
+            </div>
+            <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl leading-[1.1] text-ink">
+              KI kann dir im Studio Arbeit abnehmen. Wenn du ihr die richtigen Fragen stellst.
+            </h1>
+            <p className="mt-6 text-lg text-muted-foreground leading-relaxed">
+              Hier findest du kostenlose KI-Prompts speziell für Beauty-Unternehmerinnen – für Content,
+              Kundenkommunikation, Texte, Organisation und deinen Online-Auftritt.
+            </p>
+            <p className="mt-4 text-sm text-muted-foreground leading-relaxed">
+              Keine komplizierten Anleitungen. Prompt kopieren, deine Angaben einsetzen und ausprobieren.
+            </p>
+
+            <div className="mt-6 flex flex-wrap items-center justify-center md:justify-start gap-2 text-xs text-muted-foreground">
+              <span className="px-3 py-1.5 rounded-full border border-border/60">Kostenlos</span>
+              <span className="px-3 py-1.5 rounded-full border border-border/60">Direkt kopierbar</span>
+              <span className="px-3 py-1.5 rounded-full border border-border/60">Für Beauty-Studios</span>
+            </div>
+
+            <div className="mt-8">
+              <a
+                href="#prompt-bibliothek"
+                className="inline-block px-7 py-3.5 rounded-full bg-primary text-primary-foreground hover:bg-mauve transition-all hover:scale-[1.02] hover:shadow-md font-medium"
+              >
+                Zu den Prompts ↓
+              </a>
+            </div>
+          </div>
+
+          <div className="order-1 md:order-2 rounded-3xl overflow-hidden shadow-xl shadow-ink/10">
             <Image
               src="/kiprompts.png"
               alt="Illustration einer erschöpften Beauty-Studio-Betreiberin am Laptop, die sich mit Social-Media-Content abmüht"
@@ -73,35 +105,6 @@ export default function PromptsPage() {
               priority
               className="w-full h-auto"
             />
-          </div>
-          <div className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-muted-foreground mb-6">
-            <span className="w-8 h-px bg-muted-foreground/50" />
-            Javera KI-Bibliothek
-          </div>
-          <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl leading-[1.1] text-ink">
-            KI kann dir im Studio Arbeit abnehmen. Wenn du ihr die richtigen Fragen stellst.
-          </h1>
-          <p className="mt-6 text-lg text-muted-foreground leading-relaxed">
-            Hier findest du kostenlose KI-Prompts speziell für Beauty-Unternehmerinnen – für Content,
-            Kundenkommunikation, Texte, Organisation und deinen Online-Auftritt.
-          </p>
-          <p className="mt-4 text-sm text-muted-foreground leading-relaxed">
-            Keine komplizierten Anleitungen. Prompt kopieren, deine Angaben einsetzen und ausprobieren.
-          </p>
-
-          <div className="mt-6 flex flex-wrap items-center justify-center gap-2 text-xs text-muted-foreground">
-            <span className="px-3 py-1.5 rounded-full border border-border/60">Kostenlos</span>
-            <span className="px-3 py-1.5 rounded-full border border-border/60">Direkt kopierbar</span>
-            <span className="px-3 py-1.5 rounded-full border border-border/60">Für Beauty-Studios</span>
-          </div>
-
-          <div className="mt-8">
-            <a
-              href="#prompt-bibliothek"
-              className="inline-block px-7 py-3.5 rounded-full bg-primary text-primary-foreground hover:bg-mauve transition-all hover:scale-[1.02] hover:shadow-md font-medium"
-            >
-              Zu den Prompts ↓
-            </a>
           </div>
         </div>
       </section>
