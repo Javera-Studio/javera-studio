@@ -30,8 +30,8 @@ export function IntroStep({ onStart }: { onStart: () => void }) {
           />
           <div className="relative mockup-fade-in aspect-[9/16] w-full md:w-[300px] lg:w-[340px] md:ml-auto rounded-[2rem] overflow-hidden shadow-xl">
             <Image
-              src="/faceandmoremockup.png"
-              alt="Beispiel eines hochwertigen Online-Auftritts für ein Beauty-Studio"
+              src="/qualicheck.png"
+              alt="Beauty-Qualitätscheck von Javera Studio"
               width={1080}
               height={1920}
               className="w-full h-full object-cover"
