@@ -37,7 +37,7 @@ function FeatureRow({ included, title, desc }: FeatureItem) {
       </span>
       <div>
         <p className="text-sm font-medium text-ink leading-[1.4]">{title}</p>
-        {desc && <p className="text-[11px] text-muted-foreground/70 mt-0.5 leading-snug">{desc}</p>}
+        {desc && <p className="text-[11px] text-muted-foreground mt-0.5 leading-snug">{desc}</p>}
       </div>
     </div>
   );
@@ -45,7 +45,7 @@ function FeatureRow({ included, title, desc }: FeatureItem) {
 
 function SectionLabel({ children }: { children: React.ReactNode }) {
   return (
-    <p className="text-[11px] font-semibold text-muted-foreground/70 uppercase tracking-[0.06em] mt-8 mb-4">
+    <p className="text-[11px] font-semibold text-muted-foreground uppercase tracking-[0.06em] mt-8 mb-4">
       {children}
     </p>
   );
@@ -160,7 +160,7 @@ export default function PreisePage() {
           <p className="mt-6 text-lg text-muted-foreground leading-relaxed">
             Alle Leistungen sind einzeln buchbar – auch wenn du schon eine Website hast. Ich stimme alles auf dein bestehendes Branding ab.
           </p>
-          <p className="mt-4 text-xs text-muted-foreground/60">Preise zuletzt aktualisiert am {pricing.standDatum}</p>
+          <p className="mt-4 text-xs text-muted-foreground">Preise zuletzt aktualisiert am {pricing.standDatum}</p>
         </div>
       </section>
 
@@ -349,7 +349,7 @@ export default function PreisePage() {
                   <span className="shrink-0 text-sm leading-[1.4] mt-px text-mauve">➕</span>
                   <div>
                     <p className="text-sm font-medium text-ink leading-[1.4]">{item.title}</p>
-                    <p className="text-[11px] text-muted-foreground/70 mt-0.5 leading-snug">{item.desc}</p>
+                    <p className="text-[11px] text-muted-foreground mt-0.5 leading-snug">{item.desc}</p>
                   </div>
                 </div>
               ))}
@@ -366,7 +366,7 @@ export default function PreisePage() {
             <div id="domain-hosting" className="bg-background rounded-[2rem] p-6 flex flex-col scroll-mt-24">
               <p className="font-semibold text-ink">Domain &amp; Hosting</p>
               <p className="text-xs text-muted-foreground mt-1">Eigene www-Adresse + Website online halten (bei externem Anbieter)</p>
-              <p className="text-xs text-muted-foreground/80 mt-1 italic">direkt beim Anbieter — läuft auf deinen Namen</p>
+              <p className="text-xs text-muted-foreground mt-1 italic">direkt beim Anbieter — läuft auf deinen Namen</p>
               <p className="text-2xl font-bold text-ink mt-auto pt-4">{formatEuro(pricing.technik.domainHosting.betrag)} <span className="text-sm font-normal text-muted-foreground">{pricing.technik.domainHosting.einheit}</span></p>
             </div>
             <div id="wartung" className="bg-background rounded-[2rem] p-6 flex flex-col scroll-mt-24">
@@ -446,7 +446,7 @@ export default function PreisePage() {
           </div>
 
           {/* Druck & Lieferung */}
-          <p className="text-xs text-muted-foreground/80 italic mt-6">
+          <p className="text-xs text-muted-foreground italic mt-6">
             Bestellung, Druck & Lieferung vieler Printprodukte kann vollständig von JAVERA STUDIO übernommen werden – Preis auf Anfrage.
           </p>
 
@@ -501,7 +501,7 @@ export default function PreisePage() {
               <p className="mt-6 text-sm text-muted-foreground leading-relaxed">
                 Die erste Rate wird jeweils bei Auftragserteilung fällig, die weiteren Raten monatlich.
               </p>
-              <p className="mt-4 max-w-[92%] text-xs text-muted-foreground/70 leading-relaxed italic">
+              <p className="mt-4 max-w-[92%] text-xs text-muted-foreground leading-relaxed italic">
                 Die Ratenzahlung ist ein freiwilliges Angebot und muss vor Projektbeginn gemeinsam vereinbart werden. Sie ist nicht automatisch Bestandteil jedes Projekts und wird individuell geprüft sowie im Vertrag festgehalten.
               </p>
 

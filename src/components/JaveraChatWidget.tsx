@@ -170,7 +170,7 @@ export function JaveraChatWidget() {
               onKeyDown={handleKeyDown}
               placeholder="Deine Frage …"
               disabled={isLoading}
-              className="flex-1 rounded-full border border-border bg-cream px-4 py-2 text-sm text-ink outline-none focus:border-mauve"
+              className="flex-1 rounded-full border border-border bg-cream px-4 py-2 text-sm text-ink outline-none focus:border-mauve focus-visible:ring-2 focus-visible:ring-ring"
             />
             <button
               type="button"

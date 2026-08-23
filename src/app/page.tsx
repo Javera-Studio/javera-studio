@@ -204,7 +204,7 @@ function Warum() {
           <ul className="space-y-1">
             {benefits.map((b, i) => (
               <li key={b} className={`reveal reveal-stagger-${(i % 6) + 1} flex items-start gap-5 py-5 border-b border-border/60 last:border-0`}>
-                <span className="font-serif text-2xl text-muted-foreground/60 w-8">{String(i + 1).padStart(2, "0")}</span>
+                <span className="font-serif text-2xl text-muted-foreground/80 w-8">{String(i + 1).padStart(2, "0")}</span>
                 <span className="text-lg text-ink pt-1">{b}</span>
               </li>
             ))}
@@ -706,7 +706,7 @@ function Ablauf() {
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {steps.map((s, i) => (
             <div key={s.n} className={`reveal-card reveal-stagger-${i + 1} p-8 rounded-3xl border border-border/60 bg-background hover:bg-cream transition`}>
-              <span className="font-serif text-5xl text-muted-foreground/60">{s.n}</span>
+              <span className="font-serif text-5xl text-muted-foreground/80">{s.n}</span>
               <h3 className="font-serif text-2xl text-ink mt-6">{s.title}</h3>
               <p className="mt-3 text-muted-foreground leading-relaxed">{s.desc}</p>
             </div>

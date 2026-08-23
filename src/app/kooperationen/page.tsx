@@ -248,7 +248,7 @@ export default function KooperationenPage() {
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {ablauf.map((s, i) => (
               <div key={s.n} className={`reveal-card reveal-stagger-${(i % 6) + 1} p-8 rounded-3xl border border-border/60 bg-background hover:bg-peach-soft transition`}>
-                <span className="font-serif text-5xl text-muted-foreground/60">{s.n}</span>
+                <span className="font-serif text-5xl text-muted-foreground/80">{s.n}</span>
                 <h3 className="font-serif text-xl text-ink mt-6">{s.title}</h3>
                 <p className="mt-3 text-sm text-muted-foreground leading-relaxed">{s.desc}</p>
               </div>

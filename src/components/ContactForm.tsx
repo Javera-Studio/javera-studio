@@ -4,10 +4,15 @@ import type { FormEvent } from "react";
 import { useState } from "react";
 import Link from "next/link";
 import { toast } from "sonner";
+import { FormFieldError } from "@/components/FormFieldError";
+
+type FieldErrors = Partial<Record<"name" | "email" | "subject" | "message" | "privacy", string>>;
 
 export function ContactForm() {
   const [submitting, setSubmitting] = useState(false);
   const [done, setDone] = useState(false);
+  const [errors, setErrors] = useState<FieldErrors>({});
+  const [formError, setFormError] = useState<string | null>(null);
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -21,9 +26,21 @@ export function ContactForm() {
     const privacy = data.get("privacy") === "on";
     const hp_company = String(data.get("hp_company") || "");
 
-    if (!name || !email || !subject || !message) { toast.error("Bitte fülle alle Felder aus."); return; }
-    if (!privacy) { toast.error("Bitte stimme der Datenschutzerklärung zu."); return; }
-    if (name.length > 120 || email.length > 255 || subject.length > 200 || message.length > 5000) { toast.error("Eingaben sind zu lang."); return; }
+    const nextErrors: FieldErrors = {};
+    if (!name) nextErrors.name = "Bitte gib deinen Namen an.";
+    if (!email) nextErrors.email = "Bitte gib deine E-Mail-Adresse an.";
+    if (!subject) nextErrors.subject = "Bitte gib einen Betreff an.";
+    if (!message) nextErrors.message = "Bitte schreib eine Nachricht.";
+    if (!privacy) nextErrors.privacy = "Bitte stimme der Datenschutzerklärung zu.";
+    if (name.length > 120 || email.length > 255 || subject.length > 200 || message.length > 5000) {
+      nextErrors.message = "Eingaben sind zu lang.";
+    }
+    setErrors(nextErrors);
+    if (Object.keys(nextErrors).length > 0) {
+      setFormError("Bitte überprüfe die markierten Felder.");
+      return;
+    }
+    setFormError(null);
 
     setSubmitting(true);
     try {
@@ -33,12 +50,18 @@ export function ContactForm() {
         body: JSON.stringify({ name, email, subject, message, hp_company }),
       });
       const result = (await response.json()) as { success?: boolean; error?: string };
-      if (!response.ok) { toast.error(result.error ?? "Fehler beim Senden. Bitte versuche es erneut."); return; }
+      if (!response.ok) {
+        setFormError(result.error ?? "Fehler beim Senden. Bitte versuche es erneut.");
+        toast.error(result.error ?? "Fehler beim Senden. Bitte versuche es erneut.");
+        return;
+      }
       setDone(true);
       toast.success("Danke für deine Anfrage – ich melde mich in Kürze.");
       form.reset();
     } catch (err) {
-      toast.error(`Netzwerkfehler: ${err instanceof Error ? err.message : String(err)}`);
+      const message = `Netzwerkfehler: ${err instanceof Error ? err.message : String(err)}`;
+      setFormError(message);
+      toast.error(message);
     } finally {
       setSubmitting(false);
     }
@@ -76,31 +99,41 @@ export function ContactForm() {
               aria-hidden="true"
               className="absolute left-[-9999px] top-auto h-0 w-0 overflow-hidden"
             />
+            {formError && (
+              <p role="alert" className="text-sm text-red-600">{formError}</p>
+            )}
             <div className="grid sm:grid-cols-2 gap-5">
               <div>
                 <label htmlFor="sm-name" className="block text-sm text-ink mb-2">Name</label>
-                <input id="sm-name" name="name" type="text" required maxLength={120} autoComplete="name" className="w-full px-4 py-3 rounded-xl border border-border bg-background text-ink focus:outline-none focus:ring-2 focus:ring-ring" />
+                <input id="sm-name" name="name" type="text" required maxLength={120} autoComplete="name" aria-invalid={Boolean(errors.name)} aria-describedby={errors.name ? "sm-name-error" : undefined} className="w-full px-4 py-3 rounded-xl border border-border bg-background text-ink focus:outline-none focus:ring-2 focus:ring-ring" />
+                <FormFieldError id="sm-name-error" message={errors.name} />
               </div>
               <div>
                 <label htmlFor="sm-email" className="block text-sm text-ink mb-2">E-Mail</label>
-                <input id="sm-email" name="email" type="email" required maxLength={255} autoComplete="email" className="w-full px-4 py-3 rounded-xl border border-border bg-background text-ink focus:outline-none focus:ring-2 focus:ring-ring" />
+                <input id="sm-email" name="email" type="email" required maxLength={255} autoComplete="email" aria-invalid={Boolean(errors.email)} aria-describedby={errors.email ? "sm-email-error" : undefined} className="w-full px-4 py-3 rounded-xl border border-border bg-background text-ink focus:outline-none focus:ring-2 focus:ring-ring" />
+                <FormFieldError id="sm-email-error" message={errors.email} />
               </div>
             </div>
             <div>
               <label htmlFor="sm-subject" className="block text-sm text-ink mb-2">Betreff</label>
-              <input id="sm-subject" name="subject" type="text" required maxLength={200} className="w-full px-4 py-3 rounded-xl border border-border bg-background text-ink focus:outline-none focus:ring-2 focus:ring-ring" />
+              <input id="sm-subject" name="subject" type="text" required maxLength={200} aria-invalid={Boolean(errors.subject)} aria-describedby={errors.subject ? "sm-subject-error" : undefined} className="w-full px-4 py-3 rounded-xl border border-border bg-background text-ink focus:outline-none focus:ring-2 focus:ring-ring" />
+              <FormFieldError id="sm-subject-error" message={errors.subject} />
             </div>
             <div>
               <label htmlFor="sm-message" className="block text-sm text-ink mb-2">Nachricht</label>
-              <textarea id="sm-message" name="message" required rows={5} maxLength={5000} className="w-full px-4 py-3 rounded-xl border border-border bg-background text-ink focus:outline-none focus:ring-2 focus:ring-ring" />
+              <textarea id="sm-message" name="message" required rows={5} maxLength={5000} aria-invalid={Boolean(errors.message)} aria-describedby={errors.message ? "sm-message-error" : undefined} className="w-full px-4 py-3 rounded-xl border border-border bg-background text-ink focus:outline-none focus:ring-2 focus:ring-ring" />
+              <FormFieldError id="sm-message-error" message={errors.message} />
             </div>
-            <div className="flex items-start gap-3">
-              <input id="sm-privacy" name="privacy" type="checkbox" required className="mt-1 h-4 w-4 shrink-0 rounded border border-border accent-mauve cursor-pointer" />
-              <label htmlFor="sm-privacy" className="text-sm text-muted-foreground leading-relaxed cursor-pointer">
-                Ich habe die{" "}
-                <Link href="/datenschutz" className="underline hover:text-ink transition-colors">Datenschutzerklärung</Link>
-                {" "}gelesen und stimme der Verarbeitung meiner Angaben zur Bearbeitung meiner Anfrage zu.
-              </label>
+            <div>
+              <div className="flex items-start gap-3">
+                <input id="sm-privacy" name="privacy" type="checkbox" required aria-invalid={Boolean(errors.privacy)} aria-describedby={errors.privacy ? "sm-privacy-error" : undefined} className="mt-1 h-4 w-4 shrink-0 rounded border border-border accent-mauve cursor-pointer" />
+                <label htmlFor="sm-privacy" className="text-sm text-muted-foreground leading-relaxed cursor-pointer">
+                  Ich habe die{" "}
+                  <Link href="/datenschutz" className="underline hover:text-ink transition-colors">Datenschutzerklärung</Link>
+                  {" "}gelesen und stimme der Verarbeitung meiner Angaben zur Bearbeitung meiner Anfrage zu.
+                </label>
+              </div>
+              <FormFieldError id="sm-privacy-error" message={errors.privacy} />
             </div>
             <button type="submit" disabled={submitting} className="w-full px-7 py-3.5 rounded-full bg-primary text-primary-foreground hover:bg-mauve transition-all hover:scale-[1.02] hover:shadow-md font-medium disabled:opacity-60 disabled:cursor-not-allowed">
               {submitting ? "Wird gesendet…" : "Nachricht senden"}
