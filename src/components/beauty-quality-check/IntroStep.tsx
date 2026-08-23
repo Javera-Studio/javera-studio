@@ -22,18 +22,18 @@ export function IntroStep({ onStart }: { onStart: () => void }) {
           </p>
         </div>
 
-        <div className="relative mx-auto w-[85%] md:col-start-2 md:row-start-1 md:row-span-4 md:mx-0 md:w-full md:justify-self-end">
+        <div className="relative mx-auto w-full md:col-start-2 md:row-start-1 md:row-span-4 md:mx-0 md:justify-self-end">
           <div
             aria-hidden
             className="absolute -top-5 -right-5 w-full h-full rounded-[2rem] hidden md:block"
             style={{ backgroundColor: "var(--rose-gold-soft)" }}
           />
-          <div className="relative mockup-fade-in aspect-[9/16] w-full md:w-[300px] lg:w-[340px] md:ml-auto rounded-[2rem] overflow-hidden shadow-xl">
+          <div className="relative mockup-fade-in aspect-video w-full md:w-[420px] lg:w-[480px] md:ml-auto rounded-[2rem] overflow-hidden shadow-xl">
             <Image
               src="/qualicheck.png"
               alt="Beauty-Qualitätscheck von Javera Studio"
-              width={1080}
-              height={1920}
+              width={1920}
+              height={1080}
               className="w-full h-full object-cover"
               priority
             />

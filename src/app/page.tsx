@@ -797,6 +797,12 @@ function StudioCheckCTA() {
             Kostenlosen Studio-Check starten
           </Link>
           <p className="mt-3 text-xs text-muted-foreground">Keine E-Mail · Sofortiges Ergebnis · Kostenlos</p>
+          <p className="mt-6 text-sm text-muted-foreground">
+            Schon länger etabliert und mit mehreren Leistungen unterwegs?{" "}
+            <Link href="/beauty-qualitaetscheck" className="text-ink underline underline-offset-4 hover:text-mauve transition-colors">
+              Zum Beauty-Qualitätscheck
+            </Link>
+          </p>
         </div>
       </div>
     </section>
