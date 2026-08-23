@@ -50,12 +50,14 @@ export function IntroStep({ onStart }: { onStart: () => void }) {
           <button
             type="button"
             onClick={onStart}
-            className="inline-flex px-8 py-4 rounded-full bg-primary text-primary-foreground hover:bg-mauve transition-all hover:scale-[1.02] hover:shadow-md font-medium focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+            className="flex w-full items-center justify-center px-8 py-4 rounded-full bg-primary text-primary-foreground hover:bg-mauve transition-all hover:scale-[1.02] hover:shadow-md font-medium focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
           >
             Qualitätscheck starten
           </button>
           <p className="mt-3 text-center text-xs text-muted-foreground">
-            Keine automatische Bewertung. Ich sehe mir deine Angaben und deinen Online-Auftritt persönlich an.
+            Keine automatische Bewertung. Ich sehe mir deine Angaben und
+            <br />
+            deinen Online-Auftritt persönlich an.
           </p>
         </div>
       </div>
