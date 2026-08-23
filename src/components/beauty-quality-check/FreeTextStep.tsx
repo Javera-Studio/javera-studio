@@ -23,12 +23,13 @@ export function FreeTextStep({
   return (
     <div className="max-w-xl mx-auto w-full">
       <ProgressBar current={progressCurrent} total={progressTotal} />
-      <h2 className="mt-8 font-serif text-2xl sm:text-3xl text-ink text-center">
+      <h2 id={`${question.id}-label`} className="mt-8 font-serif text-2xl sm:text-3xl text-ink text-center">
         {question.question}
         {question.optional && <span className="block mt-2 text-sm font-sans text-muted-foreground">Optional</span>}
       </h2>
 
       <textarea
+        aria-labelledby={`${question.id}-label`}
         value={value}
         onChange={(e) => onChange(e.target.value)}
         placeholder={question.placeholder}

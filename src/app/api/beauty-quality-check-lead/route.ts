@@ -87,6 +87,12 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: "Eingaben sind zu lang" }, { status: 400 });
   }
 
+  // Grobe Obergrenze für den gesamten Antworten-Payload, damit kein beliebig
+  // großes JSON-Objekt an E-Mail-Versand und Datenbank durchgereicht wird.
+  if (JSON.stringify(answers).length > 20_000) {
+    return NextResponse.json({ error: "Antworten sind zu umfangreich" }, { status: 400 });
+  }
+
   // Interne Einstufung serverseitig neu berechnen statt dem Client zu vertrauen.
   const priority = classifyLead(answers);
   const transcript = buildTranscript(answers);
