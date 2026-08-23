@@ -57,6 +57,7 @@ export default function PreisePage() {
     { included: true, title: "Mobil optimiert", desc: "Perfekte Darstellung auf Smartphone, Tablet und PC." },
     { included: true, title: "Professionelle Texte", desc: "Texte werden auf Basis deiner Informationen erstellt." },
     { included: true, title: "Bildergalerie", desc: "Präsentiere deine Arbeiten und Ergebnisse professionell." },
+    { included: true, title: "Barrierefreiheit nach WCAG 2.2 AA", desc: "Deine Website ist so gebaut, dass sie auch für Menschen mit Seh- oder Bewegungseinschränkungen gut nutzbar ist – zusätzliches Vertrauenssignal für deine Kundinnen und ein Pluspunkt bei Google." },
   ];
 
   const starterBooking: FeatureItem[] = [
@@ -75,6 +76,7 @@ export default function PreisePage() {
     { included: true, title: "Mehrere Seiten", desc: "Mehr Platz für Leistungen, Bewertungen, Über mich und mehr." },
     { included: true, title: "Professionelle Texte", desc: "Texte werden individuell auf dein Business abgestimmt." },
     { included: true, title: "Erweiterte Galerie", desc: "Mehr Bilder, Vorher-Nachher-Ergebnisse und Referenzen." },
+    { included: true, title: "Barrierefreiheit nach WCAG 2.2 AA", desc: "Deine Website ist so gebaut, dass sie auch für Menschen mit Seh- oder Bewegungseinschränkungen gut nutzbar ist – zusätzliches Vertrauenssignal für deine Kundinnen und ein Pluspunkt bei Google." },
   ];
 
   const premiumOptionen: FeatureItem[] = [
