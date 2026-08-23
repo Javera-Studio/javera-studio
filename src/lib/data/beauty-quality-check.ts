@@ -1,7 +1,6 @@
 import type {
   BeautyQualityCheckAnswers,
   BeautyQualityCheckQuestion,
-  LeadPriority,
 } from "@/types/beauty-quality-check";
 
 /**
@@ -9,7 +8,7 @@ import type {
  * Zielgruppe: etablierte Beauty-Unternehmerinnen, deren Online-Auftritt nicht
  * mehr zur heutigen Qualität ihres Studios passt. Anders als /studio-check
  * gibt es hier keinen automatischen Score – die Antworten werden von Jagoda
- * persönlich ausgewertet (siehe classifyLead unten für die interne Einstufung).
+ * vollständig manuell ausgewertet, ohne automatische Lead-Priorisierung.
  *
  * Fragen hier ändern/ergänzen, um Texte und Optionen anzupassen. Die
  * Reihenfolge in diesem Array bestimmt die Reihenfolge im Check.
@@ -283,49 +282,3 @@ export function getVisibleQuestions(answers: BeautyQualityCheckAnswers): BeautyQ
   return beautyQualityCheckQuestions.filter((q) => !q.showWhen || q.showWhen(answers));
 }
 
-/**
- * Interne Lead-Einstufung – wird NIE dem Nutzer angezeigt, sondern nur intern
- * (E-Mail-Betreff + gespeicherter Datensatz) verwendet, damit Jagoda Leads
- * schnell priorisieren kann. Reine Heuristik, kein exakter Score – bei Bedarf
- * hier anpassen.
- */
-export function classifyLead(answers: BeautyQualityCheckAnswers): LeadPriority {
-  const get = (id: string) => answers[id];
-  const asArray = (v: string | string[] | undefined): string[] => (Array.isArray(v) ? v : []);
-
-  const studioDuration = get("studio-duration");
-  const offerings = asArray(get("current-offerings")).filter((id) => id !== "andere");
-  const hasWebsite = get("has-website");
-  const lastUpdate = get("website-last-update");
-  const matchesLevel = get("website-matches-level");
-  const relaunchTiming = get("relaunch-timing");
-  const budget = get("budget-realistic");
-
-  // Klare Ausschlusskriterien für "Niedrig", unabhängig von den übrigen Punkten.
-  const noWebsiteNoUrgency =
-    (hasWebsite === "nein" || hasWebsite === "im-aufbau") &&
-    (relaunchTiming === "vielleicht-spaeter" || relaunchTiming === undefined);
-  if (budget === "eher-nicht" || noWebsiteNoUrgency) {
-    return "niedrig";
-  }
-
-  let score = 0;
-  if (studioDuration === "5-10" || studioDuration === "mehr-als-10") score += 1;
-  if (offerings.length >= 3) score += 1;
-  if (offerings.includes("academy")) score += 1;
-  if (lastUpdate === "3-5-jahre" || lastUpdate === "mehr-als-5" || lastUpdate === "kaum") score += 1;
-  if (matchesLevel === "eher-nicht" || matchesLevel === "nein" || matchesLevel === "unsicher") score += 1;
-  if (relaunchTiming === "moeglichst-bald" || relaunchTiming === "1-3-monate") score += 1;
-  if (budget === "ja") score += 2;
-  else if (budget === "ja-mehr-infos") score += 1;
-
-  if (score >= 5) return "sehr-interessant";
-  if (score >= 2) return "interessant";
-  return "niedrig";
-}
-
-export const leadPriorityLabels: Record<LeadPriority, string> = {
-  "sehr-interessant": "Sehr interessant",
-  interessant: "Interessant",
-  niedrig: "Niedrige Priorität",
-};

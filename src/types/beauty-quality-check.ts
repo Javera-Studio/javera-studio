@@ -55,8 +55,6 @@ export type BeautyQualityCheckQuestion = SingleChoiceQuestion | MultiChoiceQuest
  */
 export type BeautyQualityCheckAnswers = Record<string, string | string[] | undefined>;
 
-export type LeadPriority = "sehr-interessant" | "interessant" | "niedrig";
-
 /** Request-Body für POST /api/beauty-quality-check-lead. answers wird serverseitig neu ausgewertet. */
 export type BeautyQualityCheckLeadPayload = {
   firstName: string;

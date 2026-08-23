@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { Resend } from "resend";
 import { getClientIp, isRateLimited, isValidEmail } from "@/lib/rate-limit";
 import { getSupabaseAdminClient } from "@/lib/supabase-admin";
-import { classifyLead, getVisibleQuestions, leadPriorityLabels } from "@/lib/data/beauty-quality-check";
+import { getVisibleQuestions } from "@/lib/data/beauty-quality-check";
 import type { BeautyQualityCheckAnswers, BeautyQualityCheckLeadPayload } from "@/types/beauty-quality-check";
 
 let resend: Resend | undefined;
@@ -96,8 +96,6 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: "Antworten sind zu umfangreich" }, { status: 400 });
   }
 
-  // Interne Einstufung serverseitig neu berechnen statt dem Client zu vertrauen.
-  const priority = classifyLead(answers);
   const transcript = buildTranscript(answers);
   const websiteFromAnswers = answers["has-website__text"];
   const resolvedWebsite = website || (typeof websiteFromAnswers === "string" ? websiteFromAnswers : undefined);
@@ -109,8 +107,6 @@ export async function POST(req: NextRequest) {
     `Instagram: ${instagram || "–"}`,
     `Website: ${resolvedWebsite || "–"}`,
     `Ort/Region: ${region || "–"}`,
-    "",
-    `Interne Einstufung: ${leadPriorityLabels[priority]}`,
     "",
     "Antworten:",
     ...transcript,
@@ -134,7 +130,6 @@ export async function POST(req: NextRequest) {
     instagram: instagram || null,
     website: resolvedWebsite || null,
     region: region || null,
-    priority,
     answers,
   });
 
@@ -151,7 +146,7 @@ export async function POST(req: NextRequest) {
     from: "JAVERA Studio Website <website@javera-studio.at>",
     to: "hallo@javera-studio.at",
     replyTo: email,
-    subject: `Neuer Beauty-Qualitätscheck (${leadPriorityLabels[priority]}): ${studioName} – ${firstName}`,
+    subject: `Neuer Beauty-Qualitätscheck – ${studioName || firstName}`,
     text: lines.join("\n"),
   });
 
