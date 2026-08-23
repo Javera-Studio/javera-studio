@@ -54,11 +54,14 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: "Zu viele Anfragen. Bitte versuche es später erneut." }, { status: 429 });
   }
 
-  const { firstName, studioName, email, instagram, website, region, consent, answers, hp_company } =
+  const { firstName, studioName, email, instagram, website, region, consent, answers, hp_field } =
     (await req.json()) as BeautyQualityCheckLeadPayload;
 
-  // Honeypot: unsichtbares Feld, das nur Bots ausfüllen. Stiller Erfolg, keine Fehlermeldung.
-  if (hp_company) {
+  console.info("[beauty-quality-check-lead] Submit gestartet");
+
+  // Honeypot: unsichtbares Feld, das nur Bots ausfüllen. Stiller Erfolg, keine Fehlermeldung an den Absender.
+  if (hp_field) {
+    console.warn("[beauty-quality-check-lead] Honeypot ausgelöst, Anfrage ignoriert");
     return NextResponse.json({ success: true });
   }
 
@@ -113,22 +116,38 @@ export async function POST(req: NextRequest) {
     ...transcript,
   ];
 
+  // Lead-Speicherung ist Voraussetzung für Erfolg, nicht nur "best effort": ohne
+  // gespeicherten Datensatz darf die Danke-Seite nicht angezeigt werden.
   const supabase = getSupabaseAdminClient();
-  if (supabase) {
-    // Best effort: Speicherung darf das Versenden der Benachrichtigungs-Mail nicht blockieren.
-    await supabase.from("beauty_quality_check_leads").insert({
-      first_name: firstName,
-      studio_name: studioName,
-      email,
-      instagram: instagram || null,
-      website: resolvedWebsite || null,
-      region: region || null,
-      priority,
-      answers,
-    });
+  if (!supabase) {
+    console.error("[beauty-quality-check-lead] Supabase nicht konfiguriert – Lead konnte nicht gespeichert werden");
+    return NextResponse.json(
+      { error: "Deine Anfrage konnte nicht gespeichert werden. Bitte versuche es erneut oder schreib uns direkt." },
+      { status: 500 }
+    );
   }
 
-  const { error } = await getResendClient().emails.send({
+  const { error: supabaseError } = await supabase.from("beauty_quality_check_leads").insert({
+    first_name: firstName,
+    studio_name: studioName,
+    email,
+    instagram: instagram || null,
+    website: resolvedWebsite || null,
+    region: region || null,
+    priority,
+    answers,
+  });
+
+  if (supabaseError) {
+    console.error("[beauty-quality-check-lead] Supabase insert fehlgeschlagen:", supabaseError.message);
+    return NextResponse.json(
+      { error: "Deine Anfrage konnte nicht gespeichert werden. Bitte versuche es erneut oder schreib uns direkt." },
+      { status: 500 }
+    );
+  }
+  console.info("[beauty-quality-check-lead] Supabase insert erfolgreich");
+
+  const { error: resendError } = await getResendClient().emails.send({
     from: "JAVERA Studio Website <website@javera-studio.at>",
     to: "hallo@javera-studio.at",
     replyTo: email,
@@ -136,9 +155,11 @@ export async function POST(req: NextRequest) {
     text: lines.join("\n"),
   });
 
-  if (error) {
-    return NextResponse.json({ error: error.message }, { status: 500 });
+  if (resendError) {
+    console.error("[beauty-quality-check-lead] Resend Versand fehlgeschlagen:", resendError.message);
+    return NextResponse.json({ error: resendError.message }, { status: 500 });
   }
+  console.info("[beauty-quality-check-lead] Resend Versand erfolgreich");
 
   return NextResponse.json({ success: true });
 }

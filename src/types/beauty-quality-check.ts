@@ -67,5 +67,6 @@ export type BeautyQualityCheckLeadPayload = {
   region?: string;
   consent: boolean;
   answers: BeautyQualityCheckAnswers;
-  hp_company?: string;
+  /** Honeypot-Feld gegen Bots. Bewusst unauffälliger Name, der nicht wie ein echtes Kontaktfeld aussieht (vermeidet Browser-/Passwortmanager-Autofill). */
+  hp_field?: string;
 };

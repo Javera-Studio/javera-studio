@@ -33,7 +33,7 @@ export function LeadFormStep({ answers, prefillWebsite, onBack, onSubmitted }: L
     const website = String(data.get("website") || "").trim();
     const region = String(data.get("region") || "").trim();
     const consent = data.get("consent") === "on";
-    const hp_company = String(data.get("hp_company") || "");
+    const hp_field = String(data.get("hp_field") || "");
 
     const nextErrors: FieldErrors = {};
     if (!firstName) nextErrors.firstName = "Bitte gib deinen Vornamen an.";
@@ -64,7 +64,7 @@ export function LeadFormStep({ answers, prefillWebsite, onBack, onSubmitted }: L
           region,
           consent,
           answers,
-          hp_company,
+          hp_field,
         }),
       });
       const result = (await response.json()) as { success?: boolean; error?: string };
@@ -92,11 +92,12 @@ export function LeadFormStep({ answers, prefillWebsite, onBack, onSubmitted }: L
       </p>
 
       <form onSubmit={handleSubmit} className="mt-8 space-y-5 p-8 rounded-3xl bg-background border border-border/70">
+        {/* Honeypot gegen Bots: bewusst unauffälliger Name (kein "company"/"website"-Muster), damit Browser- und Passwortmanager-Autofill echte Nutzer:innen nicht fälschlich blockiert. */}
         <input
           type="text"
-          name="hp_company"
+          name="hp_field"
           tabIndex={-1}
-          autoComplete="off"
+          autoComplete="new-password"
           aria-hidden="true"
           className="absolute left-[-9999px] top-auto h-0 w-0 overflow-hidden"
         />
