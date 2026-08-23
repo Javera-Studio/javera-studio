@@ -2,8 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Playfair_Display, Cormorant_Garamond, DM_Sans, Great_Vibes } from "next/font/google";
 import "./globals.css";
 import { Providers } from "./providers";
-import { JaveraChatWidget } from "@/components/JaveraChatWidget";
-import { WhatsAppButton } from "@/components/WhatsAppButton";
+import { SiteWidgets } from "@/components/SiteWidgets";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -74,8 +73,7 @@ export default function RootLayout({
     >
       <body style={{ fontFamily: "var(--font-inter), system-ui, sans-serif" }}>
         <Providers>{children}</Providers>
-        <JaveraChatWidget />
-        <WhatsAppButton />
+        <SiteWidgets />
       </body>
     </html>
   );
