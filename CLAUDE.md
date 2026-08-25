@@ -285,6 +285,18 @@ Umsetzung in diesem Repo: `src/app/robots.ts`, `src/app/sitemap.ts`, `public/.we
 
 ---
 
+# KI-generierte Bilder – Kennzeichnung
+
+Wenn Jagoda sagt „als KI generiert markiert" (oder sinngemäß „markiere als KI-generiert"), gilt für JEDES betroffene Bild/Video auf der Website immer folgendes Muster (keine Rückfrage nötig, direkt so umsetzen):
+
+- Kleines, halbtransparentes AI-Icon ganz unten in der Bildecke (klein, unaufdringlich).
+- Bei Hover (Desktop) bzw. Tap (Mobile) erscheint daneben – ebenfalls halbtransparent – der Text „KI-generierte Bilddarstellung".
+- Gilt für alle Bildtypen inkl. Hero-Video/Hero-Bilder.
+- Als wiederverwendbare Komponente umsetzen (z. B. `AIImageBadge`), nicht pro Bild einzeln inline duplizieren.
+- Barrierefreiheit beachten: Text muss auch per Tastatur/Fokus erreichbar sein (nicht nur `:hover`), ausreichender Kontrast trotz Transparenz, `aria-label` am Icon für Screenreader.
+
+---
+
 # Antwortregeln für den Website-Chatbot
 
 Gilt verbindlich für jede künftige Änderung an Prompt, Wissensbasis oder Antwortlogik des Chatbots (`src/app/api/chat/route.ts`).

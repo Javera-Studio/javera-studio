@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
+import { AiLabel } from "@/components/AiLabel";
 import { QuoteSection } from "@/components/QuoteSection";
 import { brandQuotes } from "@/lib/brand-quotes";
 import { Navbar } from "@/components/Navbar";
@@ -310,6 +311,7 @@ export default function LeistungenPage() {
         <div className="reveal mt-12 max-w-4xl mx-auto px-6">
           <div className="relative aspect-[3/2] rounded-[2.25rem] overflow-hidden">
             <Image src="/leistungen.png" alt="Persönliches Gespräch als Ausgangspunkt für den Markenauftritt" loading="lazy" width={1536} height={1024} className="w-full h-full object-cover" />
+            <AiLabel />
           </div>
         </div>
       </section>
