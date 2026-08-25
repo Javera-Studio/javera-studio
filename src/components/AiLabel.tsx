@@ -7,13 +7,10 @@ export function AiLabel({ className = "bottom-3 left-3" }: { className?: string 
     >
       <span
         aria-hidden
-        className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full backdrop-blur-sm"
-        style={{ backgroundColor: "rgba(255, 255, 255, 0.15)", border: "1px solid rgba(255, 255, 255, 0.25)" }}
+        className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full backdrop-blur-sm text-[8px] font-semibold tracking-tight text-white"
+        style={{ backgroundColor: "rgba(255, 255, 255, 0.15)", border: "1px solid rgba(255, 255, 255, 0.25)", opacity: 0.75 }}
       >
-        <svg width="11" height="11" viewBox="0 0 24 24" style={{ opacity: 0.65 }}>
-          <path d="M12 2l1.8 5.2L19 9l-5.2 1.8L12 16l-1.8-5.2L5 9l5.2-1.8L12 2z" fill="white" />
-          <path d="M19 14.5l.9 2.6 2.6.9-2.6.9-.9 2.6-.9-2.6-2.6-.9 2.6-.9.9-2.6z" fill="white" opacity="0.7" />
-        </svg>
+        AI
       </span>
       <span
         aria-hidden
