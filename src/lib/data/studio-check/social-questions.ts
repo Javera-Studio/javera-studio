@@ -109,7 +109,7 @@ export const socialQuestions: ScoredQuestion[] = [
   {
     id: "social-buchung-1",
     category: "buchung",
-    question: "Wie einfach können Interessentinnen über Social Media einen Termin bei dir anfragen?",
+    question: "Welcher ist der einfachste Weg, über den Interessentinnen aktuell über Social Media einen Termin bei dir buchen oder anfragen können?",
     answers: [
       { id: "a", label: "Direkt über einen Buchungslink in der Bio.", points: 3 },
       { id: "b", label: "Über einen klar sichtbaren WhatsApp- oder Kontaktbutton.", points: 2 },

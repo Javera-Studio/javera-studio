@@ -19,7 +19,7 @@ const MAX_POINTS_PER_QUESTION = 3;
 /** Reine Berechnungsfunktion: Antworten + Fragenkatalog -> vollständiges Ergebnis. Kein Server, keine Speicherung. */
 export function calculateResult(
   segment: Segment,
-  goal: Goal,
+  goals: Goal[],
   answers: Record<string, string>,
   questions: ScoredQuestion[]
 ): StudioCheckResult {
@@ -59,13 +59,13 @@ export function calculateResult(
 
   return {
     segment,
-    goal,
+    goals,
     score,
     categories,
     strongest,
     weakest,
     recommendations: topRecommendations,
-    intro: buildIntro(goal, weakest.label),
+    intro: buildIntro(goals, weakest.label),
   };
 }
 
@@ -83,8 +83,13 @@ function dedupeByText(list: Recommendation[]): Recommendation[] {
   });
 }
 
-function buildIntro(goal: Goal, weakestLabel: string): string {
-  const focusPhrase = goalFocusPhrases[goal];
+/**
+ * Bei Mehrfachauswahl wird das zuerst ausgewählte Ziel mit einer Fokus-Phrase (also nicht "unsicher")
+ * als "Hauptziel" für den Einstiegssatz verwendet. Reihenfolge in `goals` entspricht der Auswahlreihenfolge.
+ */
+function buildIntro(goals: Goal[], weakestLabel: string): string {
+  const primaryGoal = goals.find((goal) => goalFocusPhrases[goal] !== null);
+  const focusPhrase = primaryGoal ? goalFocusPhrases[primaryGoal] : null;
   if (!focusPhrase) {
     return `Dein größtes Potenzial liegt aktuell im Bereich ${weakestLabel} – hier lohnt sich der erste Blick.`;
   }

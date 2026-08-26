@@ -59,7 +59,7 @@ export const websiteQuestions: ScoredQuestion[] = [
   {
     id: "website-vertrauen-1",
     category: "vertrauen",
-    question: "Zeigt deine Website Kundenstimmen, Bewertungen oder Vorher-Nachher-Bilder?",
+    question: "Wie sichtbar präsentierst du auf deiner Website Vertrauen und Ergebnisse – etwa durch Kundenstimmen, Bewertungen oder Vorher-Nachher-Bilder?",
     answers: [
       { id: "a", label: "Ja, mehrere aktuelle Beispiele sind sichtbar eingebunden.", points: 3 },
       { id: "b", label: "Ein paar, aber schon älter oder nur wenige.", points: 2 },
@@ -109,7 +109,7 @@ export const websiteQuestions: ScoredQuestion[] = [
   {
     id: "website-buchung-1",
     category: "buchung",
-    question: "Wie einfach können Interessentinnen bei dir einen Termin buchen?",
+    question: "Welcher ist der einfachste Weg, über den Interessentinnen aktuell einen Termin bei dir buchen oder anfragen können?",
     answers: [
       { id: "a", label: "Direkt online in wenigen Schritten", points: 3 },
       { id: "b", label: "Über einen klar sichtbaren WhatsApp- oder Kontaktbutton", points: 2 },

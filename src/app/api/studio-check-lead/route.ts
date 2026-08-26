@@ -22,7 +22,7 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: "Zu viele Anfragen. Bitte versuche es später erneut." }, { status: 429 });
   }
 
-  const { firstName, email, contact, message, consent, segment, goal, answers, hp_company } =
+  const { firstName, email, contact, message, consent, segment, goals: rawGoals, goal: legacyGoal, answers, hp_company } =
     (await req.json()) as StudioCheckLeadPayload;
 
   // Honeypot: unsichtbares Feld, das nur Bots ausfüllen. Stiller Erfolg, keine Fehlermeldung.
@@ -30,12 +30,16 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ success: true });
   }
 
+  // Abwärtskompatibilität: ältere Clients senden ein einzelnes `goal` statt `goals`.
+  const goals: Goal[] = Array.isArray(rawGoals) ? rawGoals : legacyGoal ? [legacyGoal] : [];
+
   if (
     !firstName ||
     !email ||
     consent !== true ||
     !VALID_SEGMENTS.includes(segment) ||
-    !VALID_GOALS.includes(goal) ||
+    goals.length === 0 ||
+    !goals.every((g) => VALID_GOALS.includes(g)) ||
     typeof answers !== "object" ||
     answers === null
   ) {
@@ -56,9 +60,9 @@ export async function POST(req: NextRequest) {
 
   // Score, Kategorien und Empfehlungen serverseitig neu berechnen statt dem Client zu vertrauen.
   const questions = getQuestionsForSegment(segment);
-  const result = calculateResult(segment, goal, answers, questions);
+  const result = calculateResult(segment, goals, answers, questions);
   const segmentLabel = segmentOptions.find((o) => o.id === segment)?.label ?? segment;
-  const goalLabel = goalOptions.find((o) => o.id === goal)?.label ?? goal;
+  const goalLabels = goals.map((g) => goalOptions.find((o) => o.id === g)?.label ?? g).join(", ");
 
   const transcript = questions.map((q) => {
     const answer = q.answers.find((a) => a.id === answers[q.id]);
@@ -71,7 +75,7 @@ export async function POST(req: NextRequest) {
     `Website/Instagram: ${contact || "–"}`,
     "",
     `Segment: ${segmentLabel}`,
-    `Ziel: ${goalLabel}`,
+    `Ziele: ${goalLabels}`,
     `Score: ${result.score}/100`,
     ...result.categories.map((c) => `  ${c.label}: ${c.percent}%`),
     `Stärkste Kategorie: ${result.strongest.label}`,

@@ -10,14 +10,14 @@ import type { Goal, Segment } from "@/types/studio-check";
 
 type LeadFormStepProps = {
   segment: Segment;
-  goal: Goal;
+  goals: Goal[];
   answers: Record<string, string>;
   onBack: () => void;
 };
 
 type FieldErrors = Partial<Record<"firstName" | "email" | "consent", string>>;
 
-export function LeadFormStep({ segment, goal, answers, onBack }: LeadFormStepProps) {
+export function LeadFormStep({ segment, goals, answers, onBack }: LeadFormStepProps) {
   const [submitting, setSubmitting] = useState(false);
   const [done, setDone] = useState(false);
   const [errors, setErrors] = useState<FieldErrors>({});
@@ -55,7 +55,7 @@ export function LeadFormStep({ segment, goal, answers, onBack }: LeadFormStepPro
       const response = await fetch("/api/studio-check-lead", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ firstName, email, contact, message, consent, segment, goal, answers, hp_company }),
+        body: JSON.stringify({ firstName, email, contact, message, consent, segment, goals, answers, hp_company }),
       });
       const result = (await response.json()) as { success?: boolean; error?: string };
       if (!response.ok) {

@@ -18,14 +18,14 @@ type Step = "intro" | "segment" | "goal" | "question" | "result" | "lead";
 const initialState = {
   step: "intro" as Step,
   segment: null as Segment | null,
-  goal: null as Goal | null,
+  goals: [] as Goal[],
   answers: {} as Record<string, string>,
   questionIndex: 0,
 };
 
 export function StudioCheck() {
   const [state, setState] = useState(initialState);
-  const { step, segment, goal, answers, questionIndex } = state;
+  const { step, segment, goals, answers, questionIndex } = state;
   const focusTargetRef = useRef<HTMLDivElement>(null);
 
   // Anonymes Funnel-Tracking: jedes Event darf pro Durchlauf nur einmal
@@ -76,9 +76,16 @@ export function StudioCheck() {
     setState((s) => ({ ...s, segment: nextSegment, step: "goal" }));
   }
 
-  function selectGoal(nextGoal: Goal) {
+  function toggleGoal(goalId: Goal) {
     trackFirstAnswerOnce();
-    setState((s) => ({ ...s, goal: nextGoal, step: "question", questionIndex: 0 }));
+    setState((s) => ({
+      ...s,
+      goals: s.goals.includes(goalId) ? s.goals.filter((g) => g !== goalId) : [...s.goals, goalId],
+    }));
+  }
+
+  function confirmGoals() {
+    setState((s) => ({ ...s, step: "question", questionIndex: 0 }));
   }
 
   function selectAnswer(answerId: string) {
@@ -151,9 +158,12 @@ export function StudioCheck() {
           {step === "goal" && (
             <QuestionStep
               question="Was möchtest du mit deinem Online-Auftritt hauptsächlich erreichen?"
+              hint="Mehrfachauswahl möglich"
               options={goalOptions}
-              selectedId={goal ?? undefined}
-              onSelect={(id) => selectGoal(id as Goal)}
+              multiple
+              selectedIds={goals}
+              onToggle={(id) => toggleGoal(id as Goal)}
+              onContinue={confirmGoals}
               onBack={goBack}
               progressCurrent={2}
               progressTotal={totalSteps}
@@ -172,18 +182,18 @@ export function StudioCheck() {
             />
           )}
 
-          {step === "result" && segment && goal && (
+          {step === "result" && segment && goals.length > 0 && (
             <ResultView
-              result={calculateResult(segment, goal, answers, questions)}
+              result={calculateResult(segment, goals, answers, questions)}
               onRestart={restart}
               onOpenLeadForm={openLeadForm}
             />
           )}
 
-          {step === "lead" && segment && goal && (
+          {step === "lead" && segment && goals.length > 0 && (
             <LeadFormStep
               segment={segment}
-              goal={goal}
+              goals={goals}
               answers={answers}
               onBack={() => setState((s) => ({ ...s, step: "result" }))}
             />

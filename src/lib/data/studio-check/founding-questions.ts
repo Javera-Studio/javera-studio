@@ -135,7 +135,7 @@ export const foundingQuestions: ScoredQuestion[] = [
   {
     id: "founding-buchung-2",
     category: "buchung",
-    question: "Hast du bereits Kontaktmöglichkeiten (Telefonnummer, geschäftliche E-Mail, Social-Media-Profil) eingerichtet?",
+    question: "Wie vollständig hast du deine zukünftigen Kontaktmöglichkeiten wie Telefonnummer, geschäftliche E-Mail und Social-Media-Profil bereits eingerichtet?",
     answers: [
       { id: "a", label: "Ja, alles ist bereits eingerichtet und einsatzbereit.", points: 3 },
       { id: "b", label: "Das meiste, ein oder zwei Dinge fehlen noch.", points: 2 },

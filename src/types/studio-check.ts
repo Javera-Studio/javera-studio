@@ -68,7 +68,8 @@ export type CtaConfig = {
 
 export type StudioCheckResult = {
   segment: Segment;
-  goal: Goal;
+  /** Eine oder mehrere ausgewählte Zielsetzungen; hat keinen Einfluss auf Score/Kategorien, nur auf den Einstiegssatz. */
+  goals: Goal[];
   score: number;
   categories: CategoryResult[];
   strongest: CategoryResult;
@@ -77,7 +78,11 @@ export type StudioCheckResult = {
   intro: string;
 };
 
-/** Request-Body für POST /api/studio-check-lead. answers wird serverseitig neu ausgewertet, nicht dem Client vertraut. */
+/**
+ * Request-Body für POST /api/studio-check-lead. answers wird serverseitig neu ausgewertet, nicht dem Client vertraut.
+ * `goals` ist die aktuelle Form (Mehrfachauswahl). Die Route akzeptiert zusätzlich das ältere einzelne `goal`-Feld
+ * (einzelner String) abwärtskompatibel und normalisiert es intern zu einem Array.
+ */
 export type StudioCheckLeadPayload = {
   firstName: string;
   email: string;
@@ -85,7 +90,9 @@ export type StudioCheckLeadPayload = {
   message?: string;
   consent: boolean;
   segment: Segment;
-  goal: Goal;
+  goals: Goal[];
+  /** @deprecated Nur für Abwärtskompatibilität mit älteren Clients – neue Clients senden `goals`. */
+  goal?: Goal;
   answers: Record<string, string>;
   hp_company?: string;
 };
