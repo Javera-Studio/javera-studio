@@ -6,7 +6,6 @@ import { ContactForm } from "@/components/ContactForm";
 import { SiteFooter } from "@/components/SiteFooter";
 import { QuoteSection } from "@/components/QuoteSection";
 import { ScrollRevealInit } from "@/components/ScrollRevealInit";
-import { AiLabel } from "@/components/AiLabel";
 import { brandQuotes } from "@/lib/brand-quotes";
 import { pricing, formatEuro } from "@/lib/data/pricing";
 
@@ -524,7 +523,6 @@ export default function PreisePage() {
                   fill
                   className="object-cover"
                 />
-                <AiLabel className="top-2 left-2" />
               </div>
               <div className="w-[78%] ml-auto mr-6 -mt-12 md:ml-0 md:mr-0 md:mt-0 md:absolute md:left-0 md:right-auto md:-bottom-12 md:w-[68%] md:-translate-x-[14%] bg-rose-gold-soft rounded-[32px] p-8 md:p-11">
                 <p className="font-serif text-lg md:text-xl text-ink leading-relaxed">

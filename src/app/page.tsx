@@ -9,7 +9,6 @@ import { ScrollRevealInit } from "@/components/ScrollRevealInit";
 import { FaqHashOpen } from "@/components/FaqHashOpen";
 import { SiteFooter } from "@/components/SiteFooter";
 import { QuoteSection } from "@/components/QuoteSection";
-import { AiLabel } from "@/components/AiLabel";
 import { brandQuotes } from "@/lib/brand-quotes";
 
 export const metadata: Metadata = {
@@ -82,7 +81,6 @@ function Hero() {
     <section id="top" className="relative min-h-screen flex items-center justify-center overflow-hidden text-primary-foreground" style={{ backgroundColor: "#F8F5F2" }}>
       <HeroVideo />
       <div className="absolute inset-0" style={{ backgroundColor: "rgba(28, 13, 7, 0.52)" }} aria-hidden />
-      <AiLabel className="bottom-6 left-6" />
       <div className="relative z-10 max-w-6xl mx-auto px-6 pt-40 pb-28 md:pt-48 md:pb-36 text-center">
         <h1 className="hero-headline font-serif text-[2.7rem] md:text-[3.375rem] lg:text-[4.05rem] leading-[1.05] text-white">
           Eine hochwertige Behandlung
@@ -219,7 +217,6 @@ function Warum() {
           <figure className="reveal">
             <div className="relative rounded-[2rem] overflow-hidden aspect-[4/5]">
               <Image src="/bild1.png" alt="Website auf dem Smartphone – der erste Eindruck online" loading="lazy" width={1024} height={1280} className="w-full h-full object-cover" />
-              <AiLabel />
             </div>
             <figcaption className="mt-5 text-center">
               <span className="block text-[11px] uppercase tracking-[0.2em] text-muted-foreground">01 — Online</span>
@@ -236,7 +233,6 @@ function Warum() {
           <figure className="reveal reveal-delay">
             <div className="relative rounded-[2rem] overflow-hidden aspect-[4/5]">
               <Image src="/success.jpg" alt="Modernes, gebuchtes Beauty Studio mit zufriedener Kundin" loading="lazy" width={1024} height={1280} className="w-full h-full object-cover" />
-              <AiLabel />
             </div>
             <figcaption className="mt-5 text-center">
               <span className="block text-[11px] uppercase tracking-[0.2em] text-muted-foreground">02 — Im Studio</span>
@@ -816,7 +812,6 @@ function CTA() {
         <div className="relative order-2 md:order-1 flex flex-col">
           <div className="reveal relative flex-1 rounded-3xl overflow-hidden shadow-xl shadow-ink/10">
             <Image src="/anfrage.png" alt="Beauty Studio Besitzerin arbeitet entspannt am Laptop" loading="lazy" width={1536} height={1024} className="w-full h-full object-cover" />
-            <AiLabel />
           </div>
           <div aria-hidden className="absolute -z-10 -bottom-6 -left-6 w-full h-full rounded-3xl" style={{ backgroundColor: "var(--mint-soft)" }} />
         </div>

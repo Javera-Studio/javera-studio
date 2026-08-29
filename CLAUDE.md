@@ -287,7 +287,13 @@ Umsetzung in diesem Repo: `src/app/robots.ts`, `src/app/sitemap.ts`, `public/.we
 
 # KI-generierte Bilder – Kennzeichnung
 
-Wenn Jagoda sagt „als KI generiert markiert" (oder sinngemäß „markiere als KI-generiert"), gilt für JEDES betroffene Bild/Video auf der Website immer folgendes Muster (keine Rückfrage nötig, direkt so umsetzen):
+> **Aktueller Stand (auf Wunsch entfernt):** Die früheren per-Bild `AiLabel`-Badges wurden
+> auf ausdrückliche Anweisung von allen Seiten entfernt (Komponente `src/components/AiLabel.tsx`
+> gelöscht). Der site-weite Hinweis „Diese Website enthält teilweise KI-generierte Bilder und
+> Videos …" im `SiteFooter` sowie die Zeile im Impressum bleiben bestehen. Die folgende
+> Beschreibung ist nur noch Referenz – Badges erst bei erneuter ausdrücklicher Anweisung wieder einbauen.
+
+Wenn Jagoda sagt „als KI generiert markiert" (oder sinngemäß „markiere als KI-generiert"), gilt für JEDES betroffene Bild/Video auf der Website folgendes Muster:
 
 - Kleines, halbtransparentes AI-Icon ganz unten in der Bildecke (klein, unaufdringlich).
 - Bei Hover (Desktop) bzw. Tap (Mobile) erscheint daneben – ebenfalls halbtransparent – der Text „KI-generierte Bilddarstellung".

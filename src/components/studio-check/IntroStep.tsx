@@ -1,5 +1,4 @@
 import Image from "next/image";
-import { AiLabel } from "@/components/AiLabel";
 
 export function IntroStep({ onStart }: { onStart: () => void }) {
   return (
@@ -36,7 +35,6 @@ export function IntroStep({ onStart }: { onStart: () => void }) {
               className="w-full h-full object-cover"
               priority
             />
-            <AiLabel />
           </div>
         </div>
 
