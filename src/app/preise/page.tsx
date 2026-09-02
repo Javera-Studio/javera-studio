@@ -10,18 +10,18 @@ import { brandQuotes } from "@/lib/brand-quotes";
 import { pricing, formatEuro } from "@/lib/data/pricing";
 
 export const metadata: Metadata = {
-  title: "Preise Webdesign & Branding für Beauty-Studios | JAVERA Studio",
-  description: "Transparente Preise für Websites, Logo Design, Flyer, Visitenkarten und Social Media Design für Nagelstudios, Kosmetikstudios, Wimpernstudios, PMU-Studios und Waxing-Studios.",
+  title: "Preise Webdesign & visueller Markenauftritt für Beauty-Studios | JAVERA Studio",
+  description: "Transparente Preise für Websites, visuellen Markenauftritt, Flyer, Visitenkarten und Social Media Design für Nagelstudios, Kosmetikstudios, Wimpernstudios, PMU-Studios und Waxing-Studios.",
   alternates: { canonical: "https://www.javera-studio.at/preise" },
   openGraph: {
-    title: "Preise Webdesign & Branding für Beauty-Studios | JAVERA Studio",
-    description: "Transparente Preise für Websites, Logo Design, Flyer, Visitenkarten und Social Media Design für Nagelstudios, Kosmetikstudios, Wimpernstudios, PMU-Studios und Waxing-Studios.",
+    title: "Preise Webdesign & visueller Markenauftritt für Beauty-Studios | JAVERA Studio",
+    description: "Transparente Preise für Websites, visuellen Markenauftritt, Flyer, Visitenkarten und Social Media Design für Nagelstudios, Kosmetikstudios, Wimpernstudios, PMU-Studios und Waxing-Studios.",
     url: "https://www.javera-studio.at/preise",
     images: [{ url: "/og-image.jpg", width: 1200, height: 630 }],
   },
   twitter: {
-    title: "Preise Webdesign & Branding für Beauty-Studios | JAVERA Studio",
-    description: "Transparente Preise für Websites, Logo Design, Flyer, Visitenkarten und Social Media Design für Nagelstudios, Kosmetikstudios, Wimpernstudios, PMU-Studios und Waxing-Studios.",
+    title: "Preise Webdesign & visueller Markenauftritt für Beauty-Studios | JAVERA Studio",
+    description: "Transparente Preise für Websites, visuellen Markenauftritt, Flyer, Visitenkarten und Social Media Design für Nagelstudios, Kosmetikstudios, Wimpernstudios, PMU-Studios und Waxing-Studios.",
     images: ["/og-image.jpg"],
   },
 };
@@ -72,7 +72,7 @@ export default function PreisePage() {
 
   const premiumDesignContent: FeatureItem[] = [
     { included: true, title: "Premium Branding & Design", desc: "Hochwertiger Markenauftritt mit exklusivem Design." },
-    { included: true, title: "Mehrere Seiten", desc: "Mehr Platz für Leistungen, Bewertungen, Über mich und mehr." },
+    { included: true, title: "Bis zu 5 Seiten", desc: "Mehr Platz für Leistungen, Bewertungen, Über mich und mehr. Zusatzseiten werden nach Aufwand kalkuliert." },
     { included: true, title: "Professionelle Texte", desc: "Texte werden individuell auf dein Business abgestimmt." },
     { included: true, title: "Erweiterte Galerie", desc: "Mehr Bilder, Vorher-Nachher-Ergebnisse und Referenzen." },
     { included: true, title: "Barrierefreiheit nach WCAG 2.2 AA", desc: "Deine Website ist so gebaut, dass sie auch für Menschen mit Seh- oder Bewegungseinschränkungen gut nutzbar ist – zusätzliches Vertrauenssignal für deine Kundinnen und ein Pluspunkt bei Google." },
@@ -107,16 +107,14 @@ export default function PreisePage() {
     price: formatEuro(item.betrag),
   }));
 
-  const logoPricing = pricing.branding.find((item) => item.titel === "Logo Design")!;
   const beautyStudioKomplett = pricing.pakete.find((item) => item.titel === "Beauty Studio Komplett")!;
   const maxRaten = Math.max(...pricing.zahlung.ratenzahlung.map((r) => r.raten));
 
   const preiseFaqs = [
-    { q: "Was kostet eine Website für ein Beauty-Studio?", a: `Eine Starter Website (One-Pager) startet bei ${formatEuro(pricing.websites.starter.betrag)}, eine Premium Website mit mehreren Seiten ab ${formatEuro(pricing.websites.premium.betrag)}. Der genaue Preis hängt vom Umfang deines Studios ab.` },
-    { q: "Was kostet ein Logo für ein Beauty-Studio?", a: `Ein Logo-Design kostet ${formatEuro(logoPricing.betrag)} und beinhaltet 3 Entwürfe, Farbvarianten sowie PNG- und PDF-Dateien.` },
+    { q: "Was kostet eine Website für ein Beauty-Studio?", a: `Eine Starter Website (One-Pager) startet bei ${formatEuro(pricing.websites.starter.betrag)}, eine Premium Website mit bis zu 5 Seiten ab ${formatEuro(pricing.websites.premium.betrag)}. ${pricing.websites.premium.zusatzseitenHinweis} Der genaue Preis hängt vom Umfang deines Studios ab.` },
     { q: "Sind Hosting und Domain im Preis enthalten?", a: `Nein. Domain und Hosting laufen direkt über einen externen Anbieter auf deinen Namen und kosten ca. ${formatEuro(pricing.technik.domainHosting.betrag)} pro Jahr. So behältst du die volle Kontrolle über deine Website.` },
     { q: "Gibt es versteckte Kosten?", a: "Nein. Alle Preise sind transparent aufgelistet. Laufende Kosten wie Domain, Hosting und Wartung sind klar gekennzeichnet und werden vorab besprochen." },
-    { q: "Kann ich Website, Logo und Flyer zusammen buchen?", a: `Ja. Im Paket 'Beauty Studio Komplett' erhältst du Premium Website, Logo, 10 Social Media Posts, Flyer und ein Google Business Profil für ${formatEuro(beautyStudioKomplett.betrag)} statt ${formatEuro(beautyStudioKomplett.statt)} einzeln.` },
+    { q: "Was ist im Paket 'Beauty Studio Komplett' enthalten?", a: `Im Paket 'Beauty Studio Komplett' erhältst du eine Premium Website (bis zu 5 Seiten), deinen visuellen Markenauftritt, ein Google Business Profil (Einrichtung oder Optimierung), die Einrichtung der Google Search Console, einen zweiseitigen Flyer sowie das Social Media Visibility Paket – für ${formatEuro(beautyStudioKomplett.betrag)}. Zusatzseiten über die 5 Seiten hinaus werden nach Aufwand kalkuliert.` },
     { q: "Wie viel kostet die laufende Wartung meiner Website?", a: `Das Wartungspaket kostet ${formatEuro(pricing.technik.wartung.betrag)} pro Monat und beinhaltet bis zu 4 kleine Änderungen (Texte, Fotos, Aktionen). Einzelne spontane Änderungen ohne Paket kosten ${formatEuro(pricing.technik.einzelaenderung.betrag)} einmalig.` },
     { q: "Wie läuft die Bezahlung ab?", a: `Ich arbeite transparent und ohne versteckte Kosten. Nach dem Erstgespräch erhältst du ein individuelles Festpreis-Angebot. Nach deiner Zusage werden ${pricing.zahlung.anzahlungProzent} % des Betrags als Anzahlung fällig, die restlichen ${pricing.zahlung.anzahlungProzent} % nach Fertigstellung deiner Website oder deines Projekts.` },
     { q: "Warum kostet eine professionelle Website mehr als ein Baukasten?", a: "Eine professionelle Website ist individuell auf dein Beauty-Studio abgestimmt und wird speziell für deine Marke gestaltet. Im Gegensatz zu einem Baukastensystem erhältst du keine Standardvorlage, sondern eine Website, die dein Studio professionell präsentiert, Vertrauen schafft und auf deine Zielgruppe zugeschnitten ist. Dazu gehören unter anderem individuelles Design, eine klare Struktur, Suchmaschinenoptimierung, mobile Optimierung sowie persönliche Betreuung während des gesamten Projekts. Viele Beauty-Studios investieren mehrere Tausend Euro in ihre Einrichtung, Geräte oder Schulungen. Die Website ist jedoch oft der erste Eindruck, den potenzielle Kundinnen von deinem Studio bekommen – sie ist dein digitales Schaufenster und spielt eine entscheidende Rolle dabei, ob jemand Vertrauen fasst und einen Termin bei dir anfragt." },
@@ -303,13 +301,14 @@ export default function PreisePage() {
                 Empfohlen
               </div>
               <p className="text-lg font-semibold text-ink mb-1">{pricing.websites.premium.titel}</p>
-              <p className="text-sm text-muted-foreground">Mehrseiter · je nach Wunsch &amp; Umfang</p>
+              <p className="text-sm text-muted-foreground">{pricing.websites.premium.beschreibung}</p>
               <div className="py-5">
                 <div className="text-3xl font-bold text-ink leading-none">
                   {pricing.websites.premium.betragPraefix} {formatEuro(pricing.websites.premium.betrag)}{" "}
                   <span className="text-sm font-normal text-muted-foreground">{pricing.websites.premium.einheit}</span>
                 </div>
                 <p className="text-sm text-muted-foreground mt-2">{pricing.websites.premium.seiten} · {pricing.websites.premium.dauer}</p>
+                <p className="text-xs text-muted-foreground mt-1">{pricing.websites.premium.zusatzseitenHinweis}</p>
               </div>
               <div className="h-px bg-ink/10 mb-5" />
               <SectionLabel>Design &amp; Inhalt</SectionLabel>
@@ -427,14 +426,13 @@ export default function PreisePage() {
               <p className="font-semibold text-ink mb-1">{pricing.pakete[0].titel}</p>
               <p className="text-xs text-muted-foreground">{pricing.pakete[0].beschreibung}</p>
               <p className="text-2xl font-bold text-ink mt-auto pt-4">{formatEuro(pricing.pakete[0].betrag)}</p>
-              <p className="text-xs text-muted-foreground mt-1">statt {formatEuro(pricing.pakete[0].statt)} einzeln</p>
             </div>
             <div className="relative bg-[#E5DCD5]/50 rounded-[2rem] p-6">
               <div className="absolute -top-3 left-6 bg-accent text-primary text-[11px] font-semibold px-3 py-1 rounded-full">Komplett</div>
               <p className="font-semibold text-ink mb-1 mt-1">{pricing.pakete[1].titel}</p>
               <p className="text-xs text-muted-foreground mb-4">{pricing.pakete[1].beschreibung}</p>
               <p className="text-2xl font-bold text-ink">{formatEuro(pricing.pakete[1].betrag)}</p>
-              <p className="text-xs text-muted-foreground mt-1">statt {formatEuro(pricing.pakete[1].statt)} einzeln</p>
+              <p className="text-[11px] text-muted-foreground mt-2 leading-snug">{pricing.pakete[1].hinweis}</p>
             </div>
             <div className="bg-background rounded-[2rem] p-6">
               <p className="font-semibold text-ink mb-1">{pricing.pakete[2].titel}</p>

@@ -13,11 +13,11 @@ import { brandQuotes } from "@/lib/brand-quotes";
 
 export const metadata: Metadata = {
   title: "Javera Studio — Webdesign · Grafik · Branding für Beauty Studios Wien",
-  description: "Website, Branding & Grafik für Beauty Studios in Wien. Von der Website über das Logo bis zu Flyern & Social Media – individuell gestaltet, professionell umgesetzt.",
+  description: "Website, Branding & Grafik für Beauty Studios in Wien. Von der Website über den visuellen Markenauftritt bis zu Flyern & Social Media – individuell gestaltet, professionell umgesetzt.",
   alternates: { canonical: "https://www.javera-studio.at/" },
   openGraph: {
     title: "Javera Studio — Webdesign · Grafik · Branding für Beauty Studios Wien",
-    description: "Website, Branding & Grafik für Beauty Studios in Wien. Von der Website über das Logo bis zu Flyern & Social Media – individuell gestaltet, professionell umgesetzt.",
+    description: "Website, Branding & Grafik für Beauty Studios in Wien. Von der Website über den visuellen Markenauftritt bis zu Flyern & Social Media – individuell gestaltet, professionell umgesetzt.",
     url: "https://www.javera-studio.at/",
     images: [{ url: "/og-image.jpg", width: 1200, height: 630 }],
   },
@@ -42,7 +42,7 @@ const benefits = [
   "Vertrauen entscheidet — Eine professionelle Website schafft Vertrauen und hebt dein Studio von der Konkurrenz ab.",
   "Instagram allein reicht selten aus — Social Media ist wichtig – eine Website gibt deinem Studio ein dauerhaftes Zuhause im Internet und ergänzt deinen Online-Auftritt.",
   "Bei Google gefunden werden — Viele Kundinnen suchen aktiv nach Beauty-Studios in ihrer Nähe. Eine suchmaschinenoptimierte Website erhöht deine Sichtbarkeit und sorgt für mehr Anfragen.",
-  "Ein einheitlicher Markenauftritt — Website, Logo, Social Media und Print arbeiten zusammen und sorgen für einen professionellen, wiedererkennbaren Auftritt.",
+  "Ein einheitlicher Markenauftritt — Website, visueller Markenauftritt, Social Media und Print arbeiten zusammen und sorgen für einen professionellen, wiedererkennbaren Auftritt.",
 ];
 
 const javeraPoints = [
@@ -72,7 +72,7 @@ const faqs = [
   { q: "Was passiert, wenn mir die Website nicht gefällt?", a: "Wir passen sie so lange an, bis sie wirklich zu deinem Studio passt. Dein Feedback ist fester Teil des Prozesses." },
   { q: "Wie lange dauert es, bis meine Website fertig ist?", a: "Die erste Demo bekommst du meist innerhalb weniger Tage. Die finale Umsetzung hängt vom Abstimmungstempo ab, bleibt aber bewusst schnell und unkompliziert." },
   { q: "Ich bin kein Technik-Mensch – ist das ein Problem?", a: "Nein. Ich erkläre dir jeden Schritt verständlich und übernehme die komplette Technik – Domain, Hosting und Einrichtung inklusive." },
-  { q: "Kann ich auch nur ein Logo oder Social Media Design bestellen – ohne Website?", a: "Ja. Website, Logo, Flyer und Social Media Design sind einzeln buchbar – ganz gleich ob du ein Nagelstudio, Wimpernstudio oder PMU-Studio führst." },
+  { q: "Kann ich auch nur Social Media Design oder Print bestellen – ohne Website?", a: "Ja. Website, visueller Markenauftritt, Flyer und Social Media Design sind einzeln buchbar – ganz gleich ob du ein Nagelstudio, Wimpernstudio oder PMU-Studio führst." },
   { q: "Kann ich meine Website auch in Raten bezahlen?", id: "faq-ratenzahlung", a: "Ja. Gerade der Start in die Selbstständigkeit bringt viele Investitionen mit sich. Deshalb biete ich für größere Projekte auf Wunsch eine zinsfreie Ratenzahlung in bis zu 4 Teilzahlungen an. Gemeinsam finden wir eine Lösung, die zu deinem Budget passt." },
 ];
 
@@ -247,7 +247,7 @@ function Warum() {
 
 function Angebot() {
   const free = ["Erstgespräch & Kennenlernen", "Projektbesprechung & erste Ideen", "Erste Design-/Demo-Vorschau", "Individuelle Konzeptideen für deinen Online-Auftritt", "Beratung zu Aufbau, Buchungssystem & Struktur"];
-  const paid = ["Online-Präsenz Analyse & Optimierungsplan", "Individuelle Website-Erstellung", "Logo Design & Branding-Elemente", "Flyer, Visitenkarten & Print-Design (druckfertig)", "Social Media Design (Posts, Stories, Cover Sets)", "Mobile Optimierung & SEO-Grundoptimierung", "Domain & Hosting Einrichtung", "Buchungs-/Kalenderlösungen", "Zusätzliche Unterseiten oder Erweiterungen", "Änderungen, Pflege & laufende Betreuung der Inhalte"];
+  const paid = ["Online-Präsenz Analyse & Optimierungsplan", "Individuelle Website-Erstellung", "Visueller Markenauftritt (Farben, Typografie, Bildsprache)", "Flyer, Visitenkarten & Print-Design (druckfertig)", "Social Media Design (Posts, Stories, Cover Sets)", "Mobile Optimierung & SEO-Grundoptimierung", "Domain & Hosting Einrichtung", "Buchungs-/Kalenderlösungen", "Zusätzliche Unterseiten oder Erweiterungen", "Änderungen, Pflege & laufende Betreuung der Inhalte"];
 
   return (
     <section id="angebot" className="py-12 md:py-16 bg-cream">
@@ -593,7 +593,7 @@ function FeaturedLuxe() {
     { src: "/luxe-social-3.png", alt: "Social Media Template 3", span: "md:col-span-4", aspect: "aspect-[9/16]", label: "Social Post" },
     { src: "/luxe-gutschein.png", alt: "Gutschein Mockup", span: "md:col-span-12", aspect: "aspect-[16/9]", label: "Gutscheine" },
   ];
-  const bullets = ["Website Design", "Logo Design", "Preislisten", "Gutscheine", "Social Media Templates", "Visitenkarten"];
+  const bullets = ["Website Design", "Visueller Markenauftritt", "Preislisten", "Gutscheine", "Social Media Templates", "Visitenkarten"];
 
   return (
     <section className="relative py-14 md:py-20 bg-background overflow-hidden">
@@ -639,7 +639,7 @@ function FeaturedLuxe() {
             <div>
               <div className="text-[11px] uppercase tracking-[0.28em] text-muted-foreground mb-3">Brand Identity</div>
               <h4 className="font-serif text-2xl md:text-3xl text-ink">Visuelle Markenwelt</h4>
-              <p className="mt-3 text-sm text-muted-foreground max-w-md leading-relaxed">Jedes Element — vom Logo bis zum Gutschein — ist aufeinander abgestimmt und auf deine Zielgruppe zugeschnitten.</p>
+              <p className="mt-3 text-sm text-muted-foreground max-w-md leading-relaxed">Jedes Element — vom Farbkonzept bis zum Gutschein — ist aufeinander abgestimmt und auf deine Zielgruppe zugeschnitten.</p>
             </div>
             <div className="hidden md:block text-xs text-muted-foreground italic">Branding · Print · Social</div>
           </div>
@@ -667,7 +667,7 @@ function Javera() {
           <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-4">Warum Javera Studio</div>
           <h2 className="reveal font-serif text-4xl md:text-5xl text-ink leading-tight">Mehr als eine Website – dein komplettes visuelles Erscheinungsbild, das Kundinnen bringt.</h2>
           <div className="reveal reveal-delay mt-6 space-y-4 text-muted-foreground text-lg leading-relaxed">
-            <p>Von der Website über das Logo bis zu Instagram-Posts und Flyern – ich gestalte alles, was dein Beauty Studio sichtbar und unverwechselbar macht.</p>
+            <p>Von der Website über den visuellen Markenauftritt bis zu Instagram-Posts und Flyern – ich gestalte alles, was dein Beauty Studio sichtbar und unverwechselbar macht.</p>
             <p>Du bekommst kein Fertigprodukt von der Stange, sondern ein durchgängiges visuelles Konzept, das zu deiner Marke, deinem Stil und deinen Kundinnen passt.</p>
             <p className="text-ink font-medium">Starte mit einer kostenlosen Website-Analyse – ich zeige dir, wo Potenzial steckt und was dein Auftritt wirklich braucht.</p>
           </div>

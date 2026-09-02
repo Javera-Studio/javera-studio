@@ -10,18 +10,18 @@ import { SiteFooter } from "@/components/SiteFooter";
 import { Search, Monitor, Palette, MapPin, Printer, CreditCard, ClipboardCheck, Gauge, type LucideIcon } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Webdesign für Beauty-Studios | Websites, Branding & Google Business | JAVERA Studio",
-  description: "Professionelles Webdesign, Branding, Google Business, Social Media Design und Drucksorten für Kosmetikstudios, Nagelstudios, PMU-, Lash- & Brow-Studios sowie Beauty Academies.",
+  title: "Webdesign für Beauty-Studios | Websites, visueller Markenauftritt & Google Business | JAVERA Studio",
+  description: "Professionelles Webdesign, visueller Markenauftritt, Google Business, Social Media Design und Drucksorten für Kosmetikstudios, Nagelstudios, PMU-, Lash- & Brow-Studios sowie Beauty Academies.",
   alternates: { canonical: "https://www.javera-studio.at/leistungen" },
   openGraph: {
-    title: "Webdesign für Beauty-Studios | Websites, Branding & Google Business | JAVERA Studio",
-    description: "Professionelles Webdesign, Branding, Google Business, Social Media Design und Drucksorten für Kosmetikstudios, Nagelstudios, PMU-, Lash- & Brow-Studios sowie Beauty Academies.",
+    title: "Webdesign für Beauty-Studios | Websites, visueller Markenauftritt & Google Business | JAVERA Studio",
+    description: "Professionelles Webdesign, visueller Markenauftritt, Google Business, Social Media Design und Drucksorten für Kosmetikstudios, Nagelstudios, PMU-, Lash- & Brow-Studios sowie Beauty Academies.",
     url: "https://www.javera-studio.at/leistungen",
     images: [{ url: "/og-image.jpg", width: 1200, height: 630 }],
   },
   twitter: {
-    title: "Webdesign für Beauty-Studios | Websites, Branding & Google Business | JAVERA Studio",
-    description: "Professionelles Webdesign, Branding, Google Business, Social Media Design und Drucksorten für Kosmetikstudios, Nagelstudios, PMU-, Lash- & Brow-Studios sowie Beauty Academies.",
+    title: "Webdesign für Beauty-Studios | Websites, visueller Markenauftritt & Google Business | JAVERA Studio",
+    description: "Professionelles Webdesign, visueller Markenauftritt, Google Business, Social Media Design und Drucksorten für Kosmetikstudios, Nagelstudios, PMU-, Lash- & Brow-Studios sowie Beauty Academies.",
     images: ["/og-image.jpg"],
   },
 };
@@ -79,7 +79,7 @@ const services: ServiceCard[] = [
     icon: Monitor,
     badge: "🚀 Ideal für Gründerinnen & Redesigns",
     title: "Professionelle Websites",
-    desc: "Ob One-Pager oder mehrseitige Premium Website – ich gestalte deinen Online-Auftritt individuell für dein Kosmetikstudio, Nagelstudio, Lash- oder Brow-Studio, PMU-Studio oder deine Beauty Academy. Responsive, mobil optimiert und mit SEO-Grundoptimierung für bessere Sichtbarkeit bei Google.",
+    desc: "Ob One-Pager oder Premium Website mit bis zu 5 Seiten – ich gestalte deinen Online-Auftritt individuell für dein Kosmetikstudio, Nagelstudio, Lash- oder Brow-Studio, PMU-Studio oder deine Beauty Academy. Zusatzseiten werden nach Aufwand kalkuliert. Responsive, mobil optimiert und mit SEO-Grundoptimierung für bessere Sichtbarkeit bei Google.",
     points: ["One-Pager", "Premium Website", "Responsive Design", "SEO-Grundoptimierung"],
     buttonLabel: "Mehr erfahren",
     href: "/preise#website",
@@ -94,9 +94,9 @@ const services: ServiceCard[] = [
   },
   {
     icon: Palette,
-    title: "Branding & Social Media Design",
-    desc: "Ein starkes Branding schafft Wiedererkennung und Vertrauen – von Logo, Farbwelt und Typografie bis zum passenden Auftritt auf Instagram & Co. Ich gestalte Story-Vorlagen, Highlight-Cover und Feed-Templates, die zu deinem Corporate Design passen.",
-    points: ["Logo & Corporate Design", "Farben & Typografie", "Story-Vorlagen & Feed-Templates", "Highlight-Cover"],
+    title: "Visueller Markenauftritt & Social Media Design",
+    desc: "Ein starker visueller Markenauftritt schafft Wiedererkennung und Vertrauen – von Farbwelt und Typografie bis zum passenden Auftritt auf Instagram & Co. Ich gestalte Story-Vorlagen, Highlight-Cover und Feed-Templates, die zu deinem Markenauftritt passen.",
+    points: ["Farb- & Typografie-Konzept", "Bildsprache", "Story-Vorlagen & Feed-Templates", "Highlight-Cover"],
     buttonLabel: "Mehr erfahren",
     href: "/preise#grafik-print",
   },
@@ -137,11 +137,10 @@ const faqs = [
   { q: "Wie lange dauert die Erstellung?", a: "Eine Starter Website ist meist innerhalb von 5–7 Tagen fertig, eine Premium Website nach 10–14 Tagen. Die erste Demo bekommst du oft schon nach wenigen Tagen, danach passe ich gemeinsam mit dir die Feinheiten an." },
   { q: "Kann ich meine Website später erweitern?", a: "Ja. Du kannst jederzeit weitere Unterseiten, Funktionen oder Inhalte ergänzen lassen – deine Website wächst mit deinem Studio mit." },
   { q: "Kann ich meine Website auch in Raten bezahlen?", a: "Ja. Für größere Projekte biete ich auf Wunsch eine zinsfreie Ratenzahlung in bis zu 4 Teilzahlungen an, damit der Start in die Selbstständigkeit nicht am Budget scheitert." },
-  { q: "Kann ich auch einzelne Leistungen buchen?", a: "Ja. Website, Branding, Google Business, Social Media Design und Drucksorten sind einzeln buchbar – du musst nicht alles auf einmal beauftragen." },
-  { q: "Erstellt JAVERA Studio auch Logos?", a: "Ja. Ich gestalte individuelle Logos inklusive mehrerer Entwürfe, Farbvarianten und druckfertiger Dateien – abgestimmt auf dein Beauty-Unternehmen." },
+  { q: "Kann ich auch einzelne Leistungen buchen?", a: "Ja. Website, visueller Markenauftritt, Google Business, Social Media Design und Drucksorten sind einzeln buchbar – du musst nicht alles auf einmal beauftragen." },
   { q: "Übernimmt JAVERA Studio Google Business?", a: "Ja. Ich richte dein Google Business Profil ein oder optimiere ein bestehendes Profil, damit dein Studio auf Google Maps besser gefunden wird." },
   { q: "Kann ich ein individuelles Paket anfragen?", a: "Ja, jederzeit. Jedes Beauty-Unternehmen ist unterschiedlich – deshalb lassen sich alle Leistungen individuell kombinieren. Ein maßgeschneidertes Paket ist immer möglich, einfach unverbindlich anfragen." },
-  { q: "Brauche ich bereits ein Logo?", a: "Nein. Falls du noch kein Logo hast, entwickle ich es gemeinsam mit dir – als Teil deines Branding-Pakets oder einzeln buchbar." },
+  { q: "Brauche ich bereits ein Logo?", a: "Nein, nicht zwingend. Wenn du bereits ein Logo hast, integriere ich es in deinen neuen Markenauftritt. Wenn noch keines vorhanden ist, können wir Website, Farben, Typografie und Bildsprache trotzdem entwickeln. Die Logo-Erstellung selbst ist nicht Bestandteil meines Angebots." },
   { q: "Kann ich später weitere Leistungen ergänzen?", a: "Ja. Ob zusätzliche Social Media Designs, weitere Drucksorten oder eine Erweiterung deiner Website – du kannst jederzeit weitere Leistungen dazubuchen." },
 ];
 
@@ -371,7 +370,7 @@ export default function LeistungenPage() {
           <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-4">Aus einer Hand</div>
           <h2 className="reveal font-serif text-3xl md:text-4xl text-ink leading-tight">Alles aus einer Hand</h2>
           <p className="reveal reveal-delay mt-6 text-muted-foreground text-lg leading-relaxed">
-            Website, Logo, Google Business und Drucksorten sollten optisch zusammenpassen – nur so entsteht ein stimmiger, professioneller Markenauftritt. Bei JAVERA Studio bekommst du ein einheitliches Design über alle Kanäle hinweg, ohne mehrere Anbieter koordinieren zu müssen.
+            Website, visueller Markenauftritt, Google Business und Drucksorten sollten optisch zusammenpassen – nur so entsteht ein stimmiger, professioneller Markenauftritt. Bei JAVERA Studio bekommst du ein einheitliches Design über alle Kanäle hinweg, ohne mehrere Anbieter koordinieren zu müssen.
           </p>
         </div>
       </section>

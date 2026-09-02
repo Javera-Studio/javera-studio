@@ -51,7 +51,7 @@ export const faqCategories: FaqCategory[] = [
       {
         id: "faq-website-premium",
         question: "Was ist eine Premium-Website?",
-        answer: "Die Premium Website ist eine mehrseitige Website mit eigenen Unterseiten für Leistungen, Preise, Über mich, FAQ und weitere Themen. Sie bietet mehr Raum für deine Behandlungen, Ergebnisse und Kundenstimmen und eignet sich besonders für Studios mit größerem Leistungsangebot oder Wachstumsplänen. Zusätzlich profitierst du von einer klareren Seitenstruktur, die sich positiv auf deine Sichtbarkeit bei Google auswirkt.",
+        answer: "Die Premium Website ist eine mehrseitige Website mit bis zu 5 eigenen Unterseiten für Leistungen, Preise, Über mich, FAQ und weitere Themen. Sie bietet mehr Raum für deine Behandlungen, Ergebnisse und Kundenstimmen und eignet sich besonders für Studios mit größerem Leistungsangebot oder Wachstumsplänen. Zusätzlich profitierst du von einer klareren Seitenstruktur, die sich positiv auf deine Sichtbarkeit bei Google auswirkt. Benötigst du mehr als 5 Seiten, werden Zusatzseiten nach Aufwand kalkuliert.",
         relatedLinks: [{ label: "Premium Website", href: "/preise#website" }],
       },
       {
@@ -89,8 +89,8 @@ export const faqCategories: FaqCategory[] = [
       {
         id: "faq-website-start",
         question: "Was brauche ich für den Start?",
-        answer: "Für den Start reichen ein paar grundlegende Informationen: dein Logo, falls schon vorhanden, ein paar aktuelle Fotos deines Studios oder deiner Arbeiten, deine Leistungen mit Preisen sowie kurze Infos zu dir und deinem Studio. Deine Texte müssen nicht perfekt formuliert sein – daraus erstelle ich professionelle Website-Texte. Falls dir noch ein Logo fehlt, entwickle ich das gerne im Rahmen des Brandings für dich.",
-        relatedLinks: [{ label: "Brandings", href: "/leistungen#leistungen" }],
+        answer: "Für den Start reichen ein paar grundlegende Informationen: dein Logo, falls schon vorhanden, ein paar aktuelle Fotos deines Studios oder deiner Arbeiten, deine Leistungen mit Preisen sowie kurze Infos zu dir und deinem Studio. Deine Texte müssen nicht perfekt formuliert sein – daraus erstelle ich professionelle Website-Texte.",
+        relatedLinks: [{ label: "visuellen Markenauftritt", href: "/leistungen#leistungen" }],
       },
       {
         id: "faq-website-template",
@@ -117,12 +117,6 @@ export const faqCategories: FaqCategory[] = [
           { label: "Preisseite", href: "/preise#website" },
           { label: "Was kostet eine Website für ein Beauty-Studio?", href: "/blog/website-kosten-beauty-studio" },
         ],
-      },
-      {
-        id: "faq-preise-logo",
-        question: "Was kostet ein Logo?",
-        answer: "Ein professionelles Logo kostet bei mir ab 250 €. Enthalten sind: 3 individuelle Entwürfe • Farbvarianten • PNG-Dateien • PDF-Datei. Alle Preise findest du transparent aufgelistet auf der Preisseite.",
-        relatedLinks: [{ label: "Preisseite", href: "/preise#grafik-print" }],
       },
       {
         id: "faq-preise-versteckte-kosten",
@@ -181,27 +175,12 @@ export const faqCategories: FaqCategory[] = [
     icon: "Palette",
     items: [
       {
-        id: "faq-branding-logo-warum",
-        question: "Warum brauche ich ein Logo?",
-        answer: "Ein Logo ist mehr als ein hübsches Bildzeichen – es ist der visuelle Kern deiner Marke. Kundinnen erkennen dein Studio dadurch auf den ersten Blick wieder, egal ob auf der Website, auf Instagram oder auf einem Flyer.\n\nEin durchdachtes Logo schafft sofort Vertrauen und lässt dein Beauty-Unternehmen professionell und hochwertig wirken – gerade in einer Branche, in der der erste Eindruck entscheidet.\n\nIch gestalte Logos, die zu deiner Marke, deiner Zielgruppe und deinem gesamten Branding passen. Alle Details dazu findest du auf der Leistungen-Seite.",
-        relatedLinks: [{ label: "Leistungen-Seite", href: "/leistungen#leistungen" }],
-      },
-      {
         id: "faq-branding-corporate-design",
-        question: "Was gehört zu einem Corporate Design?",
-        answer: "Zu einem stimmigen Corporate Design gehören dein Logo, eine festgelegte Farbpalette, passende Schriftarten sowie einheitliche Gestaltungselemente.\n\nDiese Elemente ziehen sich im Idealfall durch alle Kanäle – von der Website über Social Media bis zu deinen Drucksorten.\n\nSo tritt dein Studio überall gleich professionell und wiedererkennbar auf, online wie offline. Mehr zum Leistungsumfang findest du auf der Leistungen-Seite.",
+        question: "Was gehört zu einem visuellen Markenauftritt?",
+        answer: "Zu einem stimmigen visuellen Markenauftritt gehören eine festgelegte Farbpalette, passende Schriftarten sowie einheitliche Gestaltungselemente und Bildsprache. Falls du bereits ein Logo hast, wird es in dieses Konzept eingebunden.\n\nDiese Elemente ziehen sich im Idealfall durch alle Kanäle – von der Website über Social Media bis zu deinen Drucksorten.\n\nSo tritt dein Studio überall gleich professionell und wiedererkennbar auf, online wie offline. Mehr zum Leistungsumfang findest du auf der Leistungen-Seite.",
         relatedLinks: [
           { label: "Drucksorten", href: "/preise#grafik-print" },
           { label: "Leistungen-Seite", href: "/leistungen#leistungen" },
-        ],
-      },
-      {
-        id: "faq-branding-nur-logo",
-        question: "Kann ich nur ein Logo bestellen?",
-        answer: "Ja, ein Logo ist auch einzeln buchbar und kostet ab 250 € – inklusive 3 Entwürfen, Farbvarianten sowie PNG- und PDF-Dateien.\n\nDu musst also nicht gleich eine ganze Website oder ein komplettes Branding-Paket buchen, wenn du aktuell nur ein neues Logo brauchst.\n\nFalls später weitere Leistungen wie Drucksorten oder Social Media Design dazukommen sollen, stelle ich dir gerne ein individuelles Paket zusammen. Alle Preise findest du auf der Preisseite.",
-        relatedLinks: [
-          { label: "Preisseite", href: "/preise#grafik-print" },
-          { label: "Social Media Design", href: "/preise#social" },
         ],
       },
       {
@@ -216,7 +195,7 @@ export const faqCategories: FaqCategory[] = [
       {
         id: "faq-branding-social-media",
         question: "Gestaltest du Social Media Designs?",
-        answer: "Ja. Ich gestalte Story-Vorlagen, Highlight-Cover und Feed-Templates, die zu deinem Branding passen.\n\nSo wirkt dein Instagram-Auftritt genauso professionell wie deine Website – ein durchgängiges Bild über alle Kanäle hinweg.\n\nDiese Leistungen sind einzeln buchbar oder lassen sich mit deinem Logo und deinen Drucksorten kombinieren.",
+        answer: "Ja. Ich gestalte Story-Vorlagen, Highlight-Cover und Feed-Templates, die zu deinem Branding passen.\n\nSo wirkt dein Instagram-Auftritt genauso professionell wie deine Website – ein durchgängiges Bild über alle Kanäle hinweg.\n\nDiese Leistungen sind einzeln buchbar oder lassen sich mit deinem visuellen Markenauftritt und deinen Drucksorten kombinieren.",
         relatedLinks: [
           { label: "Social Media Designs", href: "/preise#social" },
           { label: "Drucksorten", href: "/preise#grafik-print" },
@@ -225,7 +204,7 @@ export const faqCategories: FaqCategory[] = [
       {
         id: "faq-branding-einheitlich",
         question: "Warum ist ein einheitlicher Markenauftritt wichtig?",
-        answer: "Ein einheitlicher Markenauftritt sorgt dafür, dass Kundinnen dein Studio auf jedem Kanal sofort wiedererkennen – auf der Website, auf Instagram und auf gedruckten Materialien.\n\nDas schafft Vertrauen und wirkt professioneller als ein Mix aus unterschiedlichen Farben, Schriften und Stilen.\n\nBei JAVERA Studio bekommst du Logo, Branding, Website und Drucksorten deshalb aus einer Hand – abgestimmt bis ins letzte Detail.",
+        answer: "Ein einheitlicher Markenauftritt sorgt dafür, dass Kundinnen dein Studio auf jedem Kanal sofort wiedererkennen – auf der Website, auf Instagram und auf gedruckten Materialien.\n\nDas schafft Vertrauen und wirkt professioneller als ein Mix aus unterschiedlichen Farben, Schriften und Stilen.\n\nBei JAVERA Studio bekommst du deinen visuellen Markenauftritt, Website und Drucksorten deshalb aus einer Hand – abgestimmt bis ins letzte Detail.",
         relatedLinks: [{ label: "aus einer Hand", href: "/leistungen#einer-hand" }],
       },
     ],

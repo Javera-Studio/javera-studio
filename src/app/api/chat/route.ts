@@ -223,13 +223,12 @@ function buildPricingPromptSection(): string {
   const rollup = branding.find((b) => b.titel === "Roll-Up / Banner")!;
   const visitenkarte = branding.find((b) => b.titel === "Visitenkarte")!;
   const gutscheine = branding.find((b) => b.titel === "Geschenkskarten / Gutscheine")!;
-  const logo = branding.find((b) => b.titel === "Logo Design")!;
 
   const socialPaket = social.find((s) => s.titel === "Social Media Paket (5 Posts)")!;
   const storyTemplates = social.find((s) => s.titel === "Story Templates (5 Stück)")!;
   const highlightCover = social.find((s) => s.titel === "Instagram Highlight Cover Set (6 Stück)")!;
 
-  const [starterBranding, beautyStudioKomplett, socialVisibility] = pakete;
+  const [starterMarkenauftritt, beautyStudioKomplett, socialVisibility] = pakete;
   const [raten3, raten4] = zahlung.ratenzahlung;
 
   return `Leistungen & Preise (Kleinunternehmerregelung – Endpreise, keine Umsatzsteuer zusätzlich
@@ -243,9 +242,10 @@ ${formatEuro(analyse.googleBusinessOptimierung.betrag)}.
 Webseiten: ${websites.starter.titel} (One-Pager) ${formatEuro(websites.starter.betrag)},
 ${websites.starter.dauer}, ${websites.starter.korrekturrunden} Korrekturrunden,
 ${websites.starter.supportTage} Tage Support.
-${websites.premium.titel} (Mehrseiter) ${websites.premium.betragPraefix} ${formatEuro(websites.premium.betrag)},
+${websites.premium.titel} (${websites.premium.seiten}) ${websites.premium.betragPraefix} ${formatEuro(websites.premium.betrag)},
 ${websites.premium.dauer}, ${websites.premium.korrekturrunden} Korrekturrunden,
 ${websites.premium.supportTage} Tage Support, Analyse inklusive (meistgebucht).
+${websites.premium.zusatzseitenHinweis}
 
 Digitale Erweiterungen (${erweiterungenPreishinweis}): ${erweiterungen.map((e) => e.titel).join(", ")}.
 
@@ -255,14 +255,15 @@ ${technik.wartung.einheit}, ${technik.einzelaenderung.titel} ${formatEuro(techni
 
 Branding & Print: Flyer ${flyerEinseitig.betrag}-${flyerZweiseitig.betrag}€, ${rollup.titel}
 ${formatEuro(rollup.betrag)}, ${visitenkarte.titel} ${formatEuro(visitenkarte.betrag)}, Gutscheine
-${formatEuro(gutscheine.betrag)}, ${logo.titel} (3 Entwürfe) ${formatEuro(logo.betrag)}.
+${formatEuro(gutscheine.betrag)}. Eigenständiges Logo-Design ist KEINE Leistung von Javera Studio
+(Fokus liegt auf Webdesign, visuellem Markenauftritt, Social Media, Print und Sichtbarkeit).
 
 Social Media: ${socialPaket.titel} ${formatEuro(socialPaket.betrag)}, ${storyTemplates.titel}
 ${formatEuro(storyTemplates.betrag)}, ${highlightCover.titel} ${formatEuro(highlightCover.betrag)}.
 
-Pakete: ${starterBranding.titel} ${formatEuro(starterBranding.betrag)} (statt
-${formatEuro(starterBranding.statt)}), ${beautyStudioKomplett.titel}
-${formatEuro(beautyStudioKomplett.betrag)} (statt ${formatEuro(beautyStudioKomplett.statt)}),
+Pakete: ${starterMarkenauftritt.titel} ${formatEuro(starterMarkenauftritt.betrag)}
+(${starterMarkenauftritt.beschreibung}), ${beautyStudioKomplett.titel}
+${formatEuro(beautyStudioKomplett.betrag)} (${beautyStudioKomplett.beschreibung}),
 ${socialVisibility.titel} ${formatEuro(socialVisibility.betrag)} (statt
 ${formatEuro(socialVisibility.statt)}).
 

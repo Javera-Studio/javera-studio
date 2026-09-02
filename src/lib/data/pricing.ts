@@ -48,11 +48,16 @@ export const pricing = {
     },
     premium: {
       titel: "Premium Website",
-      beschreibung: "Mehrseiter · je nach Wunsch & Umfang",
+      beschreibung: "Bis zu 5 Seiten · Zusatzseiten nach Aufwand",
       betrag: 900,
       betragPraefix: "ab" as const,
       einheit: "einmalig",
-      seiten: "Mehrere Seiten",
+      seiten: "Bis zu 5 Seiten",
+      // Einheitlicher Hinweistext für alle Stellen, an denen die Premium
+      // Website beschrieben oder bepreist wird (Preisseite, Leistungen-Seite,
+      // Beauty Studio Komplett, FAQ, Chatbot) – bewusst zentral gepflegt statt
+      // an jeder Stelle einzeln hartkodiert.
+      zusatzseitenHinweis: "Zusatzseiten werden nach Aufwand kalkuliert.",
       dauer: "10–14 Tage",
       korrekturrunden: 4,
       supportTage: 30,
@@ -77,7 +82,6 @@ export const pricing = {
     { titel: "Roll-Up / Banner", beschreibung: "Druckfertige Datei · Druckkoordination optional", betrag: 200 },
     { titel: "Visitenkarte", beschreibung: "Beidseitig · PNG & druckfertige PDF", betrag: 100 },
     { titel: "Geschenkskarten / Gutscheine", beschreibung: "Druckfertiges Gutschein-Design", betrag: 100 },
-    { titel: "Logo Design", beschreibung: "3 Entwürfe · Farbvarianten · PNG & PDF", betrag: 250 },
   ],
 
   social: [
@@ -86,18 +90,21 @@ export const pricing = {
     { titel: "Instagram Highlight Cover Set (6 Stück)", beschreibung: "Minimalistische Cover Icons für Instagram Highlights", betrag: 90 },
   ],
 
+  // Starter Markenauftritt und Beauty Studio Komplett enthalten ein Farb- &
+  // Typografie-Konzept als festen Paketbestandteil. Bewusst ohne eigenen
+  // Einzelpreis (siehe branding[] oben) und daher auch ohne "statt"-Vergleich
+  // hier, da sich ein "statt X einzeln" sonst nicht seriös berechnen ließe.
   pakete: [
     {
-      titel: "Starter Branding",
-      beschreibung: "Logo + Visitenkarte + 5 Social Media Posts",
-      betrag: 550,
-      statt: 570,
+      titel: "Starter Markenauftritt",
+      beschreibung: "Farb- & Typografie-Konzept + Visitenkarte + 5 Social Media Posts",
+      betrag: 400,
     },
     {
       titel: "Beauty Studio Komplett",
-      beschreibung: "Premium Website + Logo + 10 Social Media Posts + Flyer + Google Business Profil",
-      betrag: 1490,
-      statt: 1790,
+      beschreibung: "Premium Website (bis zu 5 Seiten) + visueller Markenauftritt + Google Business Profil (Einrichtung oder Optimierung) + Google Search Console + Flyer (zweiseitig) + Social Media Visibility Paket",
+      betrag: 1700,
+      hinweis: "Premium Website inklusive bis zu 5 Seiten. Zusatzseiten werden nach Aufwand kalkuliert.",
     },
     {
       titel: "Social Media Visibility Paket",

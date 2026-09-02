@@ -85,7 +85,7 @@ export const blogPosts: BlogPost[] = [
       { type: "list", items: ["Vertrauen, noch bevor die Kundin anruft", "Einen professionellen ersten Eindruck", "Informationen rund um die Uhr – auch außerhalb deiner Öffnungszeiten", "Weniger Rückfragen per WhatsApp oder Telefon", "Eine bessere Erfahrung für deine Kundinnen von Anfang an"] },
       { type: "heading", text: "Was kostet eine Website für ein Nagelstudio in Wien?" },
       { type: "paragraph", text: "Viele kleinere Nagelstudios starten bereits mit einem übersichtlichen One-Pager, der alle wichtigen Informationen auf einer Seite bündelt. Bietest du mehrere Leistungen an, hast mehrere Mitarbeiterinnen oder möchtest langfristig stärker bei Google sichtbar sein, profitierst du häufig von einer Premium-Website mit mehreren Unterseiten." },
-      { type: "paragraph", text: "Bei JAVERA Studio kostet die Starter Website einmalig ab 500 €, die Premium Website ab 900 € – je nach Umfang. Dazu kommen ca. 15 € pro Jahr für Domain & Hosting. Verglichen mit dem Umsatz einer einzigen Neukundin pro Monat rechnet sich das sehr schnell." },
+      { type: "paragraph", text: "Bei JAVERA Studio kostet die Starter Website einmalig ab 500 €, die Premium Website (bis zu 5 Seiten) ab 900 € – je nach Umfang. Zusatzseiten werden nach Aufwand kalkuliert. Dazu kommen ca. 15 € pro Jahr für Domain & Hosting. Verglichen mit dem Umsatz einer einzigen Neukundin pro Monat rechnet sich das sehr schnell." },
       { type: "paragraph", text: "Einen ausführlichen Preisvergleich für alle Beauty-Branchen findest du in meinem Artikel zu den Website-Kosten für Beauty-Studios." },
       { type: "heading", text: "Fazit: Google-Sichtbarkeit und Instagram ergänzen sich" },
       { type: "paragraph", text: "Instagram bleibt wichtig, um deine Arbeit zu zeigen und mit bestehenden Kundinnen in Kontakt zu bleiben. Für die Suche über Google reicht das jedoch nicht aus. Deine Website ist das Schaufenster deines Studios im Internet – der Ort, an dem neue Kundinnen dich finden, dir vertrauen und einen Termin buchen, unabhängig von Algorithmus und Reichweite." },
@@ -96,7 +96,7 @@ export const blogPosts: BlogPost[] = [
     faq: [
       { question: "Braucht ein Nagelstudio in Wien wirklich eine Website?", answer: "Ja, vor allem wenn du über Google gefunden werden möchtest. Viele Kundinnen suchen aktiv nach „Nagelstudio Wien“ oder „Nagelstudio in meiner Nähe“ – ohne Website taucht dein Studio bei diesen Suchen in der Regel nicht auf." },
       { question: "Reicht Instagram für ein Nagelstudio?", answer: "Instagram ist wichtig, um deine Arbeiten zu zeigen und bestehende Kundinnen zu halten. Für die Google-Suche reicht es aber nicht aus – dafür brauchst du eine eigene Website." },
-      { question: "Was kostet eine Website für ein Nagelstudio?", answer: "Eine Starter Website kostet bei JAVERA Studio ab 500 €, eine Premium Website ab 900 € – abhängig vom Umfang. Details findest du im Artikel „Was kostet eine Website für ein Beauty-Studio?“." },
+      { question: "Was kostet eine Website für ein Nagelstudio?", answer: "Eine Starter Website kostet bei JAVERA Studio ab 500 €, eine Premium Website mit bis zu 5 Seiten ab 900 € – abhängig vom Umfang. Details findest du im Artikel „Was kostet eine Website für ein Beauty-Studio?“." },
       { question: "Wie werde ich bei Google gefunden?", answer: "Mit einer Website, die suchmaschinenfreundlich aufgebaut ist – klare Struktur, sinnvolle Überschriften und ein Google Business Profil, das auf deine Website verlinkt." },
       { question: "Welche Inhalte sollte eine Nagelstudio-Website enthalten?", answer: "Leistungen, Preise, Bilder deiner Arbeiten, Bewertungen, Kontaktmöglichkeiten, Google Maps, eine Terminbuchung und Antworten auf häufige Fragen." },
     ],
@@ -257,7 +257,6 @@ export const blogPosts: BlogPost[] = [
         rows: [
           ["One-Pager Website", "500 €"],
           ["Premium Website", "900 €"],
-          ["Logo Design", "250 €"],
           ["Visitenkarten", "100 €"],
           ["Flyer", "100 €"],
           ["Social-Media-Design", "90 €"],

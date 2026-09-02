@@ -76,8 +76,7 @@ const vorteile = [
 
 const academyLeistungen = [
   "Website",
-  "Branding",
-  "Logo",
+  "Visueller Markenauftritt",
   "Google Business Profil",
   "Drucksorten",
   "Social Media Grundlagen",

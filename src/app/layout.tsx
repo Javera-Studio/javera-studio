@@ -47,7 +47,7 @@ export const metadata: Metadata = {
     template: "%s | Javera Studio",
   },
   description:
-    "Website, Branding & Grafik für Beauty Studios in Wien. Von der Website über das Logo bis zu Flyern & Social Media – individuell gestaltet, professionell umgesetzt.",
+    "Website, Branding & Grafik für Beauty Studios in Wien. Von der Website über den visuellen Markenauftritt bis zu Flyern & Social Media – individuell gestaltet, professionell umgesetzt.",
   metadataBase: new URL("https://www.javera-studio.at"),
   openGraph: {
     siteName: "Javera Studio",
