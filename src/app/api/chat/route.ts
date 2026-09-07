@@ -1,4 +1,4 @@
-import { NextResponse } from "next/server";
+import { NextResponse, after } from "next/server";
 import { readFile } from "node:fs/promises";
 import path from "node:path";
 import { getClientIp, isChatRateLimited } from "@/lib/rate-limit";
@@ -448,9 +448,10 @@ function validateChatMessages(body: unknown): MessagesValidation {
   return { messages: validated };
 }
 
-// Kosten-/Verbrauchsmessung. Fire-and-forget: Fehler hier dürfen eine
-// erfolgreiche Chat-Antwort NIEMALS beeinträchtigen. Speichert nur Zähler,
-// niemals Nachrichteninhalte oder personenbezogene Daten.
+// Kosten-/Verbrauchsmessung. Wird über after() NACH dem Senden der Antwort
+// ausgeführt (siehe POST). Ein Fehler hier kann die bereits gesendete Antwort
+// nicht mehr beeinträchtigen; er wird serverseitig geloggt – ohne
+// Nachrichteninhalte und ohne personenbezogene Daten (nur Zähler + Fehlermeldung).
 async function recordChatUsage(usageRaw: unknown): Promise<void> {
   try {
     const supabase = getSupabaseAdminClient();
@@ -464,7 +465,8 @@ async function recordChatUsage(usageRaw: unknown): Promise<void> {
       cache_read_input_tokens: Number(u.cache_read_input_tokens ?? 0),
     };
 
-    await supabase.from("chat_usage").insert({
+    // supabase-js wirft bei DB-/RLS-Fehlern nicht, sondern liefert `error`.
+    const { error } = await supabase.from("chat_usage").insert({
       customer_id: JAVERA_TENANT.id,
       model: MODEL,
       input_tokens: usage.input_tokens,
@@ -473,8 +475,13 @@ async function recordChatUsage(usageRaw: unknown): Promise<void> {
       cache_read_input_tokens: usage.cache_read_input_tokens,
       est_cost_usd: estimateChatCostUsd(MODEL, usage),
     });
-  } catch {
-    // Usage-Tracking ist unkritisch – Fehler bewusst verschlucken.
+
+    if (error) {
+      console.error("[chat_usage] Insert fehlgeschlagen:", error.message);
+    }
+  } catch (err) {
+    // z. B. Netzwerkfehler zu Supabase. Nur die Fehlermeldung loggen.
+    console.error("[chat_usage] Insert-Ausnahme:", err instanceof Error ? err.message : String(err));
   }
 }
 
@@ -566,9 +573,13 @@ export async function POST(request: Request) {
     const rawReply = data?.content?.[0]?.text ?? "";
     const reply = trimIfCutOff(rawReply, data?.stop_reason);
 
-    // Fire-and-forget: bewusst ohne await und ohne .catch-Kette im Antwortpfad.
-    // recordChatUsage() fängt alle Fehler selbst ab.
-    void recordChatUsage(data?.usage);
+    // Usage-Insert NACH dem Senden der Antwort ausführen. after() (stabil seit
+    // Next.js 15.1) nutzt auf Vercel intern waitUntil() – die Serverless-Function
+    // bleibt am Leben, bis der Insert abgeschlossen ist, statt direkt nach der
+    // Response eingefroren zu werden. Der Client wartet NICHT darauf, und ein
+    // Fehler im Insert kann die bereits gesendete Antwort nicht beeinflussen
+    // (recordChatUsage() fängt zusätzlich alle Fehler selbst ab und loggt sie).
+    after(() => recordChatUsage(data?.usage));
 
     return NextResponse.json({ reply });
   } catch (error) {
