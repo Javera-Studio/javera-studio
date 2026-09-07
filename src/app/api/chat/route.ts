@@ -3,6 +3,8 @@ import { readFile } from "node:fs/promises";
 import path from "node:path";
 import { getClientIp, isChatRateLimited } from "@/lib/rate-limit";
 import { pricing, formatEuro } from "@/lib/data/pricing";
+import { getSupabaseAdminClient } from "@/lib/supabase-admin";
+import { estimateChatCostUsd, type ChatUsage } from "@/lib/chat-cost";
 
 export const runtime = "nodejs";
 
@@ -44,6 +46,19 @@ const MAX_HISTORY_MESSAGES = 12;
 // Kontext passt, greift die Keyword-Auswahl unten als Fallback.
 const KNOWLEDGE_BASE_SIZE_THRESHOLD = 150_000;
 const MAX_RELEVANT_ENTRIES = 8;
+
+// Serverseitige Eingabe-Grenzen (Schutz vor überdimensionierten/manipulierten
+// Requests und vor Kostenmissbrauch durch sehr lange Einzelnachrichten).
+// 1.500 Zeichen decken auch ausführlich beschriebene Situationen ab; typische
+// Website-Fragen liegen bei 20-200 Zeichen.
+const MAX_USER_MESSAGE_CHARS = 1500;
+// Assistant-Nachrichten im Verlauf stammen aus diesem Bot (max_tokens 400 ->
+// grob < 2.000 Zeichen); alles deutlich darüber ist manipuliert.
+const MAX_ASSISTANT_MESSAGE_CHARS = 4000;
+// Deckelt die Array-Länge (12er-History + reichlich Puffer).
+const MAX_MESSAGES_IN_REQUEST = 40;
+// Roh-Body-Obergrenze, bevor überhaupt JSON geparst wird.
+const MAX_REQUEST_BYTES = 50_000;
 
 const SYSTEM_PROMPT_INTRO = `Du bist der digitale Assistent von Javera Studio, einer Branding- und Webdesign-Agentur für
 Beauty-Unternehmen in Österreich (Nagelstudios, Kosmetikstudios, Lash & Brow Studios, PMU Artists,
@@ -273,12 +288,25 @@ ${formatEuro(raten4.abBetrag)} (${raten4.raten} Raten), zinsfrei. Website-Kundin
 ${zahlung.websiteRabattProzent}% Rabatt auf weitere Design-Leistungen.`;
 }
 
+// Tenant-spezifische Bausteine an einer Stelle gebündelt. Vorbereitung für eine
+// spätere Mehrkunden-Version (aktuell existiert genau ein Tenant: "javera").
+// Hier werden NUR die bereits oben definierten Konstanten/Funktionen referenziert
+// – kein Text und keine Reihenfolge wird geändert, der erzeugte System-Prompt
+// bleibt Byte für Byte identisch. Noch KEINE Origin-/Domain-Auflösung.
+const JAVERA_TENANT = {
+  id: "javera",
+  systemPromptIntro: SYSTEM_PROMPT_INTRO,
+  buildPricingSection: buildPricingPromptSection,
+  systemPromptRules: SYSTEM_PROMPT_RULES,
+  knowledgeBaseFileName: "knowledge-base.json",
+} as const;
+
 function buildBaseSystemPrompt(): string {
-  return `${SYSTEM_PROMPT_INTRO}
+  return `${JAVERA_TENANT.systemPromptIntro}
 
-${buildPricingPromptSection()}
+${JAVERA_TENANT.buildPricingSection()}
 
-${SYSTEM_PROMPT_RULES}`;
+${JAVERA_TENANT.systemPromptRules}`;
 }
 
 let cachedKnowledgeBase: KnowledgeEntry[] | null = null;
@@ -289,7 +317,7 @@ async function loadKnowledgeBase(): Promise<KnowledgeEntry[] | null> {
   knowledgeBaseLoaded = true;
 
   try {
-    const filePath = path.join(process.cwd(), "content", "knowledge-base.json");
+    const filePath = path.join(process.cwd(), "content", JAVERA_TENANT.knowledgeBaseFileName);
     const raw = await readFile(filePath, "utf-8");
     cachedKnowledgeBase = JSON.parse(raw) as KnowledgeEntry[];
   } catch {
@@ -375,6 +403,81 @@ async function buildSystemPrompt(latestUserMessage: string): Promise<string> {
 ${formatKnowledgeEntries(entriesToInclude)}`;
 }
 
+type MessagesValidation = { messages: ChatMessage[] } | { error: string };
+
+// Serverseitige Validierung des Request-Bodies. Der Server ist die maßgebliche
+// Instanz – das Frontend-`maxLength` ist nur Komfort.
+function validateChatMessages(body: unknown): MessagesValidation {
+  const rawMessages = (body as { messages?: unknown } | null)?.messages;
+
+  if (!Array.isArray(rawMessages)) {
+    return { error: "Ungültiger Request-Body." };
+  }
+  if (rawMessages.length < 1 || rawMessages.length > MAX_MESSAGES_IN_REQUEST) {
+    return { error: "Ungültige Anzahl an Nachrichten." };
+  }
+
+  const validated: ChatMessage[] = [];
+
+  for (const entry of rawMessages) {
+    if (typeof entry !== "object" || entry === null) {
+      return { error: "Ungültiges Nachrichtenformat." };
+    }
+    const { role, content } = entry as { role?: unknown; content?: unknown };
+
+    if (role !== "user" && role !== "assistant") {
+      return { error: "Ungültige Rolle in einer Nachricht." };
+    }
+    if (typeof content !== "string" || content.trim().length === 0) {
+      return { error: "Eine Nachricht ist leer oder hat kein gültiges Textformat." };
+    }
+
+    const limit = role === "user" ? MAX_USER_MESSAGE_CHARS : MAX_ASSISTANT_MESSAGE_CHARS;
+    if (content.length > limit) {
+      return {
+        error:
+          role === "user"
+            ? `Deine Nachricht ist zu lang. Bitte kürze sie auf maximal ${MAX_USER_MESSAGE_CHARS} Zeichen.`
+            : "Ungültige Nachricht im Gesprächsverlauf.",
+      };
+    }
+
+    validated.push({ role, content });
+  }
+
+  return { messages: validated };
+}
+
+// Kosten-/Verbrauchsmessung. Fire-and-forget: Fehler hier dürfen eine
+// erfolgreiche Chat-Antwort NIEMALS beeinträchtigen. Speichert nur Zähler,
+// niemals Nachrichteninhalte oder personenbezogene Daten.
+async function recordChatUsage(usageRaw: unknown): Promise<void> {
+  try {
+    const supabase = getSupabaseAdminClient();
+    if (!supabase) return;
+
+    const u = (usageRaw ?? {}) as ChatUsage;
+    const usage: Required<ChatUsage> = {
+      input_tokens: Number(u.input_tokens ?? 0),
+      output_tokens: Number(u.output_tokens ?? 0),
+      cache_creation_input_tokens: Number(u.cache_creation_input_tokens ?? 0),
+      cache_read_input_tokens: Number(u.cache_read_input_tokens ?? 0),
+    };
+
+    await supabase.from("chat_usage").insert({
+      customer_id: JAVERA_TENANT.id,
+      model: MODEL,
+      input_tokens: usage.input_tokens,
+      output_tokens: usage.output_tokens,
+      cache_creation_input_tokens: usage.cache_creation_input_tokens,
+      cache_read_input_tokens: usage.cache_read_input_tokens,
+      est_cost_usd: estimateChatCostUsd(MODEL, usage),
+    });
+  } catch {
+    // Usage-Tracking ist unkritisch – Fehler bewusst verschlucken.
+  }
+}
+
 export async function POST(request: Request) {
   if (isChatRateLimited(getClientIp(request))) {
     return NextResponse.json(
@@ -391,16 +494,30 @@ export async function POST(request: Request) {
     );
   }
 
-  let messages: ChatMessage[];
+  // Roh-Body zuerst als Text lesen und begrenzen, bevor JSON geparst wird –
+  // so werden überdimensionierte Requests früh und günstig abgewiesen.
+  let rawBody: string;
   try {
-    const body = await request.json();
-    if (!Array.isArray(body?.messages)) {
-      throw new Error("messages muss ein Array sein");
-    }
-    messages = body.messages;
+    rawBody = await request.text();
   } catch {
     return NextResponse.json({ error: "Ungültiger Request-Body." }, { status: 400 });
   }
+  if (rawBody.length > MAX_REQUEST_BYTES) {
+    return NextResponse.json({ error: "Anfrage ist zu groß." }, { status: 400 });
+  }
+
+  let body: unknown;
+  try {
+    body = JSON.parse(rawBody);
+  } catch {
+    return NextResponse.json({ error: "Ungültiger Request-Body." }, { status: 400 });
+  }
+
+  const validation = validateChatMessages(body);
+  if ("error" in validation) {
+    return NextResponse.json({ error: validation.error }, { status: 400 });
+  }
+  const messages = validation.messages;
 
   // Nur die letzten Nachrichten mitschicken, siehe MAX_HISTORY_MESSAGES.
   const recentMessages = messages.slice(-MAX_HISTORY_MESSAGES);
@@ -420,7 +537,18 @@ export async function POST(request: Request) {
         model: MODEL,
         max_tokens: MAX_TOKENS,
         temperature: TEMPERATURE,
-        system: systemPrompt,
+        // Der gesamte stabile Javera-Kontext (Prompt + Wissensbasis) steht in
+        // EINEM System-Block mit genau einem Cache-Breakpoint am Ende. 5-Minuten-
+        // TTL (Default). Der Prompt-Text selbst ist unverändert – Caching ändert
+        // nur die Abrechnung/Verarbeitung, nicht die Modellantwort. Die
+        // `messages` bleiben bewusst ungecacht hinter dem Breakpoint.
+        system: [
+          {
+            type: "text",
+            text: systemPrompt,
+            cache_control: { type: "ephemeral" },
+          },
+        ],
         messages: recentMessages.map((m) => ({ role: m.role, content: m.content })),
       }),
     });
@@ -437,6 +565,10 @@ export async function POST(request: Request) {
     const data = await response.json();
     const rawReply = data?.content?.[0]?.text ?? "";
     const reply = trimIfCutOff(rawReply, data?.stop_reason);
+
+    // Fire-and-forget: bewusst ohne await und ohne .catch-Kette im Antwortpfad.
+    // recordChatUsage() fängt alle Fehler selbst ab.
+    void recordChatUsage(data?.usage);
 
     return NextResponse.json({ reply });
   } catch (error) {
