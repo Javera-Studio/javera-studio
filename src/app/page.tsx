@@ -60,10 +60,10 @@ export const metadata: Metadata = {
  */
 
 const steps = [
-  { n: "01", title: "Anfrage senden", desc: "Du füllst ein kurzes Formular aus und sagst mir, was du brauchst." },
-  { n: "02", title: "Demo erhalten", desc: "Ich erstelle einen ersten Entwurf – abgestimmt auf dein Studio, deine Marke und deine Ziele." },
-  { n: "03", title: "Feinabstimmung", desc: "Wir passen Farben, Texte und Details gemeinsam an." },
-  { n: "04", title: "Fertigstellung & Launch", desc: "Dein Auftritt geht live – ich begleite dich bei jedem Schritt." },
+  { n: "01", title: "Kurze Anfrage", desc: "Du erzählst mir kurz von deinem Studio, deinem bestehenden Auftritt und davon, was du verändern möchtest. Dafür reichen zunächst wenige Stichpunkte oder ein Link zu deiner aktuellen Website beziehungsweise deinem Social-Media-Profil." },
+  { n: "02", title: "Kostenlose Vorschau", desc: "Ich entwickle eine erste visuelle Richtung für deine Website. So bekommst du vorab ein Gefühl dafür, wie dein Studio online wirken könnte – kostenlos und unverbindlich." },
+  { n: "03", title: "Entscheidung und Umsetzung", desc: "Gefällt dir die Richtung, erhältst du ein transparentes Angebot. Erst nach deiner Zusage beginnen die vollständige Ausarbeitung, die Texte und die gemeinsame Feinabstimmung." },
+  { n: "04", title: "Fertigstellung und Veröffentlichung", desc: "Nach der finalen Abstimmung geht deine Website online. Ich übernehme die technische Einrichtung und begleite dich auch nach der Veröffentlichung persönlich weiter." },
 ];
 
 const faqs = [
@@ -443,23 +443,30 @@ function Ablauf() {
   return (
     <section id="ablauf" className="py-12 md:py-16 scroll-mt-28">
       <div className="max-w-6xl mx-auto px-6">
-        <div className="max-w-2xl mb-16">
-          <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-4">Ablauf</div>
-          <h2 className="reveal font-serif text-4xl md:text-5xl text-ink leading-tight">So läuft unsere Zusammenarbeit ab</h2>
+        <div className="max-w-2xl mb-14 md:mb-16">
+          <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-4">So funktioniert die Zusammenarbeit</div>
+          <h2 className="reveal font-serif text-3xl md:text-4xl text-ink leading-tight">Von der ersten Idee bis zu deinem neuen Online-Auftritt.</h2>
+          <p className="reveal reveal-delay mt-4 text-muted-foreground text-lg leading-relaxed">Du musst noch nicht genau wissen, wie deine Website aussehen soll. Wir klären gemeinsam, was zu deinem Studio, deinen Leistungen und deinen Zielen passt.</p>
         </div>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+
+        <div className="divide-y divide-border/60 lg:grid lg:grid-cols-4 lg:gap-x-8 lg:divide-y-0 lg:divide-x">
           {steps.map((s, i) => (
-            <div key={s.n} className={`reveal-card reveal-stagger-${i + 1} p-8 rounded-3xl border border-border/60 bg-background hover:bg-cream transition`}>
-              <span className="font-serif text-5xl text-muted-foreground/80">{s.n}</span>
-              <h3 className="font-serif text-2xl text-ink mt-6">{s.title}</h3>
-              <p className="mt-3 text-muted-foreground leading-relaxed">{s.desc}</p>
+            <div key={s.n} className={`reveal reveal-stagger-${i + 1} py-8 first:pt-0 last:pb-0 lg:py-0 lg:px-6 lg:first:pl-0`}>
+              <span className="font-serif text-4xl text-muted-foreground/50">{s.n}</span>
+              <h3 className="font-serif text-xl text-ink mt-4">{s.title}</h3>
+              <p className="mt-3 text-muted-foreground leading-relaxed text-sm">{s.desc}</p>
             </div>
           ))}
         </div>
-        <p className="reveal mt-12 text-center text-muted-foreground italic">Einfach, schnell und ohne komplizierten Prozess.</p>
-        <div className="mt-8 text-center reveal">
-          <Link href="/webseiten-vorschau" className="inline-block px-7 py-3.5 rounded-full bg-primary text-primary-foreground hover:bg-mauve transition-all hover:scale-[1.02] hover:shadow-md font-medium">
-            Kostenlose Webseiten-Vorschau anfragen
+
+        <div className="reveal mt-14 md:mt-16 pt-8 border-t border-border/60 max-w-2xl">
+          <p className="font-serif text-lg text-ink">Keine fertigen Texte und kein technisches Vorwissen nötig.</p>
+          <p className="mt-3 text-muted-foreground leading-relaxed">Du gibst mir die wichtigsten Informationen zu deinem Studio. Ich kümmere mich um Struktur, Formulierungen, Design und technische Umsetzung und führe dich verständlich durch jeden Schritt.</p>
+        </div>
+
+        <div className="mt-8">
+          <Link href="/webseiten-vorschau" className="reveal inline-flex items-center gap-2 text-sm font-medium text-ink border-b border-ink/30 pb-1 hover:border-ink transition">
+            Mehr zur kostenlosen Vorschau <span aria-hidden>→</span>
           </Link>
         </div>
       </div>
