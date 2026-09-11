@@ -46,6 +46,16 @@ export const warumBenefitsLegacy = [
   "Ein einheitlicher Markenauftritt — Website, visueller Markenauftritt, Social Media und Print arbeiten zusammen und sorgen für einen professionellen, wiedererkennbaren Auftritt.",
 ];
 
+/**
+ * Ursprünglicher "Was du bei mir bekommst"-Bereich mit Trennung kostenlos/kostenpflichtig,
+ * bevor er im Zuge der Leistungsübersicht-Verdichtung (Positionierung "Webdesign ·
+ * digitale Präsenz · Printdesign") durch drei klar gewichtete Leistungsbereiche ersetzt
+ * wurde. Nicht gelöscht, dient als Archiv/Rohmaterial für die spätere Überarbeitung von
+ * `/leistungen` und `/preise`.
+ */
+export const angebotKostenlosLegacy = ["Erstgespräch & Kennenlernen", "Projektbesprechung & erste Ideen", "Erste Design-/Demo-Vorschau", "Individuelle Konzeptideen für deinen Online-Auftritt", "Beratung zu Aufbau, Buchungssystem & Struktur"];
+export const angebotKostenpflichtigLegacy = ["Online-Präsenz Analyse & Optimierungsplan", "Individuelle Website-Erstellung", "Visueller Markenauftritt (Farben, Typografie, Bildsprache)", "Flyer, Visitenkarten & Print-Design (druckfertig)", "Social Media Design (Posts, Stories, Cover Sets)", "Mobile Optimierung & SEO-Grundoptimierung", "Domain & Hosting Einrichtung", "Buchungs-/Kalenderlösungen", "Zusätzliche Unterseiten oder Erweiterungen", "Änderungen, Pflege & laufende Betreuung der Inhalte"];
+
 export function BrandManifesto() {
   return (
     <section aria-label="Markenphilosophie" className="py-14 md:py-20 bg-background">

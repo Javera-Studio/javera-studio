@@ -37,7 +37,9 @@ export const metadata: Metadata = {
  *  6. Button „Mehr über meine Arbeit erfahren" -> /meine-arbeit
  *  7. Kompakter Problem-/Nutzenabschnitt (<Warum>) – ersetzt den bisherigen ausführlichen
  *     „Warum eine Website"-Block mit den fünf Standardargumenten
- *  8. Kompakte Leistungsübersicht (<Angebot>)
+ *  8. Kompakte Leistungsübersicht (<Leistungsuebersicht>) – Website als Hauptleistung,
+ *     digitale Präsenz & Printdesign als Ergänzungen, keine kostenlos/kostenpflichtig-
+ *     Trennung mehr (Positionierung: Webdesign · digitale Präsenz · Printdesign)
  *  9. Ablauf der Zusammenarbeit
  * 10. Studio-Check
  * 11. FAQ
@@ -341,56 +343,95 @@ function Warum() {
   );
 }
 
-function Angebot() {
-  const free = ["Erstgespräch & Kennenlernen", "Projektbesprechung & erste Ideen", "Erste Design-/Demo-Vorschau", "Individuelle Konzeptideen für deinen Online-Auftritt", "Beratung zu Aufbau, Buchungssystem & Struktur"];
-  const paid = ["Online-Präsenz Analyse & Optimierungsplan", "Individuelle Website-Erstellung", "Visueller Markenauftritt (Farben, Typografie, Bildsprache)", "Flyer, Visitenkarten & Print-Design (druckfertig)", "Social Media Design (Posts, Stories, Cover Sets)", "Mobile Optimierung & SEO-Grundoptimierung", "Domain & Hosting Einrichtung", "Buchungs-/Kalenderlösungen", "Zusätzliche Unterseiten oder Erweiterungen", "Änderungen, Pflege & laufende Betreuung der Inhalte"];
+const websiteLeistungen = [
+  "Individuelles Design statt Standardvorlage",
+  "Klare Struktur für Leistungen und Angebote",
+  "Professionelle Texte auf Basis der Kundeninformationen",
+  "Optimierte Darstellung auf Smartphone, Tablet und Desktop",
+  "Technische und inhaltliche SEO-Grundlagen",
+  "Einbindung vorhandener Buchungs- und Kontaktmöglichkeiten",
+];
 
+const digitalePraesenzLeistungen = [
+  "Einrichtung oder Optimierung des Google-Unternehmensprofils",
+  "Visuelle Social-Media-Vorlagen",
+  "Highlight-Cover und wiederverwendbare Beitragslayouts",
+  "Abstimmung der digitalen Kontaktpunkte auf den bestehenden Auftritt",
+];
+
+const printLeistungen = ["Visitenkarten", "Flyer", "Gutscheine", "Preislisten", "Roll-ups und weitere Druckmaterialien"];
+
+function Leistungsuebersicht() {
   return (
     <section id="angebot" className="py-12 md:py-16 bg-cream scroll-mt-28">
       <div className="max-w-6xl mx-auto px-6">
-        <div className="max-w-2xl mb-16">
-          <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-4">Mein Angebot</div>
-          <h2 className="reveal font-serif text-4xl md:text-5xl text-ink leading-tight">Was du bei mir bekommst</h2>
-          <p className="reveal reveal-delay mt-4 text-muted-foreground text-lg">Transparente Leistungen – von der kostenlosen Erstberatung bis zum fertigen Gesamtauftritt.</p>
+        <div className="max-w-2xl mb-14 md:mb-16">
+          <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-4">Was ich für dein Studio übernehme</div>
+          <h2 className="reveal font-serif text-3xl md:text-4xl text-ink leading-tight">Du brauchst nicht einfach eine schönere Website. Du brauchst eine, die zu deinem heutigen Studio passt.</h2>
+          <p className="reveal reveal-delay mt-6 text-muted-foreground text-lg leading-relaxed">Vielleicht ist dein Angebot gewachsen, deine Spezialisierung klarer geworden oder dein Studio längst professioneller als zu Beginn. Deine Website sollte diese Entwicklung sichtbar machen.</p>
+          <p className="reveal mt-4 text-muted-foreground text-lg leading-relaxed">Ich entwickle daraus einen klaren digitalen Auftritt – mit einer individuellen Website als Grundlage und passenden Ergänzungen dort, wo sie für dein Unternehmen sinnvoll sind.</p>
         </div>
-        <div className="grid md:grid-cols-2 gap-6 md:gap-8">
-          <div className="reveal relative rounded-3xl border border-border/60 bg-background p-8 md:p-10 shadow-sm">
-            <div className="absolute -top-3 left-8 inline-flex items-center gap-2 px-3 py-1 rounded-full bg-mint-soft text-ink text-[11px] uppercase tracking-[0.2em]">
-              <span className="h-1.5 w-1.5 rounded-full bg-ink/70" />Kostenlos
-            </div>
-            <h3 className="font-serif text-2xl md:text-3xl text-ink mt-2">Unverbindlich &amp; kostenlos</h3>
-            <p className="mt-3 text-muted-foreground leading-relaxed">Kennenlernen, beraten, Ideen sammeln – ohne Verpflichtung.</p>
-            <ul className="mt-8 space-y-4">
-              {free.map((item) => (
-                <li key={item} className="flex items-start gap-3 text-ink">
-                  <span className="mt-2 h-1.5 w-1.5 rounded-full bg-mauve flex-shrink-0" /><span className="leading-relaxed">{item}</span>
-                </li>
-              ))}
-            </ul>
-            <Link href="/webseiten-vorschau" className="inline-block mt-10 px-7 py-3.5 rounded-full bg-primary text-primary-foreground hover:bg-mauve transition-all hover:scale-[1.02] hover:shadow-md font-medium">
-              Kostenlose Webseiten-Vorschau anfragen
-            </Link>
+
+        {/* Hauptleistung: Website – visuell und inhaltlich im Vordergrund */}
+        <div className="reveal grid md:grid-cols-[2fr_3fr] gap-6 md:gap-12 pb-10 md:pb-12 border-b border-border/60">
+          <div>
+            <div className="text-xs uppercase tracking-[0.2em] text-mauve-dark mb-3">Hauptleistung</div>
+            <h3 className="font-serif text-2xl md:text-3xl text-ink leading-tight">Website &amp; Struktur</h3>
+            <p className="mt-4 text-muted-foreground leading-relaxed">Individuelles Webdesign, klare Leistungsseiten und professionelle Texte, die zeigen, wofür dein Studio steht und was deine Arbeit besonders macht.</p>
           </div>
-          <div className="reveal reveal-delay relative rounded-3xl border border-mauve/30 bg-gradient-to-br from-peach-soft via-background to-accent/40 p-8 md:p-10 shadow-sm">
-            <div className="absolute -top-3 left-8 inline-flex items-center gap-2 px-3 py-1 rounded-full bg-mauve text-white text-[11px] uppercase tracking-[0.2em]">
-              <span className="h-1.5 w-1.5 rounded-full bg-white/80" />Leistungen
-            </div>
-            <h3 className="font-serif text-2xl md:text-3xl text-ink mt-2">Kostenpflichtige Leistungen</h3>
-            <p className="mt-3 text-muted-foreground leading-relaxed">Alles, was dein Studio professionell, sichtbar und unverwechselbar macht – online wie offline.</p>
-            <ul className="mt-8 grid sm:grid-cols-1 gap-y-4">
-              {paid.map((item) => (
-                <li key={item} className="flex items-start gap-3 text-ink">
-                  <span className="mt-2 h-1.5 w-1.5 rounded-full bg-mauve flex-shrink-0" /><span className="leading-relaxed">{item}</span>
+          <ul className="grid sm:grid-cols-2 gap-x-8 gap-y-3">
+            {websiteLeistungen.map((item) => (
+              <li key={item} className="flex items-start gap-3 text-ink">
+                <span className="mt-2 h-1.5 w-1.5 rounded-full bg-mauve flex-shrink-0" />
+                <span className="leading-relaxed">{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        {/* Ergänzungen: digitale Präsenz & Printdesign – bewusst kleiner/zurückhaltender */}
+        <div className="grid md:grid-cols-2 gap-10 md:gap-16 pt-10 md:pt-12">
+          <div className="reveal">
+            <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-3">Ergänzung</div>
+            <h3 className="font-serif text-xl text-ink leading-tight">Sichtbarkeit &amp; digitaler Auftritt</h3>
+            <p className="mt-3 text-sm text-muted-foreground leading-relaxed">Eine gute Website wirkt am stärksten, wenn auch die übrigen digitalen Kontaktpunkte ein stimmiges und professionelles Bild vermitteln.</p>
+            <ul className="mt-4 space-y-2">
+              {digitalePraesenzLeistungen.map((item) => (
+                <li key={item} className="flex items-start gap-2.5 text-sm text-ink/85">
+                  <span className="mt-1.5 h-1 w-1 rounded-full bg-ink/40 flex-shrink-0" />
+                  <span className="leading-relaxed">{item}</span>
                 </li>
               ))}
             </ul>
-            <p className="mt-8 text-sm text-muted-foreground">Individuelles Angebot nach deinem Bedarf – fair &amp; transparent kalkuliert.</p>
+          </div>
+          <div className="reveal reveal-delay">
+            <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-3">Ergänzung</div>
+            <h3 className="font-serif text-xl text-ink leading-tight">Printdesign</h3>
+            <p className="mt-3 text-sm text-muted-foreground leading-relaxed">Auf Wunsch übertrage ich deinen bestehenden Auftritt auch auf ausgewählte Materialien, die deine Kundinnen im Studio und darüber hinaus begleiten – als Design bzw. druckfertige Datei.</p>
+            <ul className="mt-4 space-y-2">
+              {printLeistungen.map((item) => (
+                <li key={item} className="flex items-start gap-2.5 text-sm text-ink/85">
+                  <span className="mt-1.5 h-1 w-1 rounded-full bg-ink/40 flex-shrink-0" />
+                  <span className="leading-relaxed">{item}</span>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
 
-        <div className="mt-12 text-center">
+        {/* Unabhängigkeit & laufende Kosten */}
+        <div className="reveal mt-12 md:mt-16 pt-8 border-t border-border/60">
+          <h3 className="font-serif text-lg text-ink">Deine Website. Deine Kontrolle.</h3>
+          <p className="mt-2 text-sm text-muted-foreground leading-relaxed max-w-3xl">Domain, Hosting und E-Mail laufen direkt über den jeweiligen Anbieter auf deinen Namen. Du bleibst unabhängig, bezahlst nur die vergleichsweise geringen Anbietergebühren und bist nicht an ein verpflichtendes Wartungsabo bei Javera Studio gebunden. Unterstützung und spätere Änderungen kannst du bei Bedarf flexibel dazubuchen.</p>
+        </div>
+
+        {/* Dezente Handlungswege – bewusst zurückhaltender als der primäre Vorschau-CTA */}
+        <div className="mt-10 flex flex-wrap gap-x-8 gap-y-3">
           <Link href="/leistungen" className="inline-flex items-center gap-2 text-sm font-medium text-ink border-b border-ink/30 pb-1 hover:border-ink transition">
             Alle Leistungen ansehen <span aria-hidden>→</span>
+          </Link>
+          <Link href="/preise" className="inline-flex items-center gap-2 text-sm font-medium text-ink border-b border-ink/30 pb-1 hover:border-ink transition">
+            Preise ansehen <span aria-hidden>→</span>
           </Link>
         </div>
       </div>
@@ -546,7 +587,7 @@ export default function Home() {
       <Testimonials />
       <MeineArbeitLink />
       <Warum />
-      <Angebot />
+      <Leistungsuebersicht />
       <Ablauf />
       <StudioCheckCTA />
       <FAQ />
