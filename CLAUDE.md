@@ -160,10 +160,11 @@ Verbindlich für die gesamte Website (alle Seiten und gemeinsam genutzten Kompon
 
 ## Font-Rollen
 
-- **Serifenschrift (Playfair Display, geladen über `next/font/google` in `src/app/layout.tsx`, zentral gebunden über `h1, h2, h3, h4, h5, h6, .font-serif` in `src/app/globals.css`)**: ausschließlich für Überschriften, dezente Nummerierungen (z. B. "01"–"04" in Ablauf-/Prozessdarstellungen) und bewusst gestaltete Zitate/Slogans.
-- **Serifenlose Schrift (Inter, als globaler `body`-Default in `src/app/globals.css` gesetzt)**: für allen Fließtext, Listen, Navigation, Formulare und Buttons. Keine `font-serif`-Klasse auf diesen Elementen verwenden.
+- **Serifenschrift (Playfair Display, geladen über `next/font/google` in `src/app/layout.tsx`, zentral gebunden über `h1, h2, h3, h4, h5, h6, .font-serif` in `src/app/globals.css`)**: ausschließlich für echte Überschriften (auch `<p>`-Elemente, die visuell/strukturell als Karten-/Abschnittstitel fungieren, z. B. `{item.title}` in Karten-Grids), dezente Nummerierungen (z. B. "01"–"04" in Ablauf-/Prozessdarstellungen) und bewusst gestaltete Zitat-/Slogan-Blöcke mit eigener optischer Rahmung (z. B. farbig hinterlegte Zitat-Karten, `.font-script`-Slogans).
+- **Serifenlose Schrift (Inter, als globaler `body`-Default in `src/app/globals.css` gesetzt)**: für allen Fließtext, Listen, Navigation, Formulare und Buttons. Das gilt ausdrücklich auch für einzelne "Kernsatz"/"Ergebnis"-Sätze innerhalb eines Fließtext-Absatzabschnitts (z. B. eine "Das Ergebnis: …"-Zeile zwischen anderen Absätzen) – ein einzelner Satz wird nicht allein dadurch zur Überschrift, dass er hervorgehoben werden soll. Hervorhebung erfolgt über `font-medium`/Farbe/Größe, nicht über `font-serif`. Keine `font-serif`-Klasse auf diesen Elementen verwenden.
 - **Handschrift-Akzent (Great Vibes, Klasse `.font-script`)**: ausschließlich für bewusst gestaltete Zitate/Slogans (z. B. Markenphilosophie-Sections), keine Fließtext-Ersatzschrift.
 - Keine weiteren Font-Familien ergänzen. Ungenutzte Font-Loads (frühere Beispiele: Cormorant Garamond, DM Sans) werden entfernt, sobald sie keine aktive Verwendung mehr haben – unnötige Schriftschnitte verschlechtern die Ladezeit.
+- Im Zweifel (Grenzfall zwischen Überschrift und hervorgehobenem Fließtext-Satz): serifenlos + `font-medium` statt `font-serif` wählen.
 
 ## Konsistenz gleicher Textrollen
 

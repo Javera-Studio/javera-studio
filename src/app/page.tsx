@@ -189,7 +189,7 @@ function FaceAndMore() {
             <h2 className="reveal font-serif text-4xl md:text-5xl text-ink leading-tight">Face and More –<br />Hautanalyse & Premium Hautpflege Wien</h2>
             <p className="reveal reveal-delay mt-6 text-muted-foreground text-lg leading-relaxed">Die bestehende Website sollte durch einen kompletten Relaunch ersetzt werden – mit dem Ziel, die fachliche Kompetenz und den Premium-Anspruch des Studios auch online klar erkennbar zu machen.</p>
             <p className="reveal mt-4 text-muted-foreground text-lg leading-relaxed">Entstanden ist eine komplett neu aufgebaute Website mit eigenen Leistungsseiten, FAQ-Bereich, SEO-freundlicher Struktur und einer für Smartphones optimierten Darstellung.</p>
-            <p className="reveal mt-4 font-serif text-lg text-ink leading-relaxed">Das Ergebnis: Eine moderne Premium-Website, die Kompetenz sichtbar macht und Vertrauen schafft.</p>
+            <p className="reveal mt-4 font-medium text-lg text-ink leading-relaxed">Das Ergebnis: Eine moderne Premium-Website, die Kompetenz sichtbar macht und Vertrauen schafft.</p>
             <p className="reveal mt-4 text-xs text-muted-foreground/80">Technischer Rahmen: Migration von Wix auf eine moderne Website-Basis, eigene Domain.</p>
             <p className="reveal mt-6 text-muted-foreground leading-relaxed">Ergänzend zur Website durfte ich auch den Instagram-Auftritt von Face and More visuell weiterentwickeln.</p>
             <Link href="/meine-arbeit#face-and-more" className="reveal inline-flex items-center gap-2 mt-2 text-sm font-medium text-ink border-b border-ink/30 pb-1 hover:border-ink transition w-fit">
@@ -248,7 +248,7 @@ function DivineBeautyNails() {
           <div className="md:col-span-5">
             <p className="reveal text-muted-foreground text-lg leading-relaxed">Die Zusammenarbeit begann mit einer praktischen Lösung für den Studioalltag: einem übersichtlichen digitalen Kalendersystem für mehrere Mitarbeiterinnen.</p>
             <p className="reveal mt-4 text-muted-foreground text-lg leading-relaxed">Nach der erfolgreichen Einführung durfte ich anschließend auch den neuen Online-Auftritt entwickeln – mit klarer Leistungsdarstellung und Kontaktmöglichkeiten, passend zur Atmosphäre des Studios.</p>
-            <p className="reveal mt-4 font-serif text-base text-ink leading-relaxed">Das Ergebnis: Ein digitaler Auftritt, der Studioorganisation und professionelle Sichtbarkeit verbindet.</p>
+            <p className="reveal mt-4 font-medium text-base text-ink leading-relaxed">Das Ergebnis: Ein digitaler Auftritt, der Studioorganisation und professionelle Sichtbarkeit verbindet.</p>
             <p className="reveal mt-4 text-xs text-muted-foreground/80">Technischer Rahmen: Mobile Optimierung, SEO-freundliche Struktur.</p>
           </div>
         </div>
@@ -321,7 +321,7 @@ function Warum() {
             <p className="reveal mt-8 text-muted-foreground text-lg leading-relaxed">
               Wenn eine dieser Fragen schwer zu beantworten ist, kann es sein, dass dein Online-Auftritt noch nicht zeigt, was dein Studio heute wirklich ausmacht.
             </p>
-            <p className="reveal mt-4 font-serif text-lg md:text-xl text-ink leading-relaxed">
+            <p className="reveal mt-4 font-medium text-lg md:text-xl text-ink leading-relaxed">
               Eine klare, professionell aufgebaute Website macht deine Expertise sichtbar, schafft Vertrauen und führt Interessentinnen gezielt zum nächsten Schritt.
             </p>
 
@@ -460,7 +460,7 @@ function Ablauf() {
         </div>
 
         <div className="reveal mt-14 md:mt-16 pt-8 border-t border-border/60 max-w-2xl">
-          <p className="font-serif text-lg text-ink">Keine fertigen Texte und kein technisches Vorwissen nötig.</p>
+          <p className="font-medium text-lg text-ink">Keine fertigen Texte und kein technisches Vorwissen nötig.</p>
           <p className="mt-3 text-muted-foreground leading-relaxed">Du gibst mir die wichtigsten Informationen zu deinem Studio. Ich kümmere mich um Struktur, Formulierungen, Design und technische Umsetzung und führe dich verständlich durch jeden Schritt.</p>
         </div>
 
