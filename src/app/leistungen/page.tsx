@@ -80,7 +80,7 @@ const services: ServiceCard[] = [
     icon: Monitor,
     badge: "🚀 Ideal für Gründerinnen & Redesigns",
     title: "Professionelle Websites",
-    desc: "Ob One-Pager oder Premium Website mit bis zu 5 Seiten – ich gestalte deinen Online-Auftritt individuell für dein Kosmetikstudio, Nagelstudio, Lash- oder Brow-Studio, PMU-Studio oder deine Beauty Academy. Zusatzseiten werden nach Aufwand kalkuliert. Responsive, mobil optimiert und mit SEO-Grundoptimierung für bessere Sichtbarkeit bei Google.",
+    desc: "Ob One-Pager oder Premium Website mit bis zu 3 Seiten – ich gestalte deinen Online-Auftritt individuell für dein Kosmetikstudio, Nagelstudio, Lash- oder Brow-Studio, PMU-Studio oder deine Beauty Academy. Zusatzseiten werden nach Aufwand kalkuliert. Responsive, mobil optimiert und mit SEO-Grundoptimierung für bessere Sichtbarkeit bei Google.",
     points: ["One-Pager", "Premium Website", "Responsive Design", "SEO-Grundoptimierung"],
     buttonLabel: "Mehr erfahren",
     href: "/preise#website",

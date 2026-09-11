@@ -51,7 +51,7 @@ export const faqCategories: FaqCategory[] = [
       {
         id: "faq-website-premium",
         question: "Was ist eine Premium-Website?",
-        answer: "Die Premium Website ist eine mehrseitige Website mit bis zu 5 eigenen Unterseiten für Leistungen, Preise, Über mich, FAQ und weitere Themen. Sie bietet mehr Raum für deine Behandlungen, Ergebnisse und Kundenstimmen und eignet sich besonders für Studios mit größerem Leistungsangebot oder Wachstumsplänen. Zusätzlich profitierst du von einer klareren Seitenstruktur, die sich positiv auf deine Sichtbarkeit bei Google auswirkt. Benötigst du mehr als 5 Seiten, werden Zusatzseiten nach Aufwand kalkuliert.",
+        answer: "Die Premium Website ist eine mehrseitige Website mit bis zu 3 eigenen Unterseiten für Leistungen, Preise, Über mich, FAQ und weitere Themen. Sie bietet mehr Raum für deine Behandlungen, Ergebnisse und Kundenstimmen und eignet sich besonders für Studios mit größerem Leistungsangebot oder Wachstumsplänen. Zusätzlich profitierst du von einer klareren Seitenstruktur, die sich positiv auf deine Sichtbarkeit bei Google auswirkt. Benötigst du mehr als 3 Seiten, werden Zusatzseiten nach Aufwand kalkuliert.",
         relatedLinks: [{ label: "Premium Website", href: "/preise#website" }],
       },
       {

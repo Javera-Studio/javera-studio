@@ -48,11 +48,11 @@ export const pricing = {
     },
     premium: {
       titel: "Premium Website",
-      beschreibung: "Bis zu 5 Seiten · Zusatzseiten nach Aufwand",
+      beschreibung: "Bis zu 3 Seiten · Zusatzseiten nach Aufwand",
       betrag: 900,
       betragPraefix: "ab" as const,
       einheit: "einmalig",
-      seiten: "Bis zu 5 Seiten",
+      seiten: "Bis zu 3 Seiten",
       // Einheitlicher Hinweistext für alle Stellen, an denen die Premium
       // Website beschrieben oder bepreist wird (Preisseite, Leistungen-Seite,
       // Beauty Studio Komplett, FAQ, Chatbot) – bewusst zentral gepflegt statt
@@ -102,9 +102,9 @@ export const pricing = {
     },
     {
       titel: "Beauty Studio Komplett",
-      beschreibung: "Premium Website (bis zu 5 Seiten) + visueller Markenauftritt + Google Business Profil (Einrichtung oder Optimierung) + Google Search Console + Flyer (zweiseitig) + Social Media Visibility Paket",
+      beschreibung: "Premium Website (bis zu 3 Seiten) + visueller Markenauftritt + Google Business Profil (Einrichtung oder Optimierung) + Google Search Console + Flyer (zweiseitig) + Social Media Visibility Paket",
       betrag: 1700,
-      hinweis: "Premium Website inklusive bis zu 5 Seiten. Zusatzseiten werden nach Aufwand kalkuliert.",
+      hinweis: "Premium Website inklusive bis zu 3 Seiten. Zusatzseiten werden nach Aufwand kalkuliert.",
     },
     {
       titel: "Social Media Visibility Paket",
