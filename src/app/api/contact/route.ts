@@ -11,18 +11,34 @@ function getResendClient() {
   return resend;
 }
 
+/**
+ * Erlaubte Werte für den internen "Grund der Anfrage"-Hinweis (ContactForm-Prop
+ * `inquirySource`). Serverseitig auf genau diese zwei Varianten begrenzt, damit über das
+ * versteckte Formularfeld kein beliebiger Text in die E-Mail eingeschleust werden kann.
+ */
+const ALLOWED_INQUIRY_SOURCES = ["Allgemeine Kontaktaufnahme", "Kostenlose Webseiten-Vorschau"] as const;
+type InquirySource = (typeof ALLOWED_INQUIRY_SOURCES)[number];
+
+function resolveInquirySource(value: unknown): InquirySource {
+  return ALLOWED_INQUIRY_SOURCES.includes(value as InquirySource)
+    ? (value as InquirySource)
+    : "Allgemeine Kontaktaufnahme";
+}
+
 export async function POST(req: NextRequest) {
   if (isRateLimited(getClientIp(req))) {
     return NextResponse.json({ error: "Zu viele Anfragen. Bitte versuche es später erneut." }, { status: 429 });
   }
 
-  const { name, email, subject, message, hp_company } = (await req.json()) as {
+  const { name, email, subject, message, hp_company, inquirySource } = (await req.json()) as {
     name: string;
     email: string;
     subject: string;
     message: string;
     hp_company?: string;
+    inquirySource?: string;
   };
+  const inquirySourceLabel = resolveInquirySource(inquirySource);
 
   // Honeypot: unsichtbares Feld, das nur Bots ausfüllen. Stiller Erfolg, keine Fehlermeldung.
   if (hp_company) {
@@ -46,7 +62,7 @@ export async function POST(req: NextRequest) {
     to: "hallo@javera-studio.at",
     replyTo: email,
     subject: `Neue Anfrage: ${subject}`,
-    text: `Name: ${name}\nE-Mail: ${email}\n\n${message}`,
+    text: `Grund der Anfrage: ${inquirySourceLabel}\nName: ${name}\nE-Mail: ${email}\nBetreff: ${subject}\nNachricht: ${message}`,
   });
 
   if (error) {

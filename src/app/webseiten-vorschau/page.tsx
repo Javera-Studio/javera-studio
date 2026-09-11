@@ -98,6 +98,7 @@ export default function WebseitenVorschauPage() {
         title="Vorschau anfragen"
         intro="Erzähl mir kurz von deinem Studio und was du dir vorstellst – ich melde mich persönlich mit den nächsten Schritten."
         defaultSubject="Kostenlose Webseiten-Vorschau"
+        inquirySource="Kostenlose Webseiten-Vorschau"
       />
 
       <SiteFooter />

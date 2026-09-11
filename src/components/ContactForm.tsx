@@ -19,6 +19,12 @@ type ContactFormProps = {
   intro?: string;
   /** Vorbelegter Betreff – hilft, die verschiedenen Kontaktwege auseinanderzuhalten. */
   defaultSubject?: string;
+  /**
+   * Interner Hinweis auf den Ursprung/Grund der Anfrage – für die Kundin nicht sichtbar,
+   * wird aber mitgeschickt und steht in der eingehenden E-Mail über den Formulardaten.
+   * Serverseitig in der API-Route auf feste Werte begrenzt.
+   */
+  inquirySource?: "Allgemeine Kontaktaufnahme" | "Kostenlose Webseiten-Vorschau";
 };
 
 export function ContactForm({
@@ -27,6 +33,7 @@ export function ContactForm({
   title = "Unverbindlich anfragen",
   intro = "Du hast eine Frage oder bist noch nicht sicher, welche Lösung zu deinem Studio passt? Schreib mir unverbindlich – eine kurze Nachricht reicht.",
   defaultSubject,
+  inquirySource = "Allgemeine Kontaktaufnahme",
 }: ContactFormProps = {}) {
   const [submitting, setSubmitting] = useState(false);
   const [done, setDone] = useState(false);
@@ -44,6 +51,7 @@ export function ContactForm({
     const message = String(data.get("message") || "").trim();
     const privacy = data.get("privacy") === "on";
     const hp_company = String(data.get("hp_company") || "");
+    const inquirySourceValue = String(data.get("inquirySource") || "");
 
     const nextErrors: FieldErrors = {};
     if (!name) nextErrors.name = "Bitte gib deinen Namen an.";
@@ -66,7 +74,7 @@ export function ContactForm({
       const response = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, email, subject, message, hp_company }),
+        body: JSON.stringify({ name, email, subject, message, hp_company, inquirySource: inquirySourceValue }),
       });
       const result = (await response.json()) as { success?: boolean; error?: string };
       if (!response.ok) {
@@ -118,6 +126,9 @@ export function ContactForm({
               aria-hidden="true"
               className="absolute left-[-9999px] top-auto h-0 w-0 overflow-hidden"
             />
+            {/* Für die Kundin unsichtbares internes Feld: Grund/Ursprung der Anfrage, damit
+                Jagoda in der E-Mail auf Anhieb sieht, über welchen Kontaktweg sie kam. */}
+            <input type="hidden" name="inquirySource" value={inquirySource} />
             {formError && (
               <p role="alert" className="text-sm text-red-600">{formError}</p>
             )}
