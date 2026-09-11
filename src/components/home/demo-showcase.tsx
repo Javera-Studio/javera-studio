@@ -1,14 +1,15 @@
-import Link from "next/link";
 import Image from "next/image";
 
 /**
  * Demo-/Showcase-Projekte.
  *
  * Diese Blöcke lagen ursprünglich auf der Startseite (`src/app/page.tsx`) und wurden
- * unverändert hierher ausgelagert, damit die Startseite auf die drei echten
- * Kundenprojekte fokussiert bleibt. Verwendet werden sie jetzt auf `/demo-websites`.
- * Inhalte, Bilder und Links sind bewusst 1:1 erhalten – eine inhaltliche Neugestaltung
- * folgt in einem späteren Schritt.
+ * unverändert ausgelagert, damit die Startseite auf die drei echten Kundenprojekte
+ * fokussiert bleibt. Verwendet werden sie jetzt auf `/meine-arbeit` (Bereich „Website-Demos"
+ * und „Visuelle Marken- und Designmaterialien"). Inhalte, Bilder und Links sind bewusst 1:1
+ * erhalten – eine inhaltliche Neugestaltung folgt in einem späteren Schritt. Beide Bereiche
+ * kennzeichnen die gezeigten Arbeiten transparent als Demo-Websites bzw. Designkonzepte,
+ * nicht als reale Kundenprojekte.
  */
 
 export const demos = [
@@ -27,9 +28,10 @@ export function DemoProjects() {
     <section id="demos" className="py-12 md:py-16 bg-cream">
       <div className="max-w-6xl mx-auto px-6">
         <div className="max-w-2xl mb-16">
-          <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-4">Demo Projekte</div>
+          <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-4">Website-Demos</div>
           <h2 className="reveal font-serif text-4xl md:text-5xl text-ink leading-tight">Beispiel-Websites für Beauty Businesses</h2>
           <p className="reveal reveal-delay mt-4 text-muted-foreground text-lg">Jede Demo wurde für eine andere Zielgruppe und Markenidentität entwickelt. So bekommst du ein Gefühl dafür, wie unterschiedlich ein Webauftritt wirken kann – und welche Richtung zu deinem Business passt.</p>
+          <p className="reveal reveal-delay mt-3 text-sm text-muted-foreground italic">Demo-Websites bzw. Designkonzepte – keine echten Kundenprojekte.</p>
         </div>
         <div className="grid md:grid-cols-3 gap-6 md:gap-8">
           {row1.map((d, i) => (
@@ -69,12 +71,7 @@ export function DemoProjects() {
             </div>
           ))}
         </div>
-        <div className="mt-16 text-center reveal">
-          <Link href="/webseiten-vorschau" className="inline-block px-7 py-3.5 rounded-full bg-primary text-primary-foreground hover:bg-mauve transition-all hover:scale-[1.02] hover:shadow-md font-medium">
-            Kostenlose Webseiten-Vorschau anfragen
-          </Link>
-          <p className="mt-3 text-xs text-muted-foreground">Weitere Projekte in Umsetzung</p>
-        </div>
+        <p className="mt-12 text-center text-xs text-muted-foreground reveal">Weitere Branchen und Projekte folgen.</p>
       </div>
     </section>
   );
@@ -101,6 +98,7 @@ export function FeaturedBranding() {
           </div>
           <h2 className="reveal font-serif text-4xl md:text-6xl text-ink leading-[1.05] tracking-tight">Mehr als nur Webseiten</h2>
           <p className="reveal reveal-delay mt-6 text-muted-foreground text-lg leading-relaxed">Ich entwickle nicht nur moderne Websites, sondern komplette visuelle Markenauftritte für Beauty Studios — abgestimmt auf Stil, Zielgruppe und Markenwirkung.</p>
+          <p className="reveal reveal-delay mt-3 text-sm text-muted-foreground italic">Luxe Nails Vienna ist ein Designkonzept bzw. Showcase-Projekt, kein reales Kundenprojekt.</p>
         </div>
         <div className="grid md:grid-cols-12 gap-10 md:gap-16 items-center">
           <div className="reveal-card md:col-span-7 order-2 md:order-1">

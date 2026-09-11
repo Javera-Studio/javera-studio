@@ -33,22 +33,28 @@ export const metadata: Metadata = {
  *  1. Hero
  *  2. Vertrauensleiste (TrustBar)
  *  3. Über mich (kompakt)
- *  4. Drei echte Kundenprojekte (Face and More · Paula Venc · Divine Beauty & Nails) + Link zu /demo-websites
- *  5. Kundenbewertung
- *  6. Problem-/Nutzenabschnitt (vorerst stärkste bestehende Version: <Warum>)
- *  7. Kompakte Leistungsübersicht (<Angebot>)
- *  8. Ablauf der Zusammenarbeit
- *  9. Studio-Check
- * 10. FAQ
- * 11. Abschluss-CTA + Kontaktformular (allgemeine, unverbindliche Anfrage)
- * 12. Footer
+ *  4. Drei echte, verdichtete Website-Projekte (Face and More · Paula Venc · Divine Beauty & Nails)
+ *  5. Alle drei Kundenbewertungen vollständig (<Testimonials>)
+ *  6. Button „Mehr über meine Arbeit erfahren" -> /meine-arbeit
+ *  7. Problem-/Nutzenabschnitt (vorerst stärkste bestehende Version: <Warum>)
+ *  8. Kompakte Leistungsübersicht (<Angebot>)
+ *  9. Ablauf der Zusammenarbeit
+ * 10. Studio-Check
+ * 11. FAQ
+ * 12. Abschluss-CTA + Kontaktformular (allgemeine, unverbindliche Anfrage)
+ * 13. Footer
+ *
+ * Der bisherige Social-Media-Bereich von Face and More (Instagram-Mockups, Highlight-Cover
+ * etc.) wurde vollständig nach `/meine-arbeit#face-and-more` verschoben
+ * (`src/components/portfolio/face-and-more-social.tsx`). Auf der Startseite bleibt beim
+ * Face-and-More-Projekt nur ein kurzer Hinweis + Link „Gesamtes Projekt ansehen".
  *
  * Geparkte, nicht mehr eingebundene Abschnitte liegen in
  * `src/components/home/parked-sections.tsx` (BrandManifesto, FeatureBadges, WarumJavera,
- * Zweifel) und `src/components/home/demo-showcase.tsx` (Demo-Projekte, Branding-Showcase).
- * Sie sind bewusst erhalten und dienen als Vorlage für die spätere Text-Konsolidierung von
- * „Warum eine Website" / „Warum Javera Studio" / „Keine Zeit, keine Technik" /
- * „kostenlose vs. kostenpflichtige Leistungen" / „Mehr als nur Webseiten".
+ * Zweifel). Sie sind bewusst erhalten und dienen als Vorlage für die spätere
+ * Text-Konsolidierung von „Warum eine Website" / „Warum Javera Studio" /
+ * „Keine Zeit, keine Technik" / „kostenlose vs. kostenpflichtige Leistungen" /
+ * „Mehr als nur Webseiten".
  */
 
 const benefits = [
@@ -165,131 +171,34 @@ function About() {
 }
 
 function FaceAndMore() {
-  const leistungen = ["Kompletter Website-Relaunch", "Migration von Wix zu Vercel", "Mobile Optimierung", "Domain erfolgreich migriert", "Leistungsseiten & FAQ-Bereich", "SEO-freundliche Struktur"];
   return (
     <section id="kundenprojekte" className="py-12 md:py-16 scroll-mt-28">
       <div className="max-w-6xl mx-auto px-6">
         <div className="max-w-2xl mb-14 md:mb-20">
-          <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-4">Kundenprojekte</div>
-          <h2 className="reveal font-serif text-4xl md:text-5xl text-ink leading-tight">Aus Ideen werden Ergebnisse</h2>
-          <p className="reveal reveal-delay mt-4 text-muted-foreground text-lg leading-relaxed">Von modernen Websites bis zu praktischen digitalen Lösungen: Hier findest du ausgewählte Projekte, die ich gemeinsam mit Beauty Studios umgesetzt habe – individuell, durchdacht und abgestimmt auf die Bedürfnisse jedes Unternehmens.</p>
+          <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-4">Ausgewählte Kundenprojekte</div>
+          <h2 className="reveal font-serif text-4xl md:text-5xl text-ink leading-tight">Websites, die zeigen, was hinter einem Studio steckt.</h2>
+          <p className="reveal reveal-delay mt-4 text-muted-foreground text-lg leading-relaxed">Jedes Studio bringt andere Leistungen, Ziele und Herausforderungen mit. Deshalb entsteht jede Website individuell – abgestimmt auf die Positionierung, die Kundinnen und den tatsächlichen Studioalltag.</p>
         </div>
-        <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-4">Kundenprojekt</div>
+        <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-4">Hauptprojekt</div>
         <div className="grid md:grid-cols-12 gap-10 md:gap-16 items-center">
           <div className="reveal md:col-span-7 flex flex-col gap-6">
             <div className="w-full drop-shadow-2xl">
               <Image src="/faceandmoremockup.png" alt="Website faceandmore.at am Smartphone" loading="lazy" width={1200} height={800} className="w-full" />
             </div>
-            <p className="font-serif text-lg text-ink leading-relaxed">Das Ergebnis: Eine moderne Premium-Website, die Kompetenz sichtbar macht und Vertrauen schafft.</p>
             <a href="https://faceandmore.at" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-primary text-primary-foreground hover:bg-mauve transition-all hover:scale-[1.02] hover:shadow-md font-medium w-fit">
               Webseite ansehen <span aria-hidden>→</span>
             </a>
           </div>
           <div className="md:col-span-5">
             <h2 className="reveal font-serif text-4xl md:text-5xl text-ink leading-tight">Face and More –<br />Hautanalyse & Premium Hautpflege Wien</h2>
-            <p className="reveal reveal-delay mt-6 text-muted-foreground text-lg leading-relaxed">Für Face and More durfte ich einen kompletten Website-Relaunch umsetzen – modern, klar und auf Premium ausgerichtet.</p>
-            <p className="reveal mt-5 text-sm text-muted-foreground uppercase tracking-widest">Gemeinsam haben wir:</p>
-            <ul className="reveal mt-4 space-y-3">
-              {leistungen.map((l) => (
-                <li key={l} className="flex items-start gap-3 text-ink">
-                  <span className="mt-2 h-1.5 w-1.5 rounded-full bg-mauve flex-shrink-0" /><span>{l}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function FaceAndMoreSocial() {
-  const leistungen = [
-    "Instagram-Profil optimiert",
-    "6 Highlight-Cover gestaltet",
-    "1 Karussell-Post Vorlage erstellt",
-    "2 editierbare Beitragsvorlagen entwickelt",
-    "6 Story-Vorlagen für regelmäßige Inhalte",
-    "Einheitliches Branding für Website & Social Media",
-  ];
-
-  return (
-    <section className="py-12 md:py-16 bg-stone-50/40">
-      <div className="max-w-6xl mx-auto px-6">
-        <div className="grid md:grid-cols-12 gap-10 md:gap-16 items-start">
-          {/* Left: Mockup Images */}
-          <div className="reveal md:col-span-7">
-            {/* Mobile: stacked */}
-            <div className="flex flex-col gap-4 md:hidden">
-              <Image
-                src="/insta.mockup.feed.png"
-                alt="Instagram Feed & Story Mockup für Face & More"
-                loading="lazy"
-                width={800}
-                height={600}
-                className="w-full rounded-2xl drop-shadow-xl"
-              />
-              <Image
-                src="/insta.mockup.png"
-                alt="Instagram-Profil Mockup für Face & More"
-                loading="lazy"
-                width={600}
-                height={600}
-                className="w-3/4 mx-auto"
-                style={{ filter: "drop-shadow(0 12px 30px rgba(0,0,0,0.13))" }}
-              />
-            </div>
-            {/* Desktop: overlapping layout – Feed groß, Profil versetzt */}
-            <div className="hidden md:block relative" style={{ paddingBottom: "11rem" }}>
-              <div className="w-[56%] relative z-10 drop-shadow-2xl">
-                <Image
-                  src="/insta.mockup.feed.png"
-                  alt="Instagram Feed & Story Mockup für Face & More"
-                  loading="lazy"
-                  width={800}
-                  height={600}
-                  className="w-full rounded-2xl"
-                />
-              </div>
-              <div
-                className="absolute bottom-0 w-[41%] z-20"
-                style={{ left: "38%", transform: "translateY(-30%)", filter: "drop-shadow(0 20px 50px rgba(0,0,0,0.14))" }}
-              >
-                <Image
-                  src="/insta.mockup.png"
-                  alt="Instagram-Profil Mockup für Face & More"
-                  loading="lazy"
-                  width={600}
-                  height={600}
-                  className="w-full"
-                />
-              </div>
-            </div>
-            <p className="reveal mt-8 font-script text-mauve-dark text-2xl md:text-3xl">
-              Ein professioneller Auftritt endet nicht bei der Website – er setzt sich auf Social Media fort.
-            </p>
-          </div>
-
-          {/* Right: Text */}
-          <div className="md:col-span-5">
-            <div className="text-xs uppercase tracking-[0.15em] text-muted-foreground mb-4 break-words">
-              Social Media Visibility Paket
-            </div>
-            <h2 className="reveal font-serif text-3xl md:text-5xl text-ink leading-tight">
-              Instagram-Auftritt mit Wiedererkennungswert
-            </h2>
-            <p className="reveal reveal-delay mt-6 text-muted-foreground text-lg leading-relaxed">
-              Neben dem Website-Relaunch wurde auch der Instagram-Auftritt von Face &amp; More überarbeitet. Ziel war ein professioneller, einheitlicher Markenauftritt, der Vertrauen schafft und die Expertise des Studios sichtbar macht.
-            </p>
-            <p className="reveal mt-5 text-sm text-muted-foreground uppercase tracking-widest">Gemeinsam haben wir:</p>
-            <ul className="reveal mt-4 space-y-3">
-              {leistungen.map((l) => (
-                <li key={l} className="flex items-start gap-3 text-ink">
-                  <span className="mt-2 h-1.5 w-1.5 rounded-full bg-mauve flex-shrink-0" />
-                  <span>{l}</span>
-                </li>
-              ))}
-            </ul>
+            <p className="reveal reveal-delay mt-6 text-muted-foreground text-lg leading-relaxed">Die bestehende Website sollte durch einen kompletten Relaunch ersetzt werden – mit dem Ziel, die fachliche Kompetenz und den Premium-Anspruch des Studios auch online klar erkennbar zu machen.</p>
+            <p className="reveal mt-4 text-muted-foreground text-lg leading-relaxed">Entstanden ist eine komplett neu aufgebaute Website mit eigenen Leistungsseiten, FAQ-Bereich, SEO-freundlicher Struktur und einer für Smartphones optimierten Darstellung.</p>
+            <p className="reveal mt-4 font-serif text-lg text-ink leading-relaxed">Das Ergebnis: Eine moderne Premium-Website, die Kompetenz sichtbar macht und Vertrauen schafft.</p>
+            <p className="reveal mt-4 text-xs text-muted-foreground/80">Technischer Rahmen: Migration von Wix auf eine moderne Website-Basis, eigene Domain.</p>
+            <p className="reveal mt-6 text-muted-foreground leading-relaxed">Ergänzend zur Website durfte ich auch den Instagram-Auftritt von Face and More visuell weiterentwickeln.</p>
+            <Link href="/meine-arbeit#face-and-more" className="reveal inline-flex items-center gap-2 mt-2 text-sm font-medium text-ink border-b border-ink/30 pb-1 hover:border-ink transition w-fit">
+              Gesamtes Projekt ansehen <span aria-hidden>→</span>
+            </Link>
           </div>
         </div>
       </div>
@@ -298,22 +207,16 @@ function FaceAndMoreSocial() {
 }
 
 function PaulaVenc() {
-  const leistungen = ["Komplette Website gestaltet", "Mobile Optimierung umgesetzt", "Domain eingerichtet", "Treatwell integriert", "Gesamte technische Einrichtung übernommen"];
   return (
     <section className="py-12 md:py-16 bg-stone-50/50">
       <div className="max-w-6xl mx-auto px-6">
         <div className="grid md:grid-cols-12 gap-10 md:gap-16 items-center">
           <div className="md:col-span-5">
+            <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-4">Kundenprojekt</div>
             <h2 className="reveal font-serif text-4xl md:text-5xl text-ink leading-tight">Paula Venc –<br />Private Nailartist Wien</h2>
-            <p className="reveal reveal-delay mt-6 text-muted-foreground text-lg leading-relaxed">Für Paula durfte ich einen eleganten One-Pager entwickeln, der perfekt zu ihrem Studio und ihrer ruhigen, privaten Atmosphäre passt. Alle wichtigen Informationen sind übersichtlich an einem Ort gebündelt – professionell, modern und genau auf ihre Bedürfnisse abgestimmt.</p>
-            <p className="reveal mt-5 text-sm text-muted-foreground uppercase tracking-widest">Gemeinsam haben wir:</p>
-            <ul className="reveal mt-4 space-y-3">
-              {leistungen.map((l) => (
-                <li key={l} className="flex items-start gap-3 text-ink">
-                  <span className="mt-2 h-1.5 w-1.5 rounded-full bg-mauve flex-shrink-0" /><span>{l}</span>
-                </li>
-              ))}
-            </ul>
+            <p className="reveal reveal-delay mt-6 text-muted-foreground text-lg leading-relaxed">Paula wollte einen ruhigen, persönlichen Online-Auftritt, der zur privaten Atmosphäre ihres Studios passt – ohne unnötigen Umfang.</p>
+            <p className="reveal mt-4 text-muted-foreground text-lg leading-relaxed">Entstanden ist ein eleganter One-Pager mit allen wichtigen Informationen übersichtlich an einem Ort, inklusive Terminbuchung über Treatwell.</p>
+            <p className="reveal mt-4 text-xs text-muted-foreground/80">Technischer Rahmen: eigene Domain, vollständige technische Einrichtung.</p>
           </div>
           <div className="reveal md:col-span-7 flex flex-col gap-6">
             <div className="w-full drop-shadow-2xl">
@@ -331,34 +234,26 @@ function PaulaVenc() {
 }
 
 function DivineBeautyNails() {
-  const leistungen = ["Digitales Kalendersystem für das Team", "Komplette Website entwickelt", "Mobile Optimierung umgesetzt", "Kontaktmöglichkeiten integriert", "Übersichtliche Leistungsdarstellung", "SEO-freundliche Struktur"];
   return (
     <section className="py-12 md:py-16">
       <div className="max-w-6xl mx-auto px-6">
         <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-4">Kundenprojekt</div>
         <h2 className="reveal font-serif text-4xl md:text-5xl text-ink leading-tight">Divine Beauty &amp; Nails Studio</h2>
-        <p className="reveal reveal-delay mt-3 text-muted-foreground text-lg mb-12 md:mb-16">Website, digitale Studioorganisation &amp; ein professioneller Online-Auftritt für ein Beauty Studio in Wien.</p>
+        <p className="reveal reveal-delay mt-3 text-muted-foreground text-lg mb-12 md:mb-16">Beauty Studio in Wien.</p>
         <div className="grid md:grid-cols-12 gap-10 md:gap-16 items-center">
           <div className="reveal md:col-span-7 flex flex-col gap-6">
             <div className="w-full drop-shadow-2xl">
               <Image src="/divinenailsmockup.png" alt="Website divinenails.at am Smartphone" loading="lazy" width={1200} height={800} className="w-full" />
             </div>
-            <p className="font-serif text-base text-ink leading-relaxed">Das Ergebnis: Ein digitaler Auftritt, der Studioorganisation und professionelle Sichtbarkeit verbindet.</p>
             <a href="https://divinenails.at" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-primary text-primary-foreground hover:bg-mauve transition-all hover:scale-[1.02] hover:shadow-md font-medium w-fit">
               Website ansehen <span aria-hidden>→</span>
             </a>
           </div>
           <div className="md:col-span-5">
-            <p className="reveal text-muted-foreground text-lg leading-relaxed">Die Zusammenarbeit mit Divine Beauty &amp; Nails begann mit einer praktischen Lösung für den Studioalltag: einem übersichtlichen digitalen Kalendersystem für mehrere Mitarbeiterinnen.</p>
-            <p className="reveal mt-4 text-muted-foreground text-lg leading-relaxed">Nach der erfolgreichen Einführung durfte ich anschließend auch den neuen Online-Auftritt des Studios umsetzen – modern, mobil optimiert und passend zur Atmosphäre des Studios.</p>
-            <p className="reveal mt-6 text-sm text-muted-foreground uppercase tracking-widest">Gemeinsam haben wir:</p>
-            <ul className="reveal mt-4 space-y-3">
-              {leistungen.map((l) => (
-                <li key={l} className="flex items-start gap-3 text-ink">
-                  <span className="mt-2 h-1.5 w-1.5 rounded-full bg-mauve flex-shrink-0" /><span>{l}</span>
-                </li>
-              ))}
-            </ul>
+            <p className="reveal text-muted-foreground text-lg leading-relaxed">Die Zusammenarbeit begann mit einer praktischen Lösung für den Studioalltag: einem übersichtlichen digitalen Kalendersystem für mehrere Mitarbeiterinnen.</p>
+            <p className="reveal mt-4 text-muted-foreground text-lg leading-relaxed">Nach der erfolgreichen Einführung durfte ich anschließend auch den neuen Online-Auftritt entwickeln – mit klarer Leistungsdarstellung und Kontaktmöglichkeiten, passend zur Atmosphäre des Studios.</p>
+            <p className="reveal mt-4 font-serif text-base text-ink leading-relaxed">Das Ergebnis: Ein digitaler Auftritt, der Studioorganisation und professionelle Sichtbarkeit verbindet.</p>
+            <p className="reveal mt-4 text-xs text-muted-foreground/80">Technischer Rahmen: Mobile Optimierung, SEO-freundliche Struktur.</p>
           </div>
         </div>
         <div className="reveal mt-14 md:mt-20 rounded-3xl bg-background border border-border/60 p-8 md:p-12 shadow-sm">
@@ -386,14 +281,14 @@ function DivineBeautyNails() {
   );
 }
 
-function DemoWebsitesLink() {
+function MeineArbeitLink() {
   return (
-    <section aria-label="Demo-Websites" className="pb-4 md:pb-8">
+    <section aria-label="Mehr über meine Arbeit" className="pb-4 md:pb-8">
       <div className="reveal max-w-6xl mx-auto px-6 text-center">
-        <Link href="/demo-websites" className="inline-flex items-center gap-2 text-sm font-medium text-ink border-b border-ink/30 pb-1 hover:border-ink transition">
-          Demo-Websites ansehen <span aria-hidden>→</span>
+        <Link href="/meine-arbeit" className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full border border-border text-ink hover:bg-cream transition-all hover:scale-[1.02] font-medium">
+          Mehr über meine Arbeit erfahren <span aria-hidden>→</span>
         </Link>
-        <p className="mt-3 text-xs text-muted-foreground">Beispiel-Websites für weitere Beauty-Bereiche</p>
+        <p className="mt-3 text-xs text-muted-foreground">Weitere Designkonzepte, Demo-Websites & visuelle Markenwelten</p>
       </div>
     </section>
   );
@@ -665,11 +560,10 @@ export default function Home() {
       <TrustBar />
       <About />
       <FaceAndMore />
-      <FaceAndMoreSocial />
       <PaulaVenc />
       <DivineBeautyNails />
-      <DemoWebsitesLink />
       <Testimonials />
+      <MeineArbeitLink />
       <Warum />
       <Angebot />
       <Ablauf />
