@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Playfair_Display, Cormorant_Garamond, DM_Sans, Great_Vibes } from "next/font/google";
+import { Inter, Playfair_Display, Great_Vibes } from "next/font/google";
 import "./globals.css";
 import { Providers } from "./providers";
 import { SiteWidgets } from "@/components/SiteWidgets";
@@ -16,21 +16,6 @@ const playfair = Playfair_Display({
   weight: ["400", "500", "600", "700"],
   style: ["normal", "italic"],
   variable: "--font-playfair",
-  display: "swap",
-});
-
-const cormorant = Cormorant_Garamond({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  style: ["normal", "italic"],
-  variable: "--font-cormorant",
-  display: "swap",
-});
-
-const dmSans = DM_Sans({
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
-  variable: "--font-dm-sans",
   display: "swap",
 });
 
@@ -68,7 +53,7 @@ export default function RootLayout({
   return (
     <html
       lang="de"
-      className={`${inter.variable} ${playfair.variable} ${cormorant.variable} ${dmSans.variable} ${greatVibes.variable} h-full antialiased scroll-smooth`}
+      className={`${inter.variable} ${playfair.variable} ${greatVibes.variable} h-full antialiased scroll-smooth`}
       data-scroll-behavior="smooth"
     >
       <body style={{ fontFamily: "var(--font-inter), system-ui, sans-serif" }}>

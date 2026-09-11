@@ -154,6 +154,25 @@ Nach Änderungen immer TypeScript-, Lint- und Build-Prüfungen ausführen und ge
 
 ---
 
+# Typografie-Standards
+
+Verbindlich für die gesamte Website (alle Seiten und gemeinsam genutzten Komponenten). Gilt auch für jede künftige Änderung – neue Abschnitte oder Seiten müssen sich an diese Regel halten, nicht eigene Font-Kombinationen einführen.
+
+## Font-Rollen
+
+- **Serifenschrift (Playfair Display, geladen über `next/font/google` in `src/app/layout.tsx`, zentral gebunden über `h1, h2, h3, h4, h5, h6, .font-serif` in `src/app/globals.css`)**: ausschließlich für Überschriften, dezente Nummerierungen (z. B. "01"–"04" in Ablauf-/Prozessdarstellungen) und bewusst gestaltete Zitate/Slogans.
+- **Serifenlose Schrift (Inter, als globaler `body`-Default in `src/app/globals.css` gesetzt)**: für allen Fließtext, Listen, Navigation, Formulare und Buttons. Keine `font-serif`-Klasse auf diesen Elementen verwenden.
+- **Handschrift-Akzent (Great Vibes, Klasse `.font-script`)**: ausschließlich für bewusst gestaltete Zitate/Slogans (z. B. Markenphilosophie-Sections), keine Fließtext-Ersatzschrift.
+- Keine weiteren Font-Familien ergänzen. Ungenutzte Font-Loads (frühere Beispiele: Cormorant Garamond, DM Sans) werden entfernt, sobald sie keine aktive Verwendung mehr haben – unnötige Schriftschnitte verschlechtern die Ladezeit.
+
+## Konsistenz gleicher Textrollen
+
+- Gleiche Textrollen (z. B. Section-Überzeile/Eyebrow, H2-Sektionsüberschrift, Fließtext-Absatz, Bullet-Listen-Text) verwenden über die gesamte Website hinweg dieselbe Schriftgröße und Zeilenhöhe, jeweils mit denselben responsiven Breakpoints (`md:`, `lg:`).
+- Neue Abschnitte orientieren sich an den bereits etablierten Größen vergleichbarer Elemente auf anderen Seiten, statt eigene Werte zu erfinden.
+- Logos und Schriftzüge innerhalb von Bildern/Grafiken sind von dieser Regel ausgenommen.
+
+---
+
 # AEO (Answer Engine Optimization) Standards für JAVERA Next.js Projekte
 
 Canonical/Single Source of Truth: [Javera-Studio/javera-dev-standards](https://github.com/Javera-Studio/javera-dev-standards) (AEO-STANDARDS.md). Diese Kopie hier ist die für dieses Repo verbindliche, git-getrackte Fassung — bei Änderungen am Standard beide Stellen synchron halten.

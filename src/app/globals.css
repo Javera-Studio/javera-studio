@@ -158,20 +158,21 @@
     -webkit-font-smoothing: antialiased;
   }
 
-  h1, h2, h3, h4, .font-serif {
+  /*
+   * Verbindliche Typografie-Regel (siehe CLAUDE.md → "Typografie-Standards"):
+   * Serifenschrift (Playfair Display) ausschließlich für Überschriften (h1–h6 bzw.
+   * .font-serif), dezente Nummerierungen (z. B. "01"–"04" in Prozess-/Ablaufdarstellungen)
+   * und bewusst gestaltete Zitate/Slogans (.font-script). Fließtext, Listen, Navigation,
+   * Formulare und Buttons verwenden immer die serifenlose Schrift (body-Default: Inter).
+   * Keine weiteren Font-Familien ergänzen, ohne diese Regel anzupassen.
+   */
+  h1, h2, h3, h4, h5, h6, .font-serif {
     font-family: var(--font-playfair), Georgia, serif;
     letter-spacing: -0.01em;
   }
 }
 
 /* ─── Font utility classes ─── */
-.font-editorial {
-  font-family: var(--font-cormorant), Georgia, serif;
-  letter-spacing: -0.005em;
-}
-.font-editorial-sans {
-  font-family: var(--font-dm-sans), ui-sans-serif, system-ui, sans-serif;
-}
 /* Handschrift-Akzent für Zitate/Slogans (Markenphilosophie-Sections) */
 .font-script {
   font-family: var(--font-great-vibes), cursive;
