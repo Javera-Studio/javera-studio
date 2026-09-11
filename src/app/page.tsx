@@ -8,7 +8,6 @@ import { ContactForm } from "@/components/ContactForm";
 import { ScrollRevealInit } from "@/components/ScrollRevealInit";
 import { FaqHashOpen } from "@/components/FaqHashOpen";
 import { SiteFooter } from "@/components/SiteFooter";
-import { QuoteSection } from "@/components/QuoteSection";
 import { brandQuotes } from "@/lib/brand-quotes";
 
 export const metadata: Metadata = {
@@ -28,14 +27,28 @@ export const metadata: Metadata = {
   },
 };
 
-const demos = [
-  { title: "PURE SKIN Studio", category: "Kosmetikstudio", desc: "Cleanes, ruhiges Design für mehr Vertrauen, klare Angebote und mehr Anfragen.", focus: "Vertrauen & hochwertige Präsentation", url: "https://demo-pure-skin-studio-launch.vercel.app", image: "/demo-pure-skin.png" },
-  { title: "Nail Atelier", category: "Nagelstudio", desc: "Elegantes Nail-Studio Design mit Fokus auf Ästhetik, Vertrauen und einen modernen Markenauftritt.", focus: "Eleganz & Markenwirkung", url: "https://demo-nailatelier.vercel.app", image: "/demo-nail-atelier.png" },
-  { title: "Ivory Bridal Studio", category: "Bridal Stylistin", desc: "Elegante Onepage-Website für Brautstylistinnen – modern, vertrauensvoll und perfekt für Anfragen rund um den Hochzeitstag.", focus: "Vertrauen & Premium-Auftritt", url: "https://demo-ivorybridalstudio.vercel.app", image: "/demo-ivorystudio.png" },
-  { title: "LUMEA Laser Clinic", category: "Beauty Klinik", desc: "Seriöse Klinik-Website mit Fokus auf Vertrauen, Beratung und professionelle Darstellung.", focus: "Seriosität & Beratung", url: "https://demo-lumea-laser-clinic.vercel.app", image: "/demo-lumea.png" },
-  { title: "Lumis Klinik", category: "Beauty Klinik", desc: "Moderne Klinik-Website mit Fokus auf Vertrauen, hochwertige Darstellung und professionelle Außenwirkung.", focus: "Vertrauen & Professionalität", url: "https://demo-lumis-klinik.vercel.app", image: "/demo-lumis-klinik.png" },
-  { title: "Salon Noir", category: "Friseursalon", desc: "Auffällige Website für starke Markenwirkung, mehr Sichtbarkeit und neue Kundinnen.", focus: "Markenwirkung & Sichtbarkeit", url: "https://demo-noir-vision.vercel.app", image: "/demo-salon-noir.png" },
-];
+/**
+ * Startseiten-Struktur (überarbeitet – Fokus auf Kundenführung):
+ *  1. Hero
+ *  2. Vertrauensleiste (TrustBar)
+ *  3. Über mich (kompakt)
+ *  4. Drei echte Kundenprojekte (Face and More · Paula Venc · Divine Beauty & Nails) + Link zu /demo-websites
+ *  5. Kundenbewertung
+ *  6. Problem-/Nutzenabschnitt (vorerst stärkste bestehende Version: <Warum>)
+ *  7. Kompakte Leistungsübersicht (<Angebot>)
+ *  8. Ablauf der Zusammenarbeit
+ *  9. Studio-Check
+ * 10. FAQ
+ * 11. Abschluss-CTA + Kontaktformular (allgemeine, unverbindliche Anfrage)
+ * 12. Footer
+ *
+ * Geparkte, nicht mehr eingebundene Abschnitte liegen in
+ * `src/components/home/parked-sections.tsx` (BrandManifesto, FeatureBadges, WarumJavera,
+ * Zweifel) und `src/components/home/demo-showcase.tsx` (Demo-Projekte, Branding-Showcase).
+ * Sie sind bewusst erhalten und dienen als Vorlage für die spätere Text-Konsolidierung von
+ * „Warum eine Website" / „Warum Javera Studio" / „Keine Zeit, keine Technik" /
+ * „kostenlose vs. kostenpflichtige Leistungen" / „Mehr als nur Webseiten".
+ */
 
 const benefits = [
   "Der erste Eindruck entsteht online — Noch bevor eine Kundin dein Studio besucht, informiert sie sich über Google oder Social Media.",
@@ -43,17 +56,6 @@ const benefits = [
   "Instagram allein reicht selten aus — Social Media ist wichtig – eine Website gibt deinem Studio ein dauerhaftes Zuhause im Internet und ergänzt deinen Online-Auftritt.",
   "Bei Google gefunden werden — Viele Kundinnen suchen aktiv nach Beauty-Studios in ihrer Nähe. Eine suchmaschinenoptimierte Website erhöht deine Sichtbarkeit und sorgt für mehr Anfragen.",
   "Ein einheitlicher Markenauftritt — Website, visueller Markenauftritt, Social Media und Print arbeiten zusammen und sorgen für einen professionellen, wiedererkennbaren Auftritt.",
-];
-
-const javeraPoints = [
-  "Spezialisierung auf Beauty Studios – Nails, Kosmetik, Friseur & Co.",
-  "Website, Branding & Grafik aus einer Hand",
-  "Einheitliches Design über alle Kanäle: Web, Print & Social Media",
-  "Individuell gestaltet – kein Template, keine 08/15-Lösung",
-  "Persönliche Zusammenarbeit direkt mit mir – von Anfang bis Ende",
-  "Schnelle Umsetzung mit klaren, sichtbaren Ergebnissen",
-  "SEO-Grundoptimierung für bessere Sichtbarkeit bei Google",
-  "10 % Rabatt auf alle Design-Leistungen für Website-Kunden",
 ];
 
 const steps = [
@@ -82,68 +84,49 @@ function Hero() {
       <HeroVideo />
       <div className="absolute inset-0" style={{ backgroundColor: "rgba(28, 13, 7, 0.52)" }} aria-hidden />
       <div className="relative z-10 max-w-6xl mx-auto px-6 pt-40 pb-28 md:pt-48 md:pb-36 text-center">
-        <h1 className="hero-headline font-serif text-[2.7rem] md:text-[3.375rem] lg:text-[4.05rem] leading-[1.05] text-white">
-          Eine hochwertige Behandlung
-          <br />
-          verdient einen hochwertigen
-          <br />
-          <span className="font-semibold">Online-Auftritt.</span>
+        <h1 className="hero-headline font-serif max-w-3xl mx-auto text-[2.4rem] md:text-[3.375rem] lg:text-[4.05rem] leading-[1.15] md:leading-[1.1] text-white text-balance">
+          Dein Studio ist professionell. Wirkt es online genauso?
         </h1>
         <p className="hero-subtitle mt-8 text-lg text-white/85 max-w-2xl mx-auto leading-relaxed">
-          Individuelles Webdesign und Branding für Beauty-Studios, die ihre Qualität auch online sichtbar machen möchten.
+          Individuelle Websites für etablierte Beauty- und Kosmetikstudios, die ihre Expertise sichtbar machen, Vertrauen aufbauen und die passenden Kundinnen erreichen möchten.
         </p>
         <div className="hero-cta mt-10 flex flex-wrap gap-3 justify-center">
-          <a href="#schreib-mir" className="px-7 py-3.5 rounded-full bg-primary text-primary-foreground hover:bg-mauve transition-all hover:scale-[1.02] hover:shadow-md font-medium">
+          <Link href="/webseiten-vorschau" className="px-7 py-3.5 rounded-full bg-primary text-primary-foreground hover:bg-mauve transition-all hover:scale-[1.02] hover:shadow-md font-medium">
             Kostenlose Webseiten-Vorschau
-          </a>
-          <Link href="/studio-check" className="px-7 py-3.5 rounded-full border border-white/40 text-white hover:bg-white hover:text-ink transition font-medium">
-            Kostenlosen Studio-Check starten
           </Link>
+          <a href="#schreib-mir" className="px-7 py-3.5 rounded-full border border-white/40 text-white hover:bg-white hover:text-ink transition font-medium">
+            Unverbindlich anfragen
+          </a>
         </div>
-      </div>
-    </section>
-  );
-}
-
-function BrandManifesto() {
-  return (
-    <section aria-label="Markenphilosophie" className="py-14 md:py-20 bg-background">
-      <div className="reveal max-w-3xl mx-auto px-6 text-center">
-        <div className="mirror-frame relative w-[134px] h-[134px] md:w-[173px] md:h-[173px] mx-auto mb-10 rounded-2xl overflow-hidden shadow-sm">
-          <Image src="/spiegel.png" alt="" fill sizes="173px" className="object-cover" aria-hidden />
-        </div>
-        <p className="font-script text-mauve-dark text-3xl md:text-4xl">
-          Deine Website ist das Fenster zu deinem Studio und der Spiegel deiner Qualität.
+        <p className="hero-cta mt-6 text-sm">
+          <a href="#kundenprojekte" className="inline-flex items-center gap-1.5 text-white/75 underline underline-offset-4 decoration-white/40 hover:text-white hover:decoration-white transition">
+            Ausgewählte Projekte ansehen <span aria-hidden>→</span>
+          </a>
         </p>
       </div>
     </section>
   );
 }
 
-const featureBadges = [
-  { title: "48h Vorschau", desc: "Kostenlose und unverbindliche Webseiten-Vorschau." },
-  { title: "1 Monat Betreuung", desc: "Persönliche Begleitung nach dem Launch." },
-  { title: "Alles aus einer Hand", desc: "Webdesign, Branding und Printdesign." },
-  { title: "Flexible Ratenzahlung", desc: "Bis zu 4 zinsfreie Teilzahlungen möglich." },
+const trustPoints = [
+  "Spezialisiert auf Beauty & Kosmetik",
+  "Individuelles Design statt Standardvorlage",
+  "Texte und Technik inklusive",
+  "Keine verpflichtenden Abos",
 ];
 
-function FeatureBadges() {
+function TrustBar() {
   return (
-    <section id="vorteile" aria-label="Deine Vorteile" className="py-14 md:py-20">
-      <div className="max-w-6xl mx-auto px-6">
-        <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-4 text-center">Darauf kannst du dich verlassen</div>
-        <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5">
-          {featureBadges.map((f, i) => (
-            <div
-              key={f.title}
-              className={`reveal reveal-stagger-${(i % 6) + 1} rounded-2xl border bg-white px-6 py-6 text-center shadow-sm`}
-              style={{ borderColor: "#E8DDD9" }}
-            >
-              <p className="font-serif text-lg text-ink">{f.title}</p>
-              <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{f.desc}</p>
-            </div>
+    <section id="vertrauen" aria-label="Darauf kannst du dich verlassen" className="border-y border-border/50 bg-background">
+      <div className="max-w-6xl mx-auto px-6 py-8 md:py-10">
+        <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-4">
+          {trustPoints.map((p, i) => (
+            <li key={p} className={`reveal reveal-stagger-${i + 1} flex items-center gap-3 text-sm text-ink/80 lg:justify-center lg:text-center`}>
+              <span aria-hidden className="inline-block h-1.5 w-1.5 rounded-full flex-shrink-0" style={{ backgroundColor: "var(--rose-gold)" }} />
+              <span className="leading-snug">{p}</span>
+            </li>
           ))}
-        </div>
+        </ul>
       </div>
     </section>
   );
@@ -151,27 +134,25 @@ function FeatureBadges() {
 
 function About() {
   return (
-    <section id="about" className="py-14 md:py-24">
-      <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
+    <section id="about" className="py-12 md:py-16 scroll-mt-28">
+      <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-10 md:gap-14 items-center">
         <div className="order-2 md:order-1">
-          <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-4">Wer bin ich</div>
-          <h2 className="reveal font-serif text-4xl md:text-5xl text-ink leading-tight">Über mich</h2>
-          <div className="mt-8 space-y-5 text-muted-foreground leading-relaxed text-[1.05rem]">
-            <p className="reveal reveal-stagger-1">Ich bin Jagoda – Webdesignerin & Grafikerin aus Wien, spezialisiert auf Beauty Studios. Ich begleite dich beim Aufbau eines professionellen Gesamtauftritts – von der Website über das Branding bis zu Social-Media-Design und Print.</p>
-            <p className="reveal reveal-stagger-2">Durch meine Erfahrung in der IT verbinde ich klares Design mit Struktur und Funktion. So entsteht eine Website, die nicht nur gut aussieht, sondern Vertrauen aufbaut und neue Kundinnen anzieht.</p>
-            <p className="reveal reveal-stagger-3">Ich arbeite bewusst unkompliziert: Du musst keine fertigen Texte oder Technik-Wissen mitbringen – ich führe dich Schritt für Schritt durch den gesamten Prozess.</p>
-            <p className="reveal reveal-stagger-4">Als Mama von drei Kindern weiß ich, wie wertvoll Zeit ist – deshalb ist mir eine einfache, klare Zusammenarbeit besonders wichtig.</p>
+          <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-4">Wer hinter Javera Studio steht</div>
+          <h2 className="reveal font-serif text-4xl md:text-5xl text-ink leading-tight">Persönliches Webdesign mit Struktur und einem klaren Blick fürs Ganze.</h2>
+          <div className="mt-6 space-y-4 text-muted-foreground leading-relaxed text-[1.05rem]">
+            <p className="reveal reveal-stagger-1">Ich bin Jagoda, Webdesignerin aus Wien und Gründerin von Javera Studio. Ich unterstütze Beauty- und Kosmetikstudios dabei, ihre Qualität auch online professionell sichtbar zu machen.</p>
+            <p className="reveal reveal-stagger-2">Durch meinen beruflichen Hintergrund in IT, Prozessen und digitaler Organisation verbinde ich ästhetisches Design mit klarer Struktur und funktionierender Technik. Du arbeitest während des gesamten Projekts direkt mit mir – persönlich, verständlich und ohne technisches Vorwissen.</p>
           </div>
         </div>
         <div className="order-1 md:order-2 md:relative">
           <div className="reveal relative aspect-[4/5] rounded-[2.25rem] overflow-hidden">
             <Image src="/portrait.png" alt="Jagoda – Webdesignerin aus Wien" loading="lazy" width={1024} height={1280} className="w-full h-full object-cover" />
           </div>
-          <div className="relative z-10 w-[78%] ml-auto mr-6 -mt-12 md:ml-0 md:mr-0 md:mt-0 md:absolute md:left-0 md:right-auto md:-bottom-14 md:w-[70%] md:-translate-x-[15%] md:translate-y-[10%] bg-rose-gold-soft rounded-[32px] p-8 md:p-11">
-            <p className="font-serif text-lg md:text-xl text-ink leading-relaxed">
+          <div className="relative z-10 w-[78%] ml-auto mr-6 -mt-12 md:ml-0 md:mr-0 md:mt-0 md:absolute md:left-0 md:right-auto md:-bottom-12 md:w-[70%] md:-translate-x-[15%] md:translate-y-[10%] bg-rose-gold-soft rounded-[32px] p-6 md:p-8">
+            <p className="font-serif text-base md:text-lg text-ink leading-relaxed">
               Ich möchte, dass du deine Website ansiehst und genau dasselbe fühlst wie deine Kundin nach dem Blick in den Spiegel.
             </p>
-            <p className="mt-4 font-serif text-2xl md:text-3xl text-ink leading-snug">
+            <p className="mt-3 font-serif text-2xl md:text-3xl text-ink leading-snug">
               „Das bin ich.“
             </p>
           </div>
@@ -181,131 +162,10 @@ function About() {
   );
 }
 
-function Warum() {
-  return (
-    <section id="warum" className="py-12 md:py-16">
-      <div className="max-w-6xl mx-auto px-6">
-        <div className="grid md:grid-cols-2 gap-16 items-start">
-          <div className="md:sticky md:top-28">
-            <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-4">Warum eine Website</div>
-            <h2 className="reveal font-serif text-4xl md:text-5xl text-ink leading-tight">Deine Website ist das Schaufenster deines Studios im Internet.</h2>
-            <div className="reveal reveal-delay mt-6 space-y-4 text-muted-foreground text-lg leading-relaxed">
-              <p>Viele Beauty-Studios investieren Tausende Euro in ihre Einrichtung, hochwertige Geräte und regelmäßige Schulungen – und das aus gutem Grund.</p>
-              <p>Doch der erste Eindruck entsteht heute oft lange bevor eine Kundin dein Studio betritt.</p>
-              <p>Sie besucht deine Website, schaut sich deine Arbeiten an und entscheidet innerhalb weniger Sekunden, ob sie Vertrauen fasst oder weitersucht.</p>
-              <p>Deshalb verdient dein Studio eine Website, die genauso hochwertig wirkt wie deine Arbeit.</p>
-            </div>
-            <a href="#schreib-mir" className="reveal inline-block mt-8 px-7 py-3.5 rounded-full bg-primary text-primary-foreground hover:bg-mauve transition-all hover:scale-[1.02] hover:shadow-md font-medium">
-              Kostenlose Vorschau anfragen
-            </a>
-          </div>
-          <ul className="space-y-1">
-            {benefits.map((b, i) => (
-              <li key={b} className={`reveal reveal-stagger-${(i % 6) + 1} flex items-start gap-5 py-5 border-b border-border/60 last:border-0`}>
-                <span className="font-serif text-2xl text-muted-foreground/80 w-8">{String(i + 1).padStart(2, "0")}</span>
-                <span className="text-lg text-ink pt-1">{b}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        <p className="reveal mt-20 mb-10 text-center font-script text-mauve-dark text-3xl md:text-4xl">
-          {brandQuotes.vertrauenVorTermin}
-        </p>
-
-        <div className="relative grid md:grid-cols-2 gap-6 md:gap-8">
-          <figure className="reveal">
-            <div className="relative rounded-[2rem] overflow-hidden aspect-[4/5]">
-              <Image src="/bild1.png" alt="Website auf dem Smartphone – der erste Eindruck online" loading="lazy" width={1024} height={1280} className="w-full h-full object-cover" />
-            </div>
-            <figcaption className="mt-5 text-center">
-              <span className="block text-[11px] uppercase tracking-[0.2em] text-muted-foreground">01 — Online</span>
-              <span className="block mt-1.5 font-serif text-lg text-ink">Der erste Eindruck online.</span>
-            </figcaption>
-          </figure>
-
-          <div aria-hidden className="hidden md:flex absolute left-1/2 top-[38%] -translate-x-1/2 z-10 items-center gap-2 text-mauve">
-            <span className="editorial-rule" />
-            <span className="text-sm">→</span>
-            <span className="editorial-rule" />
-          </div>
-
-          <figure className="reveal reveal-delay">
-            <div className="relative rounded-[2rem] overflow-hidden aspect-[4/5]">
-              <Image src="/success.jpg" alt="Modernes, gebuchtes Beauty Studio mit zufriedener Kundin" loading="lazy" width={1024} height={1280} className="w-full h-full object-cover" />
-            </div>
-            <figcaption className="mt-5 text-center">
-              <span className="block text-[11px] uppercase tracking-[0.2em] text-muted-foreground">02 — Im Studio</span>
-              <span className="block mt-1.5 font-serif text-lg text-ink">Das Erlebnis im Studio.</span>
-            </figcaption>
-          </figure>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function Angebot() {
-  const free = ["Erstgespräch & Kennenlernen", "Projektbesprechung & erste Ideen", "Erste Design-/Demo-Vorschau", "Individuelle Konzeptideen für deinen Online-Auftritt", "Beratung zu Aufbau, Buchungssystem & Struktur"];
-  const paid = ["Online-Präsenz Analyse & Optimierungsplan", "Individuelle Website-Erstellung", "Visueller Markenauftritt (Farben, Typografie, Bildsprache)", "Flyer, Visitenkarten & Print-Design (druckfertig)", "Social Media Design (Posts, Stories, Cover Sets)", "Mobile Optimierung & SEO-Grundoptimierung", "Domain & Hosting Einrichtung", "Buchungs-/Kalenderlösungen", "Zusätzliche Unterseiten oder Erweiterungen", "Änderungen, Pflege & laufende Betreuung der Inhalte"];
-
-  return (
-    <section id="angebot" className="py-12 md:py-16 bg-cream">
-      <div className="max-w-6xl mx-auto px-6">
-        <div className="max-w-2xl mb-16">
-          <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-4">Mein Angebot</div>
-          <h2 className="reveal font-serif text-4xl md:text-5xl text-ink leading-tight">Was du bei mir bekommst</h2>
-          <p className="reveal reveal-delay mt-4 text-muted-foreground text-lg">Transparente Leistungen – von der kostenlosen Erstberatung bis zum fertigen Gesamtauftritt.</p>
-        </div>
-        <div className="grid md:grid-cols-2 gap-6 md:gap-8">
-          <div className="reveal relative rounded-3xl border border-border/60 bg-background p-8 md:p-10 shadow-sm">
-            <div className="absolute -top-3 left-8 inline-flex items-center gap-2 px-3 py-1 rounded-full bg-mint-soft text-ink text-[11px] uppercase tracking-[0.2em]">
-              <span className="h-1.5 w-1.5 rounded-full bg-ink/70" />Kostenlos
-            </div>
-            <h3 className="font-serif text-2xl md:text-3xl text-ink mt-2">Unverbindlich &amp; kostenlos</h3>
-            <p className="mt-3 text-muted-foreground leading-relaxed">Kennenlernen, beraten, Ideen sammeln – ohne Verpflichtung.</p>
-            <ul className="mt-8 space-y-4">
-              {free.map((item) => (
-                <li key={item} className="flex items-start gap-3 text-ink">
-                  <span className="mt-2 h-1.5 w-1.5 rounded-full bg-mauve flex-shrink-0" /><span className="leading-relaxed">{item}</span>
-                </li>
-              ))}
-            </ul>
-            <a href="#schreib-mir" className="inline-block mt-10 px-7 py-3.5 rounded-full bg-primary text-primary-foreground hover:bg-mauve transition-all hover:scale-[1.02] hover:shadow-md font-medium">
-              Kostenlose Vorschau anfragen
-            </a>
-          </div>
-          <div className="reveal reveal-delay relative rounded-3xl border border-mauve/30 bg-gradient-to-br from-peach-soft via-background to-accent/40 p-8 md:p-10 shadow-sm">
-            <div className="absolute -top-3 left-8 inline-flex items-center gap-2 px-3 py-1 rounded-full bg-mauve text-white text-[11px] uppercase tracking-[0.2em]">
-              <span className="h-1.5 w-1.5 rounded-full bg-white/80" />Leistungen
-            </div>
-            <h3 className="font-serif text-2xl md:text-3xl text-ink mt-2">Kostenpflichtige Leistungen</h3>
-            <p className="mt-3 text-muted-foreground leading-relaxed">Alles, was dein Studio professionell, sichtbar und unverwechselbar macht – online wie offline.</p>
-            <ul className="mt-8 grid sm:grid-cols-1 gap-y-4">
-              {paid.map((item) => (
-                <li key={item} className="flex items-start gap-3 text-ink">
-                  <span className="mt-2 h-1.5 w-1.5 rounded-full bg-mauve flex-shrink-0" /><span className="leading-relaxed">{item}</span>
-                </li>
-              ))}
-            </ul>
-            <p className="mt-8 text-sm text-muted-foreground">Individuelles Angebot nach deinem Bedarf – fair &amp; transparent kalkuliert.</p>
-          </div>
-        </div>
-
-        <div className="mt-12 text-center">
-          <Link href="/leistungen" className="inline-flex items-center gap-2 text-sm font-medium text-ink border-b border-ink/30 pb-1 hover:border-ink transition">
-            Alle Leistungen ansehen <span aria-hidden>→</span>
-          </Link>
-        </div>
-      </div>
-    </section>
-  );
-}
-
 function FaceAndMore() {
   const leistungen = ["Kompletter Website-Relaunch", "Migration von Wix zu Vercel", "Mobile Optimierung", "Domain erfolgreich migriert", "Leistungsseiten & FAQ-Bereich", "SEO-freundliche Struktur"];
   return (
-    <section id="kundenprojekte" className="py-12 md:py-16">
+    <section id="kundenprojekte" className="py-12 md:py-16 scroll-mt-28">
       <div className="max-w-6xl mx-auto px-6">
         <div className="max-w-2xl mb-14 md:mb-20">
           <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-4">Kundenprojekte</div>
@@ -524,167 +384,134 @@ function DivineBeautyNails() {
   );
 }
 
-function Demos() {
-  const row1 = demos.slice(0, 3);
-  const row2 = demos.slice(3);
+function DemoWebsitesLink() {
   return (
-    <section id="demos" className="py-12 md:py-16 bg-cream">
+    <section aria-label="Demo-Websites" className="pb-4 md:pb-8">
+      <div className="reveal max-w-6xl mx-auto px-6 text-center">
+        <Link href="/demo-websites" className="inline-flex items-center gap-2 text-sm font-medium text-ink border-b border-ink/30 pb-1 hover:border-ink transition">
+          Demo-Websites ansehen <span aria-hidden>→</span>
+        </Link>
+        <p className="mt-3 text-xs text-muted-foreground">Beispiel-Websites für weitere Beauty-Bereiche</p>
+      </div>
+    </section>
+  );
+}
+
+function Warum() {
+  return (
+    <section id="warum" className="py-12 md:py-16 scroll-mt-28">
       <div className="max-w-6xl mx-auto px-6">
-        <div className="max-w-2xl mb-16">
-          <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-4">Demo Projekte</div>
-          <h2 className="reveal font-serif text-4xl md:text-5xl text-ink leading-tight">Beispiel-Websites für Beauty Businesses</h2>
-          <p className="reveal reveal-delay mt-4 text-muted-foreground text-lg">Jede Demo wurde für eine andere Zielgruppe und Markenidentität entwickelt. So bekommst du ein Gefühl dafür, wie unterschiedlich ein Webauftritt wirken kann – und welche Richtung zu deinem Business passt.</p>
-        </div>
-        <div className="grid md:grid-cols-3 gap-6 md:gap-8">
-          {row1.map((d, i) => (
-            <div key={d.title} className={`reveal-card reveal-stagger-${(i % 4) + 1} group relative bg-background rounded-3xl border border-border/60 hover:shadow-xl hover:shadow-ink/5 transition overflow-hidden flex flex-col p-6 md:p-8`}>
-              <div className="relative rounded-2xl overflow-hidden mb-6 flex items-center justify-center aspect-[16/10]" style={{ backgroundColor: "var(--peach-soft)" }}>
-                <span className="absolute top-3 right-3 z-10 inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-background/90 backdrop-blur-sm border border-border/50 text-[10px] uppercase tracking-wider font-medium text-ink shadow-sm">
-                  <span className="w-1.5 h-1.5 rounded-full bg-mauve" />Showcase Project
-                </span>
-                <Image src={d.image} alt={`${d.title} Demo Vorschau`} loading="lazy" width={600} height={375} className="w-full h-full object-contain transition duration-500 group-hover:scale-[1.03]" />
-              </div>
-              <div className="text-xs uppercase tracking-wider text-muted-foreground">{d.category}</div>
-              <h3 className="font-serif text-ink mt-2 text-2xl md:text-3xl">{d.title}</h3>
-              <p className="mt-3 text-muted-foreground leading-relaxed">{d.desc}</p>
-              <p className="mt-auto pt-4 text-sm text-ink/70 italic">→ Fokus: {d.focus}</p>
-              <a href={d.url} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 mt-4 text-sm font-medium text-ink border-b border-ink/30 pb-1 hover:border-ink transition">
-                Demo ansehen <span aria-hidden>→</span>
-              </a>
+        <div className="grid md:grid-cols-2 gap-16 items-start">
+          <div className="md:sticky md:top-28">
+            <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-4">Warum eine Website</div>
+            <h2 className="reveal font-serif text-4xl md:text-5xl text-ink leading-tight">Deine Website ist das Schaufenster deines Studios im Internet.</h2>
+            <div className="reveal reveal-delay mt-6 space-y-4 text-muted-foreground text-lg leading-relaxed">
+              <p>Viele Beauty-Studios investieren Tausende Euro in ihre Einrichtung, hochwertige Geräte und regelmäßige Schulungen – und das aus gutem Grund.</p>
+              <p>Doch der erste Eindruck entsteht heute oft lange bevor eine Kundin dein Studio betritt.</p>
+              <p>Sie besucht deine Website, schaut sich deine Arbeiten an und entscheidet innerhalb weniger Sekunden, ob sie Vertrauen fasst oder weitersucht.</p>
+              <p>Deshalb verdient dein Studio eine Website, die genauso hochwertig wirkt wie deine Arbeit.</p>
             </div>
-          ))}
+            <Link href="/webseiten-vorschau" className="reveal inline-block mt-8 px-7 py-3.5 rounded-full bg-primary text-primary-foreground hover:bg-mauve transition-all hover:scale-[1.02] hover:shadow-md font-medium">
+              Kostenlose Webseiten-Vorschau anfragen
+            </Link>
+          </div>
+          <ul className="space-y-1">
+            {benefits.map((b, i) => (
+              <li key={b} className={`reveal reveal-stagger-${(i % 6) + 1} flex items-start gap-5 py-5 border-b border-border/60 last:border-0`}>
+                <span className="font-serif text-2xl text-muted-foreground/80 w-8">{String(i + 1).padStart(2, "0")}</span>
+                <span className="text-lg text-ink pt-1">{b}</span>
+              </li>
+            ))}
+          </ul>
         </div>
-        <div className="grid md:grid-cols-3 gap-6 md:gap-8 mt-10 md:mt-14">
-          {row2.map((d, i) => (
-            <div key={d.title} className={`reveal-card reveal-stagger-${(i % 4) + 1} group relative bg-background rounded-3xl border border-border/60 hover:shadow-xl hover:shadow-ink/5 transition overflow-hidden flex flex-col p-6 md:p-8`}>
-              <div className="relative rounded-2xl overflow-hidden mb-6 flex items-center justify-center aspect-[16/10]" style={{ backgroundColor: "var(--peach-soft)" }}>
-                <span className="absolute top-3 right-3 z-10 inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-background/90 backdrop-blur-sm border border-border/50 text-[10px] uppercase tracking-wider font-medium text-ink shadow-sm">
-                  <span className="w-1.5 h-1.5 rounded-full bg-mauve" />Showcase Project
-                </span>
-                <Image src={d.image} alt={`${d.title} Demo Vorschau`} loading="lazy" width={600} height={375} className="w-full h-full object-contain transition duration-500 group-hover:scale-[1.03]" />
-              </div>
-              <div className="text-xs uppercase tracking-wider text-muted-foreground">{d.category}</div>
-              <h3 className="font-serif text-ink mt-2 text-2xl md:text-3xl">{d.title}</h3>
-              <p className="mt-3 text-muted-foreground leading-relaxed">{d.desc}</p>
-              <p className="mt-auto pt-4 text-sm text-ink/70 italic">→ Fokus: {d.focus}</p>
-              <a href={d.url} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 mt-4 text-sm font-medium text-ink border-b border-ink/30 pb-1 hover:border-ink transition">
-                Demo ansehen <span aria-hidden>→</span>
-              </a>
+
+        <p className="reveal mt-20 mb-10 text-center font-script text-mauve-dark text-3xl md:text-4xl">
+          {brandQuotes.vertrauenVorTermin}
+        </p>
+
+        <div className="relative grid md:grid-cols-2 gap-6 md:gap-8">
+          <figure className="reveal">
+            <div className="relative rounded-[2rem] overflow-hidden aspect-[4/5]">
+              <Image src="/bild1.png" alt="Website auf dem Smartphone – der erste Eindruck online" loading="lazy" width={1024} height={1280} className="w-full h-full object-cover" />
             </div>
-          ))}
-        </div>
-        <div className="mt-16 text-center reveal">
-          <a href="#schreib-mir" className="inline-block px-7 py-3.5 rounded-full bg-primary text-primary-foreground hover:bg-mauve transition-all hover:scale-[1.02] hover:shadow-md font-medium">
-            Kostenlose Vorschau anfragen
-          </a>
-          <p className="mt-3 text-xs text-muted-foreground">Weitere Projekte in Umsetzung</p>
+            <figcaption className="mt-5 text-center">
+              <span className="block text-[11px] uppercase tracking-[0.2em] text-muted-foreground">01 — Online</span>
+              <span className="block mt-1.5 font-serif text-lg text-ink">Der erste Eindruck online.</span>
+            </figcaption>
+          </figure>
+
+          <div aria-hidden className="hidden md:flex absolute left-1/2 top-[38%] -translate-x-1/2 z-10 items-center gap-2 text-mauve">
+            <span className="editorial-rule" />
+            <span className="text-sm">→</span>
+            <span className="editorial-rule" />
+          </div>
+
+          <figure className="reveal reveal-delay">
+            <div className="relative rounded-[2rem] overflow-hidden aspect-[4/5]">
+              <Image src="/success.jpg" alt="Modernes, gebuchtes Beauty Studio mit zufriedener Kundin" loading="lazy" width={1024} height={1280} className="w-full h-full object-cover" />
+            </div>
+            <figcaption className="mt-5 text-center">
+              <span className="block text-[11px] uppercase tracking-[0.2em] text-muted-foreground">02 — Im Studio</span>
+              <span className="block mt-1.5 font-serif text-lg text-ink">Das Erlebnis im Studio.</span>
+            </figcaption>
+          </figure>
         </div>
       </div>
     </section>
   );
 }
 
-function FeaturedLuxe() {
-  const mockups = [
-    { src: "/luxe-visitenkarten.png", alt: "Visitenkarten Mockup", span: "md:col-span-6", aspect: "aspect-[3/4]", label: "Visitenkarten" },
-    { src: "/luxe-preisliste.png", alt: "Preisliste Mockup", span: "md:col-span-6", aspect: "aspect-[3/4]", label: "Preisliste" },
-    { src: "/luxe-social-1.png", alt: "Social Media Template 1", span: "md:col-span-4", aspect: "aspect-[9/16]", label: "Social Post" },
-    { src: "/luxe-social-2.png", alt: "Social Media Template 2", span: "md:col-span-4", aspect: "aspect-[9/16]", label: "Social Post" },
-    { src: "/luxe-social-3.png", alt: "Social Media Template 3", span: "md:col-span-4", aspect: "aspect-[9/16]", label: "Social Post" },
-    { src: "/luxe-gutschein.png", alt: "Gutschein Mockup", span: "md:col-span-12", aspect: "aspect-[16/9]", label: "Gutscheine" },
-  ];
-  const bullets = ["Website Design", "Visueller Markenauftritt", "Preislisten", "Gutscheine", "Social Media Templates", "Visitenkarten"];
+function Angebot() {
+  const free = ["Erstgespräch & Kennenlernen", "Projektbesprechung & erste Ideen", "Erste Design-/Demo-Vorschau", "Individuelle Konzeptideen für deinen Online-Auftritt", "Beratung zu Aufbau, Buchungssystem & Struktur"];
+  const paid = ["Online-Präsenz Analyse & Optimierungsplan", "Individuelle Website-Erstellung", "Visueller Markenauftritt (Farben, Typografie, Bildsprache)", "Flyer, Visitenkarten & Print-Design (druckfertig)", "Social Media Design (Posts, Stories, Cover Sets)", "Mobile Optimierung & SEO-Grundoptimierung", "Domain & Hosting Einrichtung", "Buchungs-/Kalenderlösungen", "Zusätzliche Unterseiten oder Erweiterungen", "Änderungen, Pflege & laufende Betreuung der Inhalte"];
 
   return (
-    <section className="relative py-14 md:py-20 bg-background overflow-hidden">
-      <div aria-hidden className="absolute inset-0 pointer-events-none opacity-60" style={{ background: "radial-gradient(60% 50% at 50% 0%, color-mix(in oklab, var(--peach-soft) 70%, transparent) 0%, transparent 70%)" }} />
-      <div className="relative max-w-6xl mx-auto px-6">
-        <div className="max-w-2xl mx-auto text-center mb-20 md:mb-28">
-          <div className="reveal text-xs uppercase tracking-[0.28em] text-muted-foreground mb-5">
-            <span className="editorial-rule mr-3" />Komplettes Branding<span className="editorial-rule ml-3" />
-          </div>
-          <h2 className="reveal font-serif text-4xl md:text-6xl text-ink leading-[1.05] tracking-tight">Mehr als nur Webseiten</h2>
-          <p className="reveal reveal-delay mt-6 text-muted-foreground text-lg leading-relaxed">Ich entwickle nicht nur moderne Websites, sondern komplette visuelle Markenauftritte für Beauty Studios — abgestimmt auf Stil, Zielgruppe und Markenwirkung.</p>
+    <section id="angebot" className="py-12 md:py-16 bg-cream scroll-mt-28">
+      <div className="max-w-6xl mx-auto px-6">
+        <div className="max-w-2xl mb-16">
+          <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-4">Mein Angebot</div>
+          <h2 className="reveal font-serif text-4xl md:text-5xl text-ink leading-tight">Was du bei mir bekommst</h2>
+          <p className="reveal reveal-delay mt-4 text-muted-foreground text-lg">Transparente Leistungen – von der kostenlosen Erstberatung bis zum fertigen Gesamtauftritt.</p>
         </div>
-        <div className="grid md:grid-cols-12 gap-10 md:gap-16 items-center">
-          <div className="reveal-card md:col-span-7 order-2 md:order-1">
-            <div className="relative rounded-[2rem] overflow-hidden group" style={{ boxShadow: "0 30px 80px -30px color-mix(in oklab, var(--ink) 25%, transparent)" }}>
-              <span className="absolute top-3 right-3 z-10 inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-background/90 backdrop-blur-sm border border-border/50 text-[10px] uppercase tracking-wider font-medium text-ink shadow-sm">
-                <span className="w-1.5 h-1.5 rounded-full bg-mauve" />Showcase Project
-              </span>
-              <div className="aspect-[4/5] md:aspect-[5/6] w-full" style={{ backgroundColor: "var(--peach-soft)" }}>
-                <Image src="/demo-luxe-nails.png" alt="Luxe Nails Vienna — Website & Branding Hero" loading="lazy" width={800} height={1000} className="w-full h-full object-cover transition duration-[1200ms] ease-out group-hover:scale-[1.04]" />
-              </div>
+        <div className="grid md:grid-cols-2 gap-6 md:gap-8">
+          <div className="reveal relative rounded-3xl border border-border/60 bg-background p-8 md:p-10 shadow-sm">
+            <div className="absolute -top-3 left-8 inline-flex items-center gap-2 px-3 py-1 rounded-full bg-mint-soft text-ink text-[11px] uppercase tracking-[0.2em]">
+              <span className="h-1.5 w-1.5 rounded-full bg-ink/70" />Kostenlos
             </div>
-          </div>
-          <div className="md:col-span-5 order-1 md:order-2 reveal reveal-delay">
-            <div className="text-[11px] uppercase tracking-[0.32em] text-rose-gold mb-5">Featured Project</div>
-            <h3 className="font-serif text-4xl md:text-5xl text-ink leading-[1.05] tracking-tight">Luxe Nails<br />Vienna</h3>
-            <div className="mt-6 h-px w-12 bg-ink/20" />
-            <p className="mt-6 text-muted-foreground leading-relaxed text-base md:text-lg">Luxuriöses Branding-Konzept für ein modernes Wiener Nagelstudio — inklusive Website, Preislisten, Gutscheinen, Visitenkarten und Social Media Assets.</p>
-            <ul className="mt-8 grid grid-cols-2 gap-x-6 gap-y-3">
-              {bullets.map((b) => (
-                <li key={b} className="flex items-center gap-3 text-sm text-ink/80">
-                  <span aria-hidden className="inline-block h-[6px] w-[6px] rounded-full" style={{ backgroundColor: "var(--rose-gold)" }} />{b}
+            <h3 className="font-serif text-2xl md:text-3xl text-ink mt-2">Unverbindlich &amp; kostenlos</h3>
+            <p className="mt-3 text-muted-foreground leading-relaxed">Kennenlernen, beraten, Ideen sammeln – ohne Verpflichtung.</p>
+            <ul className="mt-8 space-y-4">
+              {free.map((item) => (
+                <li key={item} className="flex items-start gap-3 text-ink">
+                  <span className="mt-2 h-1.5 w-1.5 rounded-full bg-mauve flex-shrink-0" /><span className="leading-relaxed">{item}</span>
                 </li>
               ))}
             </ul>
-            <a href="https://demo-luxe-nails-vienna.vercel.app" target="_blank" rel="noopener noreferrer" className="group inline-flex items-center gap-2 mt-10 text-sm font-medium tracking-wide text-ink border-b border-ink/30 pb-1 hover:border-ink transition">
-              Projekt ansehen <span aria-hidden className="transition-transform duration-300 group-hover:translate-x-1">→</span>
-            </a>
+            <Link href="/webseiten-vorschau" className="inline-block mt-10 px-7 py-3.5 rounded-full bg-primary text-primary-foreground hover:bg-mauve transition-all hover:scale-[1.02] hover:shadow-md font-medium">
+              Kostenlose Webseiten-Vorschau anfragen
+            </Link>
           </div>
-        </div>
-        <div className="mt-24 md:mt-36">
-          <div className="flex items-end justify-between mb-10 md:mb-14">
-            <div>
-              <div className="text-[11px] uppercase tracking-[0.28em] text-muted-foreground mb-3">Brand Identity</div>
-              <h4 className="font-serif text-2xl md:text-3xl text-ink">Visuelle Markenwelt</h4>
-              <p className="mt-3 text-sm text-muted-foreground max-w-md leading-relaxed">Jedes Element — vom Farbkonzept bis zum Gutschein — ist aufeinander abgestimmt und auf deine Zielgruppe zugeschnitten.</p>
+          <div className="reveal reveal-delay relative rounded-3xl border border-mauve/30 bg-gradient-to-br from-peach-soft via-background to-accent/40 p-8 md:p-10 shadow-sm">
+            <div className="absolute -top-3 left-8 inline-flex items-center gap-2 px-3 py-1 rounded-full bg-mauve text-white text-[11px] uppercase tracking-[0.2em]">
+              <span className="h-1.5 w-1.5 rounded-full bg-white/80" />Leistungen
             </div>
-            <div className="hidden md:block text-xs text-muted-foreground italic">Branding · Print · Social</div>
-          </div>
-          <div className="grid md:grid-cols-12 gap-5 md:gap-6">
-            {mockups.map((m, i) => (
-              <figure key={i} className={`reveal-card reveal-stagger-${(i % 6) + 1} ${m.span} group relative overflow-hidden rounded-2xl bg-cream`} style={{ boxShadow: "0 20px 50px -25px color-mix(in oklab, var(--ink) 18%, transparent)" }}>
-                <div className={`${m.aspect} w-full overflow-hidden`}>
-                  <Image src={m.src} alt={m.alt} loading="lazy" width={800} height={800} className="w-full h-full object-cover transition duration-[900ms] ease-out group-hover:scale-[1.05]" />
-                </div>
-                <figcaption className="absolute left-4 bottom-4 text-[10px] uppercase tracking-[0.25em] text-ink/0 group-hover:text-ink/70 bg-background/0 group-hover:bg-background/80 backdrop-blur-sm rounded-full px-3 py-1 transition-all duration-500">{m.label}</figcaption>
-              </figure>
-            ))}
+            <h3 className="font-serif text-2xl md:text-3xl text-ink mt-2">Kostenpflichtige Leistungen</h3>
+            <p className="mt-3 text-muted-foreground leading-relaxed">Alles, was dein Studio professionell, sichtbar und unverwechselbar macht – online wie offline.</p>
+            <ul className="mt-8 grid sm:grid-cols-1 gap-y-4">
+              {paid.map((item) => (
+                <li key={item} className="flex items-start gap-3 text-ink">
+                  <span className="mt-2 h-1.5 w-1.5 rounded-full bg-mauve flex-shrink-0" /><span className="leading-relaxed">{item}</span>
+                </li>
+              ))}
+            </ul>
+            <p className="mt-8 text-sm text-muted-foreground">Individuelles Angebot nach deinem Bedarf – fair &amp; transparent kalkuliert.</p>
           </div>
         </div>
-      </div>
-    </section>
-  );
-}
 
-function Javera() {
-  return (
-    <section className="py-12 md:py-16 bg-mint-soft">
-      <div className="max-w-6xl mx-auto px-6">
-        <div className="max-w-3xl">
-          <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-4">Warum Javera Studio</div>
-          <h2 className="reveal font-serif text-4xl md:text-5xl text-ink leading-tight">Mehr als eine Website – dein komplettes visuelles Erscheinungsbild, das Kundinnen bringt.</h2>
-          <div className="reveal reveal-delay mt-6 space-y-4 text-muted-foreground text-lg leading-relaxed">
-            <p>Von der Website über den visuellen Markenauftritt bis zu Instagram-Posts und Flyern – ich gestalte alles, was dein Beauty Studio sichtbar und unverwechselbar macht.</p>
-            <p>Du bekommst kein Fertigprodukt von der Stange, sondern ein durchgängiges visuelles Konzept, das zu deiner Marke, deinem Stil und deinen Kundinnen passt.</p>
-            <p className="text-ink font-medium">Starte mit einer kostenlosen Website-Analyse – ich zeige dir, wo Potenzial steckt und was dein Auftritt wirklich braucht.</p>
-          </div>
-        </div>
-        <div className="mt-12 text-sm uppercase tracking-[0.2em] text-muted-foreground">Das bekommst du</div>
-        <div className="mt-6 grid sm:grid-cols-2 gap-x-10 gap-y-4">
-          {javeraPoints.map((p, i) => (
-            <div key={p} className={`reveal reveal-stagger-${(i % 7) + 1} flex items-start gap-4 py-3`}>
-              <span className="mt-1 text-ink shrink-0">✔</span>
-              <span className="text-ink leading-relaxed">{p}</span>
-            </div>
-          ))}
-        </div>
-        <div className="mt-12 reveal">
-          <a href="#schreib-mir" className="inline-block px-7 py-3.5 rounded-full bg-primary text-primary-foreground hover:bg-mauve transition-all hover:scale-[1.02] hover:shadow-md font-medium">
-            Kostenlose Vorschau anfragen
-          </a>
+        <div className="mt-12 text-center">
+          <Link href="/leistungen" className="inline-flex items-center gap-2 text-sm font-medium text-ink border-b border-ink/30 pb-1 hover:border-ink transition">
+            Alle Leistungen ansehen <span aria-hidden>→</span>
+          </Link>
         </div>
       </div>
     </section>
@@ -693,7 +520,7 @@ function Javera() {
 
 function Ablauf() {
   return (
-    <section id="ablauf" className="py-12 md:py-16">
+    <section id="ablauf" className="py-12 md:py-16 scroll-mt-28">
       <div className="max-w-6xl mx-auto px-6">
         <div className="max-w-2xl mb-16">
           <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-4">Ablauf</div>
@@ -710,29 +537,10 @@ function Ablauf() {
         </div>
         <p className="reveal mt-12 text-center text-muted-foreground italic">Einfach, schnell und ohne komplizierten Prozess.</p>
         <div className="mt-8 text-center reveal">
-          <a href="#schreib-mir" className="inline-block px-7 py-3.5 rounded-full bg-primary text-primary-foreground hover:bg-mauve transition-all hover:scale-[1.02] hover:shadow-md font-medium">
-            Jetzt starten
-          </a>
+          <Link href="/webseiten-vorschau" className="inline-block px-7 py-3.5 rounded-full bg-primary text-primary-foreground hover:bg-mauve transition-all hover:scale-[1.02] hover:shadow-md font-medium">
+            Kostenlose Webseiten-Vorschau anfragen
+          </Link>
         </div>
-      </div>
-    </section>
-  );
-}
-
-function Zweifel() {
-  return (
-    <section className="py-12 md:py-16 bg-peach-soft">
-      <div className="max-w-3xl mx-auto px-6 text-center">
-        <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-4">Keine Sorge</div>
-        <h2 className="reveal font-serif text-4xl md:text-5xl text-ink leading-tight">Keine Zeit, keine Technik – kein Problem.</h2>
-        <div className="reveal reveal-delay mt-6 space-y-4 text-muted-foreground text-lg leading-relaxed">
-          <p>Du musst keine fertigen Texte haben, keine Bilder vorbereiten und dich auch nicht mit Technik auskennen.</p>
-          <p>Ich übernehme Struktur, Design und Aufbau für dich und führe dich Schritt für Schritt durch den gesamten Prozess.</p>
-          <p>Du bekommst eine erste Demo – und wir passen alles gemeinsam an, bis es perfekt zu deinem Studio passt.</p>
-        </div>
-        <a href="#schreib-mir" className="reveal inline-block mt-10 px-7 py-3.5 rounded-full bg-primary text-primary-foreground hover:bg-mauve transition-all hover:scale-[1.02] hover:shadow-md font-medium">
-          Kostenlose Vorschau anfragen
-        </a>
       </div>
     </section>
   );
@@ -740,7 +548,7 @@ function Zweifel() {
 
 function FAQ() {
   return (
-    <section id="faq" className="py-12 md:py-16 bg-cream">
+    <section id="faq" className="py-12 md:py-16 bg-cream scroll-mt-28">
       <div className="max-w-3xl mx-auto px-6">
         <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-4 text-center">FAQ</div>
         <h2 className="reveal font-serif text-4xl md:text-5xl text-ink leading-tight text-center">Häufige Fragen</h2>
@@ -756,9 +564,9 @@ function FAQ() {
           ))}
         </div>
         <div className="mt-12 text-center reveal">
-          <a href="#schreib-mir" className="inline-block px-7 py-3.5 rounded-full bg-primary text-primary-foreground hover:bg-mauve transition-all hover:scale-[1.02] hover:shadow-md font-medium">
-            Kostenlose Vorschau anfragen
-          </a>
+          <Link href="/webseiten-vorschau" className="inline-block px-7 py-3.5 rounded-full bg-primary text-primary-foreground hover:bg-mauve transition-all hover:scale-[1.02] hover:shadow-md font-medium">
+            Kostenlose Webseiten-Vorschau anfragen
+          </Link>
           <p className="mt-3 text-xs text-muted-foreground">Unverbindlich · Antwort in 24h · kostenlos starten</p>
         </div>
       </div>
@@ -768,7 +576,7 @@ function FAQ() {
 
 function StudioCheckCTA() {
   return (
-    <section className="py-12 md:py-16">
+    <section id="studio-check" className="py-12 md:py-16 scroll-mt-28">
       <div className="max-w-3xl mx-auto px-6">
         <div className="reveal relative rounded-3xl border border-mauve/30 bg-gradient-to-br from-peach-soft via-background to-accent/40 p-8 md:p-12 shadow-sm text-center">
           <h2 className="font-serif text-2xl md:text-3xl text-ink leading-tight">
@@ -793,12 +601,6 @@ function StudioCheckCTA() {
             Kostenlosen Studio-Check starten
           </Link>
           <p className="mt-3 text-xs text-muted-foreground">Keine E-Mail · Sofortiges Ergebnis · Kostenlos</p>
-          <p className="mt-6 text-sm text-muted-foreground">
-            Schon länger etabliert und mit mehreren Leistungen unterwegs?{" "}
-            <Link href="/beauty-qualitaetscheck" className="text-ink underline underline-offset-4 hover:text-mauve transition-colors">
-              Zum Beauty-Qualitätscheck
-            </Link>
-          </p>
         </div>
       </div>
     </section>
@@ -807,7 +609,7 @@ function StudioCheckCTA() {
 
 function CTA() {
   return (
-    <section id="kontakt" className="relative py-12 md:py-16 overflow-hidden">
+    <section id="kontakt" className="relative py-12 md:py-16 overflow-hidden scroll-mt-28">
       <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-12 md:gap-16 items-stretch">
         <div className="relative order-2 md:order-1 flex flex-col">
           <div className="reveal relative flex-1 rounded-3xl overflow-hidden shadow-xl shadow-ink/10">
@@ -818,10 +620,15 @@ function CTA() {
         <div className="order-1 md:order-2 text-center md:text-left">
           <h2 className="reveal font-serif text-4xl md:text-5xl lg:text-6xl text-ink leading-tight">Bereit für einen Auftritt, der dein Studio wirklich widerspiegelt – und neue Kundinnen bringt?</h2>
           <p className="reveal reveal-delay mt-6 text-lg text-muted-foreground">Schick mir eine kurze Anfrage – ich melde mich persönlich bei dir.</p>
-          <a href="#schreib-mir" className="reveal inline-block mt-10 px-8 py-4 rounded-full bg-primary text-primary-foreground hover:bg-mauve transition-all hover:scale-[1.02] hover:shadow-md font-medium">
-            Kostenlose Vorschau anfragen
-          </a>
-          <p className="reveal mt-3 text-xs text-muted-foreground">Unverbindlich · Antwort in 24h · kostenlos starten</p>
+          <Link href="/webseiten-vorschau" className="reveal inline-block mt-10 px-8 py-4 rounded-full bg-primary text-primary-foreground hover:bg-mauve transition-all hover:scale-[1.02] hover:shadow-md font-medium">
+            Kostenlose Webseiten-Vorschau anfragen
+          </Link>
+          <p className="reveal mt-4 text-sm text-muted-foreground">
+            Nur eine allgemeine Frage oder Beratungswunsch?{" "}
+            <a href="#schreib-mir" className="text-ink underline underline-offset-4 hover:text-mauve transition-colors">
+              Unverbindlich anfragen
+            </a>
+          </p>
           <p className="reveal mt-4 text-sm text-muted-foreground">speziell für Beauty Studios</p>
         </div>
       </div>
@@ -850,25 +657,19 @@ export default function Home() {
       <FaqHashOpen />
       <Navbar />
       <Hero />
-      <BrandManifesto />
+      <TrustBar />
       <About />
-      <Warum />
-      <Angebot />
       <FaceAndMore />
       <FaceAndMoreSocial />
       <PaulaVenc />
       <DivineBeautyNails />
+      <DemoWebsitesLink />
       <Testimonials />
-      <Demos />
-      <QuoteSection quote={brandQuotes.qualitaetErsterEindruck} />
-      <FeaturedLuxe />
-      <Javera />
-      <FeatureBadges />
+      <Warum />
+      <Angebot />
       <Ablauf />
-      <QuoteSection quote={brandQuotes.klickWirdVertrauen} />
-      <Zweifel />
-      <FAQ />
       <StudioCheckCTA />
+      <FAQ />
       <CTA />
       <ContactForm />
       <SiteFooter />

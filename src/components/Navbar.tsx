@@ -22,19 +22,17 @@ export function Navbar() {
           />
         </Link>
         <nav className="hidden md:flex items-center gap-6 text-xs text-muted-foreground">
-          <Link href="/#kundenprojekte" className="hover:text-ink transition">Meine Arbeit</Link>
-          <Link href="/studio-check" className="hover:text-ink transition">Studio-Check</Link>
-          <Link href="/#warum" className="hover:text-ink transition">Warum</Link>
-          <Link href="/#ablauf" className="hover:text-ink transition">Ablauf</Link>
+          <Link href="/#kundenprojekte" className="hover:text-ink transition">Projekte</Link>
           <Link href="/leistungen" className="hover:text-ink transition">Leistungen</Link>
-          <Link href="/preise" className="hover:text-ink transition">Preise</Link>
+          <Link href="/#ablauf" className="hover:text-ink transition">Ablauf</Link>
           <Link href="/#about" className="hover:text-ink transition">Über mich</Link>
+          <Link href="/preise" className="hover:text-ink transition">Preise</Link>
+          <Link href="/studio-check" className="hover:text-ink transition">Studio-Check</Link>
           <Link href="/faq" className="hover:text-ink transition">FAQ</Link>
-          <Link href="/blog" className="hover:text-ink transition">Blog</Link>
         </nav>
         <div className="flex items-center gap-3">
           <Link
-            href="/#schreib-mir"
+            href="/webseiten-vorschau"
             className="hidden sm:inline-flex text-sm px-4 py-2 rounded-full bg-primary text-primary-foreground hover:bg-mauve transition"
           >
             Kostenlose Webseiten-Vorschau
@@ -57,17 +55,16 @@ export function Navbar() {
       {open && (
         <div className="md:hidden border-t border-border/60 bg-background/95 backdrop-blur-md">
           <nav className="flex flex-col px-6 py-4 gap-1 text-sm text-muted-foreground">
-            <Link href="/#kundenprojekte" onClick={close} className="py-2.5 hover:text-ink transition">Meine Arbeit</Link>
-            <Link href="/studio-check" onClick={close} className="py-2.5 hover:text-ink transition">Studio-Check</Link>
-            <Link href="/#warum" onClick={close} className="py-2.5 hover:text-ink transition">Warum</Link>
-            <Link href="/#ablauf" onClick={close} className="py-2.5 hover:text-ink transition">Ablauf</Link>
+            <Link href="/#kundenprojekte" onClick={close} className="py-2.5 hover:text-ink transition">Projekte</Link>
             <Link href="/leistungen" onClick={close} className="py-2.5 hover:text-ink transition">Leistungen</Link>
-            <Link href="/preise" onClick={close} className="py-2.5 hover:text-ink transition">Preise</Link>
+            <Link href="/#ablauf" onClick={close} className="py-2.5 hover:text-ink transition">Ablauf</Link>
             <Link href="/#about" onClick={close} className="py-2.5 hover:text-ink transition">Über mich</Link>
+            <Link href="/preise" onClick={close} className="py-2.5 hover:text-ink transition">Preise</Link>
+            <Link href="/studio-check" onClick={close} className="py-2.5 hover:text-ink transition">Studio-Check</Link>
             <Link href="/faq" onClick={close} className="py-2.5 hover:text-ink transition">FAQ</Link>
-            <Link href="/blog" onClick={close} className="py-2.5 hover:text-ink transition">Blog</Link>
+            <Link href="/#schreib-mir" onClick={close} className="py-2.5 hover:text-ink transition">Kontakt</Link>
             <Link
-              href="/#schreib-mir"
+              href="/webseiten-vorschau"
               onClick={close}
               className="mt-3 inline-flex justify-center text-sm px-4 py-3 rounded-full bg-primary text-primary-foreground hover:bg-mauve transition"
             >

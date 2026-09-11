@@ -8,7 +8,26 @@ import { FormFieldError } from "@/components/FormFieldError";
 
 type FieldErrors = Partial<Record<"name" | "email" | "subject" | "message" | "privacy", string>>;
 
-export function ContactForm() {
+type ContactFormProps = {
+  /** Anker-ID der Section. Standard: "schreib-mir" (allgemeine, unverbindliche Anfrage). */
+  id?: string;
+  /** Kleine Überzeile über der Headline. */
+  eyebrow?: string;
+  /** Headline der Section. */
+  title?: string;
+  /** Einleitungstext unter der Headline. */
+  intro?: string;
+  /** Vorbelegter Betreff – hilft, die verschiedenen Kontaktwege auseinanderzuhalten. */
+  defaultSubject?: string;
+};
+
+export function ContactForm({
+  id = "schreib-mir",
+  eyebrow = "Kontakt",
+  title = "Unverbindlich anfragen",
+  intro = "Du hast eine Frage oder bist noch nicht sicher, welche Lösung zu deinem Studio passt? Schreib mir unverbindlich – eine kurze Nachricht reicht.",
+  defaultSubject,
+}: ContactFormProps = {}) {
   const [submitting, setSubmitting] = useState(false);
   const [done, setDone] = useState(false);
   const [errors, setErrors] = useState<FieldErrors>({});
@@ -68,12 +87,12 @@ export function ContactForm() {
   }
 
   return (
-    <section id="schreib-mir" className="py-12 md:py-16 bg-cream">
+    <section id={id} className="py-12 md:py-16 bg-cream scroll-mt-28">
       <div className="max-w-2xl mx-auto px-6">
-        <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-4 text-center">Kontakt</div>
-        <h2 className="reveal font-serif text-4xl md:text-5xl text-ink leading-tight text-center">Schreib mir</h2>
+        <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-4 text-center">{eyebrow}</div>
+        <h2 className="reveal font-serif text-4xl md:text-5xl text-ink leading-tight text-center">{title}</h2>
         <p className="reveal reveal-delay mt-4 text-center text-muted-foreground text-lg">
-          Eine kurze Nachricht reicht – ich melde mich persönlich bei dir.
+          {intro}
         </p>
 
         {done ? (
@@ -116,7 +135,7 @@ export function ContactForm() {
             </div>
             <div>
               <label htmlFor="sm-subject" className="block text-sm text-ink mb-2">Betreff</label>
-              <input id="sm-subject" name="subject" type="text" required maxLength={200} aria-invalid={Boolean(errors.subject)} aria-describedby={errors.subject ? "sm-subject-error" : undefined} className="w-full px-4 py-3 rounded-xl border border-border bg-background text-ink focus:outline-none focus:ring-2 focus:ring-ring" />
+              <input id="sm-subject" name="subject" type="text" required maxLength={200} defaultValue={defaultSubject} aria-invalid={Boolean(errors.subject)} aria-describedby={errors.subject ? "sm-subject-error" : undefined} className="w-full px-4 py-3 rounded-xl border border-border bg-background text-ink focus:outline-none focus:ring-2 focus:ring-ring" />
               <FormFieldError id="sm-subject-error" message={errors.subject} />
             </div>
             <div>
