@@ -9,7 +9,6 @@ import { ScrollRevealInit } from "@/components/ScrollRevealInit";
 import { FaqHashOpen } from "@/components/FaqHashOpen";
 import { SiteFooter } from "@/components/SiteFooter";
 import { AiLabel } from "@/components/AiLabel";
-import { brandQuotes } from "@/lib/brand-quotes";
 
 export const metadata: Metadata = {
   title: "Javera Studio — Webdesign · Grafik · Branding für Beauty Studios Wien",
@@ -36,7 +35,8 @@ export const metadata: Metadata = {
  *  4. Drei echte, verdichtete Website-Projekte (Face and More · Paula Venc · Divine Beauty & Nails)
  *  5. Alle drei Kundenbewertungen vollständig (<Testimonials>)
  *  6. Button „Mehr über meine Arbeit erfahren" -> /meine-arbeit
- *  7. Problem-/Nutzenabschnitt (vorerst stärkste bestehende Version: <Warum>)
+ *  7. Kompakter Problem-/Nutzenabschnitt (<Warum>) – ersetzt den bisherigen ausführlichen
+ *     „Warum eine Website"-Block mit den fünf Standardargumenten
  *  8. Kompakte Leistungsübersicht (<Angebot>)
  *  9. Ablauf der Zusammenarbeit
  * 10. Studio-Check
@@ -49,21 +49,13 @@ export const metadata: Metadata = {
  * (`src/components/portfolio/face-and-more-social.tsx`). Auf der Startseite bleibt beim
  * Face-and-More-Projekt nur ein kurzer Hinweis + Link „Gesamtes Projekt ansehen".
  *
- * Geparkte, nicht mehr eingebundene Abschnitte liegen in
+ * Geparkte, nicht mehr eingebundene Abschnitte/Texte liegen in
  * `src/components/home/parked-sections.tsx` (BrandManifesto, FeatureBadges, WarumJavera,
- * Zweifel). Sie sind bewusst erhalten und dienen als Vorlage für die spätere
- * Text-Konsolidierung von „Warum eine Website" / „Warum Javera Studio" /
+ * Zweifel, warumBenefitsLegacy). Sie sind bewusst erhalten und dienen als Archiv bzw.
+ * Vorlage für eine spätere Text-Konsolidierung von „Warum Javera Studio" /
  * „Keine Zeit, keine Technik" / „kostenlose vs. kostenpflichtige Leistungen" /
- * „Mehr als nur Webseiten".
+ * „Mehr als nur Webseiten" – sie werden nicht erneut auf der Startseite eingebunden.
  */
-
-const benefits = [
-  "Der erste Eindruck entsteht online — Noch bevor eine Kundin dein Studio besucht, informiert sie sich über Google oder Social Media.",
-  "Vertrauen entscheidet — Eine professionelle Website schafft Vertrauen und hebt dein Studio von der Konkurrenz ab.",
-  "Instagram allein reicht selten aus — Social Media ist wichtig – eine Website gibt deinem Studio ein dauerhaftes Zuhause im Internet und ergänzt deinen Online-Auftritt.",
-  "Bei Google gefunden werden — Viele Kundinnen suchen aktiv nach Beauty-Studios in ihrer Nähe. Eine suchmaschinenoptimierte Website erhöht deine Sichtbarkeit und sorgt für mehr Anfragen.",
-  "Ein einheitlicher Markenauftritt — Website, visueller Markenauftritt, Social Media und Print arbeiten zusammen und sorgen für einen professionellen, wiedererkennbaren Auftritt.",
-];
 
 const steps = [
   { n: "01", title: "Anfrage senden", desc: "Du füllst ein kurzes Formular aus und sagst mir, was du brauchst." },
@@ -294,65 +286,52 @@ function MeineArbeitLink() {
   );
 }
 
+const onlineAuftrittFragen = [
+  "Ist sofort erkennbar, wofür dein Studio steht?",
+  "Werden deine wichtigsten Behandlungen verständlich präsentiert?",
+  "Wirkt dein Online-Auftritt so hochwertig wie deine Arbeit und deine Preise?",
+  "Finden Interessentinnen schnell zur Anfrage oder Buchung?",
+];
+
 function Warum() {
   return (
-    <section id="warum" className="py-12 md:py-16 scroll-mt-28">
+    <section id="warum" className="py-14 md:py-20 scroll-mt-28">
       <div className="max-w-6xl mx-auto px-6">
-        <div className="grid md:grid-cols-2 gap-16 items-start">
-          <div className="md:sticky md:top-28">
-            <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-4">Warum eine Website</div>
-            <h2 className="reveal font-serif text-4xl md:text-5xl text-ink leading-tight">Deine Website ist das Schaufenster deines Studios im Internet.</h2>
-            <div className="reveal reveal-delay mt-6 space-y-4 text-muted-foreground text-lg leading-relaxed">
-              <p>Viele Beauty-Studios investieren Tausende Euro in ihre Einrichtung, hochwertige Geräte und regelmäßige Schulungen – und das aus gutem Grund.</p>
-              <p>Doch der erste Eindruck entsteht heute oft lange bevor eine Kundin dein Studio betritt.</p>
-              <p>Sie besucht deine Website, schaut sich deine Arbeiten an und entscheidet innerhalb weniger Sekunden, ob sie Vertrauen fasst oder weitersucht.</p>
-              <p>Deshalb verdient dein Studio eine Website, die genauso hochwertig wirkt wie deine Arbeit.</p>
-            </div>
+        <div className="grid md:grid-cols-[3fr_2fr] gap-12 md:gap-16 items-start">
+          <div>
+            <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-4">Der erste Eindruck entsteht online</div>
+            <h2 className="reveal font-serif text-3xl md:text-4xl text-ink leading-tight">Gute Arbeit allein reicht nicht, wenn man sie online nicht erkennt.</h2>
+            <p className="reveal reveal-delay mt-6 text-muted-foreground text-lg leading-relaxed">
+              Deine Kundinnen sehen deine Erfahrung, deine Geräte und die Qualität deiner Behandlungen nicht sofort. Sie sehen zuerst deine Website, dein Google-Profil oder deinen Social-Media-Auftritt. Genau dort entsteht der erste Eindruck von deinem Studio.
+            </p>
+
+            <ol className="mt-10">
+              {onlineAuftrittFragen.map((f, i) => (
+                <li key={f} className={`reveal reveal-stagger-${i + 1} flex items-start gap-5 py-4 border-b border-border/60 last:border-0`}>
+                  <span className="font-serif text-xl text-muted-foreground/70 w-7 shrink-0">{String(i + 1).padStart(2, "0")}</span>
+                  <span className="text-lg text-ink leading-relaxed">{f}</span>
+                </li>
+              ))}
+            </ol>
+
+            <p className="reveal mt-8 text-muted-foreground text-lg leading-relaxed">
+              Wenn eine dieser Fragen schwer zu beantworten ist, kann es sein, dass dein Online-Auftritt noch nicht zeigt, was dein Studio heute wirklich ausmacht.
+            </p>
+            <p className="reveal mt-4 font-serif text-lg md:text-xl text-ink leading-relaxed">
+              Eine klare, professionell aufgebaute Website macht deine Expertise sichtbar, schafft Vertrauen und führt Interessentinnen gezielt zum nächsten Schritt.
+            </p>
+
             <Link href="/webseiten-vorschau" className="reveal inline-block mt-8 px-7 py-3.5 rounded-full bg-primary text-primary-foreground hover:bg-mauve transition-all hover:scale-[1.02] hover:shadow-md font-medium">
               Kostenlose Webseiten-Vorschau anfragen
             </Link>
           </div>
-          <ul className="space-y-1">
-            {benefits.map((b, i) => (
-              <li key={b} className={`reveal reveal-stagger-${(i % 6) + 1} flex items-start gap-5 py-5 border-b border-border/60 last:border-0`}>
-                <span className="font-serif text-2xl text-muted-foreground/80 w-8">{String(i + 1).padStart(2, "0")}</span>
-                <span className="text-lg text-ink pt-1">{b}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
 
-        <p className="reveal mt-20 mb-10 text-center font-script text-mauve-dark text-3xl md:text-4xl">
-          {brandQuotes.vertrauenVorTermin}
-        </p>
-
-        <div className="relative grid md:grid-cols-2 gap-6 md:gap-8">
-          <figure className="reveal">
+          <figure className="reveal md:sticky md:top-28">
             <div className="relative rounded-[2rem] overflow-hidden aspect-[4/5]">
               <Image src="/bild1.png" alt="Website auf dem Smartphone – der erste Eindruck online" loading="lazy" width={1024} height={1280} className="w-full h-full object-cover" />
               <AiLabel />
             </div>
-            <figcaption className="mt-5 text-center">
-              <span className="block text-[11px] uppercase tracking-[0.2em] text-muted-foreground">01 — Online</span>
-              <span className="block mt-1.5 font-serif text-lg text-ink">Der erste Eindruck online.</span>
-            </figcaption>
-          </figure>
-
-          <div aria-hidden className="hidden md:flex absolute left-1/2 top-[38%] -translate-x-1/2 z-10 items-center gap-2 text-mauve">
-            <span className="editorial-rule" />
-            <span className="text-sm">→</span>
-            <span className="editorial-rule" />
-          </div>
-
-          <figure className="reveal reveal-delay">
-            <div className="relative rounded-[2rem] overflow-hidden aspect-[4/5]">
-              <Image src="/success.jpg" alt="Modernes, gebuchtes Beauty Studio mit zufriedener Kundin" loading="lazy" width={1024} height={1280} className="w-full h-full object-cover" />
-              <AiLabel />
-            </div>
-            <figcaption className="mt-5 text-center">
-              <span className="block text-[11px] uppercase tracking-[0.2em] text-muted-foreground">02 — Im Studio</span>
-              <span className="block mt-1.5 font-serif text-lg text-ink">Das Erlebnis im Studio.</span>
-            </figcaption>
+            <figcaption className="mt-4 text-center text-xs uppercase tracking-[0.2em] text-muted-foreground">Der erste Eindruck online.</figcaption>
           </figure>
         </div>
       </div>

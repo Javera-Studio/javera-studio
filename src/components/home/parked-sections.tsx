@@ -31,6 +31,21 @@ export const aboutLegacyParagraphs = [
   "Als Mama von drei Kindern weiß ich, wie wertvoll Zeit ist – deshalb ist mir eine einfache, klare Zusammenarbeit besonders wichtig.",
 ];
 
+/**
+ * Die fünf ausführlichen "Warum eine Website"-Standardargumente, die früher als lange
+ * nummerierte Liste im Problem-/Nutzenabschnitt der Startseite standen. Seit der
+ * Verdichtung dieses Abschnitts (neue `Warum()`-Sektion in `src/app/page.tsx`) sind ihre
+ * Kernaussagen kompakt in den neuen Fließtext eingeflossen; die ausführliche Fassung bleibt
+ * hier als Archiv erhalten.
+ */
+export const warumBenefitsLegacy = [
+  "Der erste Eindruck entsteht online — Noch bevor eine Kundin dein Studio besucht, informiert sie sich über Google oder Social Media.",
+  "Vertrauen entscheidet — Eine professionelle Website schafft Vertrauen und hebt dein Studio von der Konkurrenz ab.",
+  "Instagram allein reicht selten aus — Social Media ist wichtig – eine Website gibt deinem Studio ein dauerhaftes Zuhause im Internet und ergänzt deinen Online-Auftritt.",
+  "Bei Google gefunden werden — Viele Kundinnen suchen aktiv nach Beauty-Studios in ihrer Nähe. Eine suchmaschinenoptimierte Website erhöht deine Sichtbarkeit und sorgt für mehr Anfragen.",
+  "Ein einheitlicher Markenauftritt — Website, visueller Markenauftritt, Social Media und Print arbeiten zusammen und sorgen für einen professionellen, wiedererkennbaren Auftritt.",
+];
+
 export function BrandManifesto() {
   return (
     <section aria-label="Markenphilosophie" className="py-14 md:py-20 bg-background">
