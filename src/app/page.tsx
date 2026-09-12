@@ -85,9 +85,9 @@ function Hero() {
       <AiLabel className="bottom-6 left-6" />
       <div className="relative z-10 max-w-6xl mx-auto px-6 pt-40 pb-28 md:pt-48 md:pb-36 text-center">
         <h1 className="hero-headline font-serif text-[2.4rem] md:text-[3.375rem] lg:text-[4.05rem] leading-[1.15] md:leading-[1.1] text-white text-balance">
-          Dein Studio ist professionell.
+          Die Qualität deines Studios.
           <br />
-          Wirkt es online genauso?
+          Auch online spürbar.
         </h1>
         <p className="hero-subtitle mt-8 text-lg text-white/85 max-w-2xl mx-auto leading-relaxed">
           Individuelle Websites für etablierte Beauty- und Kosmetikstudios, die ihre Expertise sichtbar machen, Vertrauen aufbauen und die passenden Kundinnen erreichen möchten.
