@@ -280,7 +280,7 @@ export const faqCategories: FaqCategory[] = [
       {
         id: "faq-zusammenarbeit-korrekturen",
         question: "Wie viele Korrekturen sind enthalten?",
-        answer: "Bei der Starter Website sind 2 Korrekturrunden enthalten, bei der Premium Website 4 Korrekturrunden – genug Raum, um Texte, Farben und Details vor der Veröffentlichung anzupassen.\n\nZusätzlich bekommst du nach dem Launch 1 Monat kostenlose Nachbetreuung. Innerhalb dieses Monats sind kleinere Änderungen wie Texte, Bilder oder kleine Anpassungen kostenlos für dich enthalten.\n\nGrößere Erweiterungen im Anschluss lassen sich unkompliziert über ein Wartungspaket oder als Einzelauftrag umsetzen. Alle Details dazu findest du auf der Preisseite.",
+        answer: "Bei der Starter Website sind 2 Korrekturrunden enthalten, bei der Premium Website 4 Korrekturrunden – genug Raum, um Texte, Farben und Details vor der Veröffentlichung anzupassen.\n\nZusätzlich bekommst du nach dem Launch eine kostenlose Nachbetreuung: 14 Tage bei der Starter Website, 30 Tage bei der Premium Website. In diesem Zeitraum sind kleinere Änderungen wie Texte, Bilder oder kleine Anpassungen kostenlos für dich enthalten.\n\nGrößere Erweiterungen danach lassen sich unkompliziert über ein Wartungspaket oder als Einzelauftrag umsetzen – ein Wartungsabo ist dabei nicht verpflichtend. Alle Details dazu findest du auf der Preisseite.",
         relatedLinks: [
           { label: "Wartungspaket", href: "/preise#wartung" },
           { label: "Preisseite", href: "/preise" },
