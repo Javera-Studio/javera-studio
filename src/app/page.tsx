@@ -505,31 +505,17 @@ function FAQ() {
 function StudioCheckCTA() {
   return (
     <section id="studio-check" className="py-12 md:py-16 scroll-mt-28">
-      <div className="max-w-3xl mx-auto px-6">
-        <div className="reveal relative rounded-3xl border border-mauve/30 bg-gradient-to-br from-peach-soft via-background to-accent/40 p-8 md:p-12 shadow-sm text-center">
-          <h2 className="font-serif text-2xl md:text-3xl text-ink leading-tight">
-            Noch unsicher, wie dein Studio online auf neue Kundinnen wirkt?
-          </h2>
-          <p className="mt-3 text-muted-foreground leading-relaxed">
-            Finde es in nur 3 Minuten heraus.
-          </p>
-          <p className="mt-6 text-sm font-medium text-ink">Der kostenlose Studio-Check bewertet unter anderem:</p>
-          <ul className="mt-4 grid sm:grid-cols-2 gap-x-8 gap-y-3 max-w-md mx-auto text-left">
-            {["Vertrauen", "Markenauftritt", "Sichtbarkeit", "Buchungsmöglichkeiten"].map((item) => (
-              <li key={item} className="flex items-center gap-3 text-ink">
-                <span className="shrink-0 text-sm" style={{ color: "#0F6E56" }}>✓</span>
-                <span>{item}</span>
-              </li>
-            ))}
-          </ul>
-          <Link
-            href="/studio-check"
-            className="inline-block mt-8 px-7 py-3.5 rounded-full bg-primary text-primary-foreground hover:bg-mauve transition-all hover:scale-[1.02] hover:shadow-md font-medium"
-          >
-            Kostenlosen Studio-Check starten
-          </Link>
-          <p className="mt-3 text-xs text-muted-foreground">Keine E-Mail · Sofortiges Ergebnis · Kostenlos</p>
-        </div>
+      <div className="max-w-2xl mx-auto px-6 text-center">
+        <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-4">Studio-Check</div>
+        <h2 className="reveal font-serif text-2xl md:text-3xl text-ink leading-tight">Du siehst dein Studio jeden Tag. Wie sehen es neue Kundinnen online?</h2>
+        <p className="reveal reveal-delay mt-4 text-muted-foreground leading-relaxed">Mit dem kostenlosen Studio-Check schätzt du deinen bestehenden Online-Auftritt selbst ein und erkennst, wo du genauer hinschauen solltest.</p>
+        <Link
+          href="/studio-check"
+          className="reveal inline-block mt-8 px-7 py-3.5 rounded-full bg-primary text-primary-foreground hover:bg-mauve transition-all hover:scale-[1.02] hover:shadow-md font-medium"
+        >
+          Studio-Check starten
+        </Link>
+        <p className="reveal mt-3 text-xs text-muted-foreground">Ca. 3 Minuten · Sofortiges Ergebnis · Ohne E-Mail</p>
       </div>
     </section>
   );
