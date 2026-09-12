@@ -25,6 +25,8 @@ type ContactFormProps = {
    * Serverseitig in der API-Route auf feste Werte begrenzt.
    */
   inquirySource?: "Allgemeine Kontaktaufnahme" | "Kostenlose Webseiten-Vorschau";
+  /** Beschriftung des Absende-Buttons. Standard: "Nachricht senden". */
+  submitLabel?: string;
 };
 
 export function ContactForm({
@@ -34,6 +36,7 @@ export function ContactForm({
   intro = "Du hast eine Frage oder bist noch nicht sicher, welche Lösung zu deinem Studio passt? Schreib mir unverbindlich – eine kurze Nachricht reicht.",
   defaultSubject,
   inquirySource = "Allgemeine Kontaktaufnahme",
+  submitLabel = "Nachricht senden",
 }: ContactFormProps = {}) {
   const [submitting, setSubmitting] = useState(false);
   const [done, setDone] = useState(false);
@@ -166,7 +169,7 @@ export function ContactForm({
               <FormFieldError id="sm-privacy-error" message={errors.privacy} />
             </div>
             <button type="submit" disabled={submitting} className="w-full px-7 py-3.5 rounded-full bg-primary text-primary-foreground hover:bg-mauve transition-all hover:scale-[1.02] hover:shadow-md font-medium disabled:opacity-60 disabled:cursor-not-allowed">
-              {submitting ? "Wird gesendet…" : "Nachricht senden"}
+              {submitting ? "Wird gesendet…" : submitLabel}
             </button>
             <p className="text-xs text-center text-muted-foreground">Deine Nachricht wird direkt an hallo@javera-studio.at übermittelt.</p>
           </form>

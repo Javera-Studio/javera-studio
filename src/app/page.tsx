@@ -9,6 +9,7 @@ import { ScrollRevealInit } from "@/components/ScrollRevealInit";
 import { FaqHashOpen } from "@/components/FaqHashOpen";
 import { SiteFooter } from "@/components/SiteFooter";
 import { AiLabel } from "@/components/AiLabel";
+import { pricing, formatEuro } from "@/lib/data/pricing";
 
 export const metadata: Metadata = {
   title: "Javera Studio — Webdesign · Grafik · Branding für Beauty Studios Wien",
@@ -43,7 +44,8 @@ export const metadata: Metadata = {
  *  9. Ablauf der Zusammenarbeit
  * 10. Studio-Check
  * 11. FAQ
- * 12. Abschluss-CTA + Kontaktformular (allgemeine, unverbindliche Anfrage)
+ * 12. Kontaktbereich: Bild + dezenter Vorschau-Link (<KontaktVisual>) + Kontaktformular
+ *     (allgemeine, unverbindliche Anfrage)
  * 13. Footer
  *
  * Der bisherige Social-Media-Bereich von Face and More (Instagram-Mockups, Highlight-Cover
@@ -67,16 +69,12 @@ const steps = [
 ];
 
 const faqs = [
-  { q: "Erstellst du auch Websites für Nagelstudios, Kosmetikstudios, Wimpernstudios, PMU-Studios oder Waxing-Studios?", a: "Ja, genau darauf bin ich spezialisiert. Ich gestalte Websites, Branding und Grafik ausschließlich für Beauty-Professionals – egal ob Nagelstudio, Kosmetikstudio, Wimpernstudio, PMU-Studio oder Waxing-Studio." },
-  { q: "Was kostet eine Website für mein Beauty-Studio?", a: "Das hängt vom gewünschten Umfang ab. Auf meiner Preise-Seite findest du alle Pakete für Website, Branding und Social Media transparent aufgelistet – ohne versteckte Kosten." },
-  { q: "Wird meine Website bei Google gefunden?", a: "Ja. Jede Website enthält eine SEO-Grundoptimierung, damit dein Studio bei Suchen wie 'Nagelstudio Wien' oder 'Kosmetikstudio in meiner Nähe' gefunden wird." },
-  { q: "Was kostet mich die Demo?", a: "Nichts. Die Analyse & Demo-Vorschau ist kostenlos und unverbindlich – du entscheidest danach, ob du weitermachen möchtest." },
-  { q: "Brauche ich eigene Texte oder Bilder?", a: "Nein. Du musst keine fertigen Texte mitbringen. Es reicht, wenn du mir Stichpunkte zu deinem Studio, deinen Leistungen, Preisen und deiner Arbeitsweise gibst. Ich unterstütze dich bei der Struktur und formuliere die Website-Texte professionell für dein Beauty-Studio. Eigene Fotos sind hilfreich, aber nicht zwingend notwendig." },
-  { q: "Was passiert, wenn mir die Website nicht gefällt?", a: "Wir passen sie so lange an, bis sie wirklich zu deinem Studio passt. Dein Feedback ist fester Teil des Prozesses." },
-  { q: "Wie lange dauert es, bis meine Website fertig ist?", a: "Die erste Demo bekommst du meist innerhalb weniger Tage. Die finale Umsetzung hängt vom Abstimmungstempo ab, bleibt aber bewusst schnell und unkompliziert." },
-  { q: "Ich bin kein Technik-Mensch – ist das ein Problem?", a: "Nein. Ich erkläre dir jeden Schritt verständlich und übernehme die komplette Technik – Domain, Hosting und Einrichtung inklusive." },
-  { q: "Kann ich auch nur Social Media Design oder Print bestellen – ohne Website?", a: "Ja. Website, visueller Markenauftritt, Flyer und Social Media Design sind einzeln buchbar – ganz gleich ob du ein Nagelstudio, Wimpernstudio oder PMU-Studio führst." },
-  { q: "Kann ich meine Website auch in Raten bezahlen?", id: "faq-ratenzahlung", a: "Ja. Gerade der Start in die Selbstständigkeit bringt viele Investitionen mit sich. Deshalb biete ich für größere Projekte auf Wunsch eine zinsfreie Ratenzahlung in bis zu 4 Teilzahlungen an. Gemeinsam finden wir eine Lösung, die zu deinem Budget passt." },
+  { q: "Was kostet mich die kostenlose Webseiten-Vorschau?", a: "Nichts. Die Webseiten-Vorschau ist kostenlos und unverbindlich – du entscheidest danach in Ruhe, ob du weitermachen möchtest." },
+  { q: "Was kostet eine Website für mein Beauty-Studio?", a: `Eine Starter Website startet bei ${formatEuro(pricing.websites.starter.betrag)}, eine Premium Website mit bis zu 3 Seiten ab ${formatEuro(pricing.websites.premium.betrag)}. Domain, Hosting und ggf. E-Mail laufen direkt über den jeweiligen Anbieter auf deinen Namen – ein Wartungsabo bei Javera Studio ist nicht verpflichtend.` },
+  { q: "Brauche ich eigene Texte oder Bilder?", a: "Nein. Ein paar Stichpunkte zu deinem Studio und deinen Leistungen reichen aus – ich formuliere daraus professionelle Website-Texte. Eigene Fotos sind hilfreich, aber nicht zwingend notwendig." },
+  { q: "Wie lange dauert es, bis meine Website fertig ist?", a: "Die erste Vorschau bekommst du meist innerhalb weniger Tage. Die finale Umsetzung hängt vom Abstimmungstempo ab, bleibt aber bewusst schnell und unkompliziert." },
+  { q: "Ich habe schon eine Website – lohnt sich ein Redesign?", a: "Das kommt auf deine aktuelle Situation an. Manchmal reichen gezielte Optimierungen, manchmal lohnt sich eine komplette Neuausrichtung. Die kostenlose Vorschau zeigt dir unverbindlich, welche Richtung zu deinem Studio passt." },
+  { q: "Kann ich später noch Änderungen an meiner Website vornehmen lassen?", a: `Ja. Nach dem Launch bekommst du eine kostenlose Nachbetreuung. Danach lassen sich weitere Anpassungen flexibel über das Wartungspaket (${formatEuro(pricing.technik.wartung.betrag)} ${pricing.technik.wartung.einheit}, ${pricing.technik.wartung.inklusive}) oder als Einzeländerung (${formatEuro(pricing.technik.einzelaenderung.betrag)} einmalig) dazubuchen – ganz ohne verpflichtendes Abo.` },
 ];
 
 function Hero() {
@@ -482,7 +480,7 @@ function FAQ() {
         <h2 className="reveal font-serif text-4xl md:text-5xl text-ink leading-tight text-center">Häufige Fragen</h2>
         <div className="mt-12 space-y-3">
           {faqs.map((f, i) => (
-            <details key={f.q} id={f.id} className={`reveal reveal-stagger-${(i % 6) + 1} group scroll-mt-28 rounded-2xl bg-background border border-border/60 p-6 open:shadow-sm transition`}>
+            <details key={f.q} className={`reveal reveal-stagger-${(i % 6) + 1} group scroll-mt-28 rounded-2xl bg-background border border-border/60 p-6 open:shadow-sm transition`}>
               <summary className="flex items-center justify-between cursor-pointer list-none gap-6">
                 <span className="font-serif text-lg md:text-xl text-ink">{f.q}</span>
                 <span aria-hidden className="shrink-0 w-7 h-7 rounded-full border border-ink/20 flex items-center justify-center text-ink transition-transform group-open:rotate-45">+</span>
@@ -521,30 +519,21 @@ function StudioCheckCTA() {
   );
 }
 
-function CTA() {
+function KontaktVisual() {
   return (
-    <section id="kontakt" className="relative py-12 md:py-16 overflow-hidden scroll-mt-28">
+    <section id="kontakt" aria-label="Kontakt" className="relative py-12 md:py-16 overflow-hidden">
       <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-12 md:gap-16 items-stretch">
-        <div className="relative order-2 md:order-1 flex flex-col">
-          <div className="reveal relative flex-1 rounded-3xl overflow-hidden shadow-xl shadow-ink/10">
+        <div className="relative order-2 md:order-1">
+          <div className="reveal relative aspect-[3/2] rounded-3xl overflow-hidden shadow-xl shadow-ink/10">
             <Image src="/anfrage.png" alt="Beauty Studio Besitzerin arbeitet entspannt am Laptop" loading="lazy" width={1536} height={1024} className="w-full h-full object-cover" />
             <AiLabel />
           </div>
           <div aria-hidden className="absolute -z-10 -bottom-6 -left-6 w-full h-full rounded-3xl" style={{ backgroundColor: "var(--mint-soft)" }} />
         </div>
-        <div className="order-1 md:order-2 text-center md:text-left">
-          <h2 className="reveal font-serif text-4xl md:text-5xl lg:text-6xl text-ink leading-tight">Bereit für einen Auftritt, der dein Studio wirklich widerspiegelt – und neue Kundinnen bringt?</h2>
-          <p className="reveal reveal-delay mt-6 text-lg text-muted-foreground">Schick mir eine kurze Anfrage – ich melde mich persönlich bei dir.</p>
-          <Link href="/webseiten-vorschau" className="reveal inline-block mt-10 px-8 py-4 rounded-full bg-primary text-primary-foreground hover:bg-mauve transition-all hover:scale-[1.02] hover:shadow-md font-medium">
-            Kostenlose Webseiten-Vorschau anfragen
+        <div className="order-1 md:order-2 flex flex-col justify-center text-center md:text-left">
+          <Link href="/webseiten-vorschau" className="reveal inline-flex items-center gap-2 text-sm font-medium text-ink border-b border-ink/30 pb-1 hover:border-ink transition self-center md:self-start">
+            Du möchtest zuerst eine kostenlose Webseiten-Vorschau? <span aria-hidden>→</span>
           </Link>
-          <p className="reveal mt-4 text-sm text-muted-foreground">
-            Nur eine allgemeine Frage oder Beratungswunsch?{" "}
-            <a href="#schreib-mir" className="text-ink underline underline-offset-4 hover:text-mauve transition-colors">
-              Unverbindlich anfragen
-            </a>
-          </p>
-          <p className="reveal mt-4 text-sm text-muted-foreground">speziell für Beauty Studios</p>
         </div>
       </div>
     </section>
@@ -584,8 +573,12 @@ export default function Home() {
       <Ablauf />
       <StudioCheckCTA />
       <FAQ />
-      <CTA />
-      <ContactForm />
+      <KontaktVisual />
+      <ContactForm
+        title="Was möchtest du an deinem Online-Auftritt verändern?"
+        intro="Erzähl mir kurz von deinem Studio und deinem Vorhaben. Du musst noch keinen fertigen Plan haben – wir klären gemeinsam, was du brauchst."
+        submitLabel="Anfrage senden"
+      />
       <SiteFooter />
     </main>
   );
