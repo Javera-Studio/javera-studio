@@ -175,7 +175,7 @@ function FaceAndMore() {
           <h2 className="reveal font-serif text-4xl md:text-5xl text-ink leading-tight">Websites, die zeigen, was hinter einem Studio steckt.</h2>
           <p className="reveal reveal-delay mt-4 text-muted-foreground text-lg leading-relaxed">Jedes Studio bringt andere Leistungen, Ziele und Herausforderungen mit. Deshalb entsteht jede Website individuell – abgestimmt auf die Positionierung, die Kundinnen und den tatsächlichen Studioalltag.</p>
         </div>
-        <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-4">Hauptprojekt</div>
+        <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-4">Kundenprojekt</div>
         <div className="grid md:grid-cols-12 gap-10 md:gap-16 items-center">
           <div className="reveal md:col-span-7 flex flex-col gap-6">
             <div className="w-full drop-shadow-2xl">
