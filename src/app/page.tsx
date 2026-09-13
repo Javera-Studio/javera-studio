@@ -92,7 +92,7 @@ function Hero() {
         <p className="hero-subtitle mt-8 text-lg text-white/85 max-w-2xl mx-auto leading-relaxed">
           Individuelle Websites für Beauty- und Kosmetikstudios, die zeigen, was deine Arbeit besonders macht.
         </p>
-        <div className="hero-cta mt-16 md:mt-20 flex flex-wrap gap-3 justify-center">
+        <div className="hero-cta mt-24 md:mt-28 flex flex-wrap gap-3 justify-center">
           <Link href="/webseiten-vorschau" className="px-7 py-3.5 rounded-full bg-primary text-primary-foreground hover:bg-mauve transition-all hover:scale-[1.02] hover:shadow-md font-medium">
             Kostenlose Webseiten-Vorschau
           </Link>
