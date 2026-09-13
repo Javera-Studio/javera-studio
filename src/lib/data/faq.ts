@@ -121,7 +121,7 @@ export const faqCategories: FaqCategory[] = [
       {
         id: "faq-preise-versteckte-kosten",
         question: "Gibt es versteckte Kosten?",
-        answer: "Nein. Du erhältst vor Projektbeginn ein transparentes Angebot. Zusätzliche laufende Kosten entstehen lediglich für: Domain (ca. 15 € pro Jahr), optional ein Wartungspaket (60 €/Monat) oder einzelne Änderungswünsche nach Aufwand. Alle Informationen dazu findest du auf der Preisseite.",
+        answer: "Nein. Du erhältst vor Projektbeginn ein transparentes Angebot. Zusätzliche laufende Kosten entstehen lediglich für: Domain & Hosting (Richtwert ab dem 2. Jahr ca. 25 € pro Jahr ohne, ca. 55 € pro Jahr mit eigener E-Mail-Adresse, abhängig vom Anbieter), optional ein Wartungspaket (60 €/Monat) oder einzelne Änderungswünsche nach Aufwand. Alle Informationen dazu findest du auf der Preisseite.",
         relatedLinks: [
           { label: "Domain", href: "/preise#domain-hosting" },
           { label: "Wartungspaket", href: "/preise#wartung" },
@@ -137,7 +137,7 @@ export const faqCategories: FaqCategory[] = [
       {
         id: "faq-preise-domain-hosting",
         question: "Sind Domain und Hosting enthalten?",
-        answer: "Nein, Domain und Hosting sind nicht in den Website-Paketen enthalten und laufen direkt über einen externen Anbieter auf deinen Namen. So behältst du jederzeit die volle Kontrolle über deine Website. Die Kosten dafür liegen bei ca. 15 € pro Jahr und sind auf der Preisseite gelistet.",
+        answer: "Nein, Domain und Hosting sind nicht in den Website-Paketen enthalten und laufen direkt über einen externen Anbieter auf deinen Namen. So behältst du jederzeit die volle Kontrolle über deine Website. Als Richtwert ab dem 2. Jahr: ca. 25 € pro Jahr ohne eigene E-Mail-Adresse, mit E-Mail-Adresse ca. 55 € pro Jahr – abhängig vom gewählten Anbieter und Tarif. Alle Details sind auf der Preisseite gelistet.",
         relatedLinks: [{ label: "Preisseite", href: "/preise#domain-hosting" }],
       },
       {

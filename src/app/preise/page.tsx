@@ -112,7 +112,7 @@ export default function PreisePage() {
 
   const preiseFaqs = [
     { q: "Was kostet eine Website für ein Beauty-Studio?", a: `Eine Starter Website (One-Pager) startet bei ${formatEuro(pricing.websites.starter.betrag)}, eine Premium Website mit bis zu 3 Seiten ab ${formatEuro(pricing.websites.premium.betrag)}. ${pricing.websites.premium.zusatzseitenHinweis} Der genaue Preis hängt vom Umfang deines Studios ab.` },
-    { q: "Sind Hosting und Domain im Preis enthalten?", a: "Nein. Domain, Hosting und gegebenenfalls E-Mail laufen direkt über einen externen Anbieter auf deinen Namen – so behältst du die volle Kontrolle über deine Website. Die zusätzlichen Kosten dafür richten sich nach dem gewählten Anbieter und Tarif." },
+    { q: "Sind Hosting und Domain im Preis enthalten?", a: `Nein. Domain, Hosting und gegebenenfalls E-Mail laufen direkt über einen externen Anbieter auf deinen Namen – so behältst du die volle Kontrolle über deine Website. Als Richtwert ab dem 2. Jahr: ca. ${formatEuro(pricing.technik.domainHosting.betrag)} pro Jahr ohne eigene E-Mail-Adresse, mit E-Mail-Adresse ca. 55 € pro Jahr. Die genauen Kosten hängen vom gewählten Anbieter und Tarif ab.` },
     { q: "Gibt es versteckte Kosten?", a: "Nein. Alle Preise sind transparent aufgelistet. Laufende Kosten wie Domain, Hosting und ein optionales Wartungspaket sind klar gekennzeichnet und werden vorab besprochen." },
     { q: "Was ist im Paket 'Beauty Studio Komplett' enthalten?", a: `Im Paket 'Beauty Studio Komplett' erhältst du eine Premium Website (bis zu 3 Seiten), deinen visuellen Markenauftritt, ein Google Business Profil (Einrichtung oder Optimierung), die Einrichtung der Google Search Console, einen zweiseitigen Flyer sowie das Social Media Visibility Paket – für ${formatEuro(beautyStudioKomplett.betrag)}. Zusatzseiten über die 3 Seiten hinaus werden nach Aufwand kalkuliert.` },
     { q: "Wie viel kostet die laufende Wartung meiner Website?", a: `Ein Wartungsabo bei Javera Studio ist nicht verpflichtend. Wer laufende Unterstützung möchte, kann das Wartungspaket für ${formatEuro(pricing.technik.wartung.betrag)} pro Monat buchen (${pricing.technik.wartung.inklusive}). Einzelne spontane Änderungen ohne Paket kosten ${formatEuro(pricing.technik.einzelaenderung.betrag)} einmalig.` },
@@ -275,7 +275,8 @@ export default function PreisePage() {
               <p className="font-semibold text-ink">Domain &amp; Hosting</p>
               <p className="text-xs text-muted-foreground mt-1">Eigene www-Adresse + Website online halten (bei externem Anbieter)</p>
               <p className="text-xs text-muted-foreground mt-1 italic">direkt beim Anbieter — läuft auf deinen Namen</p>
-              <p className="text-sm text-muted-foreground mt-auto pt-4">Die Kosten dafür richten sich nach dem gewählten Anbieter und Tarif.</p>
+              <p className="text-2xl font-bold text-ink mt-auto pt-4">ca. {formatEuro(pricing.technik.domainHosting.betrag)} <span className="text-sm font-normal text-muted-foreground">{pricing.technik.domainHosting.einheit}</span></p>
+              <p className="text-[11px] text-muted-foreground mt-2 leading-snug">{pricing.technik.domainHosting.hinweis}</p>
             </div>
             <div id="wartung" className="bg-background rounded-[2rem] p-6 flex flex-col scroll-mt-24">
               <p className="font-semibold text-ink">Wartungspaket</p>

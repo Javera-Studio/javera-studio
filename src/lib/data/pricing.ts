@@ -66,7 +66,16 @@ export const pricing = {
   },
 
   technik: {
-    domainHosting: { titel: "Domain & Hosting", betrag: 15, einheit: "/ Jahr" },
+    domainHosting: {
+      titel: "Domain & Hosting",
+      betrag: 25,
+      einheit: "/ Jahr",
+      // Richtwert von Jagoda anhand IONOS (.at-Domain) bestätigt: ab dem 2. Jahr ohne
+      // eigene E-Mail-Adresse ca. 25 €, mit E-Mail-Adresse ca. 55 €. Im 1. Jahr durch
+      // Einführungsangebote oft günstiger. Reiner Richtwert, hängt vom gewählten
+      // Anbieter und Tarif ab.
+      hinweis: "Richtwert ab dem 2. Jahr ohne eigene E-Mail-Adresse (z. B. bei IONOS für eine .at-Domain). Mit eigener E-Mail-Adresse liegen die Kosten bei ca. 55 € pro Jahr. Im ersten Jahr sind Einführungsangebote möglich – die tatsächlichen Kosten hängen vom gewählten Anbieter und Tarif ab.",
+    },
     wartung: {
       titel: "Wartungspaket",
       betrag: 60,

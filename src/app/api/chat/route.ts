@@ -250,7 +250,7 @@ ${websites.premium.zusatzseitenHinweis}
 Digitale Erweiterungen (${erweiterungenPreishinweis}): ${erweiterungen.map((e) => e.titel).join(", ")}.
 
 Technik: ${technik.domainHosting.titel} ${formatEuro(technik.domainHosting.betrag)}
-${technik.domainHosting.einheit}, ${technik.wartung.titel} ${formatEuro(technik.wartung.betrag)}
+${technik.domainHosting.einheit} (${technik.domainHosting.hinweis}), ${technik.wartung.titel} ${formatEuro(technik.wartung.betrag)}
 ${technik.wartung.einheit}, ${technik.einzelaenderung.titel} ${formatEuro(technik.einzelaenderung.betrag)}.
 
 Branding & Print: Flyer ${flyerEinseitig.betrag}-${flyerZweiseitig.betrag}€, ${rollup.titel}
