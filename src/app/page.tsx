@@ -90,7 +90,7 @@ function Hero() {
           Auch online spürbar.
         </h1>
         <p className="hero-subtitle mt-8 text-lg text-white/85 max-w-2xl mx-auto leading-relaxed">
-          Individuelle Websites für etablierte Beauty- und Kosmetikstudios, die ihre Expertise sichtbar machen, Vertrauen aufbauen und die passenden Kundinnen erreichen möchten.
+          Individuelle Websites für Beauty- und Kosmetikstudios, die zeigen, was deine Arbeit besonders macht.
         </p>
         <div className="hero-cta mt-16 md:mt-20 flex flex-wrap gap-3 justify-center">
           <Link href="/webseiten-vorschau" className="px-7 py-3.5 rounded-full bg-primary text-primary-foreground hover:bg-mauve transition-all hover:scale-[1.02] hover:shadow-md font-medium">
@@ -100,11 +100,6 @@ function Hero() {
             Unverbindlich anfragen
           </a>
         </div>
-        <p className="hero-cta mt-6 text-sm">
-          <a href="#kundenprojekte" className="inline-flex items-center gap-1.5 text-white/75 underline underline-offset-4 decoration-white/40 hover:text-white hover:decoration-white transition">
-            Ausgewählte Projekte ansehen <span aria-hidden>→</span>
-          </a>
-        </p>
       </div>
     </section>
   );
