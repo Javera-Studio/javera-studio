@@ -38,8 +38,8 @@ export const metadata: Metadata = {
  *     Link zur Live-Website. Aktuell: Face and More, Paula Venc, Divine Beauty & Nails,
  *     Anita Brows & Lashes. Keine der drei Kundenprojekte wird mehr optisch als
  *     "Hauptprojekt" hervorgehoben – bewusst einheitliche Darstellung, gut erweiterbar.
- *  5. Alle Kundenbewertungen vollständig (<Testimonials>)
- *  6. Button „Mehr über meine Arbeit erfahren" -> /meine-arbeit
+ *  5. Button „Mehr über meine Arbeit erfahren" -> /meine-arbeit (vor den Bewertungen)
+ *  6. Alle Kundenbewertungen vollständig (<Testimonials>)
  *  7. Kompakter Problem-/Nutzenabschnitt (<Warum>) – ersetzt den bisherigen ausführlichen
  *     „Warum eine Website"-Block mit den fünf Standardargumenten
  *  8. Kompakte Leistungsübersicht (<Leistungsuebersicht>) – Website als Hauptleistung,
@@ -560,8 +560,8 @@ export default function Home() {
       <TrustBar />
       <About />
       <Kundenprojekte />
-      <Testimonials />
       <MeineArbeitLink />
+      <Testimonials />
       <Warum />
       <Leistungsuebersicht />
       <Ablauf />
