@@ -42,11 +42,11 @@ export const metadata: Metadata = {
  *  6. Alle Kundenbewertungen vollständig (<Testimonials>)
  *  7. Kompakter Problem-/Nutzenabschnitt (<Warum>) – ersetzt den bisherigen ausführlichen
  *     „Warum eine Website"-Block mit den fünf Standardargumenten
- *  8. Kompakte Leistungsübersicht (<Leistungsuebersicht>) – Website als Hauptleistung,
+ *  8. Studio-Check (direkt nach „Der erste Eindruck entsteht online" aus <Warum>)
+ *  9. Kompakte Leistungsübersicht (<Leistungsuebersicht>) – Website als Hauptleistung,
  *     digitale Präsenz & Printdesign als Ergänzungen, keine kostenlos/kostenpflichtig-
  *     Trennung mehr (Positionierung: Webdesign · digitale Präsenz · Printdesign)
- *  9. Ablauf der Zusammenarbeit
- * 10. Studio-Check
+ * 10. Ablauf der Zusammenarbeit
  * 11. FAQ
  * 12. Kontaktbereich: Bild + dezenter Vorschau-Link (<KontaktVisual>) + Kontaktformular
  *     (allgemeine, unverbindliche Anfrage)
@@ -501,7 +501,11 @@ function StudioCheckCTA() {
     <section id="studio-check" className="py-12 md:py-16 scroll-mt-28">
       <div className="max-w-2xl mx-auto px-6 text-center">
         <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-4">Studio-Check</div>
-        <h2 className="reveal font-serif text-2xl md:text-3xl text-ink leading-tight">Du siehst dein Studio jeden Tag. Wie sehen es neue Kundinnen online?</h2>
+        <h2 className="reveal font-serif text-2xl md:text-3xl text-ink leading-tight">
+          Du siehst dein Studio jeden Tag.
+          <br />
+          Wie sehen es neue Kundinnen online?
+        </h2>
         <p className="reveal reveal-delay mt-4 text-muted-foreground leading-relaxed">Mit dem kostenlosen Studio-Check schätzt du deinen bestehenden Online-Auftritt selbst ein und erkennst, wo du genauer hinschauen solltest.</p>
         <Link
           href="/studio-check"
@@ -563,9 +567,9 @@ export default function Home() {
       <MeineArbeitLink />
       <Testimonials />
       <Warum />
+      <StudioCheckCTA />
       <Leistungsuebersicht />
       <Ablauf />
-      <StudioCheckCTA />
       <FAQ />
       <KontaktVisual />
       <ContactForm
