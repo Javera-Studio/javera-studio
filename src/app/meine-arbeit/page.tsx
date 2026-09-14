@@ -4,11 +4,12 @@ import { Navbar } from "@/components/Navbar";
 import { ScrollRevealInit } from "@/components/ScrollRevealInit";
 import { SiteFooter } from "@/components/SiteFooter";
 import { FaceAndMoreSocial } from "@/components/portfolio/face-and-more-social";
+import { AnitaBrowsAndLashes } from "@/components/portfolio/anita-brows-lashes";
 import { DemoProjects, FeaturedBranding } from "@/components/home/demo-showcase";
 
 export const metadata: Metadata = {
   title: "Meine Arbeit – Portfolio & Designkonzepte für Beauty Studios | JAVERA Studio",
-  description: "Website-Projekte, Demo-Websites und visuelle Markenkonzepte für Beauty Studios: Face and More, Website-Demos für unterschiedliche Branchen und das Luxe-Nails-Branding-Showcase.",
+  description: "Website-Projekte, Demo-Websites und visuelle Markenkonzepte für Beauty Studios: Anita Brows & Lashes, Face and More, Website-Demos für unterschiedliche Branchen und das Luxe-Nails-Branding-Showcase.",
   alternates: { canonical: "https://www.javera-studio.at/meine-arbeit" },
   openGraph: {
     title: "Meine Arbeit – Portfolio & Designkonzepte für Beauty Studios | JAVERA Studio",
@@ -82,7 +83,7 @@ export default function MeineArbeitPage() {
             Designarbeiten – entwickelt für unterschiedliche Branchen, Positionierungen und Markenwelten.
           </p>
           <p className="mt-4 text-sm text-muted-foreground leading-relaxed max-w-xl mx-auto">
-            Die drei echten Website-Projekte findest du auf der{" "}
+            Hier findest du ausgewählte Kundenprojekte, Website-Relaunches und Designkonzepte – von kompakten One-Pagern bis zu umfangreicheren Online-Auftritten. Weitere Kundenprojekte siehst du auch auf der{" "}
             <Link href="/#kundenprojekte" className="text-ink underline underline-offset-4 hover:text-mauve transition-colors">
               Startseite
             </Link>.
@@ -90,6 +91,7 @@ export default function MeineArbeitPage() {
         </div>
       </section>
 
+      <AnitaBrowsAndLashes />
       <FaceAndMoreSocial />
       <DemoProjects />
       <FeaturedBranding />

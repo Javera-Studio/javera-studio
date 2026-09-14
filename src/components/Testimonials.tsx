@@ -1,10 +1,22 @@
 /**
- * Zeigt alle drei Kundenbewertungen vollständig und unverändert an (kein Carousel mehr).
+ * Zeigt alle Kundenbewertungen vollständig und unverändert an (kein Carousel mehr).
  * Zentrale Datenquelle für die Original-Wortlaute – Name, Zuordnung, Sternebewertung und
  * Zitat dürfen hier nur exakt aus der echten Google-Bewertung übernommen werden, nicht
- * gekürzt oder umformuliert.
+ * gekürzt oder umformuliert. Absätze/Zeilenumbrüche im Zitat (z. B. Anita) werden per
+ * `\n\n` abgebildet und durch `whitespace-pre-line` auf dem Blockquote sichtbar dargestellt.
+ *
+ * `testimonials` und `TestimonialCard` sind exportiert, damit eine einzelne Bewertung
+ * (z. B. Anita auf /meine-arbeit) an anderer Stelle exakt im selben visuellen/technischen
+ * Muster wiederverwendet werden kann, statt den Text ein zweites Mal zu duplizieren.
  */
-const testimonials = [
+export type Testimonial = {
+  quote: string;
+  name: string;
+  studio: string;
+  initial: string;
+};
+
+export const testimonials: Testimonial[] = [
   {
     quote: "Wenn ich Sterne vergeben könnte, dann 10 von 5. Jagoda hat mich angeschrieben wegen meiner Homepage. Sie hat der Himmel geschickt! Ich war schon lange unglücklich mit meiner alten und hatte keine Zeit und Kontakte für eine neue Homepage. Jagoda hat meine Vorstellungen so was von übertroffen, alles top! Du hast mich und mein Studio so schnell, ästhetisch, authentisch und professionell umgesetzt, mir fehlen noch immer die Worte und ich hab Gänsehaut, wenn ich auf faceandmore klicke! Ich kann Javera nur wärmstens weiterempfehlen.",
     name: "Michaela Kornherr",
@@ -23,13 +35,37 @@ const testimonials = [
     studio: "divinenails.at",
     initial: "D",
   },
+  {
+    quote: "Ich möchte mich ganz herzlich für die tolle Zusammenarbeit und meine wunderschöne neue Webseite bedanken!\n\nDie Umsetzung ist genauso geworden, wie ich es mir gewünscht habe – modern, stilvoll und einfach wunderschön. ✨\n\nDie Zusammenarbeit war von Anfang an unkompliziert, freundlich und professionell. Ich bin wirklich sehr zufrieden mit dem Ergebnis und kann die Arbeit von Jagoda absolut weiterempfehlen!\n\nVielen lieben Dank für deine tolle Arbeit!",
+    name: "Anita Lakatos",
+    studio: "anitabrowsandlashes.at",
+    initial: "A",
+  },
 ];
 
-function StarIcon() {
+export function StarIcon() {
   return (
     <svg viewBox="0 0 20 20" fill="currentColor" className="w-5 h-5 text-yellow-400" aria-hidden>
       <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
     </svg>
+  );
+}
+
+export function TestimonialCard({ testimonial, className = "" }: { testimonial: Testimonial; className?: string }) {
+  const t = testimonial;
+  return (
+    <div className={`rounded-3xl bg-background border border-border/60 p-8 md:p-12 shadow-sm ${className}`}>
+      <div className="flex items-center gap-1 mb-1">{[0, 1, 2, 3, 4].map((s) => <StarIcon key={s} />)}</div>
+      <p className="text-xs text-muted-foreground mb-6">5 von 5 Sternen · Google Bewertung</p>
+      <blockquote className="font-serif text-xl md:text-2xl text-ink leading-relaxed whitespace-pre-line">„{t.quote}“</blockquote>
+      <div className="mt-8 flex items-center gap-3">
+        <div className="w-10 h-10 rounded-full bg-peach-soft flex items-center justify-center text-ink font-serif text-base flex-shrink-0">{t.initial}</div>
+        <div>
+          <p className="font-medium text-ink text-sm">{t.name}</p>
+          <p className="text-xs text-muted-foreground">{t.studio}</p>
+        </div>
+      </div>
+    </div>
   );
 }
 
@@ -43,18 +79,7 @@ export function Testimonials() {
         </div>
         <div className="max-w-3xl mx-auto space-y-6 md:space-y-8">
           {testimonials.map((t, i) => (
-            <div key={t.name} className={`reveal reveal-stagger-${i + 1} rounded-3xl bg-background border border-border/60 p-8 md:p-12 shadow-sm`}>
-              <div className="flex items-center gap-1 mb-1">{[0, 1, 2, 3, 4].map((s) => <StarIcon key={s} />)}</div>
-              <p className="text-xs text-muted-foreground mb-6">5 von 5 Sternen · Google Bewertung</p>
-              <blockquote className="font-serif text-xl md:text-2xl text-ink leading-relaxed">„{t.quote}“</blockquote>
-              <div className="mt-8 flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-peach-soft flex items-center justify-center text-ink font-serif text-base flex-shrink-0">{t.initial}</div>
-                <div>
-                  <p className="font-medium text-ink text-sm">{t.name}</p>
-                  <p className="text-xs text-muted-foreground">{t.studio}</p>
-                </div>
-              </div>
-            </div>
+            <TestimonialCard key={t.name} testimonial={t} className={`reveal reveal-stagger-${i + 1}`} />
           ))}
         </div>
       </div>

@@ -12,6 +12,7 @@ import Image from "next/image";
  *   - „Keine Zeit, keine Technik – kein Problem" -> {@link Zweifel}
  *   - „Mehr als nur Webseiten" (Branding) -> siehe `FeaturedBranding` in `home/demo-showcase.tsx`
  *   - Vertrauens-/Vorteils-Kacheln -> {@link FeatureBadges}
+ *   - Ausführlicher Divine-Beauty-&-Nails-Kalender-Block -> {@link DivineKalenderStory}
  *
  * Aktuell werden diese Komponenten nirgends gerendert. Vor einer Wiederverwendung
  * sollten die Texte zusammengeführt und entdoppelt werden.
@@ -45,6 +46,39 @@ export const warumBenefitsLegacy = [
   "Bei Google gefunden werden — Viele Kundinnen suchen aktiv nach Beauty-Studios in ihrer Nähe. Eine suchmaschinenoptimierte Website erhöht deine Sichtbarkeit und sorgt für mehr Anfragen.",
   "Ein einheitlicher Markenauftritt — Website, visueller Markenauftritt, Social Media und Print arbeiten zusammen und sorgen für einen professionellen, wiedererkennbaren Auftritt.",
 ];
+
+/**
+ * Ausführlicher "Wie alles begann"-Block zum Divine-Beauty-&-Nails-Projekt (digitales
+ * Kalendersystem für das Team), ursprünglich Teil der langen Full-Width-Projektsektion auf
+ * der Startseite. Im Zuge der Kundenprojekte-Verdichtung (kompaktes, einheitliches
+ * Karten-Grid statt ausführlicher Case-Study-Texte) hierher ausgelagert – Inhalt und Bilder
+ * unverändert, als Vorlage für eine spätere ausführlichere Darstellung (z. B. auf
+ * /meine-arbeit) erhalten.
+ */
+export function DivineKalenderStory() {
+  return (
+    <div className="reveal rounded-3xl bg-background border border-border/60 p-8 md:p-12 shadow-sm">
+      <div className="grid md:grid-cols-[3fr_2fr] gap-8 md:gap-14 items-start">
+        <div className="grid grid-cols-2 gap-4">
+          <div className="rounded-2xl overflow-hidden shadow-lg border border-white/60">
+            <Image src="/kalender-feedback.jpg" alt="Feedback zur Kalender-Lösung" loading="lazy" width={600} height={800} className="w-full" />
+          </div>
+          <div>
+            <div className="rounded-2xl overflow-hidden shadow-lg border border-border/40 bg-background">
+              <Image src="/kalender-anleitung.png" alt="Individuelle Team-Anleitung" loading="lazy" width={600} height={800} className="w-full" />
+            </div>
+            <p className="mt-2 text-center text-[11px] uppercase tracking-[0.2em] text-muted-foreground">Team-Anleitung</p>
+          </div>
+        </div>
+        <div className="flex flex-col justify-center">
+          <p className="text-[11px] uppercase tracking-[0.2em] text-muted-foreground mb-4">Wie alles begann</p>
+          <h3 className="font-serif text-2xl md:text-3xl text-ink leading-tight">Manchmal beginnt eine gute Zusammenarbeit mit einer kleinen, praktischen Lösung.</h3>
+          <p className="mt-5 text-muted-foreground leading-relaxed">Für das Team von Divine Beauty &amp; Nails entstand zuerst ein einfaches Kalendersystem mit gemeinsamer Terminübersicht, Farben pro Mitarbeiterin und einer individuellen Anleitung, damit das Team sofort selbstständig arbeiten konnte.</p>
+        </div>
+      </div>
+    </div>
+  );
+}
 
 /**
  * Ursprünglicher "Was du bei mir bekommst"-Bereich mit Trennung kostenlos/kostenpflichtig,
