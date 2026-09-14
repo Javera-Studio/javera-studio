@@ -9,7 +9,9 @@ import { ScrollRevealInit } from "@/components/ScrollRevealInit";
 import { FaqHashOpen } from "@/components/FaqHashOpen";
 import { SiteFooter } from "@/components/SiteFooter";
 import { AiLabel } from "@/components/AiLabel";
+import { QuoteSection } from "@/components/QuoteSection";
 import { pricing, formatEuro } from "@/lib/data/pricing";
+import { brandQuotes } from "@/lib/brand-quotes";
 
 export const metadata: Metadata = {
   title: "Javera Studio — Webdesign · Grafik · Branding für Beauty Studios Wien",
@@ -33,24 +35,28 @@ export const metadata: Metadata = {
  *  1. Hero
  *  2. Vertrauensleiste (TrustBar)
  *  3. Über mich (kompakt)
- *  4. Echte Kundenprojekte als kompaktes, einheitliches Grid (<Kundenprojekte>) – Mockup,
+ *  4. Markenmotiv „Fenster & Spiegel" (<BrandManifesto>) – kompakter, ruhiger Übergang mit
+ *     Spiegelbild und Schreibschrift-Slogan, siehe CLAUDE.md „Marken-Wiedererkennung"
+ *  5. Echte Kundenprojekte als kompaktes, einheitliches Grid (<Kundenprojekte>) – Mockup,
  *     Name, Branche/Ort, ein Satz Beschreibung, wenige Tags, ein Design-/Mehrwertsatz,
  *     Link zur Live-Website. Aktuell: Face and More, Paula Venc, Divine Beauty & Nails,
  *     Anita Brows & Lashes. Keine der drei Kundenprojekte wird mehr optisch als
  *     "Hauptprojekt" hervorgehoben – bewusst einheitliche Darstellung, gut erweiterbar.
- *  5. Button „Mehr über meine Arbeit erfahren" -> /meine-arbeit (vor den Bewertungen)
- *  6. Alle Kundenbewertungen vollständig (<Testimonials>)
- *  7. Kompakter Problem-/Nutzenabschnitt (<Warum>) – ersetzt den bisherigen ausführlichen
+ *  6. Button „Mehr über meine Arbeit erfahren" -> /meine-arbeit (vor den Bewertungen)
+ *  7. Alle Kundenbewertungen vollständig (<Testimonials>)
+ *  8. Kompakter Problem-/Nutzenabschnitt (<Warum>) – ersetzt den bisherigen ausführlichen
  *     „Warum eine Website"-Block mit den fünf Standardargumenten
- *  8. Studio-Check (direkt nach „Der erste Eindruck entsteht online" aus <Warum>)
- *  9. Kompakte Leistungsübersicht (<Leistungsuebersicht>) – Website als Hauptleistung,
+ *  9. Studio-Check (direkt nach „Der erste Eindruck entsteht online" aus <Warum>)
+ * 10. Kompakte Leistungsübersicht (<Leistungsuebersicht>) – Website als Hauptleistung,
  *     digitale Präsenz & Printdesign als Ergänzungen, keine kostenlos/kostenpflichtig-
  *     Trennung mehr (Positionierung: Webdesign · digitale Präsenz · Printdesign)
- * 10. Ablauf der Zusammenarbeit
- * 11. FAQ
- * 12. Kontaktbereich: Bild + dezenter Vorschau-Link (<KontaktVisual>) + Kontaktformular
+ * 11. Ablauf der Zusammenarbeit
+ * 12. FAQ
+ * 13. Markenzitat „Vertrauen beginnt lange vor dem ersten Termin." (<QuoteSection>,
+ *     brandQuotes.vertrauenVorTermin) – ruhiger Übergang unmittelbar vor dem Kontaktbereich
+ * 14. Kontaktbereich: Bild + dezenter Vorschau-Link (<KontaktVisual>) + Kontaktformular
  *     (allgemeine, unverbindliche Anfrage)
- * 13. Footer
+ * 15. Footer
  *
  * Der bisherige Social-Media-Bereich von Face and More (Instagram-Mockups, Highlight-Cover
  * etc.) liegt vollständig auf `/meine-arbeit#face-and-more`
@@ -58,11 +64,13 @@ export const metadata: Metadata = {
  * der Kundenprojekte-Verdichtung nicht mehr separat verlinkt.
  *
  * Geparkte, nicht mehr eingebundene Abschnitte/Texte liegen in
- * `src/components/home/parked-sections.tsx` (BrandManifesto, FeatureBadges, WarumJavera,
- * Zweifel, warumBenefitsLegacy, divineKalenderStory). Sie sind bewusst erhalten und dienen
- * als Archiv bzw. Vorlage für eine spätere Text-Konsolidierung von „Warum Javera Studio" /
+ * `src/components/home/parked-sections.tsx` (FeatureBadges, WarumJavera, Zweifel,
+ * warumBenefitsLegacy, DivineKalenderStory). Sie sind bewusst erhalten und dienen als
+ * Archiv bzw. Vorlage für eine spätere Text-Konsolidierung von „Warum Javera Studio" /
  * „Keine Zeit, keine Technik" / „kostenlose vs. kostenpflichtige Leistungen" /
  * „Mehr als nur Webseiten" – sie werden nicht erneut auf der Startseite eingebunden.
+ * `BrandManifesto` wurde am 2026-09-14 aus diesem Archiv reaktiviert und lebt seither
+ * wieder direkt hier in `page.tsx` (Punkt 4).
  */
 
 const steps = [
@@ -158,6 +166,29 @@ function About() {
             </p>
           </div>
         </div>
+      </div>
+    </section>
+  );
+}
+
+/**
+ * Wiedererkennbares Markenmotiv „Fenster & Spiegel": kleines Spiegelbild mit dezentem
+ * Lichtreflex (siehe .mirror-frame in globals.css für den einmaligen Reveal-Sweep und den
+ * Hover-Sweep) und der ursprünglichen Schreibschrift-Zeile. Bewusst ohne Erklärtext, Button
+ * oder Kasten – rein als ruhiger, kompakter Übergang zwischen Über-mich und Kundenprojekten.
+ * Siehe CLAUDE.md, Abschnitt „Marken-Wiedererkennung" – dieser Slogan und das Spiegelmotiv
+ * dürfen bei künftigen Textkürzungen nicht ohne ausdrücklichen Auftrag entfernt werden.
+ */
+function BrandManifesto() {
+  return (
+    <section aria-label="Markenphilosophie" className="py-14 md:py-20 bg-background">
+      <div className="reveal max-w-3xl mx-auto px-6 text-center">
+        <div className="mirror-frame relative w-[134px] h-[134px] md:w-[173px] md:h-[173px] mx-auto mb-10 rounded-2xl overflow-hidden shadow-sm">
+          <Image src="/spiegel.png" alt="" fill sizes="173px" className="object-cover" aria-hidden />
+        </div>
+        <p className="font-script text-mauve-dark text-3xl md:text-4xl">
+          Deine Website ist das Fenster zu deinem Studio und der Spiegel deiner Qualität.
+        </p>
       </div>
     </section>
   );
@@ -563,6 +594,7 @@ export default function Home() {
       <Hero />
       <TrustBar />
       <About />
+      <BrandManifesto />
       <Kundenprojekte />
       <MeineArbeitLink />
       <Testimonials />
@@ -571,6 +603,7 @@ export default function Home() {
       <Leistungsuebersicht />
       <Ablauf />
       <FAQ />
+      <QuoteSection quote={brandQuotes.vertrauenVorTermin} />
       <KontaktVisual />
       <ContactForm
         title="Was möchtest du an deinem Online-Auftritt verändern?"

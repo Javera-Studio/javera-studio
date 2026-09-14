@@ -16,6 +16,11 @@ import Image from "next/image";
  *
  * Aktuell werden diese Komponenten nirgends gerendert. Vor einer Wiederverwendung
  * sollten die Texte zusammengeführt und entdoppelt werden.
+ *
+ * `BrandManifesto` (Markenmotiv „Fenster & Spiegel") stand früher hier, wurde am
+ * 2026-09-14 wieder auf der Startseite eingebunden und lebt seither wieder direkt in
+ * `src/app/page.tsx` (siehe dortige Struktur-Doku). Siehe auch CLAUDE.md, Abschnitt
+ * „Marken-Wiedererkennung".
  */
 
 /**
@@ -89,21 +94,6 @@ export function DivineKalenderStory() {
  */
 export const angebotKostenlosLegacy = ["Erstgespräch & Kennenlernen", "Projektbesprechung & erste Ideen", "Erste Design-/Demo-Vorschau", "Individuelle Konzeptideen für deinen Online-Auftritt", "Beratung zu Aufbau, Buchungssystem & Struktur"];
 export const angebotKostenpflichtigLegacy = ["Online-Präsenz Analyse & Optimierungsplan", "Individuelle Website-Erstellung", "Visueller Markenauftritt (Farben, Typografie, Bildsprache)", "Flyer, Visitenkarten & Print-Design (druckfertig)", "Social Media Design (Posts, Stories, Cover Sets)", "Mobile Optimierung & SEO-Grundoptimierung", "Domain & Hosting Einrichtung", "Buchungs-/Kalenderlösungen", "Zusätzliche Unterseiten oder Erweiterungen", "Änderungen, Pflege & laufende Betreuung der Inhalte"];
-
-export function BrandManifesto() {
-  return (
-    <section aria-label="Markenphilosophie" className="py-14 md:py-20 bg-background">
-      <div className="reveal max-w-3xl mx-auto px-6 text-center">
-        <div className="mirror-frame relative w-[134px] h-[134px] md:w-[173px] md:h-[173px] mx-auto mb-10 rounded-2xl overflow-hidden shadow-sm">
-          <Image src="/spiegel.png" alt="" fill sizes="173px" className="object-cover" aria-hidden />
-        </div>
-        <p className="font-script text-mauve-dark text-3xl md:text-4xl">
-          Deine Website ist das Fenster zu deinem Studio und der Spiegel deiner Qualität.
-        </p>
-      </div>
-    </section>
-  );
-}
 
 const featureBadges = [
   { title: "48h Vorschau", desc: "Kostenlose und unverbindliche Webseiten-Vorschau." },

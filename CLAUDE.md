@@ -174,6 +174,18 @@ Verbindlich für die gesamte Website (alle Seiten und gemeinsam genutzten Kompon
 
 ---
 
+# Marken-Wiedererkennung
+
+Das Spiegelmotiv und die folgenden zwei Markensätze gehören zur visuellen/inhaltlichen Wiedererkennung von JAVERA Studio und dürfen bei künftigen Textkürzungen, Struktur-Überarbeitungen oder Kompaktierungen **nicht ohne ausdrücklichen Auftrag entfernt** werden (nur verschieben/parken ist erlaubt, siehe „Nie löschen, immer parken"-Konvention):
+
+- **Spiegelmotiv**: `public/spiegel.png` (rundbogiger Wandspiegel mit warmem Lichtschein) zusammen mit der `.mirror-frame`-Klasse in `globals.css` (einmaliger Reveal-Lichtreflex-Sweep + Hover-Sweep, respektiert `prefers-reduced-motion`). Aktuell eingesetzt in `BrandManifesto` auf der Startseite (`src/app/page.tsx`, nach „Über mich", vor den Kundenprojekten) und in der Markenphilosophie-Section auf `/leistungen`.
+- **Slogan „Fenster & Spiegel"**: „Deine Website ist das Fenster zu deinem Studio und der Spiegel deiner Qualität." (Startseite, `BrandManifesto`) bzw. die Leistungen-Variante „Deine Website ist das Fenster zu deinem Studio. Hier findest du alles, was sie braucht, um deine Qualität widerzuspiegeln." (`/leistungen`).
+- **Slogan „Vertrauen beginnt lange vor dem ersten Termin."**: `brandQuotes.vertrauenVorTermin` in `src/lib/brand-quotes.ts`, dargestellt über `<QuoteSection>`. Aktuell auf der Startseite unmittelbar vor dem Kontaktbereich eingesetzt.
+
+Beide Slogans werden bewusst in der Schreibschrift (`.font-script`, Great Vibes) dargestellt – das ist hier keine Ausnahme von den Typografie-Standards oben, sondern die vorgesehene Rolle „bewusst gestalteter Zitat-/Slogan-Block" (siehe Font-Rollen).
+
+---
+
 # AEO (Answer Engine Optimization) Standards für JAVERA Next.js Projekte
 
 Canonical/Single Source of Truth: [Javera-Studio/javera-dev-standards](https://github.com/Javera-Studio/javera-dev-standards) (AEO-STANDARDS.md). Diese Kopie hier ist die für dieses Repo verbindliche, git-getrackte Fassung — bei Änderungen am Standard beide Stellen synchron halten.
