@@ -13,10 +13,12 @@ function getResendClient() {
 
 /**
  * Erlaubte Werte für den internen "Grund der Anfrage"-Hinweis (ContactForm-Prop
- * `inquirySource`). Serverseitig auf genau diese zwei Varianten begrenzt, damit über das
+ * `inquirySource`). Serverseitig auf genau diese Varianten begrenzt, damit über das
  * versteckte Formularfeld kein beliebiger Text in die E-Mail eingeschleust werden kann.
+ * "Praxen-Anfrage" kommt von der Praxen-Landingpage (/praxen) und hilft, diese Anfragen auf
+ * Anhieb von den Beauty-Anfragen zu unterscheiden.
  */
-const ALLOWED_INQUIRY_SOURCES = ["Allgemeine Kontaktaufnahme", "Kostenlose Webseiten-Vorschau"] as const;
+const ALLOWED_INQUIRY_SOURCES = ["Allgemeine Kontaktaufnahme", "Kostenlose Webseiten-Vorschau", "Praxen-Anfrage"] as const;
 type InquirySource = (typeof ALLOWED_INQUIRY_SOURCES)[number];
 
 function resolveInquirySource(value: unknown): InquirySource {

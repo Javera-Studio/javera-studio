@@ -24,7 +24,7 @@ type ContactFormProps = {
    * wird aber mitgeschickt und steht in der eingehenden E-Mail über den Formulardaten.
    * Serverseitig in der API-Route auf feste Werte begrenzt.
    */
-  inquirySource?: "Allgemeine Kontaktaufnahme" | "Kostenlose Webseiten-Vorschau";
+  inquirySource?: "Allgemeine Kontaktaufnahme" | "Kostenlose Webseiten-Vorschau" | "Praxen-Anfrage";
   /** Beschriftung des Absende-Buttons. Standard: "Nachricht senden". */
   submitLabel?: string;
 };
